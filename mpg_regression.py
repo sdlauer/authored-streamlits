@@ -14,30 +14,30 @@ corr_coef = st.checkbox("Correlation coefficient")
 input = st.selectbox(
     "Input feature",
     [
-        'mpg',
-        'cylinders',
-        'displacement',
-        'horsepower',
-        'weight',
-        'acceleration',
-        'model_year',
-        'origin',
-        'name'
+        "mpg",
+        "cylinders",
+        "displacement",
+        "horsepower",
+        "weight",
+        "acceleration",
+        "model_year",
+        "origin",
+        "name"
     ]
 )
 
 output = st.selectbox(
     "Output feature",
     [
-        'mpg',
-        'cylinders',
-        'displacement',
-        'horsepower',
-        'weight',
-        'acceleration',
-        'model_year',
-        'origin',
-        'name'
+        "mpg",
+        "cylinders",
+        "displacement",
+        "horsepower",
+        "weight",
+        "acceleration",
+        "model_year",
+        "origin",
+        "name"
     ]
 )
 
