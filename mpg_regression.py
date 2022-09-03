@@ -48,7 +48,7 @@ reg_eq = st.checkbox("Regression equation")
 corr_coef = st.checkbox("Correlation coefficient")
 
 fig, ax = plt.subplots()
-ax = sns.regplot(x=input_feat, y=output_feat,
+ax = sns.regplot(x=input_feat, y=output_feat, hue=group,
     data=mpg, fit_reg=reg_line, ci=None, line_kws={"color": "grey"})
 
 st.pyplot(fig)
