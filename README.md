@@ -4,7 +4,7 @@
 
 <p><a href="https://cjschan-streamlit-tips-plots-9dqxk2.streamlitapp.com/">Open in streamlit</a></p>
 
-<p>pip install -r requirements.txt
+<p>pip install -r requirements.txt<br/>
 streamlit run tips_plots.py
 </p>
 
