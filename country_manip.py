@@ -10,8 +10,6 @@ name = st.checkbox("Name")
 continent = st.checkbox("Continent")
 population = st.checkbox("Population")
 
-st.dataframe(country)
-
 list = []
 if code: list.append("Code")
 if name: list.append("Name")
