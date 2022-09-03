@@ -54,6 +54,5 @@ if group==None:
     ax = sns.regplot(x=input_feat, y=output_feat,
         data=mpg, fit_reg=reg_line, ci=None, line_kws={"color": "grey"})
 elif group!=None:
-    ax = sns.lmplot(x=input_feat, y=output_feat, hue=group,
-        data=mpg)
+    sns.lmplot(x='horsepower', y='mpg', hue='cylinders', data=mpg)
 st.pyplot(fig)
