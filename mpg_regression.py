@@ -13,6 +13,7 @@ input_feat = st.selectbox(
     "Input feature",
     [
         "mpg",
+        "horsepower",
         "displacement",
         "weight",
         "acceleration",
@@ -23,6 +24,7 @@ output_feat = st.selectbox(
     "Output feature",
     [
         "mpg",
+        "horsepower",
         "displacement",
         "weight",
         "acceleration",
