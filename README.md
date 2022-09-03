@@ -10,7 +10,7 @@
 streamlit run tips_plots.py
 </p>
 
-<h2>Visualizing the mpg dataset</h2>
+<h2>Regression using the mpg dataset</h2>
 
 <p><a href="https://cjschan-streamlit-mpg-regress-ny130h.streamlitapp.com">Open in streamlit</a></p>
 
