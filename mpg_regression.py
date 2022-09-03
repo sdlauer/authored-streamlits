@@ -63,10 +63,9 @@ def show_corr(data):
     corr_coef = round(corr_coef[0,1],3)
     plt.text(110,2,"r = " + str(corr_coef))
 
-# if line: add_reg(mpg[input_feat],mpg[output_feat])
-# if resid: add_resid(mpg[input_feat],mpg[output_feat])
-# if equation: show_eq(mpg[input_feat],mpg[output_feat])
-# if corr: show_corr(mpg[input_feat],mpg[output_feat])
+if reg_line: add_reg(mpg[input_feat],mpg[output_feat])
+if reg_eq: show_eq(mpg[input_feat],mpg[output_feat])
+if corr_coef: show_corr(mpg[input_feat],mpg[output_feat])
 
 fig = plt.figure()
 sns.scatterplot(x=input_feat, y=output_feat, data=mpg)
