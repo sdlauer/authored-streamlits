@@ -66,9 +66,9 @@ def show_corr(data):
 fig, ax = plt.subplots()
 ax = sns.regplot(x=input_feat, y=output_feat,
     data=mpg, fit_reg=reg_line, ci=None, line_kws={"color": "grey"})
-
-
-# if reg_eq: show_eq(mpg[input_feat],mpg[output_feat])
-# if corr_coef: show_corr(mpg[input_feat],mpg[output_feat])
+if reg_eq:
+    show_eq([mpg[input_feat],mpg[output_feat]])
+if corr_coef:
+    show_corr([mpg[input_feat],mpg[output_feat]])
 
 st.pyplot(fig)
