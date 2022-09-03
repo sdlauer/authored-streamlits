@@ -39,4 +39,5 @@ if group!=None:
     st.text(country_sub.mean().round(0))
 elif group==None:
     st.dataframe(country_sub)
-    st.subheader("Mean population")
+    st.subheader("Mean population of all countries")
+    st.text(country_sub.mean().round(0))
