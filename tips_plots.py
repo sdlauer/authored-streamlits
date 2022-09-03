@@ -1,15 +1,18 @@
-import streamlit as st
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-
-# tips = px.data.tips()
+# import streamlit as st
+# import pandas as pd
+# import seaborn as sns
+# import numpy as np
+# import matplotlib.pyplot as plt
 #
-# def plots(x, y, hue, plot):
-#     if plot=='Strip plot': px.strip(tips, x=x, y=y)
-#     # if plot=='Box plot': sns.boxplot(x=x, y=y, hue=hue, data=tips)
-#     # if plot=='Swarm plot': sns.swarmplot(x=x, y=y, hue=hue, data=tips)
-#     # if plot=='Violin plot': sns.violinplot(x=x, y=y, hue=hue, data=tips)
+# tips = sns.load_dataset('tips')
+#
+# # def plots(x, y, hue, plot):
+# #     fig = plt.figure(figsize=(12, 6))
+# #     if plot=='Strip plot': sns.stripplot(x=x, y=y, data=tips)
+# #     if plot=='Box plot': sns.boxplot(x=x, y=y, hue=hue, data=tips)
+# #     if plot=='Swarm plot': sns.swarmplot(x=x, y=y, hue=hue, data=tips)
+# #     if plot=='Violin plot': sns.violinplot(x=x, y=y, hue=hue, data=tips)
+# #     st.pyplot(fig)
 #
 # st.title('Visualizing the tips dataset')
 #
@@ -29,13 +32,68 @@ import matplotlib.pyplot as plt
 #      'Select numerical variable',
 #      ('tip','total_bill'))
 #
-# if plots == 'Strip plot': plots(x,y,hue,'Strip plot')
-# # elif plots == 'Box plot': plots(x,y,hue,'Box plot')
-# # elif plots == 'Swarm plot': plots(x,y,hue,'Swarm plot')
-# # else: plots(x,y,hue,'Violin plot')
+# if plots == 'Strip plot': sns.stripplot(x='day', y='tips', data=tips)
 
-arr = np.random.normal(1, 1, size=100)
-fig, ax = plt.subplots()
-ax.hist(arr, bins=20)
+import streamlit as st
+import pandas as pd
+import seaborn as sns
+import numpy as np
+import matplotlib.pyplot as plt
+
+tips = sns.load_dataset('tips')
+
+st.header("Visualizing the tips dataset")
+plot = st.selectbox(
+    "Plot",
+    [
+        "violin plot",
+        "strip plot",
+        "box plot",
+        "swarm plot"
+    ]
+)
+
+categorical = st.selectbox(
+    "Categorical variable",
+    [
+        "day",
+        "time",
+        "sex",
+        "smoker"
+    ]
+)
+
+numeric = st.selectbox(
+    "Numeric variable",
+    [
+        "tip",
+        "total_bill"
+    ]
+)
+
+# group = st.selectbox(
+#     "Grouping",
+#     [
+#         None,
+#         "day",
+#         "time",
+#         "sex",
+#         "smoker"
+#     ]
+# )
+
+fig = plt.figure()
+
+if plot == "violin plot":
+    sns.violinplot(x=categorical, y=numeric, data = tips)
+
+elif plot == "strip plot":
+    sns.stripplot(x=categorical, y=numeric, data = tips)
+
+elif plot == "Box plot":
+    sns.boxplot(x=categorical, y=numeric, data = tips)
+
+else:
+    sns.swarmplot(x=categorical, y=numeric, data = tips)
 
 st.pyplot(fig)
