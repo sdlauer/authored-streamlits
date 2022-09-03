@@ -31,7 +31,7 @@ group = st.selectbox(
     ]
 )
 
-if group != None: 
-    country_sub[country_sub[country_sub["Continent"] == group]]
+if group != None:
+    country_sub = country_sub[country_sub["Continent"] == group]
 
 st.dataframe(country_sub)
