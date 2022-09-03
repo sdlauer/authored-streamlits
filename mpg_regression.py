@@ -63,7 +63,7 @@ def show_corr(data):
     corr_coef = round(corr_coef[0,1],3)
     plt.text(110,2,"r = " + str(corr_coef))
 
-fig, ax = plt.figure()
+fig, ax = plt.subplots()
 ax = sns.regplot(x=input_feat, y=output_feat, data=mpg)
 
 # if reg_line: add_reg(mpg[input_feat],mpg[output_feat])
