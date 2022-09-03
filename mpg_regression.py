@@ -5,7 +5,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 mpg = pd.read_csv("mpg.csv")
-mpg = mpg.astype({"horsepower":"int"})
 
 st.title("Regression using the mpg dataset")
 
