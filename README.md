@@ -8,4 +8,4 @@
 streamlit run tips_plots.py
 </p>
 
-<p>Note: There's currently a bug in python 3.9 that causes some issues with streamlit 1.12, so I used streamlit 1.11.</p>
+<p>Note: There's currently a bug in python 3.9 that causes an issue with streamlit 1.12, so I used streamlit 1.11.</p>
