@@ -5,6 +5,7 @@ country = pd.read_csv("country.csv")
 
 st.title("Manipulating the country dataset")
 
+st.subheader("Display column(s):")
 code = st.checkbox("Code", value=True)
 name = st.checkbox("Name", value=True)
 continent = st.checkbox("Continent", value=True)
@@ -19,7 +20,7 @@ if population: list.append("Population")
 country_sub = country[list]
 
 group = st.selectbox(
-    "Group by continent",
+    "Display by continent",
     [
         None,
         "Asia",
