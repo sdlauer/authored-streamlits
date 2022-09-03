@@ -54,21 +54,25 @@ def show_eq(data):
     m, b = np.polyfit(data[0], data[1], 1)
     m = round(m,3)
     b = round(b,3)
-    plt.text(110,0,"y =" + str(m) + "x + " + str(b))
+    eq = "y =" + str(m) + "x + " + str(b)
+    return eq
 
 # Show correlation coefficient
 def show_corr(data):
     # Note: np.corrcoef gives a correlation matrix
     corr_coef = np.corrcoef(data[0],data[1])
     corr_coef = round(corr_coef[0,1],3)
-    plt.text(110,2,"r = " + str(corr_coef))
+    corr = "r = " + str(corr_coef)
+    return corr
 
 fig, ax = plt.subplots(figsize=(4,2))
 ax = sns.regplot(x=input_feat, y=output_feat,
     data=mpg, fit_reg=reg_line, ci=None, line_kws={"color": "grey"})
-if reg_eq:
-    show_eq([mpg[input_feat],mpg[output_feat]])
-if corr_coef:
-    show_corr([mpg[input_feat],mpg[output_feat]])
+if reg_eq & corr_coeff:
+    ax.set_title(show_eq([mpg[input_feat],mpg[output_feat]]) + ", " + show_corr([mpg[input_feat],mpg[output_feat]]))
+elif corr_coef & corr_coeff==False:
+    ax.set_title(show_eq([mpg[input_feat],mpg[output_feat]]))
+elif corr_coef==False & corr_coeff:
+    ax.set_title(show_corr([mpg[input_feat],mpg[output_feat]]))
 
 st.pyplot(fig)
