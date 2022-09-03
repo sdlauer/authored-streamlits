@@ -64,7 +64,7 @@ def show_corr(data):
     plt.text(110,2,"r = " + str(corr_coef))
 
 fig, ax = plt.subplots()
-ax = sns.regplot(x=input_feat, y=output_feat, data=mpg, fit_reg=reg_line, line_kws={"color": "red"})
+ax = sns.regplot(x=input_feat, y=output_feat, data=mpg, fit_reg=reg_line, line_kws={"color": "black"})
 
 
 # if reg_eq: show_eq(mpg[input_feat],mpg[output_feat])
