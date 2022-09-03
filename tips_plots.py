@@ -49,15 +49,15 @@ group = st.selectbox(
 fig = plt.figure()
 
 if plot == "violin plot":
-    sns.violinplot(x=categorical, y=numeric, data = tips)
+    sns.violinplot(x=categorical, y=numeric, hue=group, data = tips)
 
 elif plot == "strip plot":
-    sns.stripplot(x=categorical, y=numeric, data = tips)
+    sns.stripplot(x=categorical, y=numeric, hue=group, data = tips)
 
 elif plot == "box plot":
-    sns.boxplot(x=categorical, y=numeric, data = tips)
+    sns.boxplot(x=categorical, y=numeric, hue=group, data = tips)
 
 else:
-    sns.swarmplot(x=categorical, y=numeric, data = tips)
+    sns.swarmplot(x=categorical, y=numeric, hue=group, data = tips)
 
 st.pyplot(fig)
