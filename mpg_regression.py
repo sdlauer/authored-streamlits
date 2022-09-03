@@ -91,39 +91,39 @@ import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 
-tips = sns.load_dataset('tips')
+mpg=pd.read_csv("mpg.csv")
 
 st.header("Visualizing the tips dataset")
 
 input_feat = st.selectbox(
     "Input feature",
     [
-        "tip",
-        "total_bill"
+        "mpg",
+        "cylinders",
+        "displacement",
+        "horsepower",
+        "weight",
+        "acceleration",
+        "model_year",
+        "origin",
+        "name"
     ]
 )
 
 output_feat = st.selectbox(
     "Output feature",
     [
-        "tip",
-        "total_bill"
+        "mpg",
+        "cylinders",
+        "displacement",
+        "horsepower",
+        "weight",
+        "acceleration",
+        "model_year",
+        "origin",
+        "name"
     ]
 )
-
-# group = st.selectbox(
-#     "Grouping",
-#     [
-#         None,
-#         "day",
-#         "time",
-#         "sex",
-#         "smoker"
-#     ]
-# )
-
 fig = plt.figure()
-
-sns.scatterplot(x=input_feat, y=output_feat, data=tips)
-
+sns.scatterplot(x=input_feat, y=output_feat, data=mpg)
 st.pyplot(fig)
