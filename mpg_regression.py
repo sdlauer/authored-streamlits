@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 mpg=pd.read_csv("mpg.csv")
 
-st.header("Visualizing the tips dataset")
+st.title("Regression using the mpg dataset")
 
 input_feat = st.selectbox(
     "Input feature",
@@ -29,6 +29,11 @@ output_feat = st.selectbox(
         "acceleration",
     ]
 )
+
+reg_line = st.checkbox("Regression line")
+reg_eq = st.checkbox("Regression equation")
+corr_coef = st.checkbox("Correlation coefficient")
+
 fig = plt.figure()
 sns.scatterplot(x=input_feat, y=output_feat, data=mpg)
 st.pyplot(fig)
