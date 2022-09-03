@@ -58,8 +58,12 @@ ax = sns.regplot(x=input_feat, y=output_feat,
     data=mpg, fit_reg=reg_line, ci=None, line_kws={"color": "grey"})
 
 if reg_eq:
-    st.subheader(show_eq([mpg[input_feat],mpg[output_feat]]))
+    st.subheader("Regression equation")
+    st.text(show_eq([mpg[input_feat],mpg[output_feat]]))
 
 if corr_coef:
-    st.subheader(show_corr([mpg[input_feat],mpg[output_feat]]))
+    st.subheader("Correlation coefficient")
+    st.text(show_corr([mpg[input_feat],mpg[output_feat]]))
+
+st.subheader("Scatter plot")
 st.pyplot(fig)
