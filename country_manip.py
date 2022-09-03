@@ -42,3 +42,5 @@ if continent:
         st.dataframe(country_sub)
         st.subheader("Mean population of all countries")
         st.text(country_sub.mean().round(0))
+else:
+    st.dataframe(country_sub)
