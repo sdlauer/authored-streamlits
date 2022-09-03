@@ -18,7 +18,7 @@ streamlit run tips_plots.py
 streamlit run mpg_regress.py
 </p>
 
-<h2>Manipulating the country dataset (in progress)</h2>
+<h2>Manipulating the country dataset</h2>
 
 <p><a href="https://cjschan-streamlit-country-manip-ejxizx.streamlitapp.com/">Open in streamlit</a></p>
 
