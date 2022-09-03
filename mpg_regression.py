@@ -3,6 +3,8 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
+st.title("Regression using the mpg dataset")
+
 mpg = pd.read_csv("mpg.csv")
 
 reg_line = st.checkbox("Regression line")
@@ -40,5 +42,5 @@ output = st.selectbox(
 )
 
 fig = plt.figure()
-sns.scatterplot(x=input, y=output, data=mpg)
+sns.violinplot(x=input, y=output, data=mpg)
 st.pyplot(fig)
