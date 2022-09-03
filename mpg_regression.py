@@ -37,6 +37,7 @@ output_feat = st.selectbox(
 group = st.selectbox(
     "Grouping",
     [
+        None,
         "cylinders",
         "model_year",
         "origin"
@@ -48,7 +49,11 @@ reg_eq = st.checkbox("Regression equation")
 corr_coef = st.checkbox("Correlation coefficient")
 
 fig, ax = plt.subplots()
-ax = sns.regplot(x=input_feat, y=output_feat, hue=group,
-    data=mpg, fit_reg=reg_line, ci=None, line_kws={"color": "grey"})
 
+if group==None:
+    ax = sns.regplot(x=input_feat, y=output_feat,
+        data=mpg, fit_reg=reg_line, ci=None, line_kws={"color": "grey"})
+else:
+    ax = sns.lmplot(x=input_feat, y=output_feat, hue=group,
+        data=mpg, fit_reg=reg_line, ci=None, line_kws={"color": "grey"})
 st.pyplot(fig)
