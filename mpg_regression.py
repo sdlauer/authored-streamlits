@@ -34,6 +34,15 @@ output_feat = st.selectbox(
     ]
 )
 
+group = st.selectbox(
+    "Grouping",
+    [
+        "cylinders",
+        "model_year",
+        "origin"
+    ]
+)
+
 reg_line = st.checkbox("Regression line")
 reg_eq = st.checkbox("Regression equation")
 corr_coef = st.checkbox("Correlation coefficient")
