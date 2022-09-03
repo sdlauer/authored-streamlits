@@ -18,4 +18,12 @@ streamlit run tips_plots.py
 streamlit run mpg_regress.py
 </p>
 
+<h2>Manipulating the country dataset (in progress)</h2>
+
+<p><a href="https://cjschan-streamlit-country-manip-ejxizx.streamlitapp.com/">Open in streamlit</a></p>
+
+<p>pip install -r requirements.txt<br/>
+streamlit run country_manip.py
+</p>
+
 <p>Note: A bug in python 3.9 causes an issue with streamlit 1.12, so the code uses streamlit 1.11.</p>
