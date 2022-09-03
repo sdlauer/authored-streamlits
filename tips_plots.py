@@ -30,7 +30,7 @@ y = st.selectbox(
      'Select numerical variable',
      ('tip','total_bill'))
 
-if plots = 'Violin plot': plots(x,y,hue,'Strip plot')
-elif plots = 'Box plot': plots(x,y,hue,'Box plot')
-elif plots = 'Swarm plot': plots(x,y,hue,'Swarm plot')
+if plots == 'Violin plot': plots(x,y,hue,'Strip plot')
+elif plots == 'Box plot': plots(x,y,hue,'Box plot')
+elif plots == 'Swarm plot': plots(x,y,hue,'Swarm plot')
 else: plots(x,y,hue,'Violin plot')
