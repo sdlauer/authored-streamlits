@@ -49,14 +49,15 @@ def show_corr(data):
     # Note: np.corrcoef gives a correlation matrix
     corr_coef = np.corrcoef(data[0],data[1])
     corr_coef = round(corr_coef[0,1],3)
-    plt.text(110,2,'r = ' + str(corr_coef))
+    corr = 'r = ' + str(corr_coef)
+    return corr
 
 fig, ax = plt.subplots()
 
 ax = sns.regplot(x=input_feat, y=output_feat,
     data=mpg, fit_reg=reg_line, ci=None, line_kws={"color": "grey"})
 
-if reg_eq: 
+if reg_eq:
     st.text(show_eq([mpg[input_feat],mpg[output_feat]]))
 
 if corr_coef:
