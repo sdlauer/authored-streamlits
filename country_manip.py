@@ -5,10 +5,10 @@ country = pd.read_csv("country.csv")
 
 st.title("Manipulating the country dataset")
 
-code = st.checkbox("Code")
-name = st.checkbox("Name")
-continent = st.checkbox("Continent")
-population = st.checkbox("Population")
+code = st.checkbox("Code", value=True)
+name = st.checkbox("Name", value=True))
+continent = st.checkbox("Continent", value=True))
+population = st.checkbox("Population", value=True))
 
 list = []
 if code: list.append("Code")
