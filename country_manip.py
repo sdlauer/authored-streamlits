@@ -35,8 +35,8 @@ group = st.selectbox(
 if group!=None:
     country_sub = country_sub[country_sub["Continent"] == group]
     st.dataframe(country_sub)
+    st.subheader("Mean population in " + group)
+    st.text(country_sub.mean())
 elif group==None:
     st.dataframe(country_sub)
     st.subheader("Mean population")
-st.dataframe(country_sub)
-st.subheader("Mean population")
