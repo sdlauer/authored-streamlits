@@ -50,9 +50,9 @@ corr_coef = st.checkbox("Correlation coefficient")
 
 fig, ax = plt.subplots()
 
-if group==None:
-    ax = sns.regplot(x=input_feat, y=output_feat,
-        data=mpg, fit_reg=reg_line, ci=None, line_kws={"color": "grey"})
-elif group!=None:
-    sns.lmplot(x='horsepower', y='mpg', hue='cylinders', data=mpg)
+# if group==None:
+#     ax = sns.regplot(x=input_feat, y=output_feat,
+#         data=mpg, fit_reg=reg_line, ci=None, line_kws={"color": "grey"})
+# elif group!=None:
+sns.lmplot(x='horsepower', y='mpg', hue='cylinders', data=mpg)
 st.pyplot(fig)
