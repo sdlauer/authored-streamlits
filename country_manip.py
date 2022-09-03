@@ -17,21 +17,22 @@ if continent: list.append("Continent")
 if population: list.append("Population")
 
 country_sub = country[list]
-group = st.selectbox(
-    "Group by continent",
-    [
-        None,
-        "Asia",
-        "Europe",
-        "Africa",
-        "Oceania",
-        "North America",
-        "Antarctica",
-        "South America"
-    ]
-)
+
 
 if group != None and continent:
+    group = st.selectbox(
+        "Group by continent",
+        [
+            None,
+            "Asia",
+            "Europe",
+            "Africa",
+            "Oceania",
+            "North America",
+            "Antarctica",
+            "South America"
+        ]
+    )
     country_sub = country_sub[country_sub["Continent"] == group]
     st.dataframe(country_sub)
 elif group == None:
