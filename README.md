@@ -26,7 +26,7 @@ streamlit run mpg_regress.py
 <p><a href="https://cjschan-streamlit-country-manip-n4l36e.streamlitapp.com">Open in streamlit</a></p>
 
 <p>
-pip install streamlit-aggrid
+pip install streamlit-aggrid<br/>
 pip freeze > requirements.txt<br/>
 pip install -r requirements.txt<br/>
 streamlit run country_manip.py
