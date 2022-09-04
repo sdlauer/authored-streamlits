@@ -59,11 +59,14 @@ with col1:
     corr_coef = st.checkbox("Correlation coefficient")
 
 with col2:
-    
+
     fig, ax = plt.subplots()
 
     ax = sns.regplot(x=input_feat, y=output_feat,
         data=mpg, fit_reg=reg_line, ci=None, line_kws={"color": "grey"})
+
+    st.subheader("Scatter plot")
+    st.pyplot(fig)
 
     if reg_eq:
         st.subheader("Regression equation")
@@ -72,6 +75,3 @@ with col2:
     if corr_coef:
         st.subheader("Correlation coefficient")
         st.text(show_corr([mpg[input_feat],mpg[output_feat]]))
-
-    st.subheader("Scatter plot")
-    st.pyplot(fig)
