@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 tips = sns.load_dataset('tips')
 
-st.header("Visualizing the tips dataset")
+st.title("Visualizing the tips dataset")
 
 col1, col2 = st.columns([1,3])
 
