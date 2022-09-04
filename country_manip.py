@@ -51,7 +51,9 @@ import streamlit as st
 from st_aggrid import AgGrid, GridOptionsBuilder
 from st_aggrid.shared import GridUpdateMode
 
-country = pd.read_csv("country.csv")
+iris = pd.read_csv(
+    "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv"
+)
 
 def aggrid_interactive_table(df: pd.DataFrame):
     """Creates an st-aggrid interactive table based on a dataframe.
@@ -81,9 +83,11 @@ def aggrid_interactive_table(df: pd.DataFrame):
     return selection
 
 
-country = pd.read_csv("country.csv")
+iris = pd.read_csv(
+    "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv"
+)
 
-selection = aggrid_interactive_table(df=country)
+selection = aggrid_interactive_table(df=iris)
 
 if selection:
     st.write("You selected:")
