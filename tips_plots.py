@@ -51,7 +51,7 @@ with col1:
     )
 
 with col2:
-    fig = plt.figure(figsize=(6,3.2))
+    fig = plt.figure(figsize=(8,5))
 
     if plot == "violin plot":
         sns.violinplot(x=categorical, y=numeric, hue=group, data = tips)
