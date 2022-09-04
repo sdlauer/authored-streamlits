@@ -34,7 +34,7 @@ def aggrid_interactive_table(df: pd.DataFrame):
         enable_enterprise_modules=True,
         height=400,
         gridOptions=options.build(),
-        theme="streamlit",
+        theme="alpine",
         update_mode=GridUpdateMode.MODEL_CHANGED,
     )
 
