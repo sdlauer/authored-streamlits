@@ -58,9 +58,9 @@ col_ins = "Click Columns to display specific columns in the country dataset."
 row_ins = "Click Filters to display rows that satisfy specific criteria."
 row_ex1 = "For population, selecting less than and typing 1000000 "
 row_ex2 = "returns rows where the population column is less than 1000000."
-st.text(col_ins)
-st.text(row_ins)
-st.text(row_ex1 + row_ex2)
+st.write(col_ins)
+st.write(row_ins)
+st.write(row_ex1 + row_ex2)
 
 def aggrid_interactive_table(df: pd.DataFrame):
     options = GridOptionsBuilder.from_dataframe(
