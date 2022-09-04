@@ -1,6 +1,6 @@
 # streamlit
 
-<p>This is an implementation of a couple of widgets that I created on Jupyter NB using streamlit.</p>
+<p>This is a few examples of applications I built using streamlit.</p>
 
 <h2>Visualizing the tips dataset</h2>
 
