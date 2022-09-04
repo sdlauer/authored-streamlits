@@ -7,57 +7,62 @@ import matplotlib.pyplot as plt
 tips = sns.load_dataset('tips')
 
 st.header("Visualizing the tips dataset")
-plot = st.selectbox(
-    "Plot",
-    [
-        "violin plot",
-        "strip plot",
-        "box plot",
-        "swarm plot"
-    ]
-)
 
-categorical = st.selectbox(
-    "Categorical variable",
-    [
-        "day",
-        "time",
-        "sex",
-        "smoker"
-    ]
-)
+col1, col2 = st.columns(2)
 
-numeric = st.selectbox(
-    "Numeric variable",
-    [
-        "tip",
-        "total_bill"
-    ]
-)
+with col1:
+    plot = st.selectbox(
+        "Plot",
+        [
+            "violin plot",
+            "strip plot",
+            "box plot",
+            "swarm plot"
+        ]
+    )
 
-group = st.selectbox(
-    "Grouping",
-    [
-        None,
-        "day",
-        "time",
-        "sex",
-        "smoker"
-    ]
-)
+    categorical = st.selectbox(
+        "Categorical variable",
+        [
+            "day",
+            "time",
+            "sex",
+            "smoker"
+        ]
+    )
 
-fig = plt.figure()
+    numeric = st.selectbox(
+        "Numeric variable",
+        [
+            "tip",
+            "total_bill"
+        ]
+    )
 
-if plot == "violin plot":
-    sns.violinplot(x=categorical, y=numeric, hue=group, data = tips)
+    group = st.selectbox(
+        "Grouping",
+        [
+            None,
+            "day",
+            "time",
+            "sex",
+            "smoker"
+        ]
+    )
 
-elif plot == "strip plot":
-    sns.stripplot(x=categorical, y=numeric, hue=group, data = tips)
+with col2:
+    fig = plt.figure()
 
-elif plot == "box plot":
-    sns.boxplot(x=categorical, y=numeric, hue=group, data = tips)
+    if plot == "violin plot":
+        sns.violinplot(x=categorical, y=numeric, hue=group, data = tips)
+        
+    elif plot == "strip plot":
+        sns.stripplot(x=categorical, y=numeric, hue=group, data = tips)
 
-else:
-    sns.swarmplot(x=categorical, y=numeric, hue=group, data = tips)
+    elif plot == "box plot":
+        sns.boxplot(x=categorical, y=numeric, hue=group, data = tips)
 
-st.pyplot(fig)
+    else:
+        sns.swarmplot(x=categorical, y=numeric, hue=group, data = tips)
+
+    st.pyplot(fig)
