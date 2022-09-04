@@ -83,7 +83,7 @@ def aggrid_interactive_table(df: pd.DataFrame):
 
 country = pd.read_csv("country.csv")
 
-selection = aggrid_interactive_table(df=iris)
+selection = aggrid_interactive_table(df=country)
 
 if selection:
     st.write("You selected:")
