@@ -22,7 +22,7 @@ def show_corr(data):
     corr = 'r = ' + str(corr_coef)
     return corr
 
-st.title("Performing regression using the mpg dataset")
+st.title("Linear regression with the cars dataset")
 
 col1, col2 = st.columns([1,3])
 
