@@ -51,11 +51,11 @@ with col1:
     )
 
 with col2:
-    fig = plt.figure()
+    fig = plt.figure(figsize=(6,3.2))
 
     if plot == "violin plot":
         sns.violinplot(x=categorical, y=numeric, hue=group, data = tips)
-        
+
     elif plot == "strip plot":
         sns.stripplot(x=categorical, y=numeric, hue=group, data = tips)
 
