@@ -20,7 +20,7 @@ streamlit run mpg_regress.py
 
 <h2>Manipulating the country dataset</h2>
 
-<p><a href="https://cjschan-streamlit-country-manip-ejxizx.streamlitapp.com/">Open in streamlit</a></p>
+<p><a href="https://cjschan-streamlit-country-manip-n4l36e.streamlitapp.com">Open in streamlit</a></p>
 
 <p>pip install -r requirements.txt<br/>
 streamlit run country_manip.py
