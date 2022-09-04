@@ -79,7 +79,3 @@ country = pd.read_csv(
 )
 
 selection = aggrid_interactive_table(df=country)
-
-if selection:
-    st.write("You selected:")
-    st.json(selection["selected_rows"])
