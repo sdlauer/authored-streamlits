@@ -52,6 +52,10 @@ import streamlit as st
 from st_aggrid import AgGrid, GridOptionsBuilder
 from st_aggrid.shared import GridUpdateMode
 
+st.set_page_config(
+    layout="centered"
+)
+
 st.header("Manipulating the country dataset")
 instructions = "Clicking Filters "
 col_ins = "Click Columns to display specific columns in the country dataset."
