@@ -12,7 +12,7 @@ def show_eq(data):
     m, b = np.polyfit(data[0], data[1], 1)
     m = round(m,3)
     b = round(b,3)
-    eq = 'y =' + str(m) + 'x + ' + str(b)
+    eq = 'y = ' + str(m) + 'x + ' + str(b)
     return eq
 
 def show_corr(data):
