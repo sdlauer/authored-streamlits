@@ -22,7 +22,7 @@ def show_corr(data):
     corr = 'r = ' + str(corr_coef)
     return corr
 
-st.title("Linear regression with the cars dataset")
+st.header("Linear regression with the cars dataset")
 
 col1, col2 = st.columns([1,3])
 
@@ -65,7 +65,7 @@ with col2:
     ax = sns.regplot(x=input_feat, y=output_feat,
         data=mpg, fit_reg=reg_line, ci=None, line_kws={"color": "grey"})
 
-    st.subheader("Scatter plot")
+    # st.subheader("Scatter plot")
     st.pyplot(fig)
 
     if reg_eq:
