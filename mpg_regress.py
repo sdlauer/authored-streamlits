@@ -69,9 +69,11 @@ with col2:
     st.pyplot(fig)
 
     if reg_eq:
-        st.subheader("Regression equation")
-        st.text(show_eq([mpg[input_feat],mpg[output_feat]]))
+        # st.subheader("Regression equation")
+        st.text("Regression equation: "
+            + show_eq([mpg[input_feat],mpg[output_feat]]))
 
     if corr_coef:
-        st.subheader("Correlation coefficient")
-        st.text(show_corr([mpg[input_feat],mpg[output_feat]]))
+        # st.subheader("Correlation coefficient")
+        st.text("Correlation coefficient: "
+            + show_corr([mpg[input_feat],mpg[output_feat]]))
