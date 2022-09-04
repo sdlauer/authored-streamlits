@@ -46,9 +46,37 @@
 # else:
 #     st.dataframe(country_sub)
 
-from st_aggrid import AgGrid
-import pandas as pd
 
-country_withAnt = pd.read_csv("country.csv")
-country = country_withAnt[country_withAnt["Continent"] != "Antarctica"]
-AgGrid(country)
+import pandas as pd
+import streamlit as st
+from st_aggrid import AgGrid, GridOptionsBuilder
+from st_aggrid.shared import GridUpdateMode
+
+
+def aggrid_interactive_table(df: pd.DataFrame):
+    options = GridOptionsBuilder.from_dataframe(
+        df, enableRowGroup=True, enableValue=True, enablePivot=True
+    )
+
+    options.configure_side_bar()
+
+    options.configure_selection("single")
+    selection = AgGrid(
+        df,
+        enable_enterprise_modules=True,
+        gridOptions=options.build(),
+        theme="light",
+        update_mode=GridUpdateMode.MODEL_CHANGED,
+        allow_unsafe_jscode=True,
+    )
+
+    return selection
+
+
+country = pd.read_csv("country.csv")
+
+selection = aggrid_interactive_table(df=country)
+
+if selection:
+    st.write("You selected:")
+    st.json(selection["selected_rows"])
