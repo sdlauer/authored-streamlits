@@ -49,5 +49,6 @@
 from st_aggrid import AgGrid
 import pandas as pd
 
-country = pd.read_csv("country.csv")
+country_withAnt = pd.read_csv("country.csv")
+country = country[country["Continent"] != "Antarctica"]
 AgGrid(country)
