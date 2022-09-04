@@ -8,7 +8,7 @@ tips = sns.load_dataset('tips')
 
 st.header("Visualizing the tips dataset")
 
-col1, col2 = st.columns(2)
+col1, col2 = st.columns([1,3])
 
 with col1:
     plot = st.selectbox(
@@ -51,7 +51,7 @@ with col1:
     )
 
 with col2:
-    fig = plt.figure(figsize=(8,5))
+    fig = plt.figure()
 
     if plot == "violin plot":
         sns.violinplot(x=categorical, y=numeric, hue=group, data = tips)
