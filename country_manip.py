@@ -81,10 +81,10 @@ def aggrid_interactive_table(df: pd.DataFrame):
     selection = AgGrid(
         df,
         enable_enterprise_modules=True,
+        height: int = 400
         gridOptions=options.build(),
-        theme="alpine",
+        theme="blue",
         update_mode=GridUpdateMode.MODEL_CHANGED,
-        allow_unsafe_jscode=True,
     )
 
     return selection
