@@ -9,6 +9,14 @@ hide_menu_style = """
         #MainMenu {visibility: hidden;}
         </style>
         """
+hide_st_style = “”"
+
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+“”"
+st.markdown(hide_st_style, unsafe_allow_html=True)
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 tips = sns.load_dataset('tips')
