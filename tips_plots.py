@@ -17,7 +17,7 @@ st.markdown(hide, unsafe_allow_html=True)
 
 tips = sns.load_dataset('tips')
 
-st.header("Visualizing the tips dataset")
+# st.header("Visualizing the tips dataset")
 
 col1, col2 = st.columns([1,3])
 
