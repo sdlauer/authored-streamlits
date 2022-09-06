@@ -4,6 +4,13 @@ import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
+
 tips = sns.load_dataset('tips')
 
 st.header("Visualizing the tips dataset")
