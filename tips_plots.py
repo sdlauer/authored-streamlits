@@ -4,20 +4,15 @@ import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 
-hide_menu_style = """
+hide = """
         <style>
         #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
         </style>
         """
-hide_st_style = """
 
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-header {visibility: hidden;}
-
-"""
-st.markdown(hide_st_style, unsafe_allow_html=True)
-st.markdown(hide_menu_style, unsafe_allow_html=True)
+st.markdown(hide, unsafe_allow_html=True)
 
 tips = sns.load_dataset('tips')
 
