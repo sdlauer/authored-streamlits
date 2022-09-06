@@ -9,7 +9,9 @@ hide = """
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
         header {visibility: hidden;}
+        body {overflow: hidden;}
         div.block-container {padding-top:1rem;}
+        div.block-container {padding-bottom:1rem;}
         </style>
         """
 
