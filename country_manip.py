@@ -29,9 +29,9 @@ st.markdown(hide, unsafe_allow_html=True)
 # piv1 = "Toggling Pivot Mode under Columns calculates various summary "
 # piv2 = "statistics such as average population of countries in each continent."
 
-st.write(row_ins + row_ex1 + row_ex2)
-st.write(col_ins)
-st.write(piv1 + piv2)
+# st.write(row_ins + row_ex1 + row_ex2)
+# st.write(col_ins)
+# st.write(piv1 + piv2)
 
 
 def aggrid_interactive_table(df: pd.DataFrame):
