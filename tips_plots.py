@@ -4,18 +4,18 @@ import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 
-# hide = """
-#         <style>
-#         #MainMenu {visibility: hidden;}
-#         footer {visibility: hidden;}
-#         header {visibility: hidden;}
-#         body {overflow: hidden;}
-#         div.block-container {padding-top:1rem;}
-#         div.block-container {padding-bottom:1rem;}
-#         </style>
-#         """
-#
-# st.markdown(hide, unsafe_allow_html=True)
+hide = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        body {overflow: hidden;}
+        div.block-container {padding-top:1rem;}
+        div.block-container {padding-bottom:1rem;}
+        </style>
+        """
+
+st.markdown(hide, unsafe_allow_html=True)
 
 tips = sns.load_dataset('tips')
 
