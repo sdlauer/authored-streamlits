@@ -4,7 +4,7 @@
 
 <h2>Visualizing the tips dataset</h2>
 
-<p><a href="https://cjschan-streamlit-tips-plots-9dqxk2.streamlitapp.com/">Open in streamlit</a></p>
+<p><a href="https://cjschan-streamlit-tips-plots-a6sfxa.streamlitapp.com">Open in streamlit</a></p>
 
 <p>
 pip freeze > requirements.txt<br/>
