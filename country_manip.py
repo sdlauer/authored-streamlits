@@ -7,14 +7,27 @@ st.set_page_config(
     layout="centered"
 )
 
-st.header("Manipulating the country dataset")
-instructions = "Clicking Filters "
-col_ins = "Click Columns to display specific columns in the country dataset."
-row_ins = "Click Filters to display rows that satisfy a specific condition. "
-row_ex1 = "Ex: Clicking Population and selecting less than and typing 1000000 "
-row_ex2 = "returns rows where the population column is less than 1000000."
-piv1 = "Toggling Pivot Mode under Columns calculates various summary "
-piv2 = "statistics such as average population of countries in each continent."
+hide = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        body {overflow: hidden;}
+        div.block-container {padding-top:1rem;}
+        div.block-container {padding-bottom:1rem;}
+        </style>
+        """
+
+st.markdown(hide, unsafe_allow_html=True)
+
+# st.header("Manipulating the country dataset")
+# instructions = "Clicking Filters "
+# col_ins = "Click Columns to display specific columns in the country dataset."
+# row_ins = "Click Filters to display rows that satisfy a specific condition. "
+# row_ex1 = "Ex: Clicking Population and selecting less than and typing 1000000 "
+# row_ex2 = "returns rows where the population column is less than 1000000."
+# piv1 = "Toggling Pivot Mode under Columns calculates various summary "
+# piv2 = "statistics such as average population of countries in each continent."
 
 st.write(row_ins + row_ex1 + row_ex2)
 st.write(col_ins)
