@@ -79,7 +79,7 @@ with col2:
 #        data=mpg, fit_reg=reg_line, ci=None, line_kws={"color": "grey"})
 
     ax = sns.regplot(x=input_feat, y=output_feat,
-        data=mpg, ci=None, line_kws={"color": "grey"})
+        data=mpg, fit_reg=False, ci=None, line_kws={"color": "grey"})
 
     # st.subheader("Scatter plot")
     st.pyplot(fig)
