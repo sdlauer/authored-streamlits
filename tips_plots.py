@@ -35,15 +35,17 @@ with col1:
         ]
     )
 
-    categorical = st.selectbox(
-        "Categorical variable",
-        [
-            "day",
-            "time",
-            "sex",
-            "smoker"
-        ]
-    )
+    if plot != "density plot"
+
+        categorical = st.selectbox(
+            "Categorical variable",
+            [
+                "day",
+                "time",
+                "sex",
+                "smoker"
+            ]
+        )
 
     numeric = st.selectbox(
         "Numeric variable",
