@@ -67,9 +67,9 @@ with col1:
         ]
     )
 
-    reg_line = st.checkbox("Regression line")
-    reg_eq = st.checkbox("Regression equation")
-    corr_coef = st.checkbox("Correlation coefficient")
+#    reg_line = st.checkbox("Regression line")
+#    reg_eq = st.checkbox("Regression equation")
+#    corr_coef = st.checkbox("Correlation coefficient")
 
 with col2:
 
