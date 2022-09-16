@@ -55,16 +55,16 @@ with col1:
         ]
     )
 
-    # group = st.selectbox(
-    #     "Grouping",
-    #     [
-    #         "None",
-    #         "Day",
-    #         "Time",
-    #         "Sex",
-    #         "Smoker"
-    #     ]
-    # )
+    group = st.selectbox(
+        "Grouping",
+        [
+            "None",
+            "Day",
+            "Time",
+            "Sex",
+            "Smoker"
+        ]
+    )
 
 dict = {
   "None": None,
@@ -80,19 +80,19 @@ with col2:
     fig, ax = plt.subplots()
 
     if plot == "Violin plot":
-        sns.violinplot(x=dict[categorical], y=dict[numeric], data = tips)
+        sns.violinplot(x=dict[categorical], y=dict[numeric], hue=dict[group], data = tips)
 
     elif plot == "Density plot":
-        sns.kdeplot(x=dict[numeric], data = tips)
+        sns.kdeplot(x=dict[numeric], hue=dict[group], data = tips)
 
     elif plot == "Strip plot":
-        sns.stripplot(x=dict[categorical], y=dict[numeric], data = tips)
+        sns.stripplot(x=dict[categorical], y=dict[numeric], hue=dict[group], data = tips)
 
     elif plot == "Box plot":
-        sns.boxplot(x=dict[categorical], y=dict[numeric], data = tips)
+        sns.boxplot(x=dict[categorical], y=dict[numeric], hue=dict[group], data = tips)
 
     else:
-        sns.swarmplot(x=dict[categorical], y=dict[numeric], data = tips)
+        sns.swarmplot(x=dict[categorical], y=dict[numeric], hue=dict[group], data = tips)
 
     if plot == "Density plot":
         ax.set_xlabel(numeric, fontsize=14)
