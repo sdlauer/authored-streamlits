@@ -88,7 +88,7 @@ with col2:
         sns.stripplot(x=categorical, y=numeric, hue=group, data = tips)
 
     elif plot == "Box plot":
-        sns.boxplot(x=categorical[dict], y=numeric[dict], hue=group[dict], data = tips)
+        sns.boxplot(x=categorical[dict], y=numeric[dict], hue=None, data = tips)
 
     else:
         sns.swarmplot(x=categorical, y=numeric, hue=group, data = tips)
