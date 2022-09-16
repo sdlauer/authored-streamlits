@@ -44,37 +44,37 @@ with col1:
     input_feat = st.selectbox(
         "Input feature",
         [
-            "mpg",
-            "cylinders",
-            "horsepower",
-            "displacement",
-            "weight",
-            "acceleration",
-            "model_year"
+            "MPG",
+            "Cylinders",
+            "Horsepower",
+            "Displacement"
+            "Weight",
+            "Acceleration",
+            "Model year"
         ]
     )
 
     output_feat = st.selectbox(
         "Output feature",
         [
-            "mpg",
-            "cylinders",
-            "horsepower",
-            "displacement",
-            "weight",
-            "acceleration",
-            "model_year"
+            "MPG",
+            "Cylinders",
+            "Horsepower",
+            "Displacement"
+            "Weight",
+            "Acceleration",
+            "Model year"
         ]
     )
 
 dict = {
-  "mpg": "MPG",
-  "cylinders": "Cylinders",
-  "horsepower": "Horsepower",
-  "displacement": "Displacement",
-  "weight": "Weight",
-  "acceleration": "Acceleration",
-  "model_year": "Model year"
+  "MPG": "mpg",
+  "Cylinders": "cylinders",
+  "Horsepower": "horsepower",
+  "Displacement": "displacement",
+  "Weight": "weight",
+  "Acceleration": "acceleration",
+  "Model year": "model_year"
 }
 
 #    reg_line = st.checkbox("Regression line")
@@ -88,10 +88,10 @@ with col2:
 #    ax = sns.regplot(x=input_feat, y=output_feat,
 #        data=mpg, fit_reg=reg_line, ci=None, line_kws={"color": "grey"})
 
-    ax = sns.regplot(x=input_feat, y=output_feat,
+    ax = sns.regplot(x=dict[input_feat], y=dict[output_feat],
         data=mpg, fit_reg=False, ci=None, line_kws={"color": "grey"})
-    ax.set_xlabel(dict[input_feat], fontsize=14)
-    ax.set_ylabel(dict[output_feat], fontsize=14)
+    ax.set_xlabel(input_feat, fontsize=14)
+    ax.set_ylabel(output_feat, fontsize=14)
 
     # st.subheader("Scatter plot")
     st.pyplot(fig)
