@@ -36,16 +36,16 @@ with col1:
     )
 
 
-
-    categorical = st.selectbox(
-        "Categorical variable",
-        [
-            "Day",
-            "Time",
-            "Sex",
-            "Smoker"
-        ]
-    )
+    if plot != "Density plot"
+        categorical = st.selectbox(
+            "Categorical variable",
+            [
+                "Day",
+                "Time",
+                "Sex",
+                "Smoker"
+            ]
+        )
 
     numeric = st.selectbox(
         "Numeric variable",
@@ -83,7 +83,7 @@ with col2:
         sns.violinplot(x=dict[categorical], y=dict[numeric], data = tips)
 
     elif plot == "Density plot":
-        sns.kdeplot(x=dict[numeric], hue=dict[categorical], data = tips)
+        sns.kdeplot(x=dict[numeric], data = tips)
 
     elif plot == "Strip plot":
         sns.stripplot(x=dict[categorical], y=dict[numeric], data = tips)
@@ -97,7 +97,6 @@ with col2:
     if plot == "Density plot":
         ax.set_xlabel(numeric, fontsize=14)
         ax.set_ylabel("Density", fontsize=14)
-        ax.legend(title=categorical)
     else:
         ax.set_xlabel(categorical, fontsize=14)
         ax.set_ylabel(numeric, fontsize=14)
