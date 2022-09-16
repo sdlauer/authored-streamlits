@@ -47,7 +47,7 @@ with col1:
             "MPG",
             "Cylinders",
             "Horsepower",
-            "Displacement"
+            "Displacement",
             "Weight",
             "Acceleration",
             "Model year"
