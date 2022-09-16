@@ -27,31 +27,31 @@ with col1:
     plot = st.selectbox(
         "Plot",
         [
-            "Box plot",
-            "Density plot",
-            "Strip plot",
-            "Swarm plot",
-            "Violin plot"
+            "box plot",
+            "density plot",
+            "violin plot",
+            "strip plot",
+            "swarm plot"
         ]
     )
 
-    if plot != "Density plot":
+    if plot != "density plot"
 
         categorical = st.selectbox(
             "Categorical variable",
             [
-                "Day",
-                "Time",
-                "Sex",
-                "Smoker"
+                "day",
+                "time",
+                "sex",
+                "smoker"
             ]
         )
 
     numeric = st.selectbox(
         "Numeric variable",
         [
-            "Tip",
-            "Total bill"
+            "tip",
+            "total_bill"
         ]
     )
 
@@ -59,41 +59,29 @@ with col1:
         "Grouping",
         [
             None,
-            "Day",
-            "Time",
-            "Sex",
-            "Smoker"
+            "day",
+            "time",
+            "sex",
+            "smoker"
         ]
     )
-
-dict_cat = {
-  "Day": "day",
-  "Time": "time",
-  "Sex": "sex",
-  "Smoker": "smoker"
-}
-
-dict_num = {
-  "Tip": "tip",
-  "Total bill": "total_bill"
-}
 
 with col2:
     fig = plt.figure()
 
-    if plot == "Violin plot":
-        sns.violinplot(x=categorical[dict_cat], y=numeric[dict_num], hue=group[dict_cat], data = tips)
+    if plot == "violin plot":
+        sns.violinplot(x=categorical, y=numeric, hue=group, data = tips)
 
-    elif plot == "Density plot":
-        sns.kdeplot(x=numeric[dict_num], hue=group, data = tips)
+    elif plot == "density plot":
+        sns.kdeplot(x=numeric, hue=group, data = tips)
 
-    elif plot == "Strip plot":
-        sns.stripplot(x=categorical[dict_cat], y=numeric[dict_num], hue=group[dict_cat], data = tips)
+    elif plot == "strip plot":
+        sns.stripplot(x=categorical, y=numeric, hue=group, data = tips)
 
-    elif plot == "Box plot":
-        sns.boxplot(x=categorical[dict_cat], y=numeric[dict_num], hue=group[dict_cat], data = tips)
+    elif plot == "box plot":
+        sns.boxplot(x=categorical, y=numeric, hue=group, data = tips)
 
     else:
-        sns.swarmplot(x=categorical[dict_cat], y=numeric[dict_num], hue=group[dict_cat], data = tips)
+        sns.swarmplot(x=categorical, y=numeric, hue=group, data = tips)
 
     st.pyplot(fig)
