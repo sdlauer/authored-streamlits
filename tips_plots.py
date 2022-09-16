@@ -59,21 +59,21 @@ with col1:
         "Grouping",
         [
             None,
-            "day",
-            "time",
-            "sex",
-            "smoker"
+            "Day",
+            "Time",
+            "Sex",
+            "Smoker"
         ]
     )
 
-dict_num = {
+dict_cat = {
   "Day": "day",
   "Time": "time",
   "Sex": "sex",
   "Smoker": "smoker"
 }
 
-dict_cat = {
+dict_num = {
   "Tip": "tip",
   "Total bill": "total_bill"
 }
@@ -82,18 +82,18 @@ with col2:
     fig = plt.figure()
 
     if plot == "Violin plot":
-        sns.violinplot(x=categorical[dict_cat], y=numeric[dict_num], hue=group, data = tips)
+        sns.violinplot(x=categorical[dict_cat], y=numeric[dict_num], hue=group[dict_cat], data = tips)
 
     elif plot == "Density plot":
         sns.kdeplot(x=numeric[dict_num], hue=group, data = tips)
 
     elif plot == "Strip plot":
-        sns.stripplot(x=categorical[dict_cat], y=numeric[dict_num], hue=group, data = tips)
+        sns.stripplot(x=categorical[dict_cat], y=numeric[dict_num], hue=group[dict_cat], data = tips)
 
     elif plot == "Box plot":
-        sns.boxplot(x=categorical[dict_cat], y=numeric[dict_num], hue=group, data = tips)
+        sns.boxplot(x=categorical[dict_cat], y=numeric[dict_num], hue=group[dict_cat], data = tips)
 
     else:
-        sns.swarmplot(x=categorical[dict_cat], y=numeric[dict_num], hue=group, data = tips)
+        sns.swarmplot(x=categorical[dict_cat], y=numeric[dict_num], hue=group[dict_cat], data = tips)
 
     st.pyplot(fig)
