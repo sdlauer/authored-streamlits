@@ -55,16 +55,16 @@ with col1:
         ]
     )
 
-    group = st.selectbox(
-        "Grouping",
-        [
-            "None",
-            "Day",
-            "Time",
-            "Sex",
-            "Smoker"
-        ]
-    )
+    # group = st.selectbox(
+    #     "Grouping",
+    #     [
+    #         "None",
+    #         "Day",
+    #         "Time",
+    #         "Sex",
+    #         "Smoker"
+    #     ]
+    # )
 
 dict = {
   "None": None,
@@ -77,7 +77,7 @@ dict = {
 }
 
 with col2:
-    fig = plt.figure()
+    fig, ax = plt.subplots()
 
     if plot == "Violin plot":
         sns.violinplot(x=dict[categorical], y=dict[numeric], data = tips)
@@ -94,4 +94,6 @@ with col2:
     else:
         sns.swarmplot(x=dict[categorical], y=dict[numeric], data = tips)
 
+    ax.set_xlabel(categorical, fontsize=14)
+    ax.set_ylabel(numeric, fontsize=14)
     st.pyplot(fig)
