@@ -90,8 +90,8 @@ with col2:
 
     ax = sns.regplot(x=input_feat, y=output_feat,
         data=mpg, fit_reg=False, ci=None, line_kws={"color": "grey"})
-    ax.set_xlabel(dict[input_feat])
-    ax.set_ylabel(dict[output_feat])
+    ax.set_xlabel(dict[input_feat], fontsize=14)
+    ax.set_ylabel(dict[output_feat], fontsize=14)
 
     # st.subheader("Scatter plot")
     st.pyplot(fig)
