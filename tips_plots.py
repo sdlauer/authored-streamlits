@@ -58,7 +58,7 @@ with col1:
     group = st.selectbox(
         "Grouping",
         [
-            None,
+            "None",
             "Day",
             "Time",
             "Sex",
@@ -67,6 +67,7 @@ with col1:
     )
 
 dict = {
+  "None": None,
   "Day": "day",
   "Time": "time",
   "Sex": "sex",
