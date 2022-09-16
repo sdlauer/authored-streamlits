@@ -83,7 +83,7 @@ with col2:
         sns.violinplot(x=dict[categorical], y=dict[numeric], hue=dict[group], data = tips)
 
     elif plot == "Density plot":
-        sns.kdeplot(x=dict[numeric], hue=dict[group], data = tips)
+        sns.kdeplot(x=dict[numeric], hue=dict[group], multiple="stack", data = tips)
 
     elif plot == "Strip plot":
         sns.stripplot(x=dict[categorical], y=dict[numeric], hue=dict[group], data = tips)
