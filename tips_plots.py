@@ -27,11 +27,11 @@ with col1:
     plot = st.selectbox(
         "Plot",
         [
-            "box plot",
-            "density plot",
-            "violin plot",
-            "strip plot",
-            "swarm plot"
+            "Box plot",
+            "Density plot",
+            "Violin plot",
+            "Strip plot",
+            "Swarm plot"
         ]
     )
 
@@ -69,16 +69,16 @@ with col1:
 with col2:
     fig = plt.figure()
 
-    if plot == "violin plot":
+    if plot == "Violin plot":
         sns.violinplot(x=categorical, y=numeric, hue=group, data = tips)
 
-    elif plot == "density plot":
+    elif plot == "Density plot":
         sns.kdeplot(x=numeric, hue=group, data = tips)
 
-    elif plot == "strip plot":
+    elif plot == "Strip plot":
         sns.stripplot(x=categorical, y=numeric, hue=group, data = tips)
 
-    elif plot == "box plot":
+    elif plot == "Box plot":
         sns.boxplot(x=categorical, y=numeric, hue=group, data = tips)
 
     else:
