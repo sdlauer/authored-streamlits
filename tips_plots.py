@@ -79,18 +79,18 @@ with col2:
     fig = plt.figure()
 
     if plot == "Violin plot":
-        sns.violinplot(x=categorical[dict], y=numeric[dict], hue=group[dict], data = tips)
+        sns.violinplot(x=dict[categorical], y=dict[numeric], hue=dict[categorical], data = tips)
 
     elif plot == "Density plot":
-        sns.kdeplot(x=numeric, hue=group, data = tips)
+        sns.kdeplot(x=dict[numeric], hue=group, data = tips)
 
     elif plot == "Strip plot":
-        sns.stripplot(x=categorical, y=numeric, hue=group, data = tips)
+        sns.stripplot(x=dict[categorical], y=dict[numeric], hue=dict[categorical], data = tips)
 
     elif plot == "Box plot":
-        sns.boxplot(x=dict[categorical], y=dict[numeric], hue=None, data = tips)
+        sns.boxplot(x=dict[categorical], y=dict[numeric], hue=dict[categorical], data = tips)
 
     else:
-        sns.swarmplot(x=categorical, y=numeric, hue=group, data = tips)
+        sns.swarmplot(x=dict[categorical], y=dict[numeric], hue=dict[categorical], data = tips)
 
     st.pyplot(fig)
