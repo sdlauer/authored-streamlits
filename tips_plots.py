@@ -36,7 +36,7 @@ with col1:
     )
 
 
-    if plot != "Density plot"
+    if plot != "Density plot":
         categorical = st.selectbox(
             "Categorical variable",
             [
