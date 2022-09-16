@@ -100,6 +100,6 @@ with col2:
     else:
         ax.set_xlabel(categorical, fontsize=14)
         ax.set_ylabel(numeric, fontsize=14)
-    if group != "None": ax.legend(title=group)
+        ax.legend(title=group)
 
     st.pyplot(fig)
