@@ -35,7 +35,7 @@ with col1:
         ]
     )
 
-    if plot != "density plot":
+    if plot != "Density plot":
 
         categorical = st.selectbox(
             "Categorical variable",
@@ -94,6 +94,10 @@ with col2:
     else:
         sns.swarmplot(x=dict[categorical], y=dict[numeric], data = tips)
 
-    ax.set_xlabel(categorical, fontsize=14)
-    ax.set_ylabel(numeric, fontsize=14)
+    if plot == "Density plot":
+        ax.set_xlabel(numeric, fontsize=14)
+    else:
+        ax.set_xlabel(categorical, fontsize=14)
+        ax.set_ylabel(numeric, fontsize=14)
+
     st.pyplot(fig)
