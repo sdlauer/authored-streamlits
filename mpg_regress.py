@@ -67,6 +67,16 @@ with col1:
         ]
     )
 
+dict = {
+  "mpg": "MPG",
+  "cylinders": "Cylinders",
+  "horsepower": "Horsepower",
+  "displacement": "Displacement",
+  "weight": "Weight",
+  "acceleration": "Acceleration",
+  "model_year": "Model year"
+}
+
 #    reg_line = st.checkbox("Regression line")
 #    reg_eq = st.checkbox("Regression equation")
 #    corr_coef = st.checkbox("Correlation coefficient")
@@ -80,6 +90,8 @@ with col2:
 
     ax = sns.regplot(x=input_feat, y=output_feat,
         data=mpg, fit_reg=False, ci=None, line_kws={"color": "grey"})
+    ax.set_xlabel(dict[input_feat])
+    ax.set_ylabel(dict[output_feat])
 
     # st.subheader("Scatter plot")
     st.pyplot(fig)
