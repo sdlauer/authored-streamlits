@@ -40,18 +40,18 @@ with col1:
         categorical = st.selectbox(
             "Categorical variable",
             [
-                "day",
-                "time",
-                "sex",
-                "smoker"
+                "Day",
+                "Time",
+                "Sex",
+                "Smoker"
             ]
         )
 
     numeric = st.selectbox(
         "Numeric variable",
         [
-            "tip",
-            "total_bill"
+            "Tip",
+            "Total bill"
         ]
     )
 
@@ -59,12 +59,21 @@ with col1:
         "Grouping",
         [
             None,
-            "day",
-            "time",
-            "sex",
-            "smoker"
+            "Day",
+            "Time",
+            "Sex",
+            "Smoker"
         ]
     )
+
+dict = {
+  "Day": "day",
+  "Time": "time",
+  "Sex": "sex",
+  "Smoker": "smoker",
+  "Tip": "tip",
+  "Total bill": "total_bill"
+}
 
 with col2:
     fig = plt.figure()
