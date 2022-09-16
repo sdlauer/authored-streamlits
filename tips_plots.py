@@ -40,10 +40,10 @@ with col1:
         categorical = st.selectbox(
             "Categorical variable",
             [
-                "day",
-                "time",
-                "sex",
-                "smoker"
+                "Day",
+                "Time",
+                "Sex",
+                "Smoker"
             ]
         )
 
@@ -82,18 +82,18 @@ with col2:
     fig = plt.figure()
 
     if plot == "Violin plot":
-        sns.violinplot(x=categorical, y=numeric, hue=group, data = tips)
+        sns.violinplot(x=categorical[dict_cat], y=numeric[dict_num], hue=group, data = tips)
 
     elif plot == "Density plot":
-        sns.kdeplot(x=numeric, hue=group, data = tips)
+        sns.kdeplot(x=numeric[dict_num], hue=group, data = tips)
 
     elif plot == "Strip plot":
-        sns.stripplot(x=categorical, y=numeric, hue=group, data = tips)
+        sns.stripplot(x=categorical[dict_cat], y=numeric[dict_num], hue=group, data = tips)
 
     elif plot == "Box plot":
-        sns.boxplot(x=categorical, y=numeric, hue=group, data = tips)
+        sns.boxplot(x=categorical[dict_cat], y=numeric[dict_num], hue=group, data = tips)
 
     else:
-        sns.swarmplot(x=categorical, y=numeric, hue=group, data = tips)
+        sns.swarmplot(x=categorical[dict_cat], y=numeric[dict_num], hue=group, data = tips)
 
     st.pyplot(fig)
