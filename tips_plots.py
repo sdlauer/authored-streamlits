@@ -97,8 +97,7 @@ with col2:
     if plot == "Density plot":
         ax.set_xlabel(numeric, fontsize=14)
         ax.set_ylabel("Density", fontsize=14)
-        legend = ax.legend()
-        legend.texts[0].set_text(group)
+        if group != "None": ax.legend(title="")
     else:
         ax.set_xlabel(categorical, fontsize=14)
         ax.set_ylabel(numeric, fontsize=14)
