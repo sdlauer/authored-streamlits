@@ -27,15 +27,15 @@ with col1:
     plot = st.selectbox(
         "Plot",
         [
-            "box plot",
-            "density plot",
-            "violin plot",
-            "strip plot",
-            "swarm plot"
+            "Box plot",
+            "Density plot",
+            "Strip plot",
+            "Swarm plot",
+            "Violin plot"
         ]
     )
 
-    if plot != "density plot":
+    if plot != "Density plot":
 
         categorical = st.selectbox(
             "Categorical variable",
@@ -50,8 +50,8 @@ with col1:
     numeric = st.selectbox(
         "Numeric variable",
         [
-            "tip",
-            "total_bill"
+            "Tip",
+            "Total bill"
         ]
     )
 
@@ -66,19 +66,31 @@ with col1:
         ]
     )
 
+dict_num = {
+  "Day": "day",
+  "Time": "time",
+  "Sex": "sex",
+  "Smoker": "smoker"
+}
+
+dict_cat = {
+  "Tip": "tip",
+  "Total bill": "total_bill"
+}
+
 with col2:
     fig = plt.figure()
 
-    if plot == "violin plot":
+    if plot == "Violin plot":
         sns.violinplot(x=categorical, y=numeric, hue=group, data = tips)
 
-    elif plot == "density plot":
+    elif plot == "Density plot":
         sns.kdeplot(x=numeric, hue=group, data = tips)
 
-    elif plot == "strip plot":
+    elif plot == "Strip plot":
         sns.stripplot(x=categorical, y=numeric, hue=group, data = tips)
 
-    elif plot == "box plot":
+    elif plot == "Box plot":
         sns.boxplot(x=categorical, y=numeric, hue=group, data = tips)
 
     else:
