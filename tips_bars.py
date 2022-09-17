@@ -25,15 +25,6 @@ tips.columns = ["Total bill", "Tip", "Sex", "Smoker", "Day", "Time", "Party size
 col1, col2 = st.columns([1,3])
 
 with col1:
-    plot = st.selectbox(
-        "Plot",
-        [
-            "Stacked",
-            "Grouped"
-        ]
-    )
-
-
 
     categorical = st.selectbox(
         "Categorical variable",
@@ -50,6 +41,7 @@ with col1:
     group = st.selectbox(
         "Grouping",
         [
+            None,
             "Day",
             "Party size",
             "Time",
@@ -61,11 +53,7 @@ with col1:
 with col2:
     fig, ax = plt.subplots()
 
-    if plot == "Grouped":
-        sns.countplot(x=categorical, hue=group, data = tips)
-
-    else:
-        sns.displot(tips, x='Day', hue='Sex', multiple='stack')
+    sns.countplot(x=categorical, hue=group, data = tips)
 
     ax.set_xlabel(categorical, fontsize=14)
     ax.set_ylabel("Count", fontsize=14)
