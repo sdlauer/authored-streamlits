@@ -66,7 +66,7 @@ with col2:
         sns.countplot(x=categorical, hue=group, data = tips)
 
     else:
-        sns.countplot(x=categorical, hue=group, data = tips)
+        sns.displot(x=categorical, hue=group, data = tips, multiple='stack')
 
     ax.set_xlabel(categorical, fontsize=14)
     ax.set_ylabel("Count", fontsize=14)
