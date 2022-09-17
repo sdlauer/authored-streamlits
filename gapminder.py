@@ -42,18 +42,29 @@ with col1:
         ]
     )
 
+    continent = st.selectbox(
+        "Continent",
+        [
+            "Africa",
+            "Americas",
+            "Asia",
+            "Europe"
+        ]
+    )
+
 
 with col2:
+    df = gapminder[gapminder["Continent"]==continent][numerical]
     fig, ax = plt.subplots()
 
     if plot == "Box plot":
-        sns.boxplot(x=numerical, data=gapminder)
+        sns.boxplot(x=df)
 
     elif plot == "Histogram":
-        sns.histplot(x=numerical, data=gapminder)
+        sns.histplot(x=df)
 
     elif plot == "Density plot":
-        sns.histplot(x=numerical, data=gapminder, stat="density", kde=True)
+        sns.histplot(x=df, stat="density", kde=True)
 
     ax.set_xlabel(numerical, fontsize=14)
     ax.ticklabel_format(style='plain', axis='x')
