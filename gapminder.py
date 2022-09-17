@@ -36,9 +36,9 @@ with col1:
     numerical = st.selectbox(
         "Numerical feature",
         [
-            "Population",
             "GDP per capita",
-            "Life expectancy"
+            "Life expectancy",
+            "Population"
         ]
     )
 
