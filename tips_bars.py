@@ -46,7 +46,7 @@ with col1:
 with col2:
     fig, ax = plt.subplots()
 
-    sns.countplot(x=categorical, hue=group, data = tips)
+    sns.countplot(x=categorical, hue=group, data=tips)
 
     ax.set_xlabel(categorical, fontsize=14)
     ax.set_ylabel("Count", fontsize=14)
