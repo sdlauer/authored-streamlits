@@ -42,7 +42,7 @@ with col1:
             "Categorical variable",
             [
                 "Day",
-                "Party size"
+                "Party size",
                 "Time",
                 "Sex",
                 "Smoker"
