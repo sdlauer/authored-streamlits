@@ -28,7 +28,7 @@ with col1:
         "Plot",
         [
             "Box plot",
-            "Density plot"
+            "Density plot",
             "Histogram"
         ]
     )
