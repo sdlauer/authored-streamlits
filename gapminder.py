@@ -53,6 +53,8 @@ with col2:
 
     ax.set_xlabel(numerical, fontsize=14)
     ax.ticklabel_format(style='plain', axis='x')
+
+    if plot=="Histogram": ax.set_ylabel("Count", fontsize=14)
     if numerical=="Population": ax.tick_params(axis='x', labelrotation = 30)
 
     st.pyplot(fig)
