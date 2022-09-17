@@ -39,7 +39,7 @@ with col1:
 
     group = st.selectbox(
         "Grouping",
-        ["Day","Party size","Time","Sex","Smoker"]
+        [None, "Day","Party size","Time","Sex","Smoker"]
     )
 
 
