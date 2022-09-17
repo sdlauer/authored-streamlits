@@ -28,8 +28,8 @@ with col1:
     plot = st.selectbox(
         "Plot",
         [
-            "Stacked count plot",
-            "Grouped count plot"
+            "Stacked",
+            "Grouped"
         ]
     )
 
@@ -62,7 +62,7 @@ with col1:
 with col2:
     fig, ax = plt.subplots()
 
-    if plot == "Grouped count plot":
+    if plot == "Grouped":
         sns.countplot(x=categorical, hue=group, data = tips)
 
     else:
