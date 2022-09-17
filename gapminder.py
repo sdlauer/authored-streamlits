@@ -49,7 +49,7 @@ with col2:
         sns.boxplot(x=numerical, data=gapminder)
 
     elif plot == "Histogram":
-        sns.histplot(x=numerical, data=gapminder)
+        sns.displot(x=numerical, data=gapminder)
 
     ax.set_xlabel(numerical, fontsize=14)
 
