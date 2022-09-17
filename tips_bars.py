@@ -39,19 +39,17 @@ with col1:
 
     group = st.selectbox(
         "Grouping",
-        ["Day","Party size","Time","Sex","Smoker"].remove(categorical)
+        ["Day","Party size","Time","Sex","Smoker"]
     )
 
 
 with col2:
     fig, ax = plt.subplots()
 
-    sns.countplot(x=categorical, hue=group, data = tips)
+    pd.crosstab(tips['Day'], tips['Smoker']).plot(kind='bar', stacked=True)
+    # sns.countplot(x=categorical, hue=group, data = tips)
 
     ax.set_xlabel(categorical, fontsize=14)
     ax.set_ylabel("Count", fontsize=14)
 
     st.pyplot(fig)
-
-    cross = pd.crosstab(tips[group], tips[categorical])
-    st.dataframe(cross)
