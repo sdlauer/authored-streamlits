@@ -28,6 +28,7 @@ with col1:
         "Plot",
         [
             "Box plot",
+            "Density plot"
             "Histogram"
         ]
     )
@@ -51,10 +52,14 @@ with col2:
     elif plot == "Histogram":
         sns.histplot(x=numerical, data=gapminder)
 
+    elif plot == "Density plot":
+        sns.histplot(x=numerical, data=gapminder, stat="density", kde=True)
+
     ax.set_xlabel(numerical, fontsize=14)
     ax.ticklabel_format(style='plain', axis='x')
 
     if plot=="Histogram": ax.set_ylabel("Count", fontsize=14)
     if numerical=="Population": ax.tick_params(axis='x', labelrotation = 30)
+    if plot=="Density plot": ax.set_ylabel("Density", fontsize=14)
 
     st.pyplot(fig)
