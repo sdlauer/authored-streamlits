@@ -50,7 +50,6 @@ with col1:
     group = st.selectbox(
         "Grouping",
         [
-            None,
             "Day",
             "Party size",
             "Time",
@@ -63,10 +62,10 @@ with col2:
     fig, ax = plt.subplots()
 
     if plot == "Grouped":
-        sns.countplot(x=categorical, hue=group, data = tips)
+        pd.crosstab(tips[categorical], tips[group]).plot(kind='bar')
 
     else:
-        sns.countplot(x=categorical, hue=group, data = tips)
+        pd.crosstab(tips[categorical], tips[group]).plot(kind='bar', stacked=True)
 
     ax.set_xlabel(categorical, fontsize=14)
     ax.set_ylabel("Count", fontsize=14)
