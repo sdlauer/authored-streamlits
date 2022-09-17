@@ -22,7 +22,7 @@ tips.columns = ["Total bill", "Tip", "Sex", "Smoker", "Day", "Time", "Party size
 
 # st.header("Visualizing the tips dataset")
 
-col1, col2, col3 = st.columns([1,3,3])
+col1, col2 = st.columns([1,3])
 
 with col1:
 
@@ -49,11 +49,8 @@ with col1:
         ]
     )
 
-with col2:
-    cross = pd.crosstab(tips[group], tips[categorical])
-    st.dataframe(cross)
 
-with col3:
+with col2:
     fig, ax = plt.subplots()
 
     sns.countplot(x=categorical, hue=group, data = tips)
@@ -62,3 +59,6 @@ with col3:
     ax.set_ylabel("Count", fontsize=14)
 
     st.pyplot(fig)
+
+    cross = pd.crosstab(tips[group], tips[categorical])
+    st.dataframe(cross)
