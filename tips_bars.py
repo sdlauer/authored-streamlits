@@ -37,9 +37,11 @@ with col1:
         ]
     )
 
+    glist = [None, "Day","Party size","Time","Sex","Smoker"].remove(categorical)
+
     group = st.selectbox(
         "Grouping",
-        [None, "Day","Party size","Time","Sex","Smoker"].remove(categorical)
+        glist
     )
 
 
