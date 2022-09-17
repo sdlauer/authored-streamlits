@@ -72,7 +72,4 @@ with col2:
         # pd.crosstab(tips[group], tips[categorical]).plot(kind="bar", stacked=True)
         # sns.countplot(x=categorical, hue=group, data = tips)
 
-    ax.set_xlabel(categorical, fontsize=14)
-    ax.set_ylabel("Count", fontsize=14)
-
     st.pyplot(fig)
