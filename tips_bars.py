@@ -72,3 +72,5 @@ with col2:
     else:
         # st.pyplot(pd.crosstab(tips[group], tips[categorical]).plot(kind="bar", stacked=True))
         sns.countplot(x=categorical, hue=group, data = tips)
+
+    st.pyplot(fig)
