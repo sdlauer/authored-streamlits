@@ -27,7 +27,7 @@ col1, col2 = st.columns([1,3])
 with col1:
 
     categorical = st.selectbox(
-        "Categorical variable",
+        "Categorical feature",
         [
             "Day",
             "Party size",
