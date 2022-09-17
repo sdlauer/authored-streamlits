@@ -18,6 +18,7 @@ hide = """
 st.markdown(hide, unsafe_allow_html=True)
 
 tips = sns.load_dataset('tips')
+tips.columns = ["Total bill", "Tip", "Sex", "Smoker", "Day", "Time", "Party size"]
 
 # st.header("Visualizing the tips dataset")
 
@@ -41,6 +42,7 @@ with col1:
             "Categorical variable",
             [
                 "Day",
+                "Party size"
                 "Time",
                 "Sex",
                 "Smoker"
@@ -60,39 +62,30 @@ with col1:
         [
             "None",
             "Day",
+            "Party size",
             "Time",
             "Sex",
             "Smoker"
         ]
     )
 
-dict = {
-  "None": None,
-  "Day": "day",
-  "Time": "time",
-  "Sex": "sex",
-  "Smoker": "smoker",
-  "Tip": "tip",
-  "Total bill": "total_bill"
-}
-
 with col2:
     fig, ax = plt.subplots()
 
     if plot == "Violin plot":
-        sns.violinplot(x=dict[categorical], y=dict[numeric], hue=dict[group], data = tips)
+        sns.violinplot(x=categorical, y=numeric, hue=group, data = tips)
 
     elif plot == "Density plot":
-        sns.kdeplot(x=dict[numeric], hue=dict[group], multiple="stack", data = tips)
+        sns.kdeplot(x=numeric, hue=group, multiple="stack", data = tips)
 
     elif plot == "Strip plot":
-        sns.stripplot(x=dict[categorical], y=dict[numeric], hue=dict[group], data = tips)
+        sns.stripplot(x=categorical, y=numeric, hue=group, data = tips)
 
     elif plot == "Box plot":
-        sns.boxplot(x=dict[categorical], y=dict[numeric], hue=dict[group], data = tips)
+        sns.boxplot(x=categorical, y=numeric, hue=group, data = tips)
 
     else:
-        sns.swarmplot(x=dict[categorical], y=dict[numeric], hue=dict[group], data = tips)
+        sns.swarmplot(x=categorical, y=numeric, hue=group, data = tips)
 
     if plot == "Density plot":
         ax.set_xlabel(numeric, fontsize=14)
@@ -100,6 +93,6 @@ with col2:
     else:
         ax.set_xlabel(categorical, fontsize=14)
         ax.set_ylabel(numeric, fontsize=14)
-        if group != "None": ax.legend(title=group)
+        # if group != "None": ax.legend(title=group)
 
     st.pyplot(fig)
