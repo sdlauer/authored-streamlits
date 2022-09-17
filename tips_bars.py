@@ -46,7 +46,7 @@ with col1:
 with col2:
     fig, ax = plt.subplots()
 
-    pd.crosstab(tips['Day'], tips['Smoker']).plot(kind='bar', stacked=True)
+    fig = pd.crosstab(tips['Day'], tips['Smoker']).plot(kind='bar', stacked=True)
     # sns.countplot(x=categorical, hue=group, data = tips)
 
     ax.set_xlabel(categorical, fontsize=14)
