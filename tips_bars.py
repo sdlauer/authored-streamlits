@@ -37,10 +37,9 @@ with col1:
         ]
     )
 
-    group_list = ["Day","Party size","Time","Sex","Smoker"].remove(categorical)
     group = st.selectbox(
         "Grouping",
-        group_list
+        ["Day","Party size","Time","Sex","Smoker"].remove(categorical)
     )
 
 
