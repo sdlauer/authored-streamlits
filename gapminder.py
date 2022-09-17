@@ -36,7 +36,7 @@ with col1:
         "Numerical feature",
         [
             "Population",
-            "GDP",
+            "GDP per capita",
             "Life expectancy"
         ]
     )
