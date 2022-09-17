@@ -62,15 +62,17 @@ with col1:
 with col2:
     fig, ax = plt.subplots()
 
-    ax.set_xlabel(categorical, fontsize=14)
-    ax.set_ylabel("Count", fontsize=14)
+
 
     if plot == "Grouped":
-        #st.pyplot(pd.crosstab(tips[group], tips[categorical]).plot(kind="bar"))
+        pd.crosstab(tips[group], tips[categorical]).plot(kind="bar"))
         sns.countplot(x=categorical, hue=group, data = tips)
 
     else:
-        # st.pyplot(pd.crosstab(tips[group], tips[categorical]).plot(kind="bar", stacked=True))
+        pd.crosstab(tips[group], tips[categorical]).plot(kind="bar", stacked=True))
         sns.countplot(x=categorical, hue=group, data = tips)
+
+    ax.set_xlabel(categorical, fontsize=14)
+    ax.set_ylabel("Count", fontsize=14)
 
     st.pyplot(fig)
