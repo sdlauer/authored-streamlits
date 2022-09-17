@@ -67,7 +67,7 @@ with col2:
 
     else:
         sns.countplot(x=categorical, hue=group, data = tips)
-        ax.set_xlabel(numeric, fontsize=14)
+        ax.set_xlabel(categorical, fontsize=14)
         ax.set_ylabel("Count", fontsize=14)
 
     st.pyplot(fig)
