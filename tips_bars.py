@@ -51,7 +51,7 @@ with col1:
     )
 
 with col2:
-    cross = pd.crosstab(tips[categorical], tips[group])
+    cross = pd.crosstab(tips["Day"], tips["Sex"])
     st.dataframe(cross)
 
 with col3:
