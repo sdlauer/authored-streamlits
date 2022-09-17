@@ -58,7 +58,7 @@ with col2:
     fig, ax = plt.subplots()
 
     if plot == "Box plot":
-        sns.boxplot(x=df)
+        sns.boxplot(x=df, width=0.8)
 
     elif plot == "Histogram":
         sns.histplot(x=df)
