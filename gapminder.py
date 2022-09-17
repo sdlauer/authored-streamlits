@@ -55,7 +55,7 @@ with col1:
 
 with col2:
     df = gapminder[gapminder["Continent"]==continent][numerical]
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(5, 3.75))
 
     if plot == "Box plot":
         sns.boxplot(x=df, width=0.5)
