@@ -52,6 +52,5 @@ with col2:
         sns.histplot(x=numerical, data=gapminder)
 
     ax.set_xlabel(numerical, fontsize=14)
-    ax.ticklabel_format(useOffset=False)
-    
+
     st.pyplot(fig)
