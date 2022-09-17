@@ -70,7 +70,7 @@ with col2:
     ax.ticklabel_format(style='plain', axis='x')
 
     if plot=="Histogram": ax.set_ylabel("Count", fontsize=14)
-    if numerical=="Population": ax.tick_params(axis='x', labelrotation = 30)
+    if numerical=="Population": ax.tick_params(axis='x', labelrotation = 20)
     if plot=="Density plot":
         ax.set_ylabel("Density", fontsize=14)
         ax.ticklabel_format(style='plain', axis='y')
