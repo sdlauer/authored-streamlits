@@ -50,7 +50,6 @@ with col1:
     group = st.selectbox(
         "Grouping",
         [
-            None,
             "Day",
             "Party size",
             "Time",
@@ -66,7 +65,7 @@ with col2:
         sns.countplot(x=categorical, hue=group, data = tips)
 
     else:
-        sns.displot(x=categorical, hue=group, data = tips, multiple='stack')
+        sns.displot(tips, x='Day', hue='Sex', multiple='stack')
 
     ax.set_xlabel(categorical, fontsize=14)
     ax.set_ylabel("Count", fontsize=14)
