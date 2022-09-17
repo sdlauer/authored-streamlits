@@ -60,7 +60,7 @@ with col1:
     group = st.selectbox(
         "Grouping",
         [
-            "None",
+            None,
             "Day",
             "Party size",
             "Time",
