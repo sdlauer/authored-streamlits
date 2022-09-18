@@ -78,7 +78,7 @@ with tab1:
             ax.set_ylabel("Count", fontsize=14)
             ax.ticklabel_format(style='plain', axis='y')
 
-        st.pyplot(fig)}
+        st.pyplot(fig)
 
 with tab2:
     if check:
