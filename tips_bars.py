@@ -75,6 +75,11 @@ with col1:
                 ["Day","Party size","Sex","Time"]
             )
 
+    check = st.checkbox("Display cross tabulation")
+    if check:
+        cross = pd.crosstab(tips["categorical"], tips["group"])
+        st.dataframe(cross)
+
 with col2:
     fig, ax = plt.subplots()
     if type=="Stacked": sns.histplot(x=categorical, hue=group, data=tips, shrink=.8, multiple="stack")
