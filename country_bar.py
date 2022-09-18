@@ -55,5 +55,5 @@ with col1:
 with col2:
     sns.countplot(x=categorical, data=country)
     ax.set_xlabel(categorical, fontsize=14)
-    ax.set_ylabel("Count" fontsize=14)
+    ax.set_ylabel("Count", fontsize=14)
     st.pyplot(fig)
