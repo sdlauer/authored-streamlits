@@ -43,5 +43,5 @@ with col2:
 
     sns.histplot(x=categorical, data=country, shrink=.8, stat="density")
     ax.set_xlabel(categorical, fontsize=14)
-    ax.set_ylabel("Count", fontsize=14)
+    ax.set_ylabel("Proportion", fontsize=14)
     st.pyplot(fig)
