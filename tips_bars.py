@@ -22,7 +22,7 @@ tips.columns = ["Total bill", "Tip", "Sex", "Smoker", "Day", "Time", "Party size
 
 # st.header("Visualizing the tips dataset")
 
-col1, col2 = st.columns([1,3])
+col1, col2 = st.columns([2,2])
 
 with col1:
 
