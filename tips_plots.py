@@ -20,8 +20,6 @@ st.markdown(hide, unsafe_allow_html=True)
 tips = sns.load_dataset('tips')
 tips.columns = ["Total bill", "Tip", "Sex", "Smoker", "Day", "Time", "Party size"]
 
-# st.header("Visualizing the tips dataset")
-
 col1, col2 = st.columns([1,3])
 
 with col1:
