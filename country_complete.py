@@ -80,8 +80,9 @@ with tab1:
         st.pyplot(fig)
 
 with tab2:
-        five_num = country[country["Continent"]==continent].describe()
-        st.dataframe(five_num)
+        for i in ["Africa","Americas","Asia","Europe","Oceania"]:
+            five_num = country[country["Continent"]==i].describe()
+            st.dataframe(five_num)
 
         # st.subheader("Five number summary for Africa")
         # five_num_africa = country[country["Continent"]=="Africa"].describe()
