@@ -77,7 +77,7 @@ with col1:
 
     check = st.checkbox("Display cross tabulation")
     if check:
-        cross = pd.crosstab(tips["categorical"], tips["group"])
+        cross = pd.crosstab(tips[categorical], tips[group])
         st.dataframe(cross)
 
 with col2:
