@@ -23,7 +23,7 @@ country = pd.read_csv("country_complete.csv")
 tab1, tab2 = st.tabs(["Plot", "Summary statistics"])
 
 with tab1:
-    col1, col2 = st.columns([2,3])
+    col1, col2 = st.columns([1.5,3])
 
     with col1:
         plot = st.selectbox(
