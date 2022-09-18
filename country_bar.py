@@ -33,6 +33,10 @@ with col1:
         ]
     )
 
+    counts = country[["Country",categorical]].groupby(categorical).count()
+    counts.columns = ["Count"]
+    st.dataframe(counts)
+
 with col2:
     fig, ax = plt.subplots()
     sns.countplot(x=categorical, data=country)
