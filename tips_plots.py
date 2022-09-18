@@ -49,17 +49,6 @@ with col1:
             ]
         )
 
-    if plot == "Density plot":
-        group = st.selectbox(
-            "Categorical feature",
-            [
-                "Day",
-                "Party size",
-                "Time",
-                "Sex",
-                "Smoker"
-            ]
-        )
 
     numerical = st.selectbox(
         "Numerical feature",
@@ -70,31 +59,31 @@ with col1:
     )
 
 
-    if (categorical=="Day") & (plot!="Density plot"):
+    if (categorical=="Day"):
             group = st.selectbox(
                 "Grouping",
                 [None, "Party size","Time","Sex","Smoker"]
             )
 
-    elif (categorical=="Party size") & (plot!="Density plot"):
+    elif (categorical=="Party size"):
             group = st.selectbox(
                 "Grouping",
                 [None, "Day","Time","Sex","Smoker"]
             )
 
-    elif (categorical=="Time") & (plot!="Density plot"):
+    elif (categorical=="Time"):
             group = st.selectbox(
                 "Grouping",
                 [None, "Day","Party size","Sex","Smoker"]
             )
 
-    elif (categorical=="Sex") & (plot!="Density plot"):
+    elif (categorical=="Sex"):
             group = st.selectbox(
                 "Grouping",
                 [None, "Day","Party size","Smoker","Time"]
             )
 
-    elif (categorical=="Smoker") & (plot!="Density plot"):
+    elif (categorical=="Smoker"):
             group = st.selectbox(
                 "Grouping",
                 [None, "Day","Party size","Sex","Time"]
@@ -125,6 +114,5 @@ with col2:
     else:
         ax.set_xlabel(categorical, fontsize=14)
         ax.set_ylabel(numerical, fontsize=14)
-        # if group != "None": ax.legend(title=group)
 
     st.pyplot(fig)
