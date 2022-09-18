@@ -81,8 +81,7 @@ with tab1:
 
 with tab2:
         five_num = country[country["Continent"]==continent].describe()
-        summary = five_num[numerical].iloc[3:8,]
-        summary.index = ["Min","Q1","Median","Q3","Max"]
+        summary = five_num[numerical]
         st.dataframe(summary)
 
         # st.subheader("Five number summary for Africa")
