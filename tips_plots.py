@@ -57,35 +57,41 @@ with col1:
         ]
     )
 
-    if categorical=="Day":
+
+    if (categorical=="Day") & (plot!="Density plot"):
             group = st.selectbox(
                 "Grouping",
                 [None, "Party size","Time","Sex","Smoker"]
             )
 
-    elif categorical=="Party size":
+    elif (categorical=="Party size") & (plot!="Density plot"):
             group = st.selectbox(
                 "Grouping",
                 [None, "Day","Time","Sex","Smoker"]
             )
 
-    elif categorical=="Time":
+    elif (categorical=="Time") & (plot!="Density plot"):
             group = st.selectbox(
                 "Grouping",
                 [None, "Day","Party size","Sex","Smoker"]
             )
 
-    elif categorical=="Sex":
+    elif (categorical=="Sex") & (plot!="Density plot"):
             group = st.selectbox(
                 "Grouping",
                 [None, "Day","Party size","Smoker","Time"]
             )
 
-    else:
+    elif (categorical=="Smoker") & (plot!="Density plot"):
             group = st.selectbox(
                 "Grouping",
                 [None, "Day","Party size","Sex","Time"]
             )
+    elif (plot == "Density plot"):
+        group = st.selectbox(
+            "Grouping",
+            ["Day","Party size","Sex","Time"]
+        )
 
 with col2:
     fig, ax = plt.subplots()
