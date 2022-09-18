@@ -36,7 +36,14 @@ with col1:
         ]
     )
 
-
+    numerical = st.selectbox(
+        "Numerical feature",
+        [
+            "Tip",
+            "Total bill"
+        ]
+    )
+    
     if plot != "Density plot":
         categorical = st.selectbox(
             "Categorical feature",
@@ -84,16 +91,6 @@ with col1:
             "Grouping",
             ["Day","Party size","Sex","Smoker","Time"]
         )
-
-
-    numerical = st.selectbox(
-        "Numerical feature",
-        [
-            "Tip",
-            "Total bill"
-        ]
-    )
-
 
 
 
