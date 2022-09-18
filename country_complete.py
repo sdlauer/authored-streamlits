@@ -55,7 +55,7 @@ with col1:
 
 
 with col2:
-    df = country_complete[country_complete["Continent"]==continent][numerical]
+    df = country[country["Continent"]==continent][numerical]
     fig, ax = plt.subplots()
 
     if plot == "Box plot":
