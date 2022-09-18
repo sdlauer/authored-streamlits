@@ -83,6 +83,6 @@ with tab2:
         # summary = five_num[numerical].iloc[3:8,]
         # summary.index = ["Min","Q1","Median","Q3","Max"]
         # st.dataframe(summary)
-
-        five_num = country.groupby("Continent").describe()
+        st.text("Five number summary for " + continent)
+        five_num = country[country["Continent"]==continent].describe()
         st.dataframe(five_num)
