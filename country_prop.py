@@ -35,13 +35,13 @@ with col1:
 
     counts = country[["Country",categorical]].groupby(categorical).count()
     counts.columns = ["Count"]
-    counts.insert(2, "Proportion", counts["Count"]/151, True)
+#    counts.insert(2, "Proportion", counts["Count"]/151, True)
     st.dataframe(counts)
 
 with col2:
     fig, ax = plt.subplots()
 
-    sns.histplot(x=categorical, data=country, shrink=.8)
+    sns.histplot(x=categorical, data=country, shrink=.8, stats="density")
     ax.set_xlabel(categorical, fontsize=14)
     ax.set_ylabel("Count", fontsize=14)
     st.pyplot(fig)
