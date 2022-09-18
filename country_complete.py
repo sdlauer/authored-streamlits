@@ -69,7 +69,7 @@ with tab1:
 
         elif plot == "Density plot with counts":
             sns.histplot(x=df, kde=True)
-        elif plot == "Density plot"
+        elif plot == "Density plot":
             sns.histplot(x=df, kde=True, stat="density")
 
         ax.set_xlabel(numerical, fontsize=14)
