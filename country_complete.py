@@ -80,27 +80,27 @@ with tab1:
         st.pyplot(fig)
 
 with tab2:
-        # five_num = country[country["Continent"]==continent].describe()
-        # summary = five_num[numerical].iloc[3:8,]
-        # summary.index = ["Min","Q1","Median","Q3","Max"]
-        # st.dataframe(summary)
+        five_num = country[country["Continent"]==continent].describe()
+        summary = five_num[numerical].iloc[3:8,]
+        summary.index = ["Min","Q1","Median","Q3","Max"]
+        st.dataframe(summary)
 
-        st.subheader("Five number summary for Africa")
-        five_num_africa = country[country["Continent"]=="Africa"].describe()
-        st.dataframe(five_num_africa)
-
-        st.subheader("Five number summary for Americas")
-        five_num_africa = country[country["Continent"]=="Americas"].describe()
-        st.dataframe(five_num_americas)
-
-        st.subheader("Five number summary for Asia")
-        five_num_africa = country[country["Continent"]=="Asia""].describe()
-        st.dataframe(five_num_asia)
-
-        st.subheader("Five number summary for Europe")
-        five_num_africa = country[country["Continent"]=="Europe"].describe()
-        st.dataframe(five_num_europe)
-
-        st.subheader("Five number summary for Oceania")
-        five_num_africa = country[country["Continent"]=="Oceania"].describe()
-        st.dataframe(five_num_africa)
+        # st.subheader("Five number summary for Africa")
+        # five_num_africa = country[country["Continent"]=="Africa"].describe()
+        # st.dataframe(five_num_africa)
+        #
+        # st.subheader("Five number summary for Americas")
+        # five_num_africa = country[country["Continent"]=="Americas"].describe()
+        # st.dataframe(five_num_americas)
+        #
+        # st.subheader("Five number summary for Asia")
+        # five_num_africa = country[country["Continent"]=="Asia""].describe()
+        # st.dataframe(five_num_asia)
+        #
+        # st.subheader("Five number summary for Europe")
+        # five_num_africa = country[country["Continent"]=="Europe"].describe()
+        # st.dataframe(five_num_europe)
+        #
+        # st.subheader("Five number summary for Oceania")
+        # five_num_africa = country[country["Continent"]=="Oceania"].describe()
+        # st.dataframe(five_num_africa)
