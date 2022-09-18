@@ -35,7 +35,7 @@ with col1:
 
     counts = country[["Country",categorical]].groupby(categorical).count()
     counts.columns = ["Count"]
-#    counts.insert(2, "Proportion", counts["Count"]/151, True)
+    counts.insert(1, "Proportion", counts["Count"]/151, True)
     st.dataframe(counts)
 
 with col2:
