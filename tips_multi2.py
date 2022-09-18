@@ -70,7 +70,7 @@ with col2:
     sns.scatterplot(x="Total bill", y="Tip", data=tips,
         hue=hue, style=style)
 
-    ax.set_xlabel(categorical, fontsize=14)
-    ax.set_ylabel(numerical, fontsize=14)
+    ax.set_xlabel("Total bill", fontsize=14)
+    ax.set_ylabel("Tip", fontsize=14)
 
     st.pyplot(fig)
