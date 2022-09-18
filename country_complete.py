@@ -84,5 +84,5 @@ with tab2:
         # summary.index = ["Min","Q1","Median","Q3","Max"]
         # st.dataframe(summary)
 
-        five_num = country.describe()
+        five_num = country.groupby("Continent").describe()
         st.dataframe(five_num)
