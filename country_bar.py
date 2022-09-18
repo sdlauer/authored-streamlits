@@ -39,7 +39,8 @@ with col1:
 
 with col2:
     fig, ax = plt.subplots()
-    sns.countplot(x=categorical, data=country)
+
+    sns.histplot(x=categorical, data=country, shrink=.8)
     ax.set_xlabel(categorical, fontsize=14)
     ax.set_ylabel("Count", fontsize=14)
     st.pyplot(fig)
