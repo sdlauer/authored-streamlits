@@ -46,7 +46,7 @@ with col1:
                 ["Day","Time","Sex","Smoker"]
             )
 
-    elif hue=="Time:
+    elif hue=="Time":
             style = st.selectbox(
                 "Group by marker style",
                 ["Day","Party size","Sex","Smoker"]
@@ -67,7 +67,7 @@ with col1:
 with col2:
     fig, ax = plt.subplots()
 
-    sns.scatterplot(x="Total bill", y="Tip", data=tips, 
+    sns.scatterplot(x="Total bill", y="Tip", data=tips,
         hue=hue, style=style)
 
     ax.set_xlabel(categorical, fontsize=14)
