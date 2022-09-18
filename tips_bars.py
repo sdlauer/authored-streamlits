@@ -48,31 +48,31 @@ with col1:
     if categorical=="Day":
             group = st.selectbox(
                 "Grouping",
-                [None, "Party size","Time","Sex","Smoker"]
+                ["Party size","Time","Sex","Smoker"]
             )
 
     elif categorical=="Party size":
             group = st.selectbox(
                 "Grouping",
-                [None, "Day","Time","Sex","Smoker"]
+                ["Day","Time","Sex","Smoker"]
             )
 
     elif categorical=="Time":
             group = st.selectbox(
                 "Grouping",
-                [None, "Day","Party size","Sex","Smoker"]
+                ["Day","Party size","Sex","Smoker"]
             )
 
     elif categorical=="Sex":
             group = st.selectbox(
                 "Grouping",
-                [None, "Day","Party size","Smoker","Time"]
+                ["Day","Party size","Smoker","Time"]
             )
 
     else:
             group = st.selectbox(
                 "Grouping",
-                [None, "Day","Party size","Sex","Time"]
+                ["Day","Party size","Sex","Time"]
             )
 
 with col2:
