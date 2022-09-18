@@ -49,6 +49,18 @@ with col1:
             ]
         )
 
+    if plot == "Density plot":
+        group = st.selectbox(
+            "Categorical feature",
+            [
+                "Day",
+                "Party size",
+                "Time",
+                "Sex",
+                "Smoker"
+            ]
+        )
+
     numerical = st.selectbox(
         "Numerical feature",
         [
@@ -87,11 +99,7 @@ with col1:
                 "Grouping",
                 [None, "Day","Party size","Sex","Time"]
             )
-    elif (plot == "Density plot"):
-        group = st.selectbox(
-            "Grouping",
-            ["Day","Party size","Sex","Time"]
-        )
+
 
 with col2:
     fig, ax = plt.subplots()
