@@ -55,8 +55,6 @@ with tab1:
             ]
         )
 
-        check = st.checkbox("Display summary")
-
     with col2:
         df = country[country["Continent"]==continent][numerical]
         fig, ax = plt.subplots()
@@ -81,8 +79,10 @@ with tab1:
         st.pyplot(fig)
 
 with tab2:
-    if check:
-            five_num = country[country["Continent"]==continent].describe()
-            summary = five_num[numerical].iloc[3:8,]
-            summary.index = ["Min","Q1","Median","Q3","Max"]
-            st.dataframe(summary)
+        # five_num = country[country["Continent"]==continent].describe()
+        # summary = five_num[numerical].iloc[3:8,]
+        # summary.index = ["Min","Q1","Median","Q3","Max"]
+        # st.dataframe(summary)
+
+        five_num = country.describe()
+        st.dataframe(five_num)
