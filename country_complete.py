@@ -19,67 +19,70 @@ st.markdown(hide, unsafe_allow_html=True)
 
 country = pd.read_csv("country_complete.csv")
 
-# st.header("Visualizing the tips dataset")
 
-col1, col2 = st.columns([2,3])
+tab1, tab2 = st.tabs(["Plot", "Summary statistics"])
 
-with col1:
-    plot = st.selectbox(
-        "Plot",
-        [
-            "Box plot",
-            "Density plot",
-            "Histogram"
-        ]
-    )
+with tab1:
+    col1, col2 = st.columns([2,3])
 
-    numerical = st.selectbox(
-        "Numerical feature",
-        [
-            "Years",
-            "Fertility",
-            "Emissions",
-            "Internet"
-        ]
-    )
+    with col1:
+        plot = st.selectbox(
+            "Plot",
+            [
+                "Box plot",
+                "Density plot",
+                "Histogram"
+            ]
+        )
 
-    continent = st.selectbox(
-        "Continent",
-        [
-            "Africa",
-            "Americas",
-            "Asia",
-            "Europe"
-        ]
-    )
+        numerical = st.selectbox(
+            "Numerical feature",
+            [
+                "Years",
+                "Fertility",
+                "Emissions",
+                "Internet"
+            ]
+        )
 
-    check = st.checkbox("Display summary")
+        continent = st.selectbox(
+            "Continent",
+            [
+                "Africa",
+                "Americas",
+                "Asia",
+                "Europe"
+            ]
+        )
+
+        check = st.checkbox("Display summary")
+
+    with col2:
+        df = country[country["Continent"]==continent][numerical]
+        fig, ax = plt.subplots()
+
+        if plot == "Box plot":
+            sns.boxplot(x=df, width=0.5)
+
+        elif plot == "Histogram":
+            sns.histplot(x=df)
+
+        elif plot == "Density plot":
+            sns.histplot(x=df, kde=True)
+
+        ax.set_xlabel(numerical, fontsize=14)
+        ax.ticklabel_format(style='plain', axis='x')
+
+        if plot=="Histogram": ax.set_ylabel("Count", fontsize=14)
+        if plot=="Density plot":
+            ax.set_ylabel("Count", fontsize=14)
+            ax.ticklabel_format(style='plain', axis='y')
+
+        st.pyplot(fig)}
+
+with tab2:
     if check:
-        five_num = country[country["Continent"]==continent].describe()
-        summary = five_num[numerical].iloc[3:8,]
-        summary.index = ["Min","Q1","Median","Q3","Max"]
-        st.dataframe(summary)
-
-
-with col2:
-    df = country[country["Continent"]==continent][numerical]
-    fig, ax = plt.subplots()
-
-    if plot == "Box plot":
-        sns.boxplot(x=df, width=0.5)
-
-    elif plot == "Histogram":
-        sns.histplot(x=df)
-
-    elif plot == "Density plot":
-        sns.histplot(x=df, kde=True)
-
-    ax.set_xlabel(numerical, fontsize=14)
-    ax.ticklabel_format(style='plain', axis='x')
-
-    if plot=="Histogram": ax.set_ylabel("Count", fontsize=14)
-    if plot=="Density plot":
-        ax.set_ylabel("Count", fontsize=14)
-        ax.ticklabel_format(style='plain', axis='y')
-
-    st.pyplot(fig)
+            five_num = country[country["Continent"]==continent].describe()
+            summary = five_num[numerical].iloc[3:8,]
+            summary.index = ["Min","Q1","Median","Q3","Max"]
+            st.dataframe(summary)
