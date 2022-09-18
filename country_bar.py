@@ -24,33 +24,14 @@ country = pd.read_csv("country_complete.csv")
 col1, col2 = st.columns([1,3])
 
 with col1:
-    plot = st.selectbox(
-        "Plot",
-        [
-            "Box plot",
-            "Density plot",
-            "Histogram"
-        ]
-    )
-
     categorical = st.selectbox(
         "Categorical feature",
         [
+            "Continent",
             "Internet access",
             "Emissions range"
         ]
     )
-
-    continent = st.selectbox(
-        "Continent",
-        [
-            "Africa",
-            "Americas",
-            "Asia",
-            "Europe"
-        ]
-    )
-
 
 with col2:
     fig, ax = plt.subplots()
