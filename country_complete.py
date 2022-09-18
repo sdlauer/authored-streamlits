@@ -53,9 +53,11 @@ with col1:
         ]
     )
 
-    five_num = country[country["Continent"]==continent].describe()
-    summary = five_num[numerical]
-    st.dataframe(summary)
+    check = st.checkbox("Display summary")
+    if check: 
+        five_num = country[country["Continent"]==continent].describe()
+        summary = five_num[numerical]
+        st.dataframe(summary)
 
 
 with col2:
