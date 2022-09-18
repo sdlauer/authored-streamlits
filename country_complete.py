@@ -53,6 +53,10 @@ with col1:
         ]
     )
 
+    five_num = country[country["Continent"]==continent].describe()
+    summary = five_num[numerical]
+    st.dataframe(summary)
+
 
 with col2:
     df = country[country["Continent"]==continent][numerical]
