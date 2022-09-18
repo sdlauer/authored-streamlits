@@ -26,6 +26,14 @@ col1, col2 = st.columns([1,3])
 
 with col1:
 
+    type = st.selectbox(
+        "Categorical feature",
+        [
+            "Stacked",
+            "Grouped"
+        ]
+    )
+
     categorical = st.selectbox(
         "Categorical feature",
         [
@@ -69,8 +77,8 @@ with col1:
 
 with col2:
     fig, ax = plt.subplots()
-
-    sns.countplot(x=categorical, hue=group, data=tips)
+    if type=="Stacked": sns.histplot(x=categorical, hue=group, data=tips, shrink=.8, multiple="stack")
+    elif type=="Grouped": sns.histplot(x=categorical, hue=group, data=tips, shrink=.8, multiple="dodge")
 
     ax.set_xlabel(categorical, fontsize=14)
     ax.set_ylabel("Count", fontsize=14)
