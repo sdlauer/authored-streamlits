@@ -81,7 +81,9 @@ with tab1:
 
 with tab2:
         for i in ["Africa","Americas","Asia","Europe","Oceania"]:
-            st.subheader("Five number summary for " + i)
+            if i!="Americas":
+                st.subheader("Five number summary for " + i)
+            else: st.subheader("Five number summary for the Americas")
             five_num = country[country["Continent"]==i].describe()
             st.dataframe(five_num)
 
