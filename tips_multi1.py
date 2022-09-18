@@ -20,8 +20,6 @@ st.markdown(hide, unsafe_allow_html=True)
 tips = sns.load_dataset('tips')
 tips.columns = ["Total bill", "Tip", "Sex", "Smoker", "Day", "Time", "Party size"]
 
-# st.header("Visualizing the tips dataset")
-
 col1, col2 = st.columns([1,3])
 
 with col1:
@@ -56,35 +54,35 @@ with col1:
             ]
         )
 
-        # if (categorical=="Day"):
-        #         group = st.selectbox(
-        #             "Grouping",
-        #             [None, "Party size","Time","Sex","Smoker"]
-        #         )
-        #
-        # elif (categorical=="Party size"):
-        #         group = st.selectbox(
-        #             "Grouping",
-        #             [None, "Day","Time","Sex","Smoker"]
-        #         )
-        #
-        # elif (categorical=="Time"):
-        #         group = st.selectbox(
-        #             "Grouping",
-        #             [None, "Day","Party size","Sex","Smoker"]
-        #         )
-        #
-        # elif (categorical=="Sex"):
-        #         group = st.selectbox(
-        #             "Grouping",
-        #             [None, "Day","Party size","Smoker","Time"]
-        #         )
-        #
-        # elif (categorical=="Smoker"):
-        #         group = st.selectbox(
-        #             "Grouping",
-        #             [None, "Day","Party size","Sex","Time"]
-        #         )
+        if (categorical=="Day"):
+                group = st.selectbox(
+                    "Grouping",
+                    [None, "Party size","Time","Sex","Smoker"]
+                )
+
+        elif (categorical=="Party size"):
+                group = st.selectbox(
+                    "Grouping",
+                    [None, "Day","Time","Sex","Smoker"]
+                )
+
+        elif (categorical=="Time"):
+                group = st.selectbox(
+                    "Grouping",
+                    [None, "Day","Party size","Sex","Smoker"]
+                )
+
+        elif (categorical=="Sex"):
+                group = st.selectbox(
+                    "Grouping",
+                    [None, "Day","Party size","Smoker","Time"]
+                )
+
+        elif (categorical=="Smoker"):
+                group = st.selectbox(
+                    "Grouping",
+                    [None, "Day","Party size","Sex","Time"]
+                )
 
     if plot == "Density plot":
         group = st.selectbox(
@@ -99,19 +97,19 @@ with col2:
     fig, ax = plt.subplots()
 
     if plot == "Violin plot":
-        sns.violinplot(x=categorical, y=numerical, data = tips)
+        sns.violinplot(x=categorical, y=numerical, hue=group, data = tips)
 
     elif plot == "Density plot":
-        sns.kdeplot(x=numerical, multiple="stack", data = tips)
+        sns.kdeplot(x=numerical, multiple="stack", hue=group, data = tips)
 
     elif plot == "Strip plot":
-        sns.stripplot(x=categorical, y=numerical, data = tips)
+        sns.stripplot(x=categorical, y=numerical,  hue=group, data = tips)
 
     elif plot == "Box plot":
-        sns.boxplot(x=categorical, y=numerical, data = tips)
+        sns.boxplot(x=categorical, y=numerical,  hue=group, data = tips)
 
     else:
-        sns.swarmplot(x=categorical, y=numerical, data = tips)
+        sns.swarmplot(x=categorical, y=numerical,  hue=group, data = tips)
 
     if plot == "Density plot":
         ax.set_xlabel(numerical, fontsize=14)
