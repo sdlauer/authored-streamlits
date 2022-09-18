@@ -54,9 +54,9 @@ with col1:
     )
 
     check = st.checkbox("Display summary")
-    if check: 
+    if check:
         five_num = country[country["Continent"]==continent].describe()
-        summary = five_num[numerical]
+        summary = five_num[numerical].iloc[3:8,]
         st.dataframe(summary)
 
 
