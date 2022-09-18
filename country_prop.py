@@ -41,7 +41,7 @@ with col1:
 with col2:
     fig, ax = plt.subplots()
 
-    sns.histplot(x=categorical, data=country, shrink=.8, stats="density")
+    sns.histplot(x=categorical, data=country, shrink=.8, stat="density")
     ax.set_xlabel(categorical, fontsize=14)
     ax.set_ylabel("Count", fontsize=14)
     st.pyplot(fig)
