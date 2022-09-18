@@ -64,7 +64,7 @@ with col2:
         sns.histplot(x=df)
 
     elif plot == "Density plot":
-        sns.histplot(x=df, stat="density", kde=True)
+        sns.histplot(x=df, kde=True)
 
     ax.set_xlabel(numerical, fontsize=14)
     ax.ticklabel_format(style='plain', axis='x')
@@ -72,7 +72,7 @@ with col2:
     if plot=="Histogram": ax.set_ylabel("Count", fontsize=14)
     if numerical=="Population": ax.tick_params(axis='x', labelrotation = 20)
     if plot=="Density plot":
-        ax.set_ylabel("Density", fontsize=14)
+        ax.set_ylabel("Count", fontsize=14)
         ax.ticklabel_format(style='plain', axis='y')
 
     st.pyplot(fig)
