@@ -44,17 +44,16 @@ with col1:
         ]
     )
 
-    if plot != "Density plot":
-        categorical = st.selectbox(
-            "Categorical feature",
-            [
-                "Day",
-                "Party size",
-                "Time",
-                "Sex",
-                "Smoker"
-            ]
-        )
+    categorical = st.selectbox(
+        "Categorical feature",
+        [
+            "Day",
+            "Party size",
+            "Time",
+            "Sex",
+            "Smoker"
+        ]
+    )
 
         # if (categorical=="Day"):
         #         group = st.selectbox(
@@ -102,7 +101,7 @@ with col2:
         sns.violinplot(x=categorical, y=numerical, data = tips)
 
     elif plot == "Density plot":
-        sns.kdeplot(x=numerical, multiple="stack", data = tips)
+        sns.kdeplot(x=numerical, multiple="stack", hue=categorical, data = tips)
 
     elif plot == "Strip plot":
         sns.stripplot(x=categorical, y=numerical, data = tips)
