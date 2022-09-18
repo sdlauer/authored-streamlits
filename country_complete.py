@@ -57,6 +57,7 @@ with col1:
     if check:
         five_num = country[country["Continent"]==continent].describe()
         summary = five_num[numerical].iloc[3:8,]
+        summary.index = ["Min","Q1","Median","Q3","Max"]
         st.dataframe(summary)
 
 
