@@ -81,8 +81,7 @@ with tab1:
 
 with tab2:
         five_num = country[country["Continent"]==continent].describe()
-        summary = five_num[numerical]
-        st.dataframe(summary)
+        st.dataframe(five_num)
 
         # st.subheader("Five number summary for Africa")
         # five_num_africa = country[country["Continent"]=="Africa"].describe()
