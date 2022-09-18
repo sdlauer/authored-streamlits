@@ -51,7 +51,8 @@ with tab1:
                 "Africa",
                 "Americas",
                 "Asia",
-                "Europe"
+                "Europe",
+                "Oceania"
             ]
         )
 
@@ -83,6 +84,23 @@ with tab2:
         # summary = five_num[numerical].iloc[3:8,]
         # summary.index = ["Min","Q1","Median","Q3","Max"]
         # st.dataframe(summary)
-        st.text("Five number summary for " + continent)
-        five_num = country[country["Continent"]==continent].describe()
-        st.dataframe(five_num)
+
+        st.subheader("Five number summary for Africa")
+        five_num_africa = country[country["Continent"]=="Africa"].describe()
+        st.dataframe(five_num_africa)
+
+        st.subheader("Five number summary for Americas")
+        five_num_africa = country[country["Continent"]=="Americas"].describe()
+        st.dataframe(five_num_americas)
+
+        st.subheader("Five number summary for Asia")
+        five_num_africa = country[country["Continent"]=="Asia""].describe()
+        st.dataframe(five_num_asia)
+
+        st.subheader("Five number summary for Europe")
+        five_num_africa = country[country["Continent"]=="Europe"].describe()
+        st.dataframe(five_num_europe)
+
+        st.subheader("Five number summary for Oceania")
+        five_num_africa = country[country["Continent"]=="Oceania"].describe()
+        st.dataframe(five_num_africa)
