@@ -20,7 +20,7 @@ st.markdown(hide, unsafe_allow_html=True)
 tips = sns.load_dataset('tips')
 tips.columns = ["Total bill", "Tip", "Sex", "Smoker", "Day", "Time", "Party size"]
 
-col1, col2 = st.columns([2.5,3])
+col1, col2 = st.columns([2,3])
 
 with col1:
     plot = st.selectbox(
