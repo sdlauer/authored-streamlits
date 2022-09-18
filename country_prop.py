@@ -21,7 +21,7 @@ country = pd.read_csv("country_complete.csv")
 
 # st.header("Visualizing the tips dataset")
 
-col1, col2 = st.columns([1,3])
+col1, col2 = st.columns([1.5,3])
 
 with col1:
     categorical = st.selectbox(
