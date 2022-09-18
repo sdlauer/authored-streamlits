@@ -27,7 +27,6 @@ with col1:
         "Plot",
         [
             "Box plot",
-            "Density plot",
             "Violin plot",
             "Strip plot",
             "Swarm plot"
@@ -42,65 +41,53 @@ with col1:
         ]
     )
 
-    if plot != "Density plot":
-        categorical = st.selectbox(
-            "Categorical feature",
-            [
-                "Day",
-                "Party size",
-                "Time",
-                "Sex",
-                "Smoker"
-            ]
-        )
 
-        if (categorical=="Day"):
-                group = st.selectbox(
-                    "Grouping",
-                    [None, "Party size","Time","Sex","Smoker"]
-                )
+    categorical = st.selectbox(
+        "Categorical feature",
+        [
+            "Day",
+            "Party size",
+            "Time",
+            "Sex",
+            "Smoker"
+        ]
+    )
 
-        elif (categorical=="Party size"):
-                group = st.selectbox(
-                    "Grouping",
-                    [None, "Day","Time","Sex","Smoker"]
-                )
+    if (categorical=="Day"):
+            group = st.selectbox(
+                "Grouping",
+                ["Party size","Time","Sex","Smoker"]
+            )
 
-        elif (categorical=="Time"):
-                group = st.selectbox(
-                    "Grouping",
-                    [None, "Day","Party size","Sex","Smoker"]
-                )
+    elif (categorical=="Party size"):
+            group = st.selectbox(
+                "Grouping",
+                ["Day","Time","Sex","Smoker"]
+            )
 
-        elif (categorical=="Sex"):
-                group = st.selectbox(
-                    "Grouping",
-                    [None, "Day","Party size","Smoker","Time"]
-                )
+    elif (categorical=="Time"):
+            group = st.selectbox(
+                "Grouping",
+                ["Day","Party size","Sex","Smoker"]
+            )
 
-        elif (categorical=="Smoker"):
-                group = st.selectbox(
-                    "Grouping",
-                    [None, "Day","Party size","Sex","Time"]
-                )
+    elif (categorical=="Sex"):
+            group = st.selectbox(
+                "Grouping",
+                ["Day","Party size","Smoker","Time"]
+            )
 
-    if plot == "Density plot":
-        group = st.selectbox(
-            "Grouping",
-            ["Day","Party size","Sex","Smoker","Time"]
-        )
-
-
-
+    elif (categorical=="Smoker"):
+            group = st.selectbox(
+                "Grouping",
+                ["Day","Party size","Sex","Time"]
+            )
 
 with col2:
     fig, ax = plt.subplots()
 
     if plot == "Violin plot":
         sns.violinplot(x=categorical, y=numerical, hue=group, data = tips)
-
-    elif plot == "Density plot":
-        sns.kdeplot(x=numerical, multiple="stack", hue=group, data = tips)
 
     elif plot == "Strip plot":
         sns.stripplot(x=categorical, y=numerical,  hue=group, data = tips)
@@ -111,11 +98,7 @@ with col2:
     else:
         sns.swarmplot(x=categorical, y=numerical,  hue=group, data = tips)
 
-    if plot == "Density plot":
-        ax.set_xlabel(numerical, fontsize=14)
-        ax.set_ylabel("Density", fontsize=14)
-    else:
-        ax.set_xlabel(categorical, fontsize=14)
-        ax.set_ylabel(numerical, fontsize=14)
+    ax.set_xlabel(categorical, fontsize=14)
+    ax.set_ylabel(numerical, fontsize=14)
 
     st.pyplot(fig)
