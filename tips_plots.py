@@ -55,6 +55,12 @@ with col1:
 
     check = st.checkbox("Display cross tabulation")
 
+    if check:
+        summary = tips.groupby(categorical)[numerical].describe()
+        summary.columns = ["Count","Mean","Std", "Min", "Q1", "Median", "Q3", "Max"]
+        summary = summary[["Min", "Q1", "Median", "Q3", "Max"]]
+        st.dataframe(summary)
+
 with col2:
     fig, ax = plt.subplots()
 
@@ -81,9 +87,3 @@ with col2:
         ax.set_ylabel(numerical, fontsize=14)
 
     st.pyplot(fig)
-
-    if check:
-        summary = tips.groupby(categorical)[numerical].describe()
-        summary.columns = ["Count","Mean","Std", "Min", "Q1", "Median", "Q3", "Max"]
-        summary = summary[["Min", "Q1", "Median", "Q3", "Max"]]
-        st.dataframe(summary)
