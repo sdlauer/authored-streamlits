@@ -31,7 +31,6 @@ with tab1:
             [
                 "Box plot",
                 "Density plot",
-                "Density plot with counts",
                 "Histogram"
             ]
         )
@@ -67,8 +66,6 @@ with tab1:
         elif plot == "Histogram":
             sns.histplot(x=df)
 
-        elif plot == "Density plot with counts":
-            sns.histplot(x=df, kde=True)
         elif plot == "Density plot":
             sns.histplot(x=df, kde=True, stat="density")
 
@@ -76,9 +73,6 @@ with tab1:
         ax.ticklabel_format(style='plain', axis='x')
 
         if plot=="Histogram": ax.set_ylabel("Count", fontsize=14)
-        if plot=="Density plot with counts":
-            ax.set_ylabel("Count", fontsize=14)
-            ax.ticklabel_format(style='plain', axis='y')
         if plot=="Density plot":
             ax.set_ylabel("Density", fontsize=14)
             ax.ticklabel_format(style='plain', axis='y')
