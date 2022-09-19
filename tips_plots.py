@@ -53,7 +53,7 @@ with col1:
         ]
     )
 
-    check = st.checkbox("Display cross tabulation")
+    check = st.checkbox("Display summary statistics")
 
     if check:
         summary = tips.groupby(categorical)[numerical].describe()
