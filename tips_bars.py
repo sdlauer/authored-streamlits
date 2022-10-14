@@ -23,9 +23,8 @@ tips.columns = ["Total bill", "Tip", "Sex", "Smoker", "Day", "Time", "Party size
 col1, col2 = st.columns([2,3])
 
 with col1:
-
     type = st.selectbox(
-        "Categorical feature",
+        "Bar chart type",
         [
             "Stacked",
             "Grouped"
