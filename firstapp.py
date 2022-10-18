@@ -18,7 +18,7 @@ hide = """
 st.markdown(hide, unsafe_allow_html=True)
 
 passenger = pd.read_csv('passenger.csv')
-passenger.columns = ["ID", "License", "Cost", "TotalTme", "Satisfaction"]
+passenger.columns = ["ID", "License", "Cost", "TotalTime", "Satisfaction"]
 
 col1, col2 = st.columns([2,3])
 
