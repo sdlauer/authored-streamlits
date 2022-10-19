@@ -40,7 +40,7 @@ with col1:
             "1 (Linear)",
             "2 (Quadratic)",
             "3 (Cubic)",
-            "4 (Quintic)",
+            "4 (Quartic)",
         ]
     )
 
