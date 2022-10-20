@@ -34,7 +34,7 @@ with col1:
     group1 = st.selectbox(
         "Group 1",
         [
-            "none"
+            "none",
             "EWR",
             "JFK",
             "LGA"
@@ -44,7 +44,7 @@ with col1:
     group2 = st.selectbox(
         "Group 2",
         [
-            "none"
+            "none",
             "EWR",
             "JFK",
             "LGA"
