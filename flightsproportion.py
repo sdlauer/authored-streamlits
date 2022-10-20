@@ -71,28 +71,3 @@ with col1:
         st.dataframe(summary)
 
 with col2:
-#    fig, ax = plt.subplots()
-#
-#    if plot == "Violin plot":
-#        sns.violinplot(x=categorical, y=numerical, data = passenger)
-#
-#    elif plot == "Density plot":
-#        sns.kdeplot(x=numerical, multiple="stack", hue=categorical, data = passenger)
-#
-#    elif plot == "Strip plot":
-#        sns.stripplot(x=categorical, y=numerical, data = passenger)
-#
-#    elif plot == "Box plot":
-#        sns.boxplot(x=categorical, y=numerical, data = passenger)
-#
-#    else:
-#        sns.swarmplot(x=categorical, y=numerical, data = passenger)
-#
-#    if plot == "Density plot":
-#        ax.set_xlabel(numerical, fontsize=14)
-#        ax.set_ylabel("Density", fontsize=14)
-#    else:
-#        ax.set_xlabel(categorical, fontsize=14)
-#        ax.set_ylabel(numerical, fontsize=14)
-#
-#    st.pyplot(fig)
