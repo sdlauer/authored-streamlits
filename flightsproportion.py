@@ -52,15 +52,15 @@ with col1:
     )
     st.text("Null Hypothesis:")
     st.latex(r'''H_0: \pi_1 = \pi_2''')
+    st.text("Alternative Hypothesis:")
     alternative = st.selectbox(
-        "Alternative hypothesis",
+        "",
         [
             "not equal",
             "less than",
             "greater than",
         ]
     )
-    st.text("Null Hypothesis:")
     if alternative == "not equal":
         st.latex(r'''H_a: \pi_1 \neq \pi_2''')
     elif alternative == "less than":
