@@ -21,9 +21,9 @@ st.markdown(hide, unsafe_allow_html=True)
 flights = pd.read_csv('flightsProp.csv')
 flights.columns = ["origin", "delay"]
 
-EWR = flights[flights['origin']=='EWR']
-JFK = flights[flights['origin']=='JFK']
-LGA = flights[flights['origin']=='LGA']
+EWRf = flights[flights['origin']=='EWR']
+JFKf = flights[flights['origin']=='JFK']
+LGAf = flights[flights['origin']=='LGA']
 
 
 
@@ -59,11 +59,11 @@ with col1:
             summary = pd.DataFrame(data={'Origin': ['All'], 'No Delay': [counts[0]],'Delay': [counts[1]]})
         elif group1 != "none" and group2 == "none":
               if group1 == EWR:
-                counts = EWR['delay'].value_counts()
+                counts = EWRf['delay'].value_counts()
               elif group1 == JFK:
-                counts = EWR['delay'].value_counts()
+                counts = JFKf['delay'].value_counts()
               else:
-                counts = EWR['delay'].value_counts()
+                counts = LGAf['delay'].value_counts()
               summary = pd.DataFrame(data={'Origin': [group1], 'No Delay': [counts[0]],'Delay': [counts[1]]})
         elif group1 == "none" and group2 != "none":
               summary = group2['delay'].value_counts()
