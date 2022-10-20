@@ -58,7 +58,12 @@ with col1:
             counts = flights['delay'].value_counts()
             summary = pd.DataFrame(data={'Origin': ['All'], 'No Delay': [counts[0]],'Delay': [counts[1]]})
         elif group1 != "none" and group2 == "none":
-              counts = group1['delay'].value_counts()
+              if group1 == EWR:
+                counts = EWR['delay'].value_counts()
+              elif group1 == JFK:
+                counts = EWR['delay'].value_counts()
+              else:
+                counts = EWR['delay'].value_counts()
               summary = pd.DataFrame(data={'Origin': [group1], 'No Delay': [counts[0]],'Delay': [counts[1]]})
         elif group1 == "none" and group2 != "none":
               summary = group2['delay'].value_counts()
