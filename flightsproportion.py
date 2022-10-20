@@ -71,3 +71,4 @@ with col1:
         st.dataframe(summary)
 
 with col2:
+    print('...in progress...')
