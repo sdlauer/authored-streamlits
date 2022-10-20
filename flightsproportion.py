@@ -66,11 +66,27 @@ with col1:
                 counts = LGAf['delay'].value_counts()
               summary = pd.DataFrame(data={'Origin': [group1], 'No Delay': [counts[0]],'Delay': [counts[1]]})
         elif group1 == "none" and group2 != "none":
-              summary = group2['delay'].value_counts()
+              if group2 == "EWR":
+                counts = EWRf['delay'].value_counts()
+              elif group2 == "JFK":
+                counts = JFKf['delay'].value_counts()
+              else:
+                counts = LGAf['delay'].value_counts()
               summary = pd.DataFrame(data={'Origin': [group2], 'No Delay': [counts[0]],'Delay': [counts[1]]})
         else:
-         counts1 = counts = group1['delay'].value_counts()
-         counts2 = counts = group2['delay'].value_counts()
+         if group1 == "EWR":
+            counts1 = EWRf['delay'].value_counts()
+         elif group1 == "JFK":
+            counts1 = JFKf['delay'].value_counts()
+         else:
+            counts1 = LGAf['delay'].value_counts()
+
+         if group2 == "EWR":
+            counts2 = EWRf['delay'].value_counts()
+         elif group2 == "JFK":
+            counts2 = JFKf['delay'].value_counts()
+         else:
+            counts2 = LGAf['delay'].value_counts()
          summary = pd.DataFrame(data={'Origin': [group1, group2], 
                 'No Delay': [counts1[0], counts2[0]],'Delay': [counts1[1], counts2[1]]})
         st.dataframe(summary)
