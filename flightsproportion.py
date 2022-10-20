@@ -63,10 +63,10 @@ with col1:
         elif group1 == "none" and group2 != "none":
               summary = group2['delay'].value_counts()
               summary = pd.DataFrame(data={'Origin': [group2], 'No Delay': [counts[0]],'Delay': [counts[1]]})
-        else group1 != "none" and group2 != "none":
-              counts1 = counts = group1['delay'].value_counts()
-              counts2 = counts = group2['delay'].value_counts()
-              summary = pd.DataFrame(data={'Origin': [group1, group2], 
+        else:
+         counts1 = counts = group1['delay'].value_counts()
+         counts2 = counts = group2['delay'].value_counts()
+         summary = pd.DataFrame(data={'Origin': [group1, group2], 
                 'No Delay': [counts1[0], counts2[0]],'Delay': [counts1[1], counts2[1]]})
         st.dataframe(summary)
 
