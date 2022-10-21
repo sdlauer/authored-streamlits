@@ -32,7 +32,7 @@ flighttab = pd.DataFrame( data = [['All', 33170, 39564, 72734],
     columns = ['Origin', 'Delay', 'No delay', 'Total'],
     index=None)
 
-col1, col2 = st.columns([1,2])
+col1, col2 = st.columns([1,2.5])
 
 with col1:
 
