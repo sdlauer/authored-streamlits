@@ -155,12 +155,24 @@ with col2:
             flighttab.loc[flighttab['Origin'] == group2, 'Delay'].values[0])/(
             flighttab.loc[flighttab['Origin'] == group1, 'Total'].values[0] + 
             flighttab.loc[flighttab['Origin'] == group2, 'Total'].values[0])
-        hyptest = proportions_ztest(count=[flighttab.loc[flighttab['Origin'] == group1, 'Delay'].values[0], 
-            flighttab.loc[flighttab['Origin'] == group2, 'Delay'].values[0]], 
-            nobs=[flighttab.loc[flighttab['Origin'] == group1, 'Total'].values[0], 
-            flighttab.loc[flighttab['Origin'] == group2, 'Total'].values[0]], 
+        if alternative == 'not equal':
+            hyptest = proportions_ztest(count=[flighttab.loc[flighttab['Origin'] == group1, 'Delay'].values[0], 
+                flighttab.loc[flighttab['Origin'] == group2, 'Delay'].values[0]], 
+                nobs=[flighttab.loc[flighttab['Origin'] == group1, 'Total'].values[0], 
+                flighttab.loc[flighttab['Origin'] == group2, 'Total'].values[0]], 
                   value=0, alternative='two-sided', prop_var=sample_prop)
-        st.write(sample_prop)
+        elif alternative == 'less than':    
+            hyptest = proportions_ztest(count=[flighttab.loc[flighttab['Origin'] == group1, 'Delay'].values[0], 
+                flighttab.loc[flighttab['Origin'] == group2, 'Delay'].values[0]], 
+                nobs=[flighttab.loc[flighttab['Origin'] == group1, 'Total'].values[0], 
+                flighttab.loc[flighttab['Origin'] == group2, 'Total'].values[0]], 
+                  value=0, alternative='smaller', prop_var=sample_prop)
+        else:
+            hyptest = proportions_ztest(count=[flighttab.loc[flighttab['Origin'] == group1, 'Delay'].values[0], 
+                flighttab.loc[flighttab['Origin'] == group2, 'Delay'].values[0]], 
+                nobs=[flighttab.loc[flighttab['Origin'] == group1, 'Total'].values[0], 
+                flighttab.loc[flighttab['Origin'] == group2, 'Total'].values[0]], 
+                  value=0, alternative='larger', prop_var=sample_prop)
         st.write('Test statistic:', hyptest[0])
         st.write('p-value: ', hyptest[1])
     else:
