@@ -3,7 +3,7 @@ import pandas as pd
 import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
-#from statsmodels.stats.proportion import proportions_ztest
+from statsmodels.stats.proportion import proportions_ztest
 
 hide = """
         <style>
