@@ -129,7 +129,7 @@ with col2:
     if group1 == "none" and group2 == "none":
         ax1.bar(x=['Delay', 'No delay'], height=flighttab[flighttab['Origin']=='All'][['Delay', 'No delay']])
         ax2.set_visible(False)
-    elif group1 != "none" and group2 = "none":
+    elif group1 != "none" and group2 == "none":
         ax1.bar(x=['Delay', 'No delay'], height=flighttab[flighttab['Origin']==group1][['Delay', 'No delay']])
         ax2.set_visible(False)
     elif group1 == "none" and group2 != "none":
