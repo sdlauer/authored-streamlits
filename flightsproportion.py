@@ -28,7 +28,7 @@ st.markdown(hide, unsafe_allow_html=True)
 flighttab = pd.DataFrame( data = [['All', 33170, 39564, 72734], 
     ['JFK', 8456, 10756, 19212], 
     ['LGA', 9793, 15385, 25178], 
-    ['EWR', 59300, 61535, 28344]],
+    ['EWR', 14921, 13423, 28344]],
     columns = ['Origin', 'Delay', 'No delay', 'Total'],
     index=None)
 
