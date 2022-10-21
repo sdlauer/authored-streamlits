@@ -160,9 +160,10 @@ with col2:
             nobs=[flighttab.loc[flighttab['Origin'] == group1, 'Total'].values[0], 
             flighttab.loc[flighttab['Origin'] == group2, 'Total'].values[0]], 
                   value=0, alternative='two-sided', prop_var=sample_prop)
-        st.write('Test statistic:' hyptest[0], 'p-value: ' hyptest[1])
+        st.write('Test statistic:', hyptest[0])
+        st.write('p-value: ', hyptest[1])
     else:
-        st.write('Group 1 and Group 2 must be selected for hypothesis test results')
+        st.write('Select Group 1 and Group 2 for hypothesis test')
 
 
 
