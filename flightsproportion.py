@@ -28,7 +28,7 @@ st.markdown(hide, unsafe_allow_html=True)
 flighttab = pd.DataFrame( data = [['All', 33170, 39564, 72734], 
     ['JFK', 8456, 10756, 19212], 
     ['LGA', 9793, 15385, 25178], 
-    ['ERW', 59300, 61535, 28344]],
+    ['EWR', 59300, 61535, 28344]],
     columns = ['Origin', 'Delay', 'No delay', 'Total'],
     index=None)
 
@@ -82,7 +82,7 @@ with col1:
         elif group1 != "none" and group2 == "none":
               if group1 == "EWR":
                 #counts = EWRf['delay'].value_counts()
-                summary = flighttab[flighttab['Origin']=='ERW']
+                summary = flighttab[flighttab['Origin']=='EWR']
               elif group1 == "JFK":
                 #counts = JFKf['delay'].value_counts()
                 summary = flighttab[flighttab['Origin']=='JFK']
@@ -93,7 +93,7 @@ with col1:
         elif group1 == "none" and group2 != "none":
               if group2 == "EWR":
                 #counts = EWRf['delay'].value_counts()
-                summary = flighttab[flighttab['Origin']=='ERW']
+                summary = flighttab[flighttab['Origin']=='EWR']
               elif group2 == "JFK":
                 #counts = JFKf['delay'].value_counts()
                 summary = flighttab[flighttab['Origin']=='JFK']
@@ -104,7 +104,7 @@ with col1:
         else:
          if group1 == "EWR":
             #counts1 = EWRf['delay'].value_counts()
-            summary1 = flighttab[flighttab['Origin']=='ERW']
+            summary1 = flighttab[flighttab['Origin']=='EWR']
          elif group1 == "JFK":
             #counts1 = JFKf['delay'].value_counts()
             summary1 = flighttab[flighttab['Origin']=='JFK']
@@ -114,7 +114,7 @@ with col1:
 
          if group2 == "EWR":
             #counts2 = EWRf['delay'].value_counts()
-            summary2 = flighttab[flighttab['Origin']=='ERW']
+            summary2 = flighttab[flighttab['Origin']=='EWR']
          elif group2 == "JFK":
             #counts2 = JFKf['delay'].value_counts()
             summary2 = flighttab[flighttab['Origin']=='JFK']
@@ -125,4 +125,24 @@ with col1:
         st.dataframe(summary)
 
 with col2:
-    print('...in progress...')
+    fig, (ax1, ax2) = plt.subplots(norws=1, ncols=2)
+    if group1 == "none" and group2 == "none":
+        ax1.bar(x=['Delay', 'No delay'], height=flighttab[flighttab['Origin']=='All'][['Delay', 'No delay']])
+        ax2.set_visible(False)
+    elif group1 != "none" and group2 = "none":
+        ax1.bar(x=['Delay', 'No delay'], height=flighttab[flighttab['Origin']==group1][['Delay', 'No delay']])
+        ax2.set_visible(False)
+    elif group1 == "none" and group2 != "none":
+        ax2.bar(x=['Delay', 'No delay'], height=flighttab[flighttab['Origin']==group2][['Delay', 'No delay']])
+        ax1.set_visible(False)
+    else:
+        ax1.bar(x=['Delay', 'No delay'], height=flighttab[flighttab['Origin']==group1][['Delay', 'No delay']])    
+        ax2.bar(x=['Delay', 'No delay'], height=flighttab[flighttab['Origin']==group2][['Delay', 'No delay']])
+    st.pyplot(fig)
+
+
+
+
+
+
+
