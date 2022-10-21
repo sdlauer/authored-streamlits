@@ -148,6 +148,7 @@ with col2:
         ax2.bar(x=['Delay', 'No delay'], height=[flighttab.loc[flighttab['Origin'] == group2, 'Delay'].values[0], 
             flighttab.loc[flighttab['Origin'] == group2, 'No delay'].values[0]])
         ax2.title.set_text('Flights from %s' %group2)
+    fig.tight_layout(pad=1.0)
     st.pyplot(fig)
 
     if group1 != "none" and group2 != "none":
