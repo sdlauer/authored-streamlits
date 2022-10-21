@@ -125,7 +125,7 @@ with col1:
         st.dataframe(summary)
 
 with col2:
-    fig, (ax1, ax2) = plt.subplots(norws=1, ncols=2)
+    fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)
     if group1 == "none" and group2 == "none":
         ax1.bar(x=['Delay', 'No delay'], height=flighttab[flighttab['Origin']=='All'][['Delay', 'No delay']])
         ax2.set_visible(False)
