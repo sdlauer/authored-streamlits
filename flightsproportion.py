@@ -150,7 +150,7 @@ with col2:
         ax2.title.set_text('Flights from %s' %group2)
     st.pyplot(fig)
 
-    if gorup1 != "none" and group2 != "none":
+    if group1 != "none" and group2 != "none":
         sample_prop = (flighttab.loc[flighttab['Origin'] == group1, 'Delay'].values[0] +
             flighttab.loc[flighttab['Origin'] == group2, 'Delay'].values[0])/(
             flighttab.loc[flighttab['Origin'] == group1, 'Total'].values[0] + 
