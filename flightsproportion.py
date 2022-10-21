@@ -29,7 +29,8 @@ flighttab = pd.DataFrame( data = ['All', 33170, 39564, 72734],
     ['JFK', 8456, 10756, 19212], 
     ['LGA', 9793, 15385, 25178], 
     ['ERW', 59300, 61535, 28344],
-    columns = ['Origin', 'Delay', 'No delay', 'Total'])
+    columns = ['Origin', 'Delay', 'No delay', 'Total'],
+    index=None)
 
 col1, col2 = st.columns([2,3])
 
