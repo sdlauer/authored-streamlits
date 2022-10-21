@@ -150,6 +150,21 @@ with col2:
         ax2.title.set_text('Flights from %s' %group2)
     st.pyplot(fig)
 
+    if gorup1 != "none" and group2 != "none":
+        sample_prop = (flighttab.loc[flighttab['Origin'] == group1, 'Delay'].values[0] +
+            flighttab.loc[flighttab['Origin'] == group2, 'Delay'].values[0])/(
+            flighttab.loc[flighttab['Origin'] == group1, 'Total'].values[0] + 
+            flighttab.loc[flighttab['Origin'] == group2, 'Total'].values[0])
+        hyptest = proportions_ztest(count=[flighttab.loc[flighttab['Origin'] == group1, 'Delay'].values[0], 
+            flighttab.loc[flighttab['Origin'] == group2, 'Delay'].values[0]], 
+            nobs=[flighttab.loc[flighttab['Origin'] == group1, 'Total'].values[0], 
+            flighttab.loc[flighttab['Origin'] == group2, 'Total'].values[0]], 
+                  value=0, alternative='two-sided', prop_var=sample_prop)
+        st.write('Test statistic:' hyptest[0], 'p-value: ' hyptest[1])
+    else:
+        st.write('Group 1 and Group 2 must be selected for hypothesis test results')
+
+
 
 
 
