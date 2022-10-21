@@ -25,10 +25,10 @@ st.markdown(hide, unsafe_allow_html=True)
 #JFKf = flights[flights['origin']=='JFK']
 #LGAf = flights[flights['origin']=='LGA']
 
-flighttab = pd.DataFrame( data = ['All', 33170, 39564, 72734], 
+flighttab = pd.DataFrame( data = [['All', 33170, 39564, 72734], 
     ['JFK', 8456, 10756, 19212], 
     ['LGA', 9793, 15385, 25178], 
-    ['ERW', 59300, 61535, 28344],
+    ['ERW', 59300, 61535, 28344]],
     columns = ['Origin', 'Delay', 'No delay', 'Total'],
     index=None)
 
