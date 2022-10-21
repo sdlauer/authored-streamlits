@@ -129,15 +129,15 @@ with col2:
     if group1 == "none" and group2 == "none":
         ax1.bar(x=['Delay', 'No delay'], height=[flighttab.loc[flighttab['Origin'] == 'All', 'Delay'].values[0],  
             flighttab.loc[flighttab['Origin'] == 'All', 'No delay'].values[0]])
-        ax2.set_visible(False)
+        #ax2.set_visible(False)
     elif group1 != "none" and group2 == "none":
         ax1.bar(x=['Delay', 'No delay'], height=[flighttab.loc[flighttab['Origin'] == group1, 'Delay'].values[0],  
             flighttab.loc[flighttab['Origin'] == group1, 'No delay'].values[0]])
-        ax2.set_visible(False)
+        #ax2.set_visible(False)
     elif group1 == "none" and group2 != "none":
         ax2.bar(x=['Delay', 'No delay'], height=[flighttab.loc[flighttab['Origin'] == group2, 'Delay'].values[0],  
             flighttab.loc[flighttab['Origin'] == group2, 'No delay'].values[0]])
-        ax1.set_visible(False)
+        #ax1.set_visible(False)
     else:
         ax1.bar(x=['Delay', 'No delay'], height=[flighttab.loc[flighttab['Origin'] == group1, 'Delay'].values[0], 
             flighttab.loc[flighttab['Origin'] == group1, 'No delay'].values[0]])    
