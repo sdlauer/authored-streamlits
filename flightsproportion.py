@@ -127,17 +127,22 @@ with col1:
 with col2:
     fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)
     if group1 == "none" and group2 == "none":
-        ax1.bar(x=['Delay', 'No delay'], height=flighttab[flighttab['Origin']=='All'][['Delay', 'No delay']])
+        ax1.bar(x=['Delay', 'No delay'], height=[flighttab.loc[flighttab['Origin'] == 'All', 'Delay'].values[0],  
+            flighttab.loc[flighttab['Origin'] == 'All', 'No delay'].values[0]])
         ax2.set_visible(False)
     elif group1 != "none" and group2 == "none":
-        ax1.bar(x=['Delay', 'No delay'], height=flighttab[flighttab['Origin']==group1][['Delay', 'No delay']])
+        ax1.bar(x=['Delay', 'No delay'], height=[flighttab.loc[flighttab['Origin'] == group1, 'Delay'].values[0],  
+            flighttab.loc[flighttab['Origin'] == group1, 'No delay'].values[0]])
         ax2.set_visible(False)
     elif group1 == "none" and group2 != "none":
-        ax2.bar(x=['Delay', 'No delay'], height=flighttab[flighttab['Origin']==group2][['Delay', 'No delay']])
+        ax2.bar(x=['Delay', 'No delay'], height=[flighttab.loc[flighttab['Origin'] == group2, 'Delay'].values[0],  
+            flighttab.loc[flighttab['Origin'] == group2, 'No delay'].values[0]])
         ax1.set_visible(False)
     else:
-        ax1.bar(x=['Delay', 'No delay'], height=flighttab[flighttab['Origin']==group1][['Delay', 'No delay']])    
-        ax2.bar(x=['Delay', 'No delay'], height=flighttab[flighttab['Origin']==group2][['Delay', 'No delay']])
+        ax1.bar(x=['Delay', 'No delay'], height=[flighttab.loc[flighttab['Origin'] == group1, 'Delay'].values[0], 
+            flighttab.loc[flighttab['Origin'] == group1, 'No delay'].values[0]])    
+        ax2.bar(x=['Delay', 'No delay'], height=[flighttab.loc[flighttab['Origin'] == group2, 'Delay'].values[0], 
+            flighttab.loc[flighttab['Origin'] == group2, 'No delay'].values[0]])
     st.pyplot(fig)
 
 
