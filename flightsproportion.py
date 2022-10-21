@@ -78,49 +78,49 @@ with col1:
         if group1 == "none" and group2 == "none":
             #counts = flights['delay'].value_counts()
             #summary = pd.DataFrame(data={'Origin': ['All'], 'No Delay': [counts[0]],'Delay': [counts[1]]})
-            summary = flighttab['Origin']=='All'
+            summary = flighttab[flighttab['Origin']=='All']
         elif group1 != "none" and group2 == "none":
               if group1 == "EWR":
                 #counts = EWRf['delay'].value_counts()
-                summary = flighttab['Origin']=='EWR'
+                summary = flighttab[flighttab['Origin']==group1]
               elif group1 == "JFK":
                 #counts = JFKf['delay'].value_counts()
-                summary = flighttab['Origin']=='JFK'
+                summary = flighttab[flighttab['Origin']=='JFK']
               else:
                 #counts = LGAf['delay'].value_counts()
-                summary = flighttab['Origin']=='LGA'
+                summary = flighttab[flighttab['Origin']=='LGA']
               #summary = pd.DataFrame(data={'Origin': [group1], 'No Delay': [counts[0]],'Delay': [counts[1]]})
         elif group1 == "none" and group2 != "none":
               if group2 == "EWR":
                 #counts = EWRf['delay'].value_counts()
-                summary = flighttab['Origin']=='EWR'
+                summary = flighttab[flighttab['Origin']=='EWR']
               elif group2 == "JFK":
                 #counts = JFKf['delay'].value_counts()
-                summary = flighttab['Origin']=='JFK'
+                summary = flighttab[flighttab['Origin']=='JFK']
               else:
                 #counts = LGAf['delay'].value_counts()
-                summary = flighttab['Origin']=='LGA'
+                summary = flighttab[flighttab['Origin']=='LGA']
               #summary = pd.DataFrame(data={'Origin': [group2], 'No Delay': [counts[0]],'Delay': [counts[1]]})
         else:
          if group1 == "EWR":
             #counts1 = EWRf['delay'].value_counts()
-            summary1 = flighttab['Origin']=='EWR'
+            summary1 = flighttab[flighttab['Origin']=='EWR']
          elif group1 == "JFK":
             #counts1 = JFKf['delay'].value_counts()
-            summary1 = flighttab['Origin']=='JFK'
+            summary1 = flighttab[flighttab['Origin']=='JFK']
          else:
             #counts1 = LGAf['delay'].value_counts()
-            summary1 = flighttab['Origin']=='LGA'
+            summary1 = flighttab[flighttab['Origin']=='LGA']
 
          if group2 == "EWR":
             #counts2 = EWRf['delay'].value_counts()
-            summary2 = flighttab['Origin']=='EWR'
+            summary2 = flighttab[flighttab['Origin']=='EWR']
          elif group2 == "JFK":
             #counts2 = JFKf['delay'].value_counts()
-            summary2 = flighttab['Origin']=='JFK'
+            summary2 = flighttab[flighttab['Origin']=='JFK']
          else:
             #counts2 = LGAf['delay'].value_counts()
-            summary1 = flighttab['Origin']=='LGA'
+            summary1 = flighttab[flighttab['Origin']=='LGA']
          summary = pd.concat([summary1, summary2])
         st.dataframe(summary)
 
