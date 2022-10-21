@@ -93,7 +93,7 @@ with col1:
         elif group1 == "none" and group2 != "none":
               if group2 == "EWR":
                 #counts = EWRf['delay'].value_counts()
-                summary = flighttab[flighttab['Origin']=='EWR']
+                summary = flighttab[flighttab['Origin']=='ERW']
               elif group2 == "JFK":
                 #counts = JFKf['delay'].value_counts()
                 summary = flighttab[flighttab['Origin']=='JFK']
@@ -104,7 +104,7 @@ with col1:
         else:
          if group1 == "EWR":
             #counts1 = EWRf['delay'].value_counts()
-            summary1 = flighttab[flighttab['Origin']=='EWR']
+            summary1 = flighttab[flighttab['Origin']=='ERW']
          elif group1 == "JFK":
             #counts1 = JFKf['delay'].value_counts()
             summary1 = flighttab[flighttab['Origin']=='JFK']
@@ -114,7 +114,7 @@ with col1:
 
          if group2 == "EWR":
             #counts2 = EWRf['delay'].value_counts()
-            summary2 = flighttab[flighttab['Origin']=='EWR']
+            summary2 = flighttab[flighttab['Origin']=='ERW']
          elif group2 == "JFK":
             #counts2 = JFKf['delay'].value_counts()
             summary2 = flighttab[flighttab['Origin']=='JFK']
