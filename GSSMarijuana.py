@@ -1,0 +1,69 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Oct 24 13:50:17 2022
+
+@author: mrissler
+"""
+
+import streamlit as st
+import pandas as pd
+#import seaborn as sns
+#import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.tree import DecisionTreeClassifier, plot_tree#, export_text
+#from sklearn import metrics, tree
+#from sklearn.model_selection import train_test_split
+#from sklearn.ensemble import RandomForestClassifier
+
+marijuana = pd.read_csv('gss.csv').dropna()
+
+hide = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        body {overflow: hidden;}
+        div.block-container {padding-top:1rem;}
+        div.block-container {padding-bottom:1rem;}
+        </style>
+        """
+
+st.markdown(hide, unsafe_allow_html=True)
+
+marijuana = pd.read_csv('gss.csv').dropna()
+
+seed=123
+
+# Define input and output features
+X = marijuana[['age', 'educ', 'polviews_num']]
+y = marijuana[['marijuana01']]
+
+col1, col2 = st.columns([2,3])
+
+with col1:
+    depth = st.slider(
+        "Depth of tree",
+        min_value=1,
+        max_value=4,
+        value=2,
+        step=1,
+        )
+
+
+
+
+
+with col2:
+    
+    # Initialize the model
+    classtreeModel = DecisionTreeClassifier(max_depth=depth, random_state=seed)
+
+    # Fit the model
+    classtreeModel = classtreeModel.fit(X,y)
+    
+    fig, ax = plt.subplots()
+    
+    plot_tree(classtreeModel, feature_names=X.columns, 
+                       filled=True, fontsize=12)
+    
+    st.pyplot(fig)
