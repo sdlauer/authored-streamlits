@@ -69,7 +69,7 @@ with col2:
     if type=="Stacked": sns.histplot(x=grouping_1, hue=grouping_2, data=penguins, shrink=.8, multiple="stack")
     elif type=="Grouped": sns.histplot(x=grouping_1, hue=grouping_2, data=penguins, shrink=.8, multiple="dodge")
 
-    ax.set_xlabel(categorical, fontsize=14)
+    ax.set_xlabel(grouping_1, fontsize=14)
     ax.set_ylabel("Count", fontsize=14)
 
     st.pyplot(fig)
