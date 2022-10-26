@@ -24,7 +24,7 @@ col1, col2 = st.columns([1,3])
 tab1, tab2 = st.tabs(["Plot", "Summary statistics"])
 
 with tab1:
-    col1, col2 = st.columns([1.5,3])
+    col1, col2 = st.columns([1.5,2.5])
 
     with col1:
         numerical = st.selectbox(
