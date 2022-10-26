@@ -42,8 +42,6 @@ col1, col2 = st.columns([2,3])
 
 with col1:
 
-        col1.subheader("k-nearest neighbors")
-
         k = st.selectbox(
             "Select k",
             [3, 5, 7, 9, 11, 13, 15, 17, 19]

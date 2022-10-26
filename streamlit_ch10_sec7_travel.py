@@ -36,8 +36,6 @@ col1, col2 = st.columns([2,3])
 
 with col1:
 
-    col1.subheader("Destination ratings by cluster")
-
     destination = st.selectbox(
         "Select destination type",
         [
