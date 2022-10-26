@@ -46,5 +46,5 @@ with tab1:
 
 with tab2:
         st.subheader("Summary statistics")
-        summary = penguins[penguins[categorical]==categorical].describe()
+        summary = penguins[numerical].groupby(categorical).describe())
         st.dataframe(summary)
