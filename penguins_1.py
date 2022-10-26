@@ -59,7 +59,7 @@ with col1:
                 ["Bill length", "Bill depth", "Flipper length"]
             )
 
-    grouping = st.selectbox(
+    grouping_1 = st.selectbox(
             "Select color grouping",
             [
                 "Species",
@@ -68,9 +68,27 @@ with col1:
             ]
         )
 
+    if (grouping_1=="Species"):
+        grouping_2 = st.selectbox(
+            "Select style grouping",
+            ["Island","Sex"]
+        )
+
+    elif (grouping_1=="Island"):
+        grouping_2 = st.selectbox(
+            "Select style grouping",
+            ["Species","Sex"]
+        )
+
+    elif (grouping_1=="Sex"):
+        grouping_2 = st.selectbox(
+            "Select style grouping",
+            ["Species","Island"]
+        )
+
 with col2:
     fig, ax = plt.subplots()
-    sns.scatterplot(x=categorical_1, y=categorical_2, hue=grouping, data = penguins)
+    sns.scatterplot(x=categorical_1, y=categorical_2, hue=grouping_1, stype=grouping_2, data = penguins)
     ax.set_xlabel(categorical_1, fontsize=14)
     ax.set_ylabel(categorical_2, fontsize=14)
     st.pyplot(fig)
