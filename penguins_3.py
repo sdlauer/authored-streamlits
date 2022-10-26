@@ -38,7 +38,7 @@ with tab1:
 
     with col2:
         fig, ax = plt.subplots()
-        sns.histplot(x=numerical, data=penguins, hue=categorical, kde=True, stat="density")
+        sns.kdeplot(x=numerical, data=penguins, hue=categorical)
         ax.set_xlabel(numerical, fontsize=14)
         ax.set_ylabel("Density", fontsize=14)
         ax.ticklabel_format(style='plain', axis='y')
