@@ -88,7 +88,7 @@ with col1:
 
 with col2:
     fig, ax = plt.subplots()
-    sns.scatterplot(x=categorical_1, y=categorical_2, hue=grouping_1, stype=grouping_2, data = penguins)
+    sns.scatterplot(x=categorical_1, y=categorical_2, hue=grouping_1, style=grouping_2, data = penguins)
     ax.set_xlabel(categorical_1, fontsize=14)
     ax.set_ylabel(categorical_2, fontsize=14)
     st.pyplot(fig)
