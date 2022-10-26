@@ -26,7 +26,7 @@ col1, col2 = st.columns([1,3])
 
 with col1:
     numerical_1 = st.selectbox(
-        "Select numerical feature",
+        "First numerical feature",
         [
             "bill_length_mm",
             "bill_depth_mm",
@@ -37,30 +37,30 @@ with col1:
 
     if (numerical_1=="bill_length_mm"):
             numerical_2 = st.selectbox(
-                "Select another numerical feature",
+                "Second numerical feature",
                 ["bill_depth_mm", "flipper_length_mm", "body_mass_g"]
             )
 
     elif (numerical_1=="bill_depth_mm"):
             numerical_2 = st.selectbox(
-                "Select another numerical feature",
+                "Second numerical feature",
                 ["bill_length_mm", "flipper_length_mm", "body_mass_g"]
             )
 
     elif (numerical_1=="flipper_length_mm"):
             numerical_2 = st.selectbox(
-                "Select another numerical feature",
+                "Second numerical feature",
                 ["bill_length_mm", "bill_depth_mm", "body_mass_g"]
             )
 
     elif (numerical_1=="body_mass_g"):
             numerical_2 = st.selectbox(
-                "Select another numerical feature",
+                "Second numerical feature",
                 ["bill_length_mm", "bill_depth_mm", "flipper_length_mm"]
             )
 
     grouping_1 = st.selectbox(
-            "Select color grouping",
+            "Color grouping",
             [
                 "species",
                 "island",
@@ -70,19 +70,19 @@ with col1:
 
     if (grouping_1=="species"):
         grouping_2 = st.selectbox(
-            "Select style grouping",
+            "Style grouping",
             ["island","sex"]
         )
 
     elif (grouping_1=="island"):
         grouping_2 = st.selectbox(
-            "Select style grouping",
+            "Style grouping",
             ["species","sex"]
         )
 
     elif (grouping_1=="sex"):
         grouping_2 = st.selectbox(
-            "Select style grouping",
+            "Style grouping",
             ["species","island"]
         )
 
