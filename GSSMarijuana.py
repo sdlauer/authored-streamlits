@@ -30,7 +30,7 @@ hide = """
 
 st.markdown(hide, unsafe_allow_html=True)
 
-marijuana = pd.read_csv('gss.csv').dropna()
+marijuana = pd.read_csv('https://raw.githubusercontent.com/zyRissler/streamlits/main/gss.csv').dropna()
 
 seed=123
 
@@ -38,32 +38,33 @@ seed=123
 X = marijuana[['age', 'educ', 'polviews_num']]
 y = marijuana[['marijuana01']]
 
-col1, col2 = st.columns([2,3])
+#col1, col2 = st.columns([2,3])
 
-with col1:
-    depth = st.slider(
-        "Depth of tree",
-        min_value=1,
-        max_value=4,
-        value=2,
-        step=1,
-        )
-
-
-
-
-
-with col2:
+#with col1:
+depth = st.slider(
+    "Depth of tree",
+    min_value=1,
+    max_value=4,
+    value=2,
+    step=1,
+    )
     
-    # Initialize the model
-    classtreeModel = DecisionTreeClassifier(max_depth=depth, random_state=seed)
+    
 
-    # Fit the model
-    classtreeModel = classtreeModel.fit(X,y)
-    
-    fig, ax = plt.subplots()
-    
-    plot_tree(classtreeModel, feature_names=X.columns, 
-                       filled=True, fontsize=12)
-    
-    st.pyplot(fig)
+
+
+
+#with col2:
+
+# Initialize the model
+classtreeModel = DecisionTreeClassifier(max_depth=depth, random_state=seed)
+
+# Fit the model
+classtreeModel = classtreeModel.fit(X,y)
+
+fig, ax = plt.subplots()
+
+plot_tree(classtreeModel, feature_names=X.columns, 
+                   filled=True, fontsize=8)
+
+st.pyplot(fig)
