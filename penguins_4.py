@@ -38,7 +38,7 @@ with tab1:
 
     with col2:
         fig, ax = plt.subplots()
-        sns.boxplot(x=numerical, data=penguins, hue=categorical)
+        sns.boxplot(x=numerical, data=penguins, y=categorical)
         ax.set_xlabel(numerical, fontsize=14)
         ax.ticklabel_format(style='plain', axis='x')
         st.pyplot(fig)
