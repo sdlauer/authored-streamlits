@@ -32,7 +32,7 @@ with col1:
     )
 
     grouping_1 = st.selectbox(
-            "Color grouping",
+            "Categorical variable",
             [
                 "species",
                 "island",
@@ -42,19 +42,19 @@ with col1:
 
     if (grouping_1=="species"):
         grouping_2 = st.selectbox(
-            "Style grouping",
+            "Grouping",
             ["island","sex"]
         )
 
     elif (grouping_1=="island"):
         grouping_2 = st.selectbox(
-            "Style grouping",
+            "Grouping",
             ["species","sex"]
         )
 
     elif (grouping_1=="sex"):
         grouping_2 = st.selectbox(
-            "Style grouping",
+            "Grouping",
             ["species","island"]
         )
 
