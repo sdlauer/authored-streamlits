@@ -37,7 +37,7 @@ with tab1:
         )
 
     with col2:
-        sns.histplot(x=penguins, kde=True, stat="density")
+        sns.histplot(x=numerical, data=penguins, kde=True, stat="density")
         ax.set_xlabel(numerical, fontsize=14)
         ax.set_ylabel("Density", fontsize=14)
         ax.ticklabel_format(style='plain', axis='y')
