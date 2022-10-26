@@ -14,6 +14,7 @@ hide = """
         div.block-container {padding-bottom:1rem;}
         </style>
         """
+st.markdown(hide, unsafe_allow_html=True)
 
 penguins = sns.load_dataset('penguins')
 penguins.columns = ["species", "island", "bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g", "sex"]
