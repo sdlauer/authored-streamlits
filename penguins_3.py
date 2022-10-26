@@ -32,13 +32,13 @@ with tab1:
         )
 
         categorical = st.selectbox(
-            "Continent",
+            "Categorical feature",
             ["species", "island","sex"]
         )
 
     with col2:
         fig, ax = plt.subplots()
-        sns.histplot(x=numerical, data=penguins, kde=True, stat="density")
+        sns.histplot(x=numerical, data=penguins, hue=categorical, kde=True, stat="density")
         ax.set_xlabel(numerical, fontsize=14)
         ax.set_ylabel("Density", fontsize=14)
         ax.ticklabel_format(style='plain', axis='y')
