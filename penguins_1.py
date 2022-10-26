@@ -61,7 +61,7 @@ with col1:
 
 with col2:
     fig, ax = plt.subplots()
-    sns.regplot(x=categorical_1, y=categorical_2, data = penguins)
+    sns.regplot(x=categorical_1, y=categorical_2, fit_reg=False, ci = None, data = penguins)
     ax.set_xlabel(categorical_1, fontsize=14)
     ax.set_ylabel(categorical_2, fontsize=14)
     st.pyplot(fig)
