@@ -73,6 +73,4 @@ y_pred = classtreeModel.predict(X)
 metrics.confusion_matrix(y, y_pred)
 metrics.ConfusionMatrixDisplay.from_predictions(y, y_pred)
 
-fig, ax = plt.subplots()
-
 st.pyplot(fig)
