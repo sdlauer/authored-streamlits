@@ -65,6 +65,6 @@ plt.figure(figsize = [18,8])
 fig, ax = plt.subplots()
 
 plot_tree(classtreeModel, feature_names=X.columns,
-                   filled=True, fontsize=8, impurity = False)
+                   filled=True, fontsize=None, impurity = False)
 
 st.pyplot(fig)
