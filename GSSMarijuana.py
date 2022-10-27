@@ -74,7 +74,10 @@ with col2:
         st.pyplot(disp.figure_)
 
 #Plot the tree
-fig, ax = plt.subplots()
-plot_tree(classtreeModel, feature_names=X.columns,
-                   filled=True, fontsize=None, )
-st.pyplot(fig)
+if text:
+    st.write(export_text(classtreeModel))
+else:
+    fig, ax = plt.subplots()
+    plot_tree(classtreeModel, feature_names=X.columns,
+                       filled=True, fontsize=None, )
+    st.pyplot(fig)
