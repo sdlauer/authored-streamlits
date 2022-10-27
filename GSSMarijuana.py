@@ -44,7 +44,7 @@ with col1:
         "Depth of tree",
         min_value=1,
         max_value=4,
-        value=2,
+        value=3,
         step=1,
         )
 
