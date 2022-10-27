@@ -63,8 +63,10 @@ with col1:
 
 #Plot the confusion matrix
 with col2:
+    st.header("Confusion matrix")
     y_pred = classtreeModel.predict(X)
     if text:
+
         st.write(metrics.confusion_matrix(y, y_pred))
     else:
         disp = metrics.ConfusionMatrixDisplay.from_predictions(y, y_pred)
