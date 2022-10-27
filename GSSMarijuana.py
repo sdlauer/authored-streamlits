@@ -41,6 +41,8 @@ y = marijuana[['marijuana01']]
 col1, col2 = st.columns([2,3])
 
 with col1:
+
+#Set depth
     depth = st.slider(
         "Depth of tree",
         min_value=1,
@@ -49,29 +51,24 @@ with col1:
         step=1,
         )
 
-
-
-
-
-
-
-
     # Initialize the model
     classtreeModel = DecisionTreeClassifier(max_depth=depth, random_state=seed)
 
     # Fit the model
     classtreeModel = classtreeModel.fit(X,y)
-    plt.figure(figsize = [18,8])
-    fig, ax = plt.subplots()
 
-    plot_tree(classtreeModel, feature_names=X.columns,
-                       filled=True, fontsize=None, )
 
-    st.pyplot(fig)
+
+#Plot the confusion matrix
 with col2:
     y_pred = classtreeModel.predict(X)
     metrics.confusion_matrix(y, y_pred)
     disp = metrics.ConfusionMatrixDisplay.from_predictions(y, y_pred)
 
-
     st.pyplot(disp.figure_)
+
+#Plot the tree
+fig, ax = plt.subplots()
+plot_tree(classtreeModel, feature_names=X.columns,
+                   filled=True, fontsize=None, )
+st.pyplot(fig)
