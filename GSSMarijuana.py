@@ -51,6 +51,8 @@ with col1:
         step=1,
         )
 
+    text = st.checkbox('Text output')
+
     # Initialize the model
     classtreeModel = DecisionTreeClassifier(max_depth=depth, random_state=seed)
 
@@ -62,10 +64,14 @@ with col1:
 #Plot the confusion matrix
 with col2:
     y_pred = classtreeModel.predict(X)
-    metrics.confusion_matrix(y, y_pred)
-    disp = metrics.ConfusionMatrixDisplay.from_predictions(y, y_pred)
+    if !text:
 
-    st.pyplot(disp.figure_)
+
+        disp = metrics.ConfusionMatrixDisplay.from_predictions(y, y_pred)
+
+        st.pyplot(disp.figure_)
+    else:
+        st.write(metrics.confusion_matrix(y, y_pred))
 
 #Plot the tree
 fig, ax = plt.subplots()
