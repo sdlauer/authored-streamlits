@@ -72,7 +72,7 @@ with col2:
 
 #Plot the tree
 if text:
-    st.write(export_text(classtreeModel))
+    st.text(export_text(classtreeModel))
 else:
     fig, ax = plt.subplots()
     plot_tree(classtreeModel, feature_names=X.columns,
