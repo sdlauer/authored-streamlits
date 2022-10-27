@@ -71,6 +71,7 @@ with col2:
         st.pyplot(disp.figure_)
 
 #Plot the tree
+st.header("Classification tree")
 if text:
     st.text(export_text(classtreeModel))
 else:
