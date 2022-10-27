@@ -38,7 +38,7 @@ y = marijuana[['marijuana01']]
 col1, col2 = st.columns([2,3])
 
 with col1:
-
+    st.header("Inputs")
 #Set depth
     depth = st.slider(
         "Depth of tree",
