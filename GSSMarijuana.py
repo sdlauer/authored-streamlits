@@ -69,7 +69,6 @@ plot_tree(classtreeModel, feature_names=X.columns,
 
 st.pyplot(fig)
 
-fig, ax = plt.subplots()
 y_pred = classtreeModel.predict(X)
 metrics.confusion_matrix(y, y_pred)
 disp = metrics.ConfusionMatrixDisplay.from_predictions(y, y_pred)
