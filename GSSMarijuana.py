@@ -75,4 +75,4 @@ metrics.ConfusionMatrixDisplay.from_predictions(y, y_pred)
 
 fig, ax = plt.subplots()
 
-sy.pyplot(fig)
+st.pyplot(fig)
