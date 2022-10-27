@@ -65,7 +65,7 @@ with col1:
     fig, ax = plt.subplots()
 
     plot_tree(classtreeModel, feature_names=X.columns,
-                       filled=True, fontsize=None, impurity = False)
+                       filled=True, fontsize=None, )
 
     st.pyplot(fig)
 with col2:
