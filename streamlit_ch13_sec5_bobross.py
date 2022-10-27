@@ -32,7 +32,7 @@ with col1:
         [
             "BARN", "BOAT", "BRIDGE", "BUILDING", "BUSHES", "CABIN", "CACTUS", "CLOUDS",
             "FARM", "FIRE", "FLOWERS", "GRASS", "LAKE", "MOON", "MOUNTAIN", "NIGHT",
-            "PERSON", "RIVER", "ROCKS", "SNOW", "SUN", "WINTER"
+            "PERSON", "RIVER", "ROCKS", "SNOW", "SUN", "TREE", "WINTER"
         ]
     )
 
