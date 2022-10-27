@@ -18,10 +18,7 @@ hide = """
 st.markdown(hide, unsafe_allow_html=True)
 
 penguins = sns.load_dataset('penguins')
-
-
 penguins.columns = ["species", "island", "bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g", "sex"]
-
 col1, col2 = st.columns([1,3])
 
 with col1:
