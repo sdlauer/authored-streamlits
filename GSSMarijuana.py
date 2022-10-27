@@ -65,8 +65,6 @@ with col1:
 with col2:
     y_pred = classtreeModel.predict(X)
     if !text:
-
-
         disp = metrics.ConfusionMatrixDisplay.from_predictions(y, y_pred)
 
         st.pyplot(disp.figure_)
