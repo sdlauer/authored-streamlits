@@ -7,13 +7,10 @@ Created on Mon Oct 24 13:50:17 2022
 
 import streamlit as st
 import pandas as pd
-#import seaborn as sns
-#import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.tree import DecisionTreeClassifier, plot_tree#, export_text
+from sklearn.tree import DecisionTreeClassifier, plot_tree, export_text
 from sklearn import metrics, tree
-#from sklearn.model_selection import train_test_split
-#from sklearn.ensemble import RandomForestClassifier
+
 
 marijuana = pd.read_csv('gss.csv').dropna()
 
