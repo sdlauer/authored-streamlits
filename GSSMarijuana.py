@@ -48,8 +48,8 @@ depth = st.slider(
     value=2,
     step=1,
     )
-    
-    
+
+
 
 
 
@@ -61,10 +61,10 @@ classtreeModel = DecisionTreeClassifier(max_depth=depth, random_state=seed)
 
 # Fit the model
 classtreeModel = classtreeModel.fit(X,y)
-
+plt.figure(figsize = [18,8])
 fig, ax = plt.subplots()
 
-plot_tree(classtreeModel, feature_names=X.columns, 
+plot_tree(classtreeModel, feature_names=X.columns,
                    filled=True, fontsize=8)
 
 st.pyplot(fig)
