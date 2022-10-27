@@ -64,12 +64,12 @@ with col1:
 #Plot the confusion matrix
 with col2:
     y_pred = classtreeModel.predict(X)
-    if !text:
+    if text:
+        st.write(metrics.confusion_matrix(y, y_pred))
+    else:
         disp = metrics.ConfusionMatrixDisplay.from_predictions(y, y_pred)
 
         st.pyplot(disp.figure_)
-    else:
-        st.write(metrics.confusion_matrix(y, y_pred))
 
 #Plot the tree
 fig, ax = plt.subplots()
