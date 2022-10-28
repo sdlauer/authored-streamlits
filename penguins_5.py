@@ -33,4 +33,5 @@ with col1:
     )
 
 with col2:
-    st.write((penguins[penguins[feature].isna()]))
+    st.write(penguins[columns])
+#    if feature: st.write((penguins[penguins[feature].isna()]))
