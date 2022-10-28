@@ -28,4 +28,4 @@ with col1:
     )
 
 with col2:
-    penguins[penguins[feature].isna()]
+    st.table(penguins[penguins[feature].isna()])
