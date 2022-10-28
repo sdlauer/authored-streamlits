@@ -74,7 +74,7 @@ with col2:
 
         st.pyplot(fig)
 
-        st.write("Alt-text: All models predict cells with higher radius and texture are malignant. Decision boundary for k=3 is not smooth. Decision boundary for k=7 is somewhat smooth. Decision boundary for  k=11 is mostly smooth.")
+        st.write("Description: All models predict cells with higher radius and texture are malignant. Decision boundary for k=3 is not smooth. Decision boundary for k=7 is somewhat smooth. Decision boundary for  k=11 is mostly smooth.")
 
 
 
