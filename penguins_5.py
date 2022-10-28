@@ -18,10 +18,14 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
         pd.DataFrame: Filtered dataframe
     """
     modify = st.checkbox("Add filters")
+    remove_missing = st.checkbox("Remove missing data")
 
     if not modify:
         return df
-
+    if remove_missing:
+        df = df.dropna()
+        return df
+        
     df = df.copy()
 
     # Try to convert datetimes into a standard format (datetime, no timezone)
