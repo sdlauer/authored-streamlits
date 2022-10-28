@@ -9,6 +9,8 @@ from pandas.api.types import (
 )
 
 
+remove_missing = st.checkbox("Remove missing data")
+
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     """
     Adds a UI on top of a dataframe to let viewers filter columns
@@ -18,14 +20,11 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
         pd.DataFrame: Filtered dataframe
     """
     modify = st.checkbox("Add filters")
-    remove_missing = st.checkbox("Remove missing data")
+
 
     if not modify:
         return df
-    if remove_missing:
-        df = df.dropna()
-        return df
-        
+
     df = df.copy()
 
     # Try to convert datetimes into a standard format (datetime, no timezone)
@@ -89,4 +88,5 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 
 df = sns.load_dataset('penguins')
+if remove_missing: df = df.dropna()
 st.dataframe(filter_dataframe(df))
