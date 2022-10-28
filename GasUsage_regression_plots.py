@@ -57,4 +57,4 @@ with col2:
     ax.set_xlabel('Temperature', fontsize=14)
     ax.set_ylabel('Gas', fontsize=14)
     st.pyplot(fig)
-    st.write("Scatter plots of temperature and natural gas with a regression model of chosen degree The polynomial models with degree 2 and degree 3 appear to be good fits for the dataset. The polynomial model with degree 4 curves upward at the right end, suggesting that gas use will increase for high temperatures.")
+    st.write("Description: A scatter plot of temperature and natural gas with a regression model of the chosen degree. The polynomial models with degree 2 and degree 3 appear to be good fits for the dataset. The polynomial model with degree 4 curves upward at the right end, suggesting that gas use will increase for high temperatures.")
