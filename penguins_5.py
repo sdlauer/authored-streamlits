@@ -22,10 +22,15 @@ penguins.columns = ["species", "island", "bill_length_mm", "bill_depth_mm", "fli
 col1, col2 = st.columns([1.5,3])
 
 with col1:
+    columns = st.multiselect(
+    'Select features',
+    ["species", "island", "bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g", "sex"],
+    ["species", "island"])
+
     feature = st.selectbox(
         "Display rows with missing values for the selected feature",
-        ["species", "island", "bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g", "sex"]
+        ["bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g", "sex"]
     )
 
 with col2:
-    st.table(penguins[penguins[feature].isna()])
+    st.write((penguins[penguins[feature].isna()]))
