@@ -83,34 +83,47 @@ with col1:
 	if check:
 		if group1 == "none" and group2 == "none":
 			summary = flights[nf].describe()
+			summary=summary.rename("All" + ' ' + numerical)
 		elif group1 != "none" and group2 == "none":
 			if group1 == "EWR":
 				summary = EWRf[nf].describe()
+				summary=summary.rename(group1 + ' ' + numerical)
 			elif group1 == "JFK":
 				summary = JFKf[nf].describe()
+				summary=summary.rename(group1 + ' ' + numerical)
 			else:
 				summary = LGAf[nf].describe()
+				summary=summary.rename(group1 + ' ' + numerical)
 		elif group1 == "none" and group2 != "none":
 			if group2 == "EWR":
 				summary = EWRf[nf].describe()
+				summary=summary.rename(group2 + ' ' + numerical)
 			elif group2 == "JFK":
 				summary = JFKf[nf].describe()
+				summary=summary.rename(group2 + ' ' + numerical)
 			else:
 				summary = LGAf[nf].describe()
+				summary=summary.rename(group2 + ' ' + numerical)
 		else:
 			if group1 == "EWR":
 				summary1 = EWRf[nf].describe()
+				summary1=summary1.rename(group1 + ' ' + numerical)
 			elif group1 == "JFK":
 				summary1 = JFKf[nf].describe()
+				summary1=summary1.rename(group1 + ' ' + numerical)
 			else:
 				summary1 = LGAf[nf].describe()
-
+				summary1=summary1.rename(group1 + ' ' + numerical)
 			if group2 == "EWR":
 				summary2 = EWRf[nf].describe()
+				summary2=summary2.rename(group2 + ' ' + numerical)
 			elif group2 == "JFK":
 				summary2 = JFKf[nf].describe()
+				summary2=summary2.rename(group2 + ' ' + numerical)
 			else:
 				summary2 = LGAf[nf].describe()
+				summary2=summary2.rename(group2 + ' ' + numerical)
+			summary1=summary1.rename
 			summary = pd.concat([summary1, summary2], axis=1)
-		summary.columns = ["Count","Mean","Std", "Min", "Q1", "Median", "Q3", "Max"]
+		#summary.columns = ["Count","Mean","Std", "Min", "Q1", "Median", "Q3", "Max"]
 		st.dataframe(summary)
