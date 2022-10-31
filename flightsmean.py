@@ -111,5 +111,8 @@ with col1:
 				summary2 = JFKf[nf].describe()
 			else:
 				summary2 = LGAf[nf].describe()
+			summary1.columns = ["Count","Mean","Std", "Min", "Q1", "Median", "Q3", "Max"]
+			summary2.columns = ["Count","Mean","Std", "Min", "Q1", "Median", "Q3", "Max"]
 			summary = pd.concat([summary1, summary2])
+		summary.columns = ["Count","Mean","Std", "Min", "Q1", "Median", "Q3", "Max"]
 		st.dataframe(summary)
