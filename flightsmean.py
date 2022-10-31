@@ -123,7 +123,6 @@ with col1:
 			else:
 				summary2 = LGAf[nf].describe()
 				summary2=summary2.rename(group2 + ' ' + numerical)
-			summary1=summary1.rename
 			summary = pd.concat([summary1, summary2], axis=1)
 		#summary.columns = ["Count","Mean","Std", "Min", "Q1", "Median", "Q3", "Max"]
 		st.dataframe(summary)
