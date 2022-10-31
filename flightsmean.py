@@ -42,15 +42,15 @@ with col1:
 	else:
 		nf="arr_delay"
 
-    group1 = st.selectbox(
-        "Group 1",
-        [
-            "none",
-            "EWR",
-            "JFK",
-            "LGA"
-        ]
-    )
+	group1 = st.selectbox(
+		"Group 1",
+		[
+			"none",
+			"EWR",
+			"JFK",
+			"LGA"
+		]
+	)
 
     group2 = st.selectbox(
         "Group 2",
