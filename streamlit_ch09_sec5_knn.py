@@ -73,6 +73,10 @@ with col1:
         st.write("Precision = ", round(precision, 4))
         st.write("Recall =", round(recall, 4))
 
+        #st.metric("Accuracy", round(accuracy, 4))
+        #st.metric("Precision", round(precision, 4))
+        #st.metric("Recall", round(recall, 4))
+
 
         
 with col2:
@@ -88,13 +92,13 @@ with col2:
 
         st.image(images[k])
 
-        text_hider = st.checkbox('Hide description')
+text_hider = st.checkbox('Hide description')
 
-        if text_hider:
-                st.write("")
+if text_hider:
+        st.caption("")
 
-        else:
-                st.write("Description: Decision boundary for k-nearest neighbors model to predict cell type based on standardized radius mean and texture mean. Horiztonal and vertical axes range from -3 to +5. All models predict cells with higher radius and texture are malignant. Decision boundary for k=3 is not smooth. Decision boundary for k=7 is somewhat smooth. Decision boundary for  k=11 is mostly smooth.")
+else:
+        st.caption("Description: Decision boundary for k-nearest neighbors model to predict cell type based on standardized radius mean and texture mean. Horiztonal and vertical axes range from -3 to +5. All models predict cells with higher radius and texture are malignant. Decision boundary for k=3 is not smooth. Decision boundary for k=7 is somewhat smooth. Decision boundary for  k=11 is mostly smooth.")
 
 
 
