@@ -52,64 +52,64 @@ with col1:
 		]
 	)
 
-    group2 = st.selectbox(
-        "Group 2",
-        [
-            "none",
-            "EWR",
-            "JFK",
-            "LGA"
-        ]
-    )
-    st.text("Null Hypothesis:")
-    st.latex(r'''H_0: \mu_1 = \mu_2''')
-    alternative = st.selectbox(
-        "Alternative hypothesis",
-        [
-            "not equal",
-            "less than",
-            "greater than",
-        ]
-    )
-    if alternative == "not equal":
-        st.latex(r'''H_a: \mu_1 \neq \mu_2''')
-    elif alternative == "less than":
-        st.latex(r'''H_a: \mu_1 \lt \mu_2''')
-    else:
-        st.latex(r'''H_a: \mu_1 \gt \mu_2''')
+	group2 = st.selectbox(
+		"Group 2",
+		[
+			"none",
+			"EWR",
+			"JFK",
+			"LGA"
+		]
+	)
+	st.text("Null Hypothesis:")
+	st.latex(r'''H_0: \mu_1 = \mu_2''')
+	alternative = st.selectbox(
+		"Alternative hypothesis",
+		[
+			"not equal",
+			"less than",
+			"greater than",
+		]
+	)
+	if alternative == "not equal":
+		st.latex(r'''H_a: \mu_1 \neq \mu_2''')
+	elif alternative == "less than":
+		st.latex(r'''H_a: \mu_1 \lt \mu_2''')
+	else:
+		st.latex(r'''H_a: \mu_1 \gt \mu_2''')
 
-    check = st.checkbox("Display summary statistics")
+	check = st.checkbox("Display summary statistics")
 
-    if check:
-        if group1 == "none" and group2 == "none":
-            summary = flights[nf].describe()
-        elif group1 != "none" and group2 == "none":
-              if group1 == "EWR":
-                summary = ERWf[nf].describe()
-              elif group1 == "JFK":
-                summary = JFKf[nf].describe()
-              else:
-                summary = LGAf[nf].describe()
-        elif group1 == "none" and group2 != "none":
-              if group2 == "EWR":
-                summary = ERWf[nf].describe()
-              elif group2 == "JFK":
-                summary = JFKf[nf].describe()
-              else:
-                summary = LGAf[nf].describe()
-        else:
-         if group1 == "EWR":
-            summary1 = ERWf[nf].describe()
-         elif group1 == "JFK":
-            summary1 = JFKf[nf].describe()
-         else:
-            summary1 = LGAf[nf].describe()
+	if check:
+		if group1 == "none" and group2 == "none":
+			summary = flights[nf].describe()
+		elif group1 != "none" and group2 == "none":
+			if group1 == "EWR":
+				summary = ERWf[nf].describe()
+			elif group1 == "JFK":
+				summary = JFKf[nf].describe()
+			else:
+				summary = LGAf[nf].describe()
+		elif group1 == "none" and group2 != "none":
+			if group2 == "EWR":
+				summary = ERWf[nf].describe()
+			elif group2 == "JFK":
+				summary = JFKf[nf].describe()
+			else:
+				summary = LGAf[nf].describe()
+		else:
+			if group1 == "EWR":
+				summary1 = ERWf[nf].describe()
+			elif group1 == "JFK":
+				summary1 = JFKf[nf].describe()
+			else:
+				summary1 = LGAf[nf].describe()
 
-         if group2 == "EWR":
-            summary2 = ERWf[nf].describe()
-         elif group2 == "JFK":
-            summary2 = JFKf[nf].describe()
-         else:
-            summary2 = LGAf[nf].describe()
-         summary = pd.concat([summary1, summary2])
-        st.dataframe(summary)
+			if group2 == "EWR":
+				summary2 = ERWf[nf].describe()
+			elif group2 == "JFK":
+				summary2 = JFKf[nf].describe()
+			else:
+				summary2 = LGAf[nf].describe()
+		summary = pd.concat([summary1, summary2])
+		st.dataframe(summary)
