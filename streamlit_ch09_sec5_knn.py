@@ -50,7 +50,7 @@ images = {3: "knn_images/KNeigh3.png", 5: "knn_images/KNeigh5.png",
                 19: "knn_images/KNeigh19.png"}
 
 
-col1, col2 = st.columns([2,3])
+col1, col2 = st.columns([1,3])
 
 with col1:
 
@@ -94,7 +94,7 @@ with col2:
                 st.write("")
 
         else:
-                st.write("Description: All models predict cells with higher radius and texture are malignant. Decision boundary for k=3 is not smooth. Decision boundary for k=7 is somewhat smooth. Decision boundary for  k=11 is mostly smooth.")
+                st.write("Description: Decision boundary for k-nearest neighbors model to predict cell type based on standardized radius mean and texture mean. Horiztonal and vertical axes range from -3 to +5. All models predict cells with higher radius and texture are malignant. Decision boundary for k=3 is not smooth. Decision boundary for k=7 is somewhat smooth. Decision boundary for  k=11 is mostly smooth.")
 
 
 
