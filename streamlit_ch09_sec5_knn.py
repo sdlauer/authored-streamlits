@@ -23,12 +23,17 @@ hide = """
 
 st.markdown(hide, unsafe_allow_html=True)
 
-url = "https://raw.githubusercontent.com/aimeeschwab-mccoy/streamlit_asm/main/WisconsinBreastCancerDatabase.csv"
+@st.cache
+def loadData():
+        url = "https://raw.githubusercontent.com/aimeeschwab-mccoy/streamlit_asm/main/WisconsinBreastCancerDatabase.csv"
 
-cancer = pd.read_csv(url)
-cancer.columns = list(cancer.columns)
+        cancer = pd.read_csv(url)
+        cancer.columns = list(cancer.columns)
 
-cancer = cancer.replace(to_replace = ['M','B'],value = [int(1), int(0)])
+        cancer = cancer.replace(to_replace = ['M','B'],value = [int(1), int(0)])
+        return cancer
+
+cancer = loadData()
 
 X = cancer[['Radius mean', 'Texture mean']]
 y = cancer[['Diagnosis']]
@@ -37,6 +42,13 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
+
+images = {3: "knn_images/KNeigh3.png", 5: "knn_images/KNeigh5.png", 
+                7: "knn_images/KNeigh7.png", 9: "knn_images/KNeigh9.png", 
+                11: "knn_images/KNeigh11.png", 13: "knn_images/KNeigh13.png", 
+                15: "knn_images/KNeigh15.png", 17: "knn_images/KNeigh17.png", 
+                19: "knn_images/KNeigh19.png"}
+
 
 col1, col2 = st.columns([2,3])
 
@@ -65,16 +77,24 @@ with col1:
         
 with col2:
 
-        fig, ax = plt.subplots()
+        #fig, ax = plt.subplots()
 
-        print(y_train)
+        #print(y_train)
 
-        p = plot_decision_regions(X_train_scaled, np.ravel(y_train), clf=knn)
-        p.set_title('Training region: k-nearest neighbors, k=%i' %k)
+        #p = plot_decision_regions(X_train_scaled, np.ravel(y_train), clf=knn)
+        #p.set_title('Training region: k-nearest neighbors, k=%i' %k)
 
-        st.pyplot(fig)
+        #st.pyplot(fig)
 
-        st.write("Description: All models predict cells with higher radius and texture are malignant. Decision boundary for k=3 is not smooth. Decision boundary for k=7 is somewhat smooth. Decision boundary for  k=11 is mostly smooth.")
+        st.image(images[k])
+
+        text_hider = st.checkbox('Hide description')
+
+        if text_hider:
+                st.write("")
+
+        else:
+                st.write("Description: All models predict cells with higher radius and texture are malignant. Decision boundary for k=3 is not smooth. Decision boundary for k=7 is somewhat smooth. Decision boundary for  k=11 is mostly smooth.")
 
 
 
