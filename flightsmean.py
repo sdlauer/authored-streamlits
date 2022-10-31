@@ -85,31 +85,31 @@ with col1:
 			summary = flights[nf].describe()
 		elif group1 != "none" and group2 == "none":
 			if group1 == "EWR":
-				summary = ERWf[nf].describe()
+				summary = EWRf[nf].describe()
 			elif group1 == "JFK":
 				summary = JFKf[nf].describe()
 			else:
 				summary = LGAf[nf].describe()
 		elif group1 == "none" and group2 != "none":
 			if group2 == "EWR":
-				summary = ERWf[nf].describe()
+				summary = EWRf[nf].describe()
 			elif group2 == "JFK":
 				summary = JFKf[nf].describe()
 			else:
 				summary = LGAf[nf].describe()
 		else:
 			if group1 == "EWR":
-				summary1 = ERWf[nf].describe()
+				summary1 = EWRf[nf].describe()
 			elif group1 == "JFK":
 				summary1 = JFKf[nf].describe()
 			else:
 				summary1 = LGAf[nf].describe()
 
 			if group2 == "EWR":
-				summary2 = ERWf[nf].describe()
+				summary2 = EWRf[nf].describe()
 			elif group2 == "JFK":
 				summary2 = JFKf[nf].describe()
 			else:
 				summary2 = LGAf[nf].describe()
-		summary = pd.concat([summary1, summary2])
+			summary = pd.concat([summary1, summary2])
 		st.dataframe(summary)
