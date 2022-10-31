@@ -36,6 +36,11 @@ with col1:
 			"Arrival delay"
 		]
 	)
+	
+	if numerical == "Departure delay":
+		nf="dep_delay"
+	else:
+		nf="arr_delay"
 
     group1 = st.selectbox(
         "Group 1",
@@ -57,7 +62,7 @@ with col1:
         ]
     )
     st.text("Null Hypothesis:")
-    st.latex(r'''H_0: \pi_1 = \pi_2''')
+    st.latex(r'''H_0: \mu_1 = \mu_2''')
     alternative = st.selectbox(
         "Alternative hypothesis",
         [
@@ -67,44 +72,44 @@ with col1:
         ]
     )
     if alternative == "not equal":
-        st.latex(r'''H_a: \pi_1 \neq \pi_2''')
+        st.latex(r'''H_a: \mu_1 \neq \mu_2''')
     elif alternative == "less than":
-        st.latex(r'''H_a: \pi_1 \lt \pi_2''')
+        st.latex(r'''H_a: \mu_1 \lt \mu_2''')
     else:
-        st.latex(r'''H_a: \pi_1 \gt \pi_2''')
+        st.latex(r'''H_a: \mu_1 \gt \mu_2''')
 
     check = st.checkbox("Display summary statistics")
 
     if check:
         if group1 == "none" and group2 == "none":
-            summary = flights[numeric].describe()
+            summary = flights[nf].describe()
         elif group1 != "none" and group2 == "none":
               if group1 == "EWR":
-                summary = ERWf[numeric].describe()
+                summary = ERWf[nf].describe()
               elif group1 == "JFK":
-                summary = JFKf[numeric].describe()
+                summary = JFKf[nf].describe()
               else:
-                summary = LGAf[numeric].describe()
+                summary = LGAf[nf].describe()
         elif group1 == "none" and group2 != "none":
               if group2 == "EWR":
-                summary = ERWf[numeric].describe()
+                summary = ERWf[nf].describe()
               elif group2 == "JFK":
-                summary = JFKf[numeric].describe()
+                summary = JFKf[nf].describe()
               else:
-                summary = LGAf[numeric].describe()
+                summary = LGAf[nf].describe()
         else:
          if group1 == "EWR":
-            summary1 = ERWf[numeric].describe()
+            summary1 = ERWf[nf].describe()
          elif group1 == "JFK":
-            summary1 = JFKf[numeric].describe()
+            summary1 = JFKf[nf].describe()
          else:
-            summary1 = LGAf[numeric].describe()
+            summary1 = LGAf[nf].describe()
 
          if group2 == "EWR":
-            summary2 = ERWf[numeric].describe()
+            summary2 = ERWf[nf].describe()
          elif group2 == "JFK":
-            summary2 = JFKf[numeric].describe()
+            summary2 = JFKf[nf].describe()
          else:
-            summary2 = LGAf[numeric].describe()
+            summary2 = LGAf[nf].describe()
          summary = pd.concat([summary1, summary2])
         st.dataframe(summary)
