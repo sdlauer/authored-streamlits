@@ -30,10 +30,10 @@ y = WBCD[['Diagnosis']].values.reshape(-1, 1).astype(int)
 col1, col2 = st.columns([1,3])
 
 with col1:
-    values = st.slider(
-    'Select a range of values',
-    0.0, 100.0, (25.0, 75.0))
-    st.write('Values:', values)
+    threshold = st.slider(
+    'Threshold',
+    0.0, 1.0, 0.1)
+    st.write('Values:', threshold)
 
 with col2:
     #Logistic regression predicting diagnosis from tumor radius
