@@ -44,7 +44,7 @@ with col1:
         "Depth of tree",
         min_value=1,
         max_value=3,
-        value=3,
+        value=4,
         step=1,
         )
 
@@ -65,7 +65,6 @@ with col2:
         st.header("Confusion matrix")
         y_pred = classtreeModel.predict(X)
         if text:
-
             st.write(metrics.confusion_matrix(y, y_pred))
         else:
             disp = metrics.ConfusionMatrixDisplay.from_predictions(y, y_pred)
@@ -78,6 +77,8 @@ if text:
     st.text(export_text(classtreeModel))
 else:
     #fig, ax = plt.subplots()
+    if depth > 2:
+        st.text("Right-click to open image in a new tab for a larger view.")
     fig = plt.figure(figsize=(depth*16,depth*9))
     plot_tree(classtreeModel, feature_names=X.columns,
                        filled=True, fontsize=None, )
