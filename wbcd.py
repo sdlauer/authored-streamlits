@@ -49,10 +49,10 @@ with col1:
 with col2:
     #Graph logistic regression probabilities
     fig, ax = plt.subplots()
-    x = [0,30]
+    x = [X.min(),X.max()]
     y_val = [threshold, threshold]
     plt.scatter(X,y)
-    plt.plot(x, y_val)
+    plt.plot(x, y_val, color='orange')
     xDelta = np.linspace(X.min(),X.max(),10000)
     yPredicted = logisticModel.predict(X).reshape(-1,1).astype(int)
     yDeltaProb = logisticModel.predict_proba(xDelta.reshape(-1,1))[:,1]
