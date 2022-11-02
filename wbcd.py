@@ -31,6 +31,8 @@ col1, col2 = st.columns([1,3])
 
 with col1:
     st.write("Threshold")
+    age = st.slider('How old are you?', 0, 130, 25)
+    st.write("I'm ", age, 'years old')
     # threshold=st.slider("Threshold", min_value=0, max_value=1, value=0.5, step=0.1)
 
 with col2:
