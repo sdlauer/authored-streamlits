@@ -43,7 +43,7 @@ with col1:
     depth = st.slider(
         "Depth of tree",
         min_value=1,
-        max_value=4,
+        max_value=3,
         value=3,
         step=1,
         )
@@ -79,5 +79,5 @@ if text:
 else:
     fig, ax = plt.subplots()
     plot_tree(classtreeModel, feature_names=X.columns,
-                       filled=True, fontsize=10, )
+                       filled=True, fontsize=8, )
     st.pyplot(fig)
