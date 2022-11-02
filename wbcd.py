@@ -42,14 +42,17 @@ with col1:
             yPredLowCutoff.append(0)
         else:
             yPredLowCutoff.append(1)
-    st.write("Accuracy: " + str(metrics.accuracy_score(y,yPredLowCutoff)))
-    st.write("Precision: " + str(metrics.precision_score(y,yPredLowCutoff)))
-    st.write("Recall: " + str(metrics.recall_score(y,yPredLowCutoff)))
+    st.write("Accuracy: " + str(round(metrics.accuracy_score(y,yPredLowCutoff),2)))
+    st.write("Precision: " + str(round(metrics.precision_score(y,yPredLowCutoff),2)))
+    st.write("Recall: " + str(round(metrics.recall_score(y,yPredLowCutoff),2)))
 
 with col2:
     #Graph logistic regression probabilities
     fig, ax = plt.subplots()
+    x = [0,X.max()+1]
+    y = [threshold, threshold]
     plt.scatter(X,y)
+    plt.plot(x, y)
     xDelta = np.linspace(X.min(),X.max(),10000)
     yPredicted = logisticModel.predict(X).reshape(-1,1).astype(int)
     yDeltaProb = logisticModel.predict_proba(xDelta.reshape(-1,1))[:,1]
