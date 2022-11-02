@@ -38,7 +38,7 @@ with col1:
     yPredictedProb = logisticModel.predict_proba(X)[:,1]
     yPredLowCutoff = []
     for i in range(0,yPredictedProb.size):
-        if yPredictedProb[i] < treshold:
+        if yPredictedProb[i] < threshold:
             yPredLowCutoff.append(0)
         else:
             yPredLowCutoff.append(1)
