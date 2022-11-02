@@ -42,9 +42,9 @@ with col1:
             yPredLowCutoff.append(0)
         else:
             yPredLowCutoff.append(1)
-    st.write('Accuracy = ' + str(accuracy_score(y,yPredLowCutoff)))
-    st.write('Precision = ' + str(precision_score(y,yPredLowCutoff)))
-    st.write('Recall = ' + str(recall_score(y,yPredLowCutoff)))
+    st.write(accuracy_score(y,yPredLowCutoff))
+    st.write(precision_score(y,yPredLowCutoff))
+    st.write(recall_score(y,yPredLowCutoff))
 
 with col2:
     #Graph logistic regression probabilities
