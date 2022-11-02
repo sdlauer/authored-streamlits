@@ -52,7 +52,7 @@ with col2:
     x = [X.min(),X.max()]
     y_val = [threshold, threshold]
     plt.scatter(X,y)
-    plt.plot(x, y_val, color='orange', linewidth=2)
+    plt.plot(x, y_val, color='gray', linewidth=2)
     xDelta = np.linspace(X.min(),X.max(),10000)
     yPredicted = logisticModel.predict(X).reshape(-1,1).astype(int)
     yDeltaProb = logisticModel.predict_proba(xDelta.reshape(-1,1))[:,1]
