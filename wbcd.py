@@ -27,19 +27,26 @@ WBCD.loc[WBCD['Diagnosis']=='M','Diagnosis']=1
 X = WBCD[['Radius mean']].values.reshape(-1, 1)
 y = WBCD[['Diagnosis']].values.reshape(-1, 1).astype(int)
 
+#Logistic regression predicting diagnosis from tumor radius
+logisticModel = LogisticRegression()
+logisticModel.fit(X,np.ravel(y.astype(int)))
+
 col1, col2 = st.columns([1,3])
 
 with col1:
-    threshold = st.slider(
-    'Threshold',
-    0.0, 1.0, 0.1)
-    st.write('Values:', threshold)
+    threshold = st.slider('Threshold',0.0, 1.0, 0.1)
+    yPredictedProb = logisticModel.predict_proba(X)[:,1]
+    yPredLowCutoff = []
+    for i in range(0,yPredictedProb.size):
+        if yPredictedProb[i] < treshold:
+            yPredLowCutoff.append(0)
+        else:
+            yPredLowCutoff.append(1)
+    st.write('Accuracy = ' + str(accuracy_score(y,yPredLowCutoff)))
+    st.write('Precision = ' + str(precision_score(y,yPredLowCutoff)))
+    st.write('Recall = ' + str(recall_score(y,yPredLowCutoff)))
 
 with col2:
-    #Logistic regression predicting diagnosis from tumor radius
-    logisticModel = LogisticRegression()
-    logisticModel.fit(X,np.ravel(y.astype(int)))
-
     #Graph logistic regression probabilities
     fig, ax = plt.subplots()
     plt.scatter(X,y)
