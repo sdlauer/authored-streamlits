@@ -79,5 +79,5 @@ if text:
 else:
     fig, ax = plt.subplots()
     plot_tree(classtreeModel, feature_names=X.columns,
-                       filled=True, fontsize=None, )
+                       filled=True, fontsize=10, )
     st.pyplot(fig)
