@@ -58,5 +58,5 @@ with col2:
     yDeltaProb = logisticModel.predict_proba(xDelta.reshape(-1,1))[:,1]
     plt.plot(xDelta,yDeltaProb, color='red')
     ax.set_xlabel('Radius mean',fontsize=14);
-    ax.set_ylabel('Probability tumor is malignant',fontsize=14);
+    ax.set_ylabel('Probability of malignant tumor',fontsize=14);
     st.pyplot(fig)
