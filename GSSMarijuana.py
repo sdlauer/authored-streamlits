@@ -77,7 +77,8 @@ st.header("Classification tree")
 if text:
     st.text(export_text(classtreeModel))
 else:
-    fig, ax = plt.subplots()
+    #fig, ax = plt.subplots()
+    fig = plt.figure(figsize=(50,30))
     plot_tree(classtreeModel, feature_names=X.columns,
                        filled=True, fontsize=8, )
     st.pyplot(fig)
