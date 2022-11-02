@@ -78,7 +78,7 @@ if text:
     st.text(export_text(classtreeModel))
 else:
     #fig, ax = plt.subplots()
-    fig = plt.figure(figsize=(depth*5,10))
+    fig = plt.figure(figsize=(depth*4,depth*3))
     plot_tree(classtreeModel, feature_names=X.columns,
                        filled=True, fontsize=None, )
     st.pyplot(fig)
