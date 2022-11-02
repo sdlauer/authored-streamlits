@@ -35,7 +35,7 @@ seed=123
 X = marijuana[['age', 'educ', 'polviews_num']]
 y = marijuana[['marijuana01']]
 
-col1, col2 = st.columns([2,3])
+col1, col2 = st.columns([1,3])
 
 with col1:
     st.header("Inputs")
@@ -79,7 +79,7 @@ else:
     #fig, ax = plt.subplots()
     if depth > 2:
         st.text("Right-click to open image in a new tab for a larger view.")
-        
+
     fig = plt.figure(figsize=(depth*16,depth*9))
     plot_tree(classtreeModel, feature_names=X.columns,
                        filled=True, fontsize=None, )
