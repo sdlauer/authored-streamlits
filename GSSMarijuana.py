@@ -80,5 +80,5 @@ else:
     #fig, ax = plt.subplots()
     fig = plt.figure(figsize=(15,10))
     plot_tree(classtreeModel, feature_names=X.columns,
-                       filled=True, fontsize=8, )
+                       filled=True, fontsize=10, )
     st.pyplot(fig)
