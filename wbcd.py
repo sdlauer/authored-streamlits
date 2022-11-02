@@ -39,10 +39,12 @@ with col2:
     logisticModel.fit(X,np.ravel(y.astype(int)))
 
     #Graph logistic regression probabilities
+    fig, ax = plt.subplots()
     plt.scatter(X,y)
     xDelta = np.linspace(X.min(),X.max(),10000)
     yPredicted = logisticModel.predict(X).reshape(-1,1).astype(int)
     yDeltaProb = logisticModel.predict_proba(xDelta.reshape(-1,1))[:,1]
     plt.plot(xDelta,yDeltaProb, color='red')
-    plt.xlabel('Radius mean',fontsize=14);
-    plt.ylabel('Probability tumor is malignant',fontsize=14);
+    ax.set_xlabel('Radius mean',fontsize=14);
+    ax.set_ylabel('Probability tumor is malignant',fontsize=14);
+    st.pyplot(fig)
