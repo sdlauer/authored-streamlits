@@ -35,7 +35,7 @@ seed=123
 X = marijuana[['age', 'educ', 'polviews_num']]
 y = marijuana[['marijuana01']]
 
-col1, col2 = st.columns([2,1])
+col1, col2 = st.columns([3,1])
 
 with col1:
     st.header("Inputs")
