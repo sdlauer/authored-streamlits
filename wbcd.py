@@ -65,5 +65,5 @@ with col2:
     desc1 = "Description: A classification model using logistic regression will "
     desc2 = "classify tumors with a radius mean of less than " + str(round(x_val,2))
     desc3 = " as benign. Tumors with a radius mean of "
-    desc4 = "greater than or equal to " + str(round(x_val,2)) + "will be classified as malignant."
+    desc4 = "greater than or equal to " + str(round(x_val,2)) + " will be classified as malignant."
     st.write(desc1 + desc2 + desc3 + desc4)
