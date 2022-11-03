@@ -52,6 +52,15 @@ with col1:
 		]
 	)
 
+	if group1 == "EWR":
+		data1 = EWRf
+	elif group1 == "JFK":
+		data1 = JFKf
+	elif group1 == "LGA":
+		data1 = LGAf
+	else
+		data1=flights
+
 	group2 = st.selectbox(
 		"Group 2",
 		[
@@ -61,6 +70,16 @@ with col1:
 			"LGA"
 		]
 	)
+
+	if group2 == "EWR":
+		data2 = EWRf
+	elif group2 == "JFK":
+		data2 = JFKf
+	elif group2 == "LGA":
+		data2 = LGAf
+	else
+		data2=flights
+
 	st.text("Null Hypothesis:")
 	st.latex(r'''H_0: \mu_1 = \mu_2''')
 	alternative = st.selectbox(
@@ -126,3 +145,30 @@ with col1:
 			summary = pd.concat([summary1, summary2], axis=1)
 		#summary.columns = ["Count","Mean","Std", "Min", "Q1", "Median", "Q3", "Max"]
 		st.dataframe(summary)
+
+with col2:
+	fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)
+	if group1 == "none" and group2 == "none":
+		ax1.hist(x=flights[nf])
+		ax1.title.set_text('All delays')
+		ax1.xlabel('Delay (minutes)')
+        ax2.axis('off')
+	elif group1 != "none" and group2 == "none":
+		ax1.hist(x=data1[nf])
+		ax1.title.set_text('Flights from %s' %group1)
+		x1.xlabel('Delay (minutes)')
+		ax2.axis('off')
+	elif group1 == "none" and group2 != "none":
+		ax1.hist(x=data2[nf])
+		ax1.title.set_text('Flights from %s' %group2)
+		x1.xlabel('Delay (minutes)')
+		ax1.axis('off')
+	else:
+		ax1.hist(x=data1[nf])
+		ax1.title.set_text('Flights from %s' %group1)
+		x1.xlabel('Delay (minutes)')
+		ax1.hist(x=data2[nf])
+		ax1.title.set_text('Flights from %s' %group2)
+		x1.xlabel('Delay (minutes)')
+	fig.tight_layout(pad=1.0)
+	st.pyplot(fig)
