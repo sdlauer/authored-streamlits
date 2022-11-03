@@ -150,7 +150,7 @@ with col2:
 	fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)
 	if group1 == "none" and group2 == "none":
 		ax1.hist(x=flights[nf])
-		ax1.title.set_text('All delays')
+		ax1.title.set_text('All flights')
 		ax1.set(xlabel='%s (minutes)' %numerical, ylabel="Counts")
 		ax2.axis('off')
 	elif group1 != "none" and group2 == "none":
@@ -172,3 +172,15 @@ with col2:
 		ax2.set(xlabel='%s (minutes)' %numerical, ylabel="Counts")
 	fig.tight_layout(pad=1.0)
 	st.pyplot(fig)
+
+	if group1 != "none" and group2 != "none":
+		if alternative == "not equal":
+			hyptest = ttest_ind(a=data1[nf], b=data2[nf], equal_var=TRUE, alternative='two-sided')
+		elif alternative == "less than":
+			hyptest = ttest_ind(a=data1[nf], b=data2[nf], equal_var=TRUE, alternative='less')
+		else:
+			hyptest = ttest_ind(a=data1[nf], b=data2[nf], equal_var=TRUE, alternative='greater')
+		st.write('Test statistic:', hyptest[0])
+		st.write('p-value: ', hyptest[1])
+	else:
+		st.write('Select Group 1 and Group 2 for hypothesis test')
