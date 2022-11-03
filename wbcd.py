@@ -34,7 +34,7 @@ logisticModel.fit(X,np.ravel(y.astype(int)))
 col1, col2 = st.columns([1,3])
 
 with col1:
-    cutoff = st.slider('Cutoff',0.0, 1.0, 0.1)
+    cutoff = st.slider('Cutoff',0.1, 0.9, 0.1,value=0.5)
     yPredictedProb = logisticModel.predict_proba(X)[:,1]
     yPredLowCutoff = []
     for i in range(0,yPredictedProb.size):
@@ -55,10 +55,10 @@ with col2:
     plt.scatter(X,y)
     plt.plot(x, y_val, color='gray', linewidth=3)
     plt.plot([x_val,x_val],[0,1], color='gray', linewidth=3)
-    plt.text(4,0.8,"FN")
-    plt.text(4,0.2,"TN")
-    plt.text(25,0.8,"TP")
-    plt.text(25,0.2,"FP")
+    plt.text(X.min()+2,cutoff+0.1,"FN")
+    plt.text(X.min()+2,cutoff-0.1,"TN")
+    plt.text(X.max()-2,cutoff+0.1,"TP")
+    plt.text(X.max()-2,cutoff-0.1,"FP")
     xDelta = np.linspace(X.min(),X.max(),10000)
     yPredicted = logisticModel.predict(X).reshape(-1,1).astype(int)
     yDeltaProb = logisticModel.predict_proba(xDelta.reshape(-1,1))[:,1]
