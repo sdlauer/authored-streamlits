@@ -90,5 +90,5 @@ else:
 
     st.pyplot(fig)
 
-    if depth > 2:
-        st.text("Right-click to open image in a new tab for a larger view.")
+    #if depth > 2:
+    #    st.text("Right-click to open image in a new tab for a larger view.")
