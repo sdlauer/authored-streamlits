@@ -75,8 +75,8 @@ with col2:
 #Plot the tree
 st.header("Classification tree")
 if text:
-    st.text([[X.columns]])
-    #st.text(export_text(classtreeModel, feature_names=X.columns))
+    #st.text(X.columns)
+    st.text(export_text(classtreeModel, feature_names=X.columns.to_list()))
 else:
     #fig, ax = plt.subplots()
 
