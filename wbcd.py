@@ -62,3 +62,7 @@ with col2:
     ax.set_xlabel('Radius mean',fontsize=14);
     ax.set_ylabel('Probability of malignant tumor',fontsize=14);
     st.pyplot(fig)
+    desc1 = "Description: Tumors with a radius mean of less than" + str(x_val)
+    desc2 = " will be classified as benign, while tumors with a radius mean of "
+    desc3 = "greater than or equal to " + str(x_val) + "will be classified as malignant."
+    st.write(desc1 + desc2 + desc3)
