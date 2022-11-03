@@ -34,11 +34,11 @@ logisticModel.fit(X,np.ravel(y.astype(int)))
 col1, col2 = st.columns([1,3])
 
 with col1:
-    threshold = st.slider('Threshold',0.0, 1.0, 0.1)
+    cutoff = st.slider('Cutoff',0.0, 1.0, 0.1)
     yPredictedProb = logisticModel.predict_proba(X)[:,1]
     yPredLowCutoff = []
     for i in range(0,yPredictedProb.size):
-        if yPredictedProb[i] < threshold:
+        if yPredictedProb[i] < cutoff:
             yPredLowCutoff.append(0)
         else:
             yPredLowCutoff.append(1)
@@ -50,8 +50,8 @@ with col2:
     #Graph logistic regression probabilities
     fig, ax = plt.subplots()
     x = [X.min(),X.max()]
-    y_val = [threshold, threshold]
-    x_val = (np.log(threshold/(1-threshold))+15.120902)/1.02475609
+    y_val = [cutoff, cutoff]
+    x_val = (np.log(cutoff/(1-cutoff))+15.120902)/1.02475609
     plt.scatter(X,y)
     plt.plot(x, y_val, color='gray', linewidth=3)
     plt.plot([x_val,x_val],[0,1], color='gray', linewidth=3)
@@ -62,8 +62,8 @@ with col2:
     ax.set_xlabel('Radius mean',fontsize=14);
     ax.set_ylabel('Probability of malignant tumor',fontsize=14);
     st.pyplot(fig)
-    desc1 = "Description: A classification model using logistic regression will "
-    desc2 = "classify tumors with a radius mean of less than " + str(round(x_val,2))
-    desc3 = " as benign. Tumors with a radius mean of "
-    desc4 = "greater than or equal to " + str(round(x_val,2)) + " will be classified as malignant."
+    desc1 = "Description: A classification model using logistic regression  with a cutoff of " + str(cutoff)
+    desc2 = " will classify tumors with a radius mean of less than " + str(round(x_val,2))
+    desc3 = " as benign. Tumors with a radius mean of"
+    desc4 = " greater than or equal to " + str(round(x_val,2)) + " will be classified as malignant."
     st.write(desc1 + desc2 + desc3 + desc4)
