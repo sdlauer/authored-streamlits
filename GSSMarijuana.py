@@ -35,7 +35,7 @@ seed=123
 X = marijuana[['age', 'educ', 'polviews_num']]
 y = marijuana[['marijuana01']]
 
-col1, col2 = st.columns([1,3])
+col1, col2 = st.columns([1,1])
 
 with col1:
     st.header("Inputs")
@@ -68,7 +68,7 @@ with col2:
             st.write(metrics.confusion_matrix(y, y_pred))
         else:
             disp = metrics.ConfusionMatrixDisplay.from_predictions(y, y_pred)
-            fig, ax = plt.subplots(figsize=(10,10))
+            fig, ax = plt.subplots(figsize=(5,5))
             disp.plot(ax=ax)
             st.pyplot(fig)
 
