@@ -51,8 +51,10 @@ with col2:
     fig, ax = plt.subplots()
     x = [X.min(),X.max()]
     y_val = [threshold, threshold]
+    x_val = (np.log10(threshold/(1-threshold))+15.120902)/1.02475609
     plt.scatter(X,y)
     plt.plot(x, y_val, color='gray', linewidth=3)
+    plt.plot([x_val,x_val],[0,1], color='gray', linewidth=3)
     xDelta = np.linspace(X.min(),X.max(),10000)
     yPredicted = logisticModel.predict(X).reshape(-1,1).astype(int)
     yDeltaProb = logisticModel.predict_proba(xDelta.reshape(-1,1))[:,1]
