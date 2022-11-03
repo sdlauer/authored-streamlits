@@ -55,6 +55,10 @@ with col2:
     plt.scatter(X,y)
     plt.plot(x, y_val, color='gray', linewidth=3)
     plt.plot([x_val,x_val],[0,1], color='gray', linewidth=3)
+    plt.text(4,0.8,"FN")
+    plt.text(4,0.2,"TN")
+    plt.text(25,0.8,"TP")
+    plt.text(25,0.2,"FP")
     xDelta = np.linspace(X.min(),X.max(),10000)
     yPredicted = logisticModel.predict(X).reshape(-1,1).astype(int)
     yDeltaProb = logisticModel.predict_proba(xDelta.reshape(-1,1))[:,1]
