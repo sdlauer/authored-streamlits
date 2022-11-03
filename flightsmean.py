@@ -77,7 +77,7 @@ with col1:
 		data2 = JFKf
 	elif group2 == "LGA":
 		data2 = LGAf
-	else
+	else:
 		data2=flights
 
 	st.text("Null Hypothesis:")
