@@ -69,7 +69,7 @@ with col2:
         else:
             disp = metrics.ConfusionMatrixDisplay.from_predictions(y, y_pred)
             fig, ax = plt.subplots(figsize=(10,10))
-            cmp.plot(ax=ax)
+            disp.plot(ax=ax)
             st.pyplot(fig)
 
 #Plot the tree
