@@ -79,14 +79,14 @@ else:
     #fig, ax = plt.subplots()
 
 
-    fig = plt.figure(figsize=(depth*16,depth*9))
-    if depth < 3:
-        plot_tree(classtreeModel, feature_names=X.columns,
+    fig = plt.figure(figsize=((2**depth)*16,depth*9))
+    #if depth < 3:
+    plot_tree(classtreeModel, feature_names=X.columns,
                   filled=True, fontsize=None, )
 
-    else:
-        plot_tree(classtreeModel, feature_names=X.columns,
-                  filled=True, fontsize=38, )
+    #else:
+    #    plot_tree(classtreeModel, feature_names=X.columns,
+    #              filled=True, fontsize=38, )
 
     st.pyplot(fig)
 
