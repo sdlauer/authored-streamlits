@@ -151,7 +151,7 @@ with col2:
 	if group1 == "none" and group2 == "none":
 		ax1.hist(x=flights[nf])
 		ax1.title.set_text('All delays')
-		ax1.set(xlabel="Delay (minutes)", ylabel="Counts")
+		ax1.set(xlabel='%s (minutes)' %numerical, ylabel="Counts")
 		ax2.axis('off')
 	elif group1 != "none" and group2 == "none":
 		ax1.hist(x=data1[nf])
@@ -161,14 +161,14 @@ with col2:
 	elif group1 == "none" and group2 != "none":
 		ax2.hist(x=data2[nf])
 		ax2.title.set_text('Flights from %s' %group2)
-		ax2.set(xlabel="Delay (minutes)", ylabel="Counts")
+		ax2.set(xlabel='%s (minutes)' %numerical, ylabel="Counts")
 		ax1.axis('off')
 	else:
 		ax1.hist(x=data1[nf])
 		ax1.title.set_text('Flights from %s' %group1)
-		ax1.set(xlabel="Delay (minutes)", ylabel="Counts")
+		ax1.set(xlabel='%s (minutes)' %numerical, ylabel="Counts")
 		ax2.hist(x=data2[nf])
 		ax2.title.set_text('Flights from %s' %group2)
-		ax2.set(xlabel="Delay (minutes)", ylabel="Counts")
+		ax2.set(xlabel='%s (minutes)' %numerical, ylabel="Counts")
 	fig.tight_layout(pad=1.0)
 	st.pyplot(fig)
