@@ -68,7 +68,7 @@ with col2:
             st.write(metrics.confusion_matrix(y, y_pred))
         else:
             disp = metrics.ConfusionMatrixDisplay.from_predictions(y, y_pred)
-            fig, ax = plt.subplots(figsize=(1,1))
+            fig, ax = plt.subplots(figsize=(2,2))
             disp.plot(ax=ax)
             st.pyplot(fig)
             #st.pyplot(disp.figure_)
