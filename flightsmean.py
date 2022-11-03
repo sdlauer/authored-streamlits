@@ -156,7 +156,7 @@ with col2:
 	elif group1 != "none" and group2 == "none":
 		ax1.hist(x=data1[nf])
 		ax1.title.set_text('Flights from %s' %group1)
-		ax1.set(xlabel="Delay (minutes)", ylabel="Counts")
+		ax1.set(xlabel='%s (minutes)' %numerical, ylabel="Counts")
 		ax2.axis('off')
 	elif group1 == "none" and group2 != "none":
 		ax2.hist(x=data2[nf])
