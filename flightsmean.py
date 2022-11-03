@@ -126,22 +126,22 @@ with col1:
 		else:
 			if group1 == "EWR":
 				summary1 = EWRf[nf].describe()
-				summary1=summary1.rename('G1: '+ group1 + ' ' + numerical)
+				summary1=summary1.rename('G1: '+ group1)
 			elif group1 == "JFK":
 				summary1 = JFKf[nf].describe()
-				summary1=summary1.rename('G1: '+ group1 + ' ' + numerical)
+				summary1=summary1.rename('G1: '+ group1)
 			else:
 				summary1 = LGAf[nf].describe()
-				summary1=summary1.rename('G1: '+ group1 + ' ' + numerical)
+				summary1=summary1.rename('G1: '+ group1)
 			if group2 == "EWR":
 				summary2 = EWRf[nf].describe()
-				summary2=summary2.rename('G2: '+ group2 + ' ' + numerical)
+				summary2=summary2.rename('G2: '+ group2)
 			elif group2 == "JFK":
 				summary2 = JFKf[nf].describe()
-				summary2=summary2.rename('G2: '+ group2 + ' ' + numerical)
+				summary2=summary2.rename('G2: '+ group2)
 			else:
 				summary2 = LGAf[nf].describe()
-				summary2=summary2.rename('G2: '+ group2 + ' ' + numerical)
+				summary2=summary2.rename('G2: '+ group2)
 			summary = pd.concat([summary1, summary2], axis=1)
 		#summary.columns = ["Count","Mean","Std", "Min", "Q1", "Median", "Q3", "Max"]
 		st.dataframe(summary)
