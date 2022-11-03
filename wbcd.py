@@ -34,7 +34,7 @@ logisticModel.fit(X,np.ravel(y.astype(int)))
 col1, col2 = st.columns([1,3])
 
 with col1:
-    cutoff = st.slider('Cutoff',0.1, 0.9, 0.1,value=0.5)
+    cutoff = st.slider('Cutoff',0.1, 0.9, 0.5,0.1)
     yPredictedProb = logisticModel.predict_proba(X)[:,1]
     yPredLowCutoff = []
     for i in range(0,yPredictedProb.size):
