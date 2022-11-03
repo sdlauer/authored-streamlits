@@ -66,8 +66,8 @@ with col2:
     ax.set_xlabel('Radius mean',fontsize=14);
     ax.set_ylabel('Probability of malignant tumor',fontsize=14);
     st.pyplot(fig)
-    desc1 = "Description: A classification model using logistic regression  with a cutoff of " + str(cutoff)
-    desc2 = " will classify tumors with a radius mean of less than " + str(round(x_val,2))
+    desc1 = "Description: A classification model using logistic regression  with a probability cutoff of "
+    desc2 = str(cutoff) + " will classify tumors with a radius mean of less than " + str(round(x_val,2))
     desc3 = " as benign. Tumors with a radius mean of"
     desc4 = " greater than or equal to " + str(round(x_val,2)) + " will be classified as malignant."
     st.write(desc1 + desc2 + desc3 + desc4)
