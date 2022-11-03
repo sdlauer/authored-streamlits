@@ -80,13 +80,13 @@ else:
 
 
     fig = plt.figure(figsize=(pow(2,depth)*4,depth*3))
-    #if depth < 3:
+    if depth < 3:
     plot_tree(classtreeModel, feature_names=X.columns,
                   filled=True, fontsize=None, )
 
-    #else:
-    #    plot_tree(classtreeModel, feature_names=X.columns,
-    #              filled=True, fontsize=38, )
+    else:
+        plot_tree(classtreeModel, feature_names=X.columns,
+                  filled=True, fontsize=38, )
 
     st.pyplot(fig)
 
