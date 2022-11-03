@@ -58,7 +58,7 @@ with col1:
 		data1 = JFKf
 	elif group1 == "LGA":
 		data1 = LGAf
-	else
+	else:
 		data1=flights
 
 	group2 = st.selectbox(
