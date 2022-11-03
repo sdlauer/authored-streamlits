@@ -86,7 +86,7 @@ else:
 
     else:
         plot_tree(classtreeModel, feature_names=X.columns,
-                  filled=True, fontsize=24, )
+                  filled=True, fontsize=25, )
 
     st.pyplot(fig)
 
