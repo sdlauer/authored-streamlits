@@ -135,7 +135,7 @@ with col1:
 				summary1=summary1.rename('G1: '+ group1 + ' ' + numerical)
 			if group2 == "EWR":
 				summary2 = EWRf[nf].describe()
-				summary2=summary2.rename('G12 '+ group2 + ' ' + numerical)
+				summary2=summary2.rename('G2: '+ group2 + ' ' + numerical)
 			elif group2 == "JFK":
 				summary2 = JFKf[nf].describe()
 				summary2=summary2.rename('G2: '+ group2 + ' ' + numerical)
