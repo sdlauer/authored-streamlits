@@ -68,8 +68,9 @@ with col2:
             st.write(metrics.confusion_matrix(y, y_pred))
         else:
             disp = metrics.ConfusionMatrixDisplay.from_predictions(y, y_pred)
-
-            st.pyplot(disp.figure_)
+            fig, ax = plt.subplots(figsize=(10,10))
+            cmp.plot(ax=ax)
+            st.pyplot(fig)
 
 #Plot the tree
 st.header("Classification tree")
