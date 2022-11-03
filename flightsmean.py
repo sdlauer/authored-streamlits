@@ -175,11 +175,11 @@ with col2:
 
 	if group1 != "none" and group2 != "none":
 		if alternative == "not equal":
-			hyptest = ttest_ind(a=data1[nf], b=data2[nf], equal_var=TRUE, alternative='two-sided')
+			hyptest = ttest_ind(a=data1[nf], b=data2[nf], equal_var=True, alternative='two-sided')
 		elif alternative == "less than":
-			hyptest = ttest_ind(a=data1[nf], b=data2[nf], equal_var=TRUE, alternative='less')
+			hyptest = ttest_ind(a=data1[nf], b=data2[nf], equal_var=True, alternative='less')
 		else:
-			hyptest = ttest_ind(a=data1[nf], b=data2[nf], equal_var=TRUE, alternative='greater')
+			hyptest = ttest_ind(a=data1[nf], b=data2[nf], equal_var=True, alternative='greater')
 		st.write('Test statistic:', hyptest[0])
 		st.write('p-value: ', hyptest[1])
 	else:
