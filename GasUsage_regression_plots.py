@@ -18,7 +18,18 @@ GasUsage = GasUsage[GasUsage['Gas']>0]
 
 
 
+hide = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        body {overflow: hidden;}
+        div.block-container {padding-top:1rem;}
+        div.block-container {padding-bottom:1rem;}
+        </style>
+        """
 
+st.markdown(hide, unsafe_allow_html=True)
 
 col1, col2 = st.columns([2,3])
 
