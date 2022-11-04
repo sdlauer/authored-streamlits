@@ -25,7 +25,7 @@ hide = """
         </style>
         """
 
-#st.markdown(hide, unsafe_allow_html=True)
+st.markdown(hide, unsafe_allow_html=True)
 
 marijuana = pd.read_csv('https://raw.githubusercontent.com/zyRissler/streamlits/main/gss.csv').dropna()
 
