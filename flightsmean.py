@@ -5,18 +5,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import ttest_ind
 
-hide = """
-        <style>
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
-        header {visibility: hidden;}
-        body {overflow: hidden;}
-        div.block-container {padding-top:1rem;}
-        div.block-container {padding-bottom:1rem;}
-        </style>
-        """
+#hide = """
+#        <style>
+#        #MainMenu {visibility: hidden;}
+#        footer {visibility: hidden;}
+#        header {visibility: hidden;}
+#        body {overflow: hidden;}
+#        div.block-container {padding-top:1rem;}
+#        div.block-container {padding-bottom:1rem;}
+#        </style>
+#        """
 
-st.markdown(hide, unsafe_allow_html=True)
+#st.markdown(hide, unsafe_allow_html=True)
 
 flights = pd.read_csv('flightsmean.csv')
 flights.columns = ["origin", "dep_delay", "arr_delay"]
