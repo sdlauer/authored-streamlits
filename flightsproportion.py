@@ -5,18 +5,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 from statsmodels.stats.proportion import proportions_ztest
 
-#hide = """
-#        <style>
-#        #MainMenu {visibility: hidden;}
-#        footer {visibility: hidden;}
-#        header {visibility: hidden;}
-#        body {overflow: hidden;}
-#        div.block-container {padding-top:1rem;}
-#        div.block-container {padding-bottom:1rem;}
-#        </style>
-#        """
+hide = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        body {overflow: hidden;}
+        div.block-container {padding-top:1rem;}
+        div.block-container {padding-bottom:1rem;}
+        </style>
+        """
 
-#st.markdown(hide, unsafe_allow_html=True)
+st.markdown(hide, unsafe_allow_html=True)
 
 #flights = pd.read_csv('flightsProp.csv')
 #flights.columns = ["origin", "delay"]
