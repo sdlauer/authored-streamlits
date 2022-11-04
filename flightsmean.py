@@ -101,7 +101,7 @@ with col1:
 
 	if check:
 		if group1 == "none" and group2 == "none":
-			summary = flights[nf].describe()
+			summary = flights[nf].describe().apply("[0:.2f]".format)
 			summary=summary.rename("All" + ' ' + numerical)
 		elif group1 != "none" and group2 == "none":
 			if group1 == "EWR":
