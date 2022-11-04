@@ -17,6 +17,7 @@ GasUsage = GasUsage[GasUsage['Gas']>0]
 
 hide = """
         <style>
+        max-width: {max_width:400}px;
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
         header {visibility: hidden;}
@@ -39,16 +40,20 @@ deg = st.selectbox(
     ]
 )
 
+#I couldn't get the resizing to work to my satisfaction, so I used columns as a hackey way to keep the graph small and centered.
+col1, col2, col3 = st.columns([1,3,1])
 
-fig, ax = plt.subplots()
+with col2:
+    fig, ax = plt.subplots()
 
-#Take the first character of deg and cast it to an integer
-ord = int(deg[0])
+    #Take the first character of deg and cast it to an integer
+    ord = int(deg[0])
 
-# Scatterplot of gas usage by temperature with polynomial model
-sns.regplot(data=GasUsage, x='Average', y='Gas',
-                    ci=False, line_kws={'color': 'black'}, order=ord)
-ax.set_xlabel('Temperature', fontsize=14)
-ax.set_ylabel('Gas', fontsize=14)
-st.pyplot(fig)
+    # Scatterplot of gas usage by temperature with polynomial model
+    sns.regplot(data=GasUsage, x='Average', y='Gas',
+        ci=False, line_kws={'color': 'black'}, order=ord)
+    ax.set_xlabel('Temperature', fontsize=14)
+    ax.set_ylabel('Gas', fontsize=14)
+    st.pyplot(fig)
+
 st.write("Description: A scatter plot of temperature and natural gas with a regression model of the chosen degree. The polynomial models with degree 2 and degree 3 appear to be good fits for the dataset. The polynomial model with degree 4 curves upward at the right end, suggesting that gas use will increase for high temperatures.")
