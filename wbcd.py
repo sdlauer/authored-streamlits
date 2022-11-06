@@ -45,6 +45,10 @@ with col1:
     st.write("Accuracy: " + str(round(metrics.accuracy_score(y,yPredLowCutoff),2)))
     st.write("Precision: " + str(round(metrics.precision_score(y,yPredLowCutoff),2)))
     st.write("Recall: " + str(round(metrics.recall_score(y,yPredLowCutoff),2)))
+    st.write("TP: " + str(metrics.confusion_matrix(y,yPredLowCutoff)[0][0]))
+    st.write("FP: " + str(metrics.confusion_matrix(y,yPredLowCutoff)[0][1]))
+    st.write("FN: " + str(metrics.confusion_matrix(y,yPredLowCutoff)[1][0]))
+    st.write("TN: " + str(metrics.confusion_matrix(y,yPredLowCutoff)[1][1]))
 
 with col2:
     #Graph logistic regression probabilities
