@@ -72,7 +72,7 @@ with col1:
     )
 
     # Store relevant columns as variables
-    X = crabs[['Latitude']].values.reshape(-1, 1)
+    X = crabs[['Latitude']].values.reshape(-1, 1).astype(int)
     y = crabs[[target]].values.reshape(-1, 1).astype(int)
 
     # regModeleq = st.checkbox("Display regression model")
