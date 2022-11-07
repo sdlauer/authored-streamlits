@@ -94,7 +94,9 @@ with col2:
     ax.set_ylabel(target, fontsize=14)
 
     if regModeleq:
-        st.text(target + " = " + str(linearModel.coef_[0]) + "(Latitude) + " + str(linearModel.intercept_[0]))
+        slope = str(round(linearModel.coef_[0],3))
+        intercept = str(round(linearModel.intercept_[0],3))
+        st.text(target + " = " + slope + "(Latitude) " + "+ " + intercept)
     # regModeleq = st.checkbox("Display regression model")
     # if regModeleq: show_eq(X,y,target)
 
