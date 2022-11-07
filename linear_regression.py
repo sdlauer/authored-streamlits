@@ -73,12 +73,12 @@ with col1:
     )
 
     # Store relevant columns as variables
-    X = crabs[['Latitude']].astype(int)
-    y = crabs[[target]].astype(int)
+    X = crabs[['Latitude']].values.reshape(-1, 1).astype(int)
+    y = crabs[[target]].values.reshape(-1, 1).astype(int)
 
     # Logistic regression predicting diagnosis from tumor radius
     linearModel = LinearRegression()
-    linearModel.fit(np.ravel(X),np.ravel(y.astype(int)))
+    linearModel.fit(X,np.ravel(y.astype(int)))
 
     regModeleq = st.checkbox("Display regression model")
 
@@ -94,9 +94,9 @@ with col2:
     ax.set_ylabel(target, fontsize=14)
 
     if regModeleq:
-        m, b = np.polyfit(np.ravel(X), np.ravel(y), 1)
-        m = round(m,3)
-        b = round(b,3)
+        m, b = np.polyfit(np.ravel(X).astype(int), np.ravel(y).astype(int), 1)
+        m = np.round(m,3)
+        b = np.round(b,3)
         st.text(m)
         st.text(b)
     # regModeleq = st.checkbox("Display regression model")
