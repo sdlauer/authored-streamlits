@@ -96,7 +96,8 @@ with col2:
     if regModeleq:
         slope = str(round(linearModel.coef_[0],3))
         intercept = str(round(linearModel.intercept_[0],3))
-        st.text(target + " = " + slope + "(Latitude) " + "+ " + intercept)
+        st.text(slope)
+        st.text(intercept)
     # regModeleq = st.checkbox("Display regression model")
     # if regModeleq: show_eq(X,y,target)
 
