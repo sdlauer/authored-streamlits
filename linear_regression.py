@@ -90,9 +90,7 @@ b = np.round(b,3)
 
 with col2:
     fig, ax = plt.subplots()
-
     sns.scatterplot(x="Latitude", y=target, data=crabs)
-    plt.plot([X.min],[],color="red")
     ax.set_xlabel("Latitude", fontsize=14)
     ax.set_ylabel(target, fontsize=14)
 
