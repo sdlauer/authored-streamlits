@@ -26,7 +26,7 @@ def show_eq(X,y,target):
     m, b = np.polyfit(X, y, 1)
     m = round(m,3)
     b = round(b,3)
-    st.latex('\hat{\text{' + target + '}} = ' + str(m) + '(\text{Latitude}) + ' + str(b)))
+    st.latex('\hat{\text{' + target + '}} = ' + str(m) + '(\text{Latitude}) + ' + str(b))
 
 # Plot linear regression line
 def add_reg(data):
