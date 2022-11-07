@@ -83,6 +83,7 @@ with col1:
     regModeleq = st.checkbox("Display regression model")
     add_reg = st.checkbox("Add regression line")
     add_mean = st.checkbox("Add mean")
+    add_resid = st.checkbox("Add residuals")
 
 m, b = np.polyfit(np.ravel(X).astype(float), np.ravel(y).astype(float), 1)
 m = np.round(m,3)
@@ -97,8 +98,8 @@ with col2:
 
     if add_reg:
         x_ind = [X.min(),X.max()]
-        y_pred = [m*x_ind[0]+b, m*x_ind[1]+b]
-        plt.plot(x_ind,y_pred, c='red', label="Regression model")
+        y_ind = [m*x_ind[0]+b, m*x_ind[1]+b]
+        plt.plot(x_ind,y_ind, c='red', label="Regression line")
         plt.legend()
 
     if add_mean:
@@ -111,3 +112,7 @@ with col2:
 
     if regModeleq:
         st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
+    if add_resid:
+        n = len(X)
+        for i in range(n):
+            plt.plot([X[i],X[i]],[y[i],m*X[i]+b], c = 'gray')
