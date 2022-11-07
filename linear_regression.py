@@ -93,6 +93,7 @@ with col2:
     sns.scatterplot(x="Latitude", y=target, data=crabs)
     ax.set_xlabel("Latitude", fontsize=14)
     ax.set_ylabel(target, fontsize=14)
+    ax.legend()
 
     if add_reg:
         x_ind = [X.min(),X.max()]
