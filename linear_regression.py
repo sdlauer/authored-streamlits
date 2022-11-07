@@ -102,7 +102,7 @@ with col2:
     if add_mean:
         x_ind = [X.min(),X.max()]
         y_mean = [crabs[target].mean(), crabs[target].mean()]
-        plt.plot(x_ind,y_mean, c='orange', label="Mean")
+        plt.plot(x_ind,y_mean, c='darkorange', label="Mean")
 
     st.pyplot(fig)
 
