@@ -99,11 +99,13 @@ with col2:
         x_ind = [X.min(),X.max()]
         y_pred = [m*x_ind[0]+b, m*x_ind[1]+b]
         plt.plot(x_ind,y_pred, c='red', label="Regression model")
+        plt.legend()
 
     if add_mean:
         x_ind = [X.min(),X.max()]
         y_mean = [crabs[target].mean(), crabs[target].mean()]
         plt.plot(x_ind,y_mean, c='darkorange', label="Mean")
+        plt.legend()
 
     st.pyplot(fig)
 
