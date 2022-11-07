@@ -98,7 +98,7 @@ with col2:
         st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
 
     if add_reg:
-        x_ind = [1,100]
+        x_ind = [X.min(),X.max()]
         y_pred = [m*x_ind[0]+b, m*x_ind[1]+b]
         plt.plot(x_ind,y_pred, c='red')
     # regModeleq = st.checkbox("Display regression model")
