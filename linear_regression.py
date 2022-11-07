@@ -72,8 +72,8 @@ with col1:
     )
 
     # Store relevant columns as variables
-    X = crabs[['latitude']].values.reshape(-1, 1).astype(int)
-    y = crabs[['mean_mm']].values.reshape(-1, 1).astype(int)
+    X = crabs[['Latitude']].values.reshape(-1, 1).astype(int)
+    y = crabs[[target]].values.reshape(-1, 1).astype(int)
 
     # Logistic regression predicting diagnosis from tumor radius
     linearModel = LinearRegression()
@@ -91,7 +91,7 @@ with col1:
 with col2:
     fig, ax = plt.subplots()
 
-    sns.scatterplot(x=X, y=y)
+    sns.scatterplot(x="", y=y)
 
     ax.set_xlabel("Latitude", fontsize=14)
     ax.set_ylabel(target, fontsize=14)
