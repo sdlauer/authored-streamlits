@@ -19,7 +19,7 @@ st.markdown(hide, unsafe_allow_html=True)
 
 crabs = pd.read_csv("crab-groups.csv")
 
-tips.columns = ["Site", "Latitude", "Sample size", "Mean length", "Min length", "Max length", "Stdev length","Median length","Date"]
+crabs.columns = ["Site", "Latitude", "Sample size", "Mean length", "Min length", "Max length", "Stdev length","Median length","Date"]
 
 # Show linear regression equation
 def show_eq(X,y,target):
