@@ -91,7 +91,7 @@ with col1:
 with col2:
     fig, ax = plt.subplots()
 
-    sns.scatterplot(x="", y=y)
+    sns.scatterplot(x="Latitude", y=target, data=crabs)
 
     ax.set_xlabel("Latitude", fontsize=14)
     ax.set_ylabel(target, fontsize=14)
