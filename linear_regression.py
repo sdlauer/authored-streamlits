@@ -82,10 +82,7 @@ with col1:
 
     regModeleq = st.checkbox("Display regression model")
 
-    if regModeleq:
-        st.text(target + " = " + str(linearModel.coef_[0]) + "(Latitude) + " + str(linearModel.intercept_[0]))
-    # regModeleq = st.checkbox("Display regression model")
-    # if regModeleq: show_eq(X,y,target)
+
 
 
 with col2:
@@ -95,5 +92,10 @@ with col2:
 
     ax.set_xlabel("Latitude", fontsize=14)
     ax.set_ylabel(target, fontsize=14)
+
+    if regModeleq:
+        st.text(target + " = " + str(linearModel.coef_[0]) + "(Latitude) + " + str(linearModel.intercept_[0]))
+    # regModeleq = st.checkbox("Display regression model")
+    # if regModeleq: show_eq(X,y,target)
 
     st.pyplot(fig)
