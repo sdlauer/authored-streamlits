@@ -99,7 +99,7 @@ with col2:
 
     if add_reg:
         x_ind = [1,100]
-        y_pred = [m*x[0]+b, m*x[1]+b]
+        y_pred = [m*x_ind[0]+b, m*x_ind[1]+b]
         plt.plot(x_ind,y_pred, c='red')
     # regModeleq = st.checkbox("Display regression model")
     # if regModeleq: show_eq(X,y,target)
