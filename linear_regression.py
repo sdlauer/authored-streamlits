@@ -94,8 +94,8 @@ with col2:
     ax.set_ylabel(target, fontsize=14)
 
     if regModeleq:
-        slope = str(round(linearModel.coef_[0],3))
-        intercept = str(round(linearModel.intercept_[0],3))
+        slope = str(np.round(linearModel.coef_[0],3))
+        intercept = str(np.round(linearModel.intercept_[0],3))
         st.text(slope)
         st.text(intercept)
     # regModeleq = st.checkbox("Display regression model")
