@@ -81,8 +81,8 @@ with col1:
     linearModel.fit(X,np.ravel(y.astype(int)))
 
     regModeleq = st.checkbox("Display regression model")
-    add_reg = st.checkbox("Add Rrgression line")
-    regModelmean = st.checkbox("Show mean of " + str(target))
+    add_reg = st.checkbox("Add Regression line")
+    add_mean = st.checkbox("Add mean")
 
 m, b = np.polyfit(np.ravel(X).astype(float), np.ravel(y).astype(float), 1)
 m = np.round(m,3)
@@ -100,7 +100,12 @@ with col2:
     if add_reg:
         x_ind = [X.min(),X.max()]
         y_pred = [m*x_ind[0]+b, m*x_ind[1]+b]
-        plt.plot(x_ind,y_pred, c='red')
+        plt.plot(x_ind,y_pred, c='red', label="Regression model")
+
+    if add_mean:
+        x_ind = [X.min(),X.max()]
+        y_mean = [target.mean(), target.mean()]
+        plt.plot(x_ind,y_mean c='orange', label="Mean")
     # regModeleq = st.checkbox("Display regression model")
     # if regModeleq: show_eq(X,y,target)
 
