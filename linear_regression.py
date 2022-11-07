@@ -93,10 +93,6 @@ with col2:
     sns.scatterplot(x="Latitude", y=target, data=crabs)
     ax.set_xlabel("Latitude", fontsize=14)
     ax.set_ylabel(target, fontsize=14)
-    st.pyplot(fig)
-
-    if regModeleq:
-        st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
 
     if add_reg:
         x_ind = [X.min(),X.max()]
@@ -107,3 +103,8 @@ with col2:
         x_ind = [X.min(),X.max()]
         y_mean = [crabs[target].mean(), crabs[target].mean()]
         plt.plot(x_ind,y_mean, c='orange', label="Mean")
+
+    st.pyplot(fig)
+
+    if regModeleq:
+        st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
