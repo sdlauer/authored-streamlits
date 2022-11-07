@@ -97,7 +97,7 @@ with col2:
         m, b = np.polyfit(np.ravel(X).astype(int), np.ravel(y).astype(int), 1)
         m = np.round(m,3)
         b = np.round(b,3)
-        st.latex("\hat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
+        st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
     # regModeleq = st.checkbox("Display regression model")
     # if regModeleq: show_eq(X,y,target)
 
