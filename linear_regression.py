@@ -81,7 +81,7 @@ with col1:
     linearModel.fit(X,np.ravel(y.astype(int)))
 
     regModeleq = st.checkbox("Display regression model")
-    add_reg = st.checkbox("Add Regression line")
+    add_reg = st.checkbox("Add regression line")
     add_mean = st.checkbox("Add mean")
 
 m, b = np.polyfit(np.ravel(X).astype(float), np.ravel(y).astype(float), 1)
