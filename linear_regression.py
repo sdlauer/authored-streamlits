@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
-import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
 
 hide = """
         <style>
@@ -72,8 +72,17 @@ with col1:
     )
 
     # Store relevant columns as variables
-    X = crabs[['Latitude']].values.reshape(-1, 1).astype(int)
-    y = crabs[[target]].values.reshape(-1, 1).astype(int)
+    X = crabs[['latitude']].values.reshape(-1, 1).astype(int)
+    y = crabs[['mean_mm']].values.reshape(-1, 1).astype(int)
+
+    # Logistic regression predicting diagnosis from tumor radius
+    linearModel = LinearRegression()
+    linearModel.fit(X,np.ravel(y.astype(int)))
+
+    regModeleq = st.checkbox("Display regression model")
+
+    if regModeleq:
+        text = "\hat{" + target + "} = " + str(linearModel.coef_[0]) + "(Latitude) + " + str(linearModel.intercept_[0])
 
     # regModeleq = st.checkbox("Display regression model")
     # if regModeleq: show_eq(X,y,target)
