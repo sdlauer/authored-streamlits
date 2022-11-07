@@ -81,23 +81,28 @@ with col1:
     linearModel.fit(X,np.ravel(y.astype(int)))
 
     regModeleq = st.checkbox("Display regression model")
+    add_reg = st.checkbox("Add Rrgression line")
+    regModelmean = st.checkbox("Show mean of " + str(target))
 
-
-
+m, b = np.polyfit(np.ravel(X).astype(int), np.ravel(y).astype(int), 1)
+m = np.round(m,3)
+b = np.round(b,3)
 
 with col2:
     fig, ax = plt.subplots()
 
     sns.scatterplot(x="Latitude", y=target, data=crabs)
-
+    plt.plot([X.min],[],color="red")
     ax.set_xlabel("Latitude", fontsize=14)
     ax.set_ylabel(target, fontsize=14)
 
     if regModeleq:
-        m, b = np.polyfit(np.ravel(X).astype(int), np.ravel(y).astype(int), 1)
-        m = np.round(m,3)
-        b = np.round(b,3)
         st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
+
+    if add_reg:
+        x_ind = [1,100]
+        y_pred = [m*x[0]+b, m*x[1]+b]
+        plt.plot(x_ind,y_pred, c='red')
     # regModeleq = st.checkbox("Display regression model")
     # if regModeleq: show_eq(X,y,target)
 
