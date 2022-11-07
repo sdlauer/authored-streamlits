@@ -105,7 +105,7 @@ with col2:
     if add_mean:
         x_ind = [X.min(),X.max()]
         y_mean = [target.mean(), target.mean()]
-        plt.plot(x_ind,y_mean c='orange', label="Mean")
+        plt.plot(x_ind,y_mean, c='orange', label="Mean")
     # regModeleq = st.checkbox("Display regression model")
     # if regModeleq: show_eq(X,y,target)
 
