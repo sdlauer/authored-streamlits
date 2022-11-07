@@ -83,8 +83,7 @@ with col1:
     regModeleq = st.checkbox("Display regression model")
 
     if regModeleq:
-        text = "\hat{" + target + "} = " + str(linearModel.coef_[0]) + "(Latitude) + " + str(linearModel.intercept_[0])
-        st.latex(text)
+        st.text(str(linearModel.coef_))
     # regModeleq = st.checkbox("Display regression model")
     # if regModeleq: show_eq(X,y,target)
 
