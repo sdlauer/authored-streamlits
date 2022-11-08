@@ -90,7 +90,7 @@ with col1:
     b = np.round(b,3)
 
     predictor = st.slider('Prediction when Latitude is',30.0, 43.0, 30.0, 0.1)
-    prediction = m*predictor+b
+    prediction = np.round(m*predictor+b,2)
     st.latex("\widehat{\\text{" + target + "}} (" + str(predictor) + ") = " + str(prediction))
 
 with col2:
