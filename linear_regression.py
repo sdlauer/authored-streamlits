@@ -128,8 +128,8 @@ with tab1:
           "Median length": "median fiddler crab length"
         }
         desc1 = "Description: Samples of fiddler crabs from 13 locations were taken and the " + thisdict[target]
-        desc2 = " from each location was recorded. As the latitude increases, the " + target
-        desc3 = " of the crabs from each location increases as well."
+        desc2 = " from each location was recorded. As the latitude increases, the " + thisdict[target]
+        desc3 = " also increases."
         description = desc1 + desc2 + desc3
         st.write(description)
 
