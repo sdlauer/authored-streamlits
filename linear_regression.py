@@ -59,66 +59,80 @@ crabs.columns = ["Site", "Latitude", "Sample size", "Mean length", "Min length",
 #     plt.text(110,2,'r = ' + str(corr_coef))
 
 
-col1, col2 = st.columns([1.5,3])
+tab1, tab2, tab3 = st.tabs(["Plot", "Prediction", "Summary statistics"])
 
-with col1:
-    target = st.selectbox(
-        "Select target feature",
-        [
-            "Mean length",
-            "Min length",
-            "Max length",
-            "Median length"
-        ]
-    )
+with tab1:
+    col1, col2 = st.columns([1.5,3])
 
-    # Store relevant columns as variables
-    X = crabs[['Latitude']].values.reshape(-1, 1).astype(float)
-    y = crabs[[target]].values.reshape(-1, 1).astype(float)
+    with col1:
+        target = st.selectbox(
+            "Select target feature",
+            [
+                "Mean length",
+                "Min length",
+                "Max length",
+                "Median length"
+            ]
+        )
 
-    # Logistic regression predicting diagnosis from tumor radius
-    linearModel = LinearRegression()
-    linearModel.fit(X,np.ravel(y.astype(int)))
+        # Store relevant columns as variables
+        X = crabs[['Latitude']].values.reshape(-1, 1).astype(float)
+        y = crabs[[target]].values.reshape(-1, 1).astype(float)
 
-    # regModeleq = st.checkbox("Display regression equation")
-    add_reg = st.checkbox("Add regression line")
-    add_mean = st.checkbox("Add mean")
-    add_resid = st.checkbox("Add residuals")
+        # Logistic regression predicting diagnosis from tumor radius
+        linearModel = LinearRegression()
+        linearModel.fit(X,np.ravel(y.astype(int)))
 
-    m, b = np.polyfit(np.ravel(X).astype(float), np.ravel(y).astype(float), 1)
-    m = np.round(m,3)
-    b = np.round(b,3)
+        # regModeleq = st.checkbox("Display regression equation")
+        add_reg = st.checkbox("Add regression line")
+        add_mean = st.checkbox("Add mean")
+        add_resid = st.checkbox("Add residuals")
 
-    predictor = st.slider('Prediction when Latitude is',30.0, 43.0, 30.0, 0.1)
+        m, b = np.polyfit(np.ravel(X).astype(float), np.ravel(y).astype(float), 1)
+        m = np.round(m,3)
+        b = np.round(b,3)
+
+
+    with col2:
+
+
+        fig, ax = plt.subplots()
+        sns.scatterplot(x="Latitude", y=target, data=crabs)
+        ax.set_xlabel("Latitude", fontsize=14)
+        ax.set_ylabel(target, fontsize=14)
+
+        if add_reg:
+            x_ind = [X.min(),X.max()]
+            y_ind = [m*x_ind[0]+b, m*x_ind[1]+b]
+            plt.plot(x_ind,y_ind, c='red', label="Regression line")
+            plt.legend()
+            st.subeader("Regression equation")
+            st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
+
+        if add_mean:
+            x_ind = [X.min(),X.max()]
+            y_mean = [crabs[target].mean(), crabs[target].mean()]
+            plt.plot(x_ind,y_mean, c='darkorange', label="Mean")
+            plt.legend()
+
+        if add_resid:
+            n = len(X)
+            for i in range(len(X)):
+                plt.plot([X[i],X[i]],[y[i],m*X[i]+b],color='grey',linewidth = 2)
+        st.subheader("Plot")
+        st.pyplot(fig)
+
+        # if regModeleq:
+        #     st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
+
+with tab2:
+    st.subheader("Regression equation")
+    st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
+    st.subheader("Prediction")
+    pred_text = "Prediction for " + str(target) + " when Latitude is"
+    predictor = st.slider(pred_text,30.0, 43.0, 30.0, 0.1)
     prediction = np.round(m*predictor+b,2)
     st.latex("\widehat{\\text{" + target + "}} (" + str(predictor) + ") = " + str(prediction))
 
-with col2:
-
-
-    fig, ax = plt.subplots()
-    sns.scatterplot(x="Latitude", y=target, data=crabs)
-    ax.set_xlabel("Latitude", fontsize=14)
-    ax.set_ylabel(target, fontsize=14)
-
-    if add_reg:
-        x_ind = [X.min(),X.max()]
-        y_ind = [m*x_ind[0]+b, m*x_ind[1]+b]
-        plt.plot(x_ind,y_ind, c='red', label="Regression line")
-        plt.legend()
-        st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
-
-    if add_mean:
-        x_ind = [X.min(),X.max()]
-        y_mean = [crabs[target].mean(), crabs[target].mean()]
-        plt.plot(x_ind,y_mean, c='darkorange', label="Mean")
-        plt.legend()
-
-    if add_resid:
-        n = len(X)
-        for i in range(len(X)):
-            plt.plot([X[i],X[i]],[y[i],m*X[i]+b],color='grey',linewidth = 2)
-    st.pyplot(fig)
-
-    # if regModeleq:
-    #     st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
+with tab3:
+    st.subheader("Summary statistics")
