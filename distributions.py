@@ -65,6 +65,53 @@ with col1:
             step=1,
             value=10
         )
+
+    check = st.checkbox("Add second distribution")
+
+    if check:
+            distribution2  =st.selectbox(
+        "Distribution #2",
+        [
+            "binomial",
+            "normal",
+            "t"
+        ]
+    )
+    st.text("Enter value or use - and +")
+    if distribution2 == "binomial":
+        nobs2 = st.number_input(
+            "n",
+            min_value=1,
+            step=1,
+            value=10
+        )
+        prob2 = st.number_input(
+            label="Probability",
+            min_value=0.00,
+            max_value=1.00,
+            value=0.50,
+            step=0.01
+        )
+    elif distribution2 == "normal":
+        meanmu2 = st.number_input(
+            "Mean",
+            value=0.0,
+            step=0.1
+        )
+        stsigma2 = st.number_input(
+            "Standard deviation",
+            min_value=0.00,
+            value=1.00,
+            step=0.01
+        )
+    else:
+        df2 = st.number_input(
+            "Degrees of freedom (df)",
+            min_value=0,
+            step=1,
+            value=10
+        )
+
 with col2:
     fig, ax = plt.subplots()
     if distribution == "binomial":
@@ -84,5 +131,5 @@ with col2:
         ax.title.set_text('t(%02d)' %df)
 
     st.pyplot(fig)
-   
+
 
