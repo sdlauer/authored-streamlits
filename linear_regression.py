@@ -134,7 +134,7 @@ with tab1:
         st.write(description)
 
 with tab2:
-    st.dataframe(crabs)
+    print(crabs.to_string(index=False))
 
 with tab3:
     st.subheader("Regression equation")
