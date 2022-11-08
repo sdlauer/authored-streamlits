@@ -147,12 +147,12 @@ with col2:
             ax.title.set_text("%s and binomial( %02d, %0.2f)" %(title1, nobs2, prob2))  
         elif distribution2 == "normal":
             x2 = np.linspace(norm.ppf(0.0001, meanmu2, stsigma2), norm.ppf(0.9999, meanmu2, stsigma2), 100)
-            ax.plot(x2, norm.pdf(x=x2, loc=meanmu2, scale=stsigma2))
+            ax.plot(x2, norm.pdf(x=x2, loc=meanmu2, scale=stsigma2), color='darkorange')
             ax.set(xlabel='X', ylabel='Density')
             ax.title.set_text('%s and normal(%0.2f, %0.2f)' %(title1, meanmu2, stsigma2))
         else:
             x2 = np.linspace(t.ppf(0.0001, df=df2), t.ppf(0.9999, df2), 100)
-            ax.plot(x2, t.pdf(x=x2, df=df2))
+            ax.plot(x2, t.pdf(x=x2, df=df2), color='darkorange')
             ax.set(xlabel='X', ylabel='Density')
             ax.title.set_text('%s and t(%02d)' %(title1, df2))              
     else:
