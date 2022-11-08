@@ -144,17 +144,20 @@ with col2:
             x2 = range(0, int(nobs2)+1)
             ax.bar(x2, height=binom.pmf(k=x2, n=nobs2, p=prob2), width=0.75, color='darkorange')
             ax.set(xlabel='X', ylabel="Probability")
-            ax.title.set_text("%s and binomial( %02d, %0.2f)" %(title1, nobs2, prob2))  
+            ax.title.set_text("%s and binomial( %02d, %0.2f)" %(title1, nobs2, prob2))
+            ax.legend()  
         elif distribution2 == "normal":
             x2 = np.linspace(norm.ppf(0.0001, meanmu2, stsigma2), norm.ppf(0.9999, meanmu2, stsigma2), 100)
             ax.plot(x2, norm.pdf(x=x2, loc=meanmu2, scale=stsigma2), color='darkorange')
             ax.set(xlabel='X', ylabel='Density')
             ax.title.set_text('%s and normal(%0.2f, %0.2f)' %(title1, meanmu2, stsigma2))
+            ax.legend()
         else:
             x2 = np.linspace(t.ppf(0.0001, df=df2), t.ppf(0.9999, df2), 100)
             ax.plot(x2, t.pdf(x=x2, df=df2), color='darkorange')
             ax.set(xlabel='X', ylabel='Density')
-            ax.title.set_text('%s and t(%02d)' %(title1, df2))              
+            ax.title.set_text('%s and t(%02d)' %(title1, df2))
+            ax.legend()              
     else:
         fig, ax = plt.subplots()
         if distribution == "binomial":
