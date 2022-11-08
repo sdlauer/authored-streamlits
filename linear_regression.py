@@ -152,10 +152,10 @@ with tab4:
     st.dataframe(crabs[["Latitude",target]].describe().T)
     st.subheader("Sum of squared errors")
     yPredicted = linearModel.predict(X)
-    SSEreg = sum((y - yPredicted)**2)[0]
-    SSEyBar = sum((y - np.mean(crabs[target]))**2)[0]
-    ss_desc1 = "The sum of squared errors for the mean of the " + thisdict[target] + " is " + str(np.round(SSEyBar,2) + ". "
-    ss_desc2 = "The sum of squared errors for the least squares regression line is " + str(np.round(SSEreg,2)) + ". "
+    SSEreg = np.round(sum((y - yPredicted)**2)[0],2)
+    SSEyBar = np.round(sum((y - np.mean(crabs[target]))**2)[0],2)
+    ss_desc1 = "The sum of squared errors for the mean of the " + thisdict[target] + " is " + str(SSEyBar) + ". "
+    ss_desc2 = "The sum of squared errors for the least squares regression line is " + str(SSEreg) + ". "
     ss_desc = ss_desc1 + ss_desc2
     st.write(ss_desc)
     st.subheader("Correlation coefficient")
