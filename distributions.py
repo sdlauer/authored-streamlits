@@ -58,7 +58,7 @@ with col1:
         )
     else:
         df = st.number_input(
-            "Degrees of freedom (df)"
+            "Degrees of freedom (df)",
             min_value=0,
             step=1,
             value=10
