@@ -24,13 +24,13 @@ with col1:
     distribution  =st.selectbox(
         "Distribution",
         [
-            "Binomial",
+            "binomial",
             "normal",
             "t"
         ]
     )
     st.text("Enter value or use - and +")
-    if distribution == "Binomial":
+    if distribution == "binomial":
         nobs = st.number_input(
             "n",
             min_value=1,
@@ -65,16 +65,16 @@ with col1:
         )
 with col2:
     fig, ax = plt.subplots()
-    if distribution == "Binomial":
+    if distribution == "binomial":
         x = range(0, int(nobs)+1)
         ax.bar(x, height=binom.pmf(k=x, n=nobs, p=prob), width=0.75)
         ax.set(xlabel='X', ylabel="Probability")
-        ax.title.set_text("Binomial( %02d, %0.2f)" %(nobs, prob))
+        ax.title.set_text("binomial( %02d, %0.2f)" %(nobs, prob))
     else:
         x = range(0, nt(nobs)+1)
         ax.bar(x, height=binom.pmf(k=x, n=nobs, p=prob), width=0.75)
         ax.set(xlabel='X', ylabel="Probability")
-        ax.title.set_text("Binomial( %02d, %0.2f)" %(nobs, prob))
+        ax.title.set_text("binomial( %02d, %0.2f)" %(nobs, prob))
 
     st.pyplot(fig)
    
