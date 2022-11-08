@@ -123,22 +123,56 @@ with col1:
             )
 
 with col2:
-    fig, ax = plt.subplots()
-    if distribution == "binomial":
-        x = range(0, int(nobs)+1)
-        ax.bar(x, height=binom.pmf(k=x, n=nobs, p=prob), width=0.75)
-        ax.set(xlabel='X', ylabel="Probability")
-        ax.title.set_text("binomial( %02d, %0.2f)" %(nobs, prob))
-    elif distribution == "normal":
-        x = np.linspace(norm.ppf(0.0001, meanmu, stsigma), norm.ppf(0.9999, meanmu, stsigma), 100)
-        ax.plot(x, norm.pdf(x=x, loc=meanmu, scale=stsigma))
-        ax.set(xlabel='X', ylabel='Density')
-        ax.title.set_text('normal(%0.2f, %0.2f)' %(meanmu, stsigma))
+    if check:
+        fig, ax = plt.subplots()
+        if distribution == "binomial":
+            x = range(0, int(nobs)+1)
+            ax.bar(x, height=binom.pmf(k=x, n=nobs, p=prob), width=0.75)
+            ax.set(xlabel='X', ylabel="Probability")
+            title1=("binomial( %02d, %0.2f)" %(nobs, prob))
+        elif distribution == "normal":
+            x = np.linspace(norm.ppf(0.0001, meanmu, stsigma), norm.ppf(0.9999, meanmu, stsigma), 100)
+            ax.plot(x, norm.pdf(x=x, loc=meanmu, scale=stsigma))
+            ax.set(xlabel='X', ylabel='Density')
+            ax.title.set_text('normal(%0.2f, %0.2f)' %(meanmu, stsigma))
+        else:
+            x = np.linspace(t.ppf(0.0001, df=df), t.ppf(0.9999, df), 100)
+            ax.plot(x, t.pdf(x=x, df=df))
+            ax.set(xlabel='X', ylabel='Density')
+            ax.title.set_text('t(%02d)' %df)
+
+        if distribution2 == "binomial":
+            x2 = range(0, int(nobs2)+1)
+            ax.bar(x2, height=binom.pmf(k=x2, n=nobs2, p=prob2), width=0.75, color='darkorange')
+            ax.set(xlabel='X', ylabel="Probability")
+            ax.title.set_text("%s and binomial( %02d, %0.2f)" %(title1, nobs, prob))  
+        elif distribution2 == "normal":
+            x2 = np.linspace(norm.ppf(0.0001, meanmu2, stsigma2), norm.ppf(0.9999, meanmu2, stsigma2), 100)
+            ax.plot(x2, norm.pdf(x=x2, loc=meanmu2, scale=stsigma2))
+            ax.set(xlabel='X', ylabel='Density')
+            #ax.title.set_text('normal(%0.2f, %0.2f)' %(meanmu, stsigma))
+        else:
+            x2 = np.linspace(t.ppf(0.0001, df=df2), t.ppf(0.9999, df2), 100)
+            ax.plot(x2, t.pdf(x=x2, df=df2))
+            ax.set(xlabel='X', ylabel='Density')
+            #ax.title.set_text('t(%02d)' %df)              
     else:
-        x = np.linspace(t.ppf(0.0001, df=df), t.ppf(0.9999, df), 100)
-        ax.plot(x, t.pdf(x=x, df=df))
-        ax.set(xlabel='X', ylabel='Density')
-        ax.title.set_text('t(%02d)' %df)
+        fig, ax = plt.subplots()
+        if distribution == "binomial":
+            x = range(0, int(nobs)+1)
+            ax.bar(x, height=binom.pmf(k=x, n=nobs, p=prob), width=0.75)
+            ax.set(xlabel='X', ylabel="Probability")
+            ax.title.set_text("binomial( %02d, %0.2f)" %(nobs, prob))
+        elif distribution == "normal":
+            x = np.linspace(norm.ppf(0.0001, meanmu, stsigma), norm.ppf(0.9999, meanmu, stsigma), 100)
+            ax.plot(x, norm.pdf(x=x, loc=meanmu, scale=stsigma))
+            ax.set(xlabel='X', ylabel='Density')
+            ax.title.set_text('normal(%0.2f, %0.2f)' %(meanmu, stsigma))
+        else:
+            x = np.linspace(t.ppf(0.0001, df=df), t.ppf(0.9999, df), 100)
+            ax.plot(x, t.pdf(x=x, df=df))
+            ax.set(xlabel='X', ylabel='Density')
+            ax.title.set_text('t(%02d)' %df)
 
     st.pyplot(fig)
 
