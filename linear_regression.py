@@ -129,7 +129,7 @@ with tab2:
     st.subheader("Regression equation")
     st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
     st.subheader("Prediction")
-    pred_text = "Prediction for " + str(target) + " when Latitude is"
+    pred_text = "Move slider to find prediction for " + str(target) + " when Latitude is"
     predictor = st.slider(pred_text,30.0, 43.0, 30.0, 0.1)
     prediction = np.round(m*predictor+b,2)
     st.latex("\widehat{\\text{" + target + "}} (" + str(predictor) + ") = " + str(prediction))
