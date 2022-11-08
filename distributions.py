@@ -3,7 +3,6 @@ import pandas as pd
 import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.stats import ttest_ind
 
 hide = """
     <style>
@@ -25,7 +24,7 @@ with col1:
         "Distribution",
         [
             "Binomial",
-            "normal"
+            "normal",
             "t"
         ]
     )
