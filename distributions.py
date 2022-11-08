@@ -69,12 +69,12 @@ with col2:
         x = range(0, nobs+1)
         ax.bar(x, height=binom.pmf(k=x, n=nobs, p=prob), width=0.75)
         ax.set(xlabel='X', ylabel="Probability")
-        ax.title.set_text("Binomial( %1.0f" %nobs + ", %1.00f" %prob +")")
+        ax.title.set_text("Binomial( %s, %s)" %(nobs, prob))
     else:
         x = range(0, nobs+1)
         ax.bar(x, height=binom.pmf(k=x, n=nobs, p=prob), width=0.75)
         ax.set(xlabel='X', ylabel="Probability")
-        ax.title.set_text("Binomial( %1.0f" %nobs + ", %1.00f" %prob +")")
+        ax.title.set_text("Binomial( %s, %s)" %(nobs, prob))
 
     st.pyplot(fig)
    
