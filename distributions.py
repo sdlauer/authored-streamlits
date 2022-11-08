@@ -66,12 +66,12 @@ with col1:
 with col2:
     fig, ax = plt.subplots()
     if distribution == "Binomial":
-        x = range(0, nobs+1)
+        x = range(0, int(nobs)+1)
         ax.bar(x, height=binom.pmf(k=x, n=nobs, p=prob), width=0.75)
         ax.set(xlabel='X', ylabel="Probability")
         ax.title.set_text("Binomial( %02d, %f)" %(nobs, prob))
     else:
-        x = range(0, nobs+1)
+        x = range(0, nt(nobs)+1)
         ax.bar(x, height=binom.pmf(k=x, n=nobs, p=prob), width=0.75)
         ax.set(xlabel='X', ylabel="Probability")
         ax.title.set_text("Binomial( %02d, %f)" %(nobs, prob))
