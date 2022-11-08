@@ -110,7 +110,7 @@ with col2:
 
     if add_resid:
         n = len(X)
-        for i in range(len(X_test)):
+        for i in range(len(X)):
             plt.plot([X[i],X[i]],[y[i],m*X[i]+b],color='grey',linewidth = 2)
     st.pyplot(fig)
 
