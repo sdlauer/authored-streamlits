@@ -121,20 +121,17 @@ with tab1:
         if add_reg: st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
         if add_mean: st.latex("\overline{\\text{" + target + "}} = " + str(np.round(crabs[target].mean(),2)))
         st.pyplot(fig)
-        desc1 = "Description: Samples of fiddler crabs from 13 locations were taken and the " + thisdict[target]
-        desc2 = " from each location was recorded. As the latitude increases, the " + target
-        desc3 = " of the crabs from each location increases as well."
-        description = desc1 + desc2 + desc3
-        st.write(description)
-
         thisdict = {
           "Mean length": "mean fiddler crab length",
           "Min length": "minimum fiddler crab length",
           "Max length": "maximum fiddler crab length",
           "Median length": "median fiddler crab length"
         }
-        # if regModeleq:
-        #     st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
+        desc1 = "Description: Samples of fiddler crabs from 13 locations were taken and the " + thisdict[target]
+        desc2 = " from each location was recorded. As the latitude increases, the " + target
+        desc3 = " of the crabs from each location increases as well."
+        description = desc1 + desc2 + desc3
+        st.write(description)
 
 with tab2:
     st.subheader("Regression equation")
