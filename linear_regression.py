@@ -141,7 +141,7 @@ with tab1:
             st.latex("\overline{\\text{" + target + "}} = " + str(np.round(crabs[target].mean(),2))+ ".")
 
 with tab2:
-    st.table(crabs)
+    st.table(crabs[["Site","Date","Sample size","Latitude",target]])
 
 with tab3:
     st.subheader("Regression equation")
