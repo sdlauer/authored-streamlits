@@ -114,5 +114,5 @@ with col2:
         st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
     if add_resid:
         n = len(X)
-        for i in range(n):
-            plt.plot([X[i],X[i]],[y[i],m*X[i]+b], c = 'gray')
+        for i in range(len(X_test)):
+            plt.plot([X[i],X[i]],[y[i],m*X[i]+b],color='grey',linewidth = 2)
