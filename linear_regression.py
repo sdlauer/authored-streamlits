@@ -154,7 +154,7 @@ with tab3:
 
 with tab4:
     st.subheader("Summary statistics")
-    st.dataframe(crabs[["Latitude",target]].describe().T)
+    st.table(crabs[["Latitude",target]].describe().T)
     st.subheader("Sum of squared errors")
     yPredicted = linearModel.predict(X)
     SSEreg = np.round(sum((y - yPredicted)**2)[0],2)
