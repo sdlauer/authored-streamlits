@@ -106,8 +106,6 @@ with tab1:
             y_ind = [m*x_ind[0]+b, m*x_ind[1]+b]
             plt.plot(x_ind,y_ind, c='red', label="Regression line")
             plt.legend()
-            st.subheader("Regression equation")
-            st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
 
         if add_mean:
             x_ind = [X.min(),X.max()]
@@ -120,6 +118,7 @@ with tab1:
             for i in range(len(X)):
                 plt.plot([X[i],X[i]],[y[i],m*X[i]+b],color='grey',linewidth = 2)
         st.subheader("Plot")
+        if add_reg: st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
         st.pyplot(fig)
 
         # if regModeleq:
