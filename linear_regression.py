@@ -137,7 +137,7 @@ with tab2:
     pred_text = "Move slider to find prediction for " + str(target) + " when Latitude is"
     predictor = st.slider(pred_text,30.0, 43.0, 30.0, 0.1)
     prediction = np.round(m*predictor+b,2)
-    st.latex("\widehat{\\text{" + target + "}} (" + str(predictor) + ") = " + str(prediction))
+    st.latex("\widehat{\\text{" + target + "}} (" + str(predictor) + ") = " + str(m) + "(" + str(predictor) + ")" + str(b) + " = " + str(prediction))
 
 with tab3:
     st.subheader("Summary statistics")
