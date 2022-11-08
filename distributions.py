@@ -73,7 +73,7 @@ with col2:
         ax.set(xlabel='X', ylabel="Probability")
         ax.title.set_text("binomial( %02d, %0.2f)" %(nobs, prob))
     elif distribution == "normal":
-        x = np.linspace(normal.ppf(0.0001, meanmu, stsigma), norm.ppf(0.9999, meanmu, stsigma), 100)
+        x = np.linspace(norm.ppf(0.0001, meanmu, stsigma), norm.ppf(0.9999, meanmu, stsigma), 100)
         ax.plot(x, norm.pdf(x=x, loc=meanmu, scale=stsigma))
         ax.set(xlabel='X', ylabel='Density')
         ax.title.set_text('normal(%0.2f, %0.2f)' %(meanmu, stsigma))
