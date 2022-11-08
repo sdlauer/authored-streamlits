@@ -71,7 +71,7 @@ with col1:
             key=15
         )
 
-    check = st.checkbox("Add second distribution (orange)")
+    check = st.checkbox("Add second distribution")
 
     if check:
         distribution2 = st.selectbox(
@@ -126,35 +126,35 @@ with col2:
         fig, ax = plt.subplots()
         if distribution == "binomial":
             x = range(0, int(nobs)+1)
-            ax.bar(x, height=binom.pmf(k=x, n=nobs, p=prob), width=0.75)
+            ax.bar(x, height=binom.pmf(k=x, n=nobs, p=prob), width=0.75, alpha=0.5)
             ax.set(xlabel='X', ylabel="Probability")
             title1=("binomial( %02d, %0.2f)" %(nobs, prob))
         elif distribution == "normal":
             x = np.linspace(norm.ppf(0.0001, meanmu, stsigma), norm.ppf(0.9999, meanmu, stsigma), 100)
-            ax.plot(x, norm.pdf(x=x, loc=meanmu, scale=stsigma))
+            ax.plot(x, norm.pdf(x=x, loc=meanmu, scale=stsigma), alpha=0.5)
             ax.set(xlabel='X', ylabel='Density')
             title1=('normal(%0.2f, %0.2f)' %(meanmu, stsigma))
         else:
             x = np.linspace(t.ppf(0.0001, df=df), t.ppf(0.9999, df), 100)
-            ax.plot(x, t.pdf(x=x, df=df))
+            ax.plot(x, t.pdf(x=x, df=df), alpha=0.5)
             ax.set(xlabel='X', ylabel='Density')
             title1=('t(%02d)' %df)
 
         if distribution2 == "binomial":
             x2 = range(0, int(nobs2)+1)
-            ax.bar(x2, height=binom.pmf(k=x2, n=nobs2, p=prob2), width=0.75, color='darkorange')
+            ax.bar(x2, height=binom.pmf(k=x2, n=nobs2, p=prob2), width=0.75, color='darkorange', alpha=0.5)
             ax.set(xlabel='X', ylabel="Probability")
             ax.title.set_text("%s and binomial( %02d, %0.2f)" %(title1, nobs2, prob2))
             ax.legend([title1, "binomial( %02d, %0.2f)" %(nobs2, prob2)])  
         elif distribution2 == "normal":
             x2 = np.linspace(norm.ppf(0.0001, meanmu2, stsigma2), norm.ppf(0.9999, meanmu2, stsigma2), 100)
-            ax.plot(x2, norm.pdf(x=x2, loc=meanmu2, scale=stsigma2), color='darkorange')
+            ax.plot(x2, norm.pdf(x=x2, loc=meanmu2, scale=stsigma2), color='darkorange', alpha=0.5)
             ax.set(xlabel='X', ylabel='Density')
             ax.title.set_text('%s and normal(%0.2f, %0.2f)' %(title1, meanmu2, stsigma2))
             ax.legend([title1, 'normal(%0.2f, %0.2f)' %(meanmu2, stsigma2)])
         else:
             x2 = np.linspace(t.ppf(0.0001, df=df2), t.ppf(0.9999, df2), 100)
-            ax.plot(x2, t.pdf(x=x2, df=df2), color='darkorange')
+            ax.plot(x2, t.pdf(x=x2, df=df2), color='darkorange', alpha=0.5)
             ax.set(xlabel='X', ylabel='Density')
             ax.title.set_text('%s and t(%02d)' %(title1, df2))
             ax.legend([title1, 't(%02d)' %df2])              
