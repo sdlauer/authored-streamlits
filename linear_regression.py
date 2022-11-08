@@ -85,9 +85,13 @@ with col1:
     add_mean = st.checkbox("Add mean")
     add_resid = st.checkbox("Add residuals")
 
-m, b = np.polyfit(np.ravel(X).astype(float), np.ravel(y).astype(float), 1)
-m = np.round(m,3)
-b = np.round(b,3)
+    m, b = np.polyfit(np.ravel(X).astype(float), np.ravel(y).astype(float), 1)
+    m = np.round(m,3)
+    b = np.round(b,3)
+
+    predictor = st.slider('Prediction when Latitude is',30.0, 43.0, 30.0, 0.1)
+    prediction = m*predictor+b
+    st.latex("\widehat{\\text{" + target + "}} (" + str(predictor) + ") = " + str(prediction))
 
 with col2:
     fig, ax = plt.subplots()
@@ -115,7 +119,3 @@ with col2:
 
     if regModeleq:
         st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
-
-    predictor = st.slider('Probability cutoff',30, 43, 30, 1)
-    prediction = m*predictor+b
-    st.latex("\widehat{\\text{" + target + "}} (" + str(predictor) + ") = " + str(prediction))
