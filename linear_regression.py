@@ -94,7 +94,7 @@ with col1:
     st.latex("\widehat{\\text{" + target + "}} (" + str(predictor) + ") = " + str(prediction))
 
 with col2:
-    st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
+
 
     fig, ax = plt.subplots()
     sns.scatterplot(x="Latitude", y=target, data=crabs)
@@ -106,6 +106,7 @@ with col2:
         y_ind = [m*x_ind[0]+b, m*x_ind[1]+b]
         plt.plot(x_ind,y_ind, c='red', label="Regression line")
         plt.legend()
+        st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
 
     if add_mean:
         x_ind = [X.min(),X.max()]
