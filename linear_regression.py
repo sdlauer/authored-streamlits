@@ -80,7 +80,7 @@ with col1:
     linearModel = LinearRegression()
     linearModel.fit(X,np.ravel(y.astype(int)))
 
-    regModeleq = st.checkbox("Display regression equation")
+    # regModeleq = st.checkbox("Display regression equation")
     add_reg = st.checkbox("Add regression line")
     add_mean = st.checkbox("Add mean")
     add_resid = st.checkbox("Add residuals")
@@ -94,6 +94,8 @@ with col1:
     st.latex("\widehat{\\text{" + target + "}} (" + str(predictor) + ") = " + str(prediction))
 
 with col2:
+    st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
+
     fig, ax = plt.subplots()
     sns.scatterplot(x="Latitude", y=target, data=crabs)
     ax.set_xlabel("Latitude", fontsize=14)
@@ -117,5 +119,5 @@ with col2:
             plt.plot([X[i],X[i]],[y[i],m*X[i]+b],color='grey',linewidth = 2)
     st.pyplot(fig)
 
-    if regModeleq:
-        st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
+    # if regModeleq:
+    #     st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
