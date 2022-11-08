@@ -21,7 +21,7 @@ st.markdown(hide, unsafe_allow_html=True)
 crabs = pd.read_csv("crab-groups.csv")
 
 crabs.columns = ["Site", "Latitude", "Sample size", "Mean length", "Min length", "Max length", "Stdev length","Median length","Date"]
-crabs = crabs[["Site", "Date", "Sampe size","Latitude","Mean length", "Min length", "Max length","Median length"]]
+crabs = crabs[["Site", "Date", "Sample size","Latitude","Mean length", "Min length", "Max length","Median length"]]
 # # Show linear regression equation
 # def show_eq(X,y,target):
 #     m, b = np.polyfit(X, y, 1)
