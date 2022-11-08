@@ -117,4 +117,4 @@ with col2:
         st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
 
     predictor = st.slider('Probability cutoff',X.min(), X.max(), X.min(),1)
-    st.latex("\widehat{\\text{" + target + "}} (" + str(predictor) ") = " + str(m*predictor+b))
+    st.latex("\widehat{\\text{" + target + "}} (" + str(predictor) + ") = " + str(m*predictor+b))
