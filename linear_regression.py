@@ -119,7 +119,7 @@ with tab1:
                 plt.plot([X[i],X[i]],[y[i],m*X[i]+b],color='grey',linewidth = 2)
         st.subheader("Plot")
         if add_reg: st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
-        if add_mean: st.latex("\bar{\\text{" + target + "}} = " + str(np.round(crabs[target].mean(),2)))
+        if add_mean: st.latex("\\bar{\\text{" + target + "}} = " + str(np.round(crabs[target].mean(),2)))
         st.pyplot(fig)
 
         # if regModeleq:
