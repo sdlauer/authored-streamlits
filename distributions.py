@@ -3,6 +3,7 @@ import pandas as pd
 import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.stats import binom
 
 hide = """
     <style>
@@ -62,5 +63,23 @@ with col1:
             step=1,
             value=10
         )
-
+with col2:
+    fig, ax = plt.subplots()
+    if distribution == "Binomial":
+        x = range(0, nobs+1)
+        fig.bar(x, height=binom.pmf(k=x, n=nobs, p=prob), width=0.75)
+        fig.ylabel("Probability")
+        fig.xlabel("X")
+        fig.xticks(ticks=x)
+        fig.title("Binomial( %1.0f" %nobs + ", %1.00f" %prob +")")
+     else:
+        x = range(0, nobs+1)
+        fig.bar(x, height=binom.pmf(k=x, n=nobs, p=prob), width=0.75)
+        fig.ylabel("Probability")
+        fig.xlabel("X")
+        fig.xticks(ticks=x)
+        fig.title("Binomial( %1.0f" %nobs + ", %1.00f" %prob +")")
+                
+    st.pyplot(fig)
+   
 
