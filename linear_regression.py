@@ -13,6 +13,8 @@ hide = """
         body {overflow: hidden;}
         div.block-container {padding-top:1rem;}
         div.block-container {padding-bottom:1rem;}
+        thead tr th:first-child {display:none}
+        tbody th {display:none}
         </style>
         """
 
@@ -134,7 +136,7 @@ with tab1:
         st.write(description)
 
 with tab2:
-    st.dataframe(crabs.style.hide_index())
+    st.table(crabs)
 
 with tab3:
     st.subheader("Regression equation")
