@@ -142,7 +142,7 @@ with tab3:
     st.subheader("Regression equation")
     st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
     st.subheader("Prediction")
-    pred_text = "Move slider to find prediction for " + str(target) + " when Latitude is"
+    pred_text = "Move slider to find the predicted " + thisdict[target] + " when Latitude is"
     predictor = st.slider(pred_text,30.0, 43.0, 30.0, 0.1)
     prediction = np.round(m*predictor+b,2)
     st.latex("\widehat{\\text{" + target + "}} (" + str(predictor) + ") = " + str(m) + "(" + str(predictor) + ")" + str(b) + " = " + str(prediction))
@@ -151,4 +151,11 @@ with tab4:
     st.subheader("Summary statistics")
     st.dataframe(crabs[["Latitude",target]].describe().T)
     st.subheader("Sum of squared errors")
+    yPredicted = linearModel.predict(X)
+    SSEreg = sum((y - yPredicted)**2)[0]
+    SSEyBar = sum((y - np.mean(crabs[target]))**2)[0]
+    ss_desc1 = "The sum of squared errors for the mean of the " + thisdict[target] + " is " + str(SSEyBar) + "."
+    ss_desc2 = "The sum of squared errors for the least squares regression line is " + str(SSEreg) + "."
+    ss_desc = ss_desc1 + ss_desc2
+    st.write(ss_desc)
     st.subheader("Correlation coefficient")
