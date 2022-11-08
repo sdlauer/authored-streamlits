@@ -28,7 +28,7 @@ with col1:
             "t"
         ]
     )
-
+    st.text("Type value or use - and + to adjust")
     if distribution == "Binomial":
         nobs = st.number_input(
             "n",
