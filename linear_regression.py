@@ -149,3 +149,4 @@ with tab3:
 
 with tab4:
     st.subheader("Summary statistics")
+    st.dataframe(crabs[["Latitude",target]].describe())
