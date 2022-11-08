@@ -37,7 +37,7 @@ with col1:
             value=10
         )
         prob = st.number_input(
-            st.markdown("Probability $\pi$"),
+            label=st.markdown("Probability $\pi$"),
             min_value=0.00,
             max_value=1.00,
             value=0.50,
