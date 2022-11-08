@@ -116,5 +116,6 @@ with col2:
     if regModeleq:
         st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
 
-    predictor = st.slider('Probability cutoff',X.min(), X.max(), X.min(),1)
-    st.latex("\widehat{\\text{" + target + "}} (" + str(predictor) + ") = " + str(m*predictor+b))
+    predictor = st.slider('Probability cutoff',30, 43, 30, 1)
+    prediction = m*predictor+b
+    st.latex("\widehat{\\text{" + target + "}} (" + str(predictor) + ") = " + str(prediction))
