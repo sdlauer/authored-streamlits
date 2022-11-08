@@ -149,6 +149,6 @@ with tab3:
 
 with tab4:
     st.subheader("Summary statistics")
-    st.dataframe(crabs[["Latitude",target]].describe())
+    st.dataframe(crabs[["Latitude",target]].describe().T)
     st.subheader("Sum of squared errors")
     st.subheader("Correlation coefficient")
