@@ -37,7 +37,7 @@ with col1:
             value=10
         )
         prob = st.number_input(
-            "Probability of success",
+            "Probability," st.latex(pi),
             min_value=0.00,
             max_value=1.00,
             value=0.50,
@@ -45,7 +45,7 @@ with col1:
         )
     elif distribution == "normal":
         meanmu = st.number_input(
-            "Mean",
+            "Mean," st.latex(mu),
             value=0.0,
             step=0.1
         )
