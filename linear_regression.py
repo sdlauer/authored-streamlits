@@ -80,7 +80,7 @@ with col1:
     linearModel = LinearRegression()
     linearModel.fit(X,np.ravel(y.astype(int)))
 
-    regModeleq = st.checkbox("Display regression model")
+    regModeleq = st.checkbox("Display regression equation")
     add_reg = st.checkbox("Add regression line")
     add_mean = st.checkbox("Add mean")
     add_resid = st.checkbox("Add residuals")
@@ -115,3 +115,6 @@ with col2:
 
     if regModeleq:
         st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
+
+    predictor = st.slider('Probability cutoff',X.min(), X.max(), X.min(),1)
+    st.latex("\widehat{\\text{" + target + "}} (" + str(predictor) ") = " + str(m*predictor+b))
