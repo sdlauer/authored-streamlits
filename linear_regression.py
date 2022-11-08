@@ -90,7 +90,6 @@ with tab1:
         add_resid = st.checkbox("Add residuals", disabled=(not add_reg))
         add_mean = st.checkbox("Add mean")
 
-
         m, b = np.polyfit(np.ravel(X).astype(float), np.ravel(y).astype(float), 1)
         m = np.round(m,3)
         b = np.round(b,3)
@@ -121,8 +120,7 @@ with tab1:
             for i in range(len(X)):
                 plt.plot([X[i],X[i]],[y[i],m*X[i]+b],color='grey',linewidth = 2)
         st.subheader("Plot")
-        if add_reg: st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
-        if add_mean: st.latex("\overline{\\text{" + target + "}} = " + str(np.round(crabs[target].mean(),2)))
+
         st.pyplot(fig)
         thisdict = {
           "Mean length": "mean fiddler crab length",
@@ -135,6 +133,12 @@ with tab1:
         desc3 = " also increases."
         description = desc1 + desc2 + desc3
         st.write(description)
+        if add_reg:
+            st.write("The equation for the regression line is ")
+            st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b) + "." )
+        if add_mean:
+            st.write("The mean of the target feature is ")
+            st.latex("\overline{\\text{" + target + "}} = " + str(np.round(crabs[target].mean(),2)))
 
 with tab2:
     st.table(crabs)
