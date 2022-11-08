@@ -135,10 +135,10 @@ with tab1:
         st.write(description)
         if add_reg:
             st.write("The equation for the regression line is ")
-            st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b) + "." )
+            st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b) + ".")
         if add_mean:
             st.write("The mean of the target feature is ")
-            st.latex("\overline{\\text{" + target + "}} = " + str(np.round(crabs[target].mean(),2)))
+            st.latex("\overline{\\text{" + target + "}} = " + str(np.round(crabs[target].mean(),2))+ ".")
 
 with tab2:
     st.table(crabs)
