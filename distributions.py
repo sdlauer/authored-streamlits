@@ -38,21 +38,21 @@ with col1:
         )
         prob = st.number_input(
             "Probability of success",
-            min_value=0,
-            max_value=1,
-            value=0.5,
+            min_value=0.00,
+            max_value=1.00,
+            value=0.50,
             step=0.01
         )
     elif distribution == "normal":
         meanmu = st.number_input(
             "Mean",
-            value=0,
+            value=0.0,
             step=0.1
         )
         stsigma = st.number_input(
             "Standard deviation",
-            min_value=0,
-            value=1,
+            min_value=0.00,
+            value=1.00,
             step=0.01
         )
     else:
