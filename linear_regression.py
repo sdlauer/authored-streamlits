@@ -59,7 +59,7 @@ crabs.columns = ["Site", "Latitude", "Sample size", "Mean length", "Min length",
 #     plt.text(110,2,'r = ' + str(corr_coef))
 
 
-col1, col2 = st.columns([1,3])
+col1, col2 = st.columns([1.5,3])
 
 with col1:
     target = st.selectbox(
