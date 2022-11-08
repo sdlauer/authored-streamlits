@@ -108,11 +108,11 @@ with col2:
         plt.plot(x_ind,y_mean, c='darkorange', label="Mean")
         plt.legend()
 
-    st.pyplot(fig)
-
-    if regModeleq:
-        st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
     if add_resid:
         n = len(X)
         for i in range(len(X_test)):
             plt.plot([X[i],X[i]],[y[i],m*X[i]+b],color='grey',linewidth = 2)
+    st.pyplot(fig)
+
+    if regModeleq:
+        st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
