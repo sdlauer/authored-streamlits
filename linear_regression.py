@@ -106,7 +106,7 @@ with tab1:
             y_ind = [m*x_ind[0]+b, m*x_ind[1]+b]
             plt.plot(x_ind,y_ind, c='red', label="Regression line")
             plt.legend()
-            st.subeader("Regression equation")
+            st.subheader("Regression equation")
             st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
 
         if add_mean:
