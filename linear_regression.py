@@ -87,7 +87,8 @@ with tab1:
 
         # regModeleq = st.checkbox("Display regression equation")
         add_reg = st.checkbox("Add regression line")
-        if add_reg: add_resid = st.checkbox("Add residuals")
+        if add_reg:
+            add_resid = st.checkbox("Add residuals")
         add_mean = st.checkbox("Add mean")
 
 
