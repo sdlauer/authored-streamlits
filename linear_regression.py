@@ -21,7 +21,7 @@ st.markdown(hide, unsafe_allow_html=True)
 crabs = pd.read_csv("crab-groups.csv")
 
 crabs.columns = ["Site", "Latitude", "Sample size", "Mean length", "Min length", "Max length", "Stdev length","Median length","Date"]
-
+crabs = crabs[["Site", "Date", "Latitude","Mean length", "Min length", "Max length","Median length"]]
 # # Show linear regression equation
 # def show_eq(X,y,target):
 #     m, b = np.polyfit(X, y, 1)
@@ -59,7 +59,7 @@ crabs.columns = ["Site", "Latitude", "Sample size", "Mean length", "Min length",
 #     plt.text(110,2,'r = ' + str(corr_coef))
 
 
-tab1, tab2, tab3 = st.tabs(["Plot", "Prediction", "Summary statistics"])
+tab1, tab2, tab3, tab4 = st.tabs(["Plot", "Data","Prediction", "Summary statistics"])
 
 with tab1:
     col1, col2 = st.columns([1.5,3])
@@ -134,6 +134,9 @@ with tab1:
         st.write(description)
 
 with tab2:
+    st.dataframe(crabs)
+
+with tab3:
     st.subheader("Regression equation")
     st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
     st.subheader("Prediction")
@@ -142,5 +145,5 @@ with tab2:
     prediction = np.round(m*predictor+b,2)
     st.latex("\widehat{\\text{" + target + "}} (" + str(predictor) + ") = " + str(m) + "(" + str(predictor) + ")" + str(b) + " = " + str(prediction))
 
-with tab3:
+with tab4:
     st.subheader("Summary statistics")
