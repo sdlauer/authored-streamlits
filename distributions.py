@@ -37,7 +37,7 @@ with col1:
             value=10
         )
         prob = st.number_input(
-            label=st.markdown("Probability $\pi$"),
+            label="Probability $\pi$",
             min_value=0.00,
             max_value=1.00,
             value=0.50,
@@ -45,7 +45,7 @@ with col1:
         )
     elif distribution == "normal":
         meanmu = st.number_input(
-            "Mean, st.latex(mu)",
+            "Mean, $\mu$",
             value=0.0,
             step=0.1
         )
