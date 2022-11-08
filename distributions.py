@@ -37,33 +37,38 @@ with col1:
             "n",
             min_value=1,
             step=1,
-            value=10
+            value=10,
+            key=11
         )
         prob = st.number_input(
             label="Probability",
             min_value=0.00,
             max_value=1.00,
             value=0.50,
-            step=0.01
+            step=0.01,
+            key=12
         )
     elif distribution == "normal":
         meanmu = st.number_input(
             "Mean",
             value=0.0,
-            step=0.1
+            step=0.1,
+            key=13
         )
         stsigma = st.number_input(
             "Standard deviation",
             min_value=0.00,
             value=1.00,
-            step=0.01
+            step=0.01,
+            key=14
         )
     else:
         df = st.number_input(
             "Degrees of freedom (df)",
             min_value=0,
             step=1,
-            value=10
+            value=10,
+            key=15
         )
 
     check = st.checkbox("Add second distribution")
@@ -83,33 +88,38 @@ with col1:
                 "n",
                 min_value=1,
                 step=1,
-                value=10
+                value=10,
+                key=21
             )
             prob2 = st.number_input(
                 label="Probability",
                 min_value=0.00,
                 max_value=1.00,
                 value=0.50,
-                step=0.01
+                step=0.01,
+                key=22
             )
         elif distribution2 == "normal":
             meanmu2 = st.number_input(
                 "Mean",
                 value=0.0,
-                step=0.1
+                step=0.1,
+                key=23
             )
             stsigma2 = st.number_input(
                 "Standard deviation",
                 min_value=0.00,
                 value=1.00,
-                step=0.01
+                step=0.01,
+                key=24
             )
         else:
             df2 = st.number_input(
                 "Degrees of freedom (df)",
                 min_value=0,
                 step=1,
-                value=10
+                value=10,
+                key=25
             )
 
 with col2:
