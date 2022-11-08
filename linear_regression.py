@@ -121,6 +121,10 @@ with tab1:
         if add_reg: st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
         if add_mean: st.latex("\overline{\\text{" + target + "}} = " + str(np.round(crabs[target].mean(),2)))
         st.pyplot(fig)
+        desc1 = "Description: Samples of fiddler crabs from 13 locations were taken and the " + target
+        desc2 = " of samples from each location was recorded. As the latitude increases, the " + target
+        desc3 = " of the crabs from each location increases as well."
+        st.text(desc1 + desc2 + desc3)
 
         # if regModeleq:
         #     st.latex("\widehat{\\text{" + target + "}} = " + str(m) + "(\\text{Latitude})" + str(b))
