@@ -87,8 +87,9 @@ with tab1:
 
         # regModeleq = st.checkbox("Display regression equation")
         add_reg = st.checkbox("Add regression line")
+        if add_reg: add_resid = st.checkbox("Add residuals")
         add_mean = st.checkbox("Add mean")
-        add_resid = st.checkbox("Add residuals")
+
 
         m, b = np.polyfit(np.ravel(X).astype(float), np.ravel(y).astype(float), 1)
         m = np.round(m,3)
