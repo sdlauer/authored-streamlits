@@ -71,7 +71,7 @@ with col1:
             key=15
         )
 
-    check = st.checkbox("Add second distribution")
+    check = st.checkbox("Add second distribution (orange)")
 
     if check:
         distribution2 = st.selectbox(
@@ -82,7 +82,6 @@ with col1:
                 "t"
             ]
         )
-        st.text("Enter value or use - and +")
         if distribution2 == "binomial":
             nobs2 = st.number_input(
                 "n",
@@ -134,12 +133,12 @@ with col2:
             x = np.linspace(norm.ppf(0.0001, meanmu, stsigma), norm.ppf(0.9999, meanmu, stsigma), 100)
             ax.plot(x, norm.pdf(x=x, loc=meanmu, scale=stsigma))
             ax.set(xlabel='X', ylabel='Density')
-            ax.title.set_text('normal(%0.2f, %0.2f)' %(meanmu, stsigma))
+            title1=('normal(%0.2f, %0.2f)' %(meanmu, stsigma))
         else:
             x = np.linspace(t.ppf(0.0001, df=df), t.ppf(0.9999, df), 100)
             ax.plot(x, t.pdf(x=x, df=df))
             ax.set(xlabel='X', ylabel='Density')
-            ax.title.set_text('t(%02d)' %df)
+            title1=('t(%02d)' %df)
 
         if distribution2 == "binomial":
             x2 = range(0, int(nobs2)+1)
@@ -150,12 +149,12 @@ with col2:
             x2 = np.linspace(norm.ppf(0.0001, meanmu2, stsigma2), norm.ppf(0.9999, meanmu2, stsigma2), 100)
             ax.plot(x2, norm.pdf(x=x2, loc=meanmu2, scale=stsigma2))
             ax.set(xlabel='X', ylabel='Density')
-            #ax.title.set_text('normal(%0.2f, %0.2f)' %(meanmu, stsigma))
+            ax.title.set_text('%s and normal(%0.2f, %0.2f)' %(title1, meanmu, stsigma))
         else:
             x2 = np.linspace(t.ppf(0.0001, df=df2), t.ppf(0.9999, df2), 100)
             ax.plot(x2, t.pdf(x=x2, df=df2))
             ax.set(xlabel='X', ylabel='Density')
-            #ax.title.set_text('t(%02d)' %df)              
+            ax.title.set_text('%s and t(%02d)' %(title1, df))              
     else:
         fig, ax = plt.subplots()
         if distribution == "binomial":
