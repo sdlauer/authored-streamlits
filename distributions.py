@@ -4,6 +4,8 @@ import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import binom
+from scipy.stats import norm
+from scipy.stats import t
 
 hide = """
     <style>
@@ -70,11 +72,16 @@ with col2:
         ax.bar(x, height=binom.pmf(k=x, n=nobs, p=prob), width=0.75)
         ax.set(xlabel='X', ylabel="Probability")
         ax.title.set_text("binomial( %02d, %0.2f)" %(nobs, prob))
+    elif distribution == "normal":
+        x = np.linspace(normal.ppf(0.0001, meanmu, stsigma), norm.ppf(0.9999, meanmu, stsigma), 100)
+        ax.plot(x, norm.pdf(x=x, loc=meanmu, scale=stsigma))
+        ax.set(xlabel='X', ylabel='Density')
+        ax.title.set_text('normal(%0.2f, %0.2f)' %(meanmu, stsigma))
     else:
-        x = range(0, nt(nobs)+1)
-        ax.bar(x, height=binom.pmf(k=x, n=nobs, p=prob), width=0.75)
-        ax.set(xlabel='X', ylabel="Probability")
-        ax.title.set_text("binomial( %02d, %0.2f)" %(nobs, prob))
+        x = np.linspace(t.ppf(0.0001, df), t.ppf(0.9999, df), 100)
+        ax.plot(x, t.pdf(x=x, df))
+        ax.set(xlabel='X', ylabel='Density')
+        ax.title.set_text('t(%02d)' %df)
 
     st.pyplot(fig)
    
