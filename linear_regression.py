@@ -166,4 +166,4 @@ with tab4:
     st.subheader("Correlation coefficient")
     corr = np.round(np.corrcoef(crabs["Latitude"], crabs[target])[0,1],2)
     st.write("The correlation coefficient between latitude and " + thisdict[target] + " is " + str(corr) + ", which implies a strong positive correlation. ")
-    st.write("The coefficient of determination is " + str(corr**2) + ", which means that " + str(corr**2*100) + "% of the variance in " + thisdict[target] + "can be explained by the variation in latitude using the least squares regression line.")
+    st.write("The coefficient of determination is " + str(corr**2) + ", which means that " + str(corr**2*100) + "% of the variance in " + thisdict[target] + " can be explained by the variation in latitude using the least squares regression line.")
