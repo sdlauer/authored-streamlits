@@ -78,8 +78,8 @@ with col2:
         ax.set(xlabel='X', ylabel='Density')
         ax.title.set_text('normal(%0.2f, %0.2f)' %(meanmu, stsigma))
     else:
-        x = np.linspace(t.ppf(0.0001, df), t.ppf(0.9999, df), 100)
-        ax.plot(x, t.pdf(x=x, df))
+        x = np.linspace(t.ppf(0.0001, df=df), t.ppf(0.9999, df), 100)
+        ax.plot(x, t.pdf(x=x, df=df))
         ax.set(xlabel='X', ylabel='Density')
         ax.title.set_text('t(%02d)' %df)
 
