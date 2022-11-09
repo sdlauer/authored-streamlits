@@ -222,7 +222,7 @@ with col2:
                 of a %s distribution. The distribution has a mean of %0.2f and a standard deviation \
                 of %0.2f. The 0.001 quantile is %02d and the 0.999 quantile is %02d." \
                 %(title2, mean2, stdev2, lower2, upper2)
-            elif distribution 2== "t":
+            elif distribution2== "t":
                 mean2=0
                 stdev2=(df2/(df2-2))**0.5
                 lower2=t.ppf(0.001, df2)
