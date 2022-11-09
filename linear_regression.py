@@ -69,7 +69,7 @@ with tab1:
         fig, ax = plt.subplots()
         sns.scatterplot(x="Latitude", y=target, data=crabs)
         if add_reg:
-            plt.plot([X.min(),X.max()],[m*X.min()+b, m*X.max()+b,], label="Regression line")
+            plt.plot([X.min(),X.max()],[m*X.min()+b, m*X.max()+b,], color="red",label="Regression line")
             plt.legend()
         ax.set_xlabel("Latitude", fontsize=14)
         ax.set_ylabel(target, fontsize=14)
@@ -116,7 +116,7 @@ with tab4:
     st.subheader("Sum of squared errors")
     yPredicted = linearModel.predict(X)
     SSEreg = sum((y - yPredicted)**2)[0]
-    SSEyBar = np.round(sum((y - np.mean(crabs[target]))**2)[0],2)
+    SSEyBar = sum((y - np.mean(y))**2)[0]
     ss_desc1 = "The sum of squared errors for the mean of the " + thisdict[target] + " is " + str(SSEyBar) + ". "
     ss_desc2 = "The sum of squared errors for the least squares regression line is " + str(SSEreg) + ". "
     ss_desc = ss_desc1 + ss_desc2
