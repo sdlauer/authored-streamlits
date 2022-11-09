@@ -57,7 +57,12 @@ with tab1:
                             labels = {'gdpPercap' : 'GDP per capita ($/person)',
                                       'lifeExp' : 'Life expectancy (years)',
                                       'continent' : 'Continent',
-                                      'pop': 'Population'},
+                                      'logPop': 'log(Population)',
+                                      'pop':'Population'},
+                            hover_data={'gdpPercap':'.2f',
+                                        'lifeExp':'.1f',
+                                        'logPop':False,
+                                        'pop':True}
                             color_discrete_sequence = px.colors.qualitative.Set1,
                     )
                 fig.update_layout(font_size = 12,
