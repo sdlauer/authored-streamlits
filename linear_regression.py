@@ -27,18 +27,6 @@ crabs = crabs[["Site", "Date", "Sample size","Latitude","Mean length", "Min leng
 
 tab1, tab2, tab3, tab4 = st.tabs(["Plot", "Data","Prediction", "Summary statistics"])
 
-# Store relevant columns as variables
-X = crabs[['Latitude']]
-y = crabs[[target]]
-
-# Logistic regression predicting diagnosis from tumor radius
-linearModel = LinearRegression()
-linearModel.fit(np.ravel(X.astype(float)),np.ravel(y.astype(float)))
-
-m, b = np.polyfit(np.ravel(X).astype(float), np.ravel(y).astype(float), 1)
-m = np.round(m,3)
-b = np.round(b,3)
-
 with tab1:
     col1, col2 = st.columns([1.5,3])
 
@@ -52,6 +40,18 @@ with tab1:
                 "Median length"
             ]
         )
+
+        # Store relevant columns as variables
+        X = crabs[['Latitude']]
+        y = crabs[[target]]
+
+        # Logistic regression predicting diagnosis from tumor radius
+        linearModel = LinearRegression()
+        linearModel.fit(np.ravel(X.astype(float)),np.ravel(y.astype(float)))
+
+        m, b = np.polyfit(np.ravel(X).astype(float), np.ravel(y).astype(float), 1)
+        m = np.round(m,3)
+        b = np.round(b,3)
 
         add_reg = st.checkbox("Add regression line")
         add_resid = st.checkbox("Add residuals", disabled=(not add_reg))
