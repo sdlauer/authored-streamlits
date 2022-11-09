@@ -57,7 +57,7 @@ with tab1:
                             labels = {'gdpPercap' : 'GDP per capita ($/person)',
                                       'lifeExp' : 'Life expectancy (years)',
                                       'continent' : 'Continent',
-                                      'logPop': 'log(Population)'},
+                                      'pop': 'Population'},
                             color_discrete_sequence = px.colors.qualitative.Set1,
                     )
                 fig.update_layout(font_size = 12,
