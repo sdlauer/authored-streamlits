@@ -183,7 +183,7 @@ with col2:
             ax.title.set_text(title1)
 
     st.pyplot(fig)
-    check2 = st.checkbox("Description")
+    check2 = st.checkbox("Show description")
     if check2:
         if check:
             if distribution == "binomial":
