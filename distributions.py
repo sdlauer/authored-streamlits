@@ -184,88 +184,88 @@ with col2:
 
     st.pyplot(fig)
     check2 = st.checkbox("Description")
-        if check2:
-            if check:
-                if distribution == "binomial":
-                    mean1=nobs*prob
-                    stdev1=(nobs*(prob)*(1-prob))**0.5
-                    lower1=int(binom.ppf(0.001, nobs, prob))
-                    upper1=int(binom.ppf(0.999, nobs, prob))
-                    alttext1= "Probability distribution graph of a %s distribution. The distribution \
-                    has a mean of %0.2f and a standard deviation of %0.2f. The 0.001 quantile is %02d \
-                    and the 0.999 quantile is %02d." %(title1, mean1, stdev1, lower1, upper1)
-                elif distribution == "t":
-                    mean1=0
-                    stdev1=(df/(df-2))**0.5
-                    lower1=t.ppf(0.001, df)
-                    upper1=t.ppf(0.999, df)
-                    alttext1= "Probability distribution curve of a %s distribution. The distribution \
-                    is unomodal, symmetric, and bell-shaped with a mean of %0.2f and a standard deviation \
-                    of %0.2f. The 0.001 quantile is %0.2f and the 0.999 quantile is %0.2f."\
-                    %(title1, mean1, stdev1, lower1, upper1)
-                else:
-                    mean1=meanmu
-                    stdev1=stsigma
-                    lower1=norm.ppf(0.001, meanmu, stsigma)
-                    upper1=norm.ppf(0.999, meanmu, stsigma)
-                    alttext1= "Probability distribution curve of a %s distribution. The distribution \
-                    is unomodal, symmetric, and bell-shaped with a mean of %0.2f and a standard deviation \
-                    of %0.2f. The 0.001 quantile is %0.2f and the 0.999 quantile is %0.2f."\
-                    %(title1, mean1, stdev1, lower1, upper1)
-
-                if distribution2 == "binomial":
-                    mean2=nobs2*prob2
-                    stdev2=(nobs2*(prob2)*(1-prob2))**0.5
-                    lower2=int(binom.ppf(0.001, nobs2, prob2))
-                    upper2=int(binom.ppf(0.999, nobs2, prob2))
-                    alttext2= "A second distribution is also shown of the probability distribution graph \
-                    of a %s distribution. The distribution has a mean of %0.2f and a standard deviation \
-                    of %0.2f. The 0.001 quantile is %02d and the 0.999 quantile is %02d." \
-                    %(title2, mean2, stdev2, lower2, upper2)
-                elif distribution 2== "t":
-                    mean2=0
-                    stdev2=(df2/(df2-2))**0.5
-                    lower2=t.ppf(0.001, df2)
-                    upper2=t.ppf(0.999, df2)
-                    alttext2= "A second distribution is also shown of the probability distribution curve \
-                    of a %s distribution. The distribution is unomodal, symmetric, and bell-shaped with a \
-                    mean of %0.2f and a standard deviation of %0.2f. The 0.001 quantile is %0.2f and the \
-                    0.999 quantile is %0.2f." %(title2, mean2, stdev2, lower2, upper2)
-                else:
-                    mean2=meanmu2
-                    stdev2=stsigma2
-                    lower2=norm.ppf(0.001, meanmu2, stsigma2)
-                    upper2=norm.ppf(0.999, meanmu2, stsigma2)
-                    alttext2= "A second distribution is also shown of the probability distribution curve \
-                    of a %s distribution. The distribution is unomodal, symmetric, and bell-shaped with a \
-                    mean of %0.2f and a standard deviation of %0.2f. The 0.001 quantile is %0.2f and the \
-                    0.999 quantile is %0.2f." %(title2, mean2, stdev2, lower2, upper2)  
-            st.write(alttext1 + alttext2)          
+    if check2:
+        if check:
+            if distribution == "binomial":
+                mean1=nobs*prob
+                stdev1=(nobs*(prob)*(1-prob))**0.5
+                lower1=int(binom.ppf(0.001, nobs, prob))
+                upper1=int(binom.ppf(0.999, nobs, prob))
+                alttext1= "Probability distribution graph of a %s distribution. The distribution \
+                has a mean of %0.2f and a standard deviation of %0.2f. The 0.001 quantile is %02d \
+                and the 0.999 quantile is %02d." %(title1, mean1, stdev1, lower1, upper1)
+            elif distribution == "t":
+                mean1=0
+                stdev1=(df/(df-2))**0.5
+                lower1=t.ppf(0.001, df)
+                upper1=t.ppf(0.999, df)
+                alttext1= "Probability distribution curve of a %s distribution. The distribution \
+                is unomodal, symmetric, and bell-shaped with a mean of %0.2f and a standard deviation \
+                of %0.2f. The 0.001 quantile is %0.2f and the 0.999 quantile is %0.2f."\
+                %(title1, mean1, stdev1, lower1, upper1)
             else:
-                if distribution == "binomial":
-                    mean1=nobs*prob
-                    stdev1=(nobs*(prob)*(1-prob))**0.5
-                    lower1=int(binom.ppf(0.001, nobs, prob))
-                    upper1=int(binom.ppf(0.999, nobs, prob))
-                    alttext1= "Probability distribution graph of a %s distribution. The distribution \
-                    has a mean of %0.2f and a standard deviation of %0.2f. The 0.001 quantile is %02d \
-                    and the 0.999 quantile is %02d." %(title1, mean1, stdev1, lower1, upper1)
-                elif distribution == "t":
-                    mean1=0
-                    stdev1=(df/(df-2))**0.5
-                    lower1=t.ppf(0.001, df)
-                    upper1=t.ppf(0.999, df)
-                    alttext1= "Probability distribution curve of a %s distribution. The distribution \
-                    is unomodal, symmetric, and bell-shaped with a mean of %0.2f and a standard deviation \
-                    of %0.2f. The 0.001 quantile is %0.2f and the 0.999 quantile is %0.2f."\
-                    %(title1, mean1, stdev1, lower1, upper1)
-                else:
-                    mean1=meanmu
-                    stdev1=stsigma
-                    lower1=norm.ppf(0.001, meanmu, stsigma)
-                    upper1=norm.ppf(0.999, meanmu, stsigma)
-                    alttext1= "Probability distribution curve of a %s distribution. The distribution \
-                    is unomodal, symmetric, and bell-shaped with a mean of %0.2f and a standard deviation \
-                    of %0.2f. The 0.001 quantile is %0.2f and the 0.999 quantile is %0.2f."\
-                    %(title1, mean1, stdev1, lower1, upper1)
-            st.write(alttext1)
+                mean1=meanmu
+                stdev1=stsigma
+                lower1=norm.ppf(0.001, meanmu, stsigma)
+                upper1=norm.ppf(0.999, meanmu, stsigma)
+                alttext1= "Probability distribution curve of a %s distribution. The distribution \
+                is unomodal, symmetric, and bell-shaped with a mean of %0.2f and a standard deviation \
+                of %0.2f. The 0.001 quantile is %0.2f and the 0.999 quantile is %0.2f."\
+                %(title1, mean1, stdev1, lower1, upper1)
+
+            if distribution2 == "binomial":
+                mean2=nobs2*prob2
+                stdev2=(nobs2*(prob2)*(1-prob2))**0.5
+                lower2=int(binom.ppf(0.001, nobs2, prob2))
+                upper2=int(binom.ppf(0.999, nobs2, prob2))
+                alttext2= "A second distribution is also shown of the probability distribution graph \
+                of a %s distribution. The distribution has a mean of %0.2f and a standard deviation \
+                of %0.2f. The 0.001 quantile is %02d and the 0.999 quantile is %02d." \
+                %(title2, mean2, stdev2, lower2, upper2)
+            elif distribution 2== "t":
+                mean2=0
+                stdev2=(df2/(df2-2))**0.5
+                lower2=t.ppf(0.001, df2)
+                upper2=t.ppf(0.999, df2)
+                alttext2= "A second distribution is also shown of the probability distribution curve \
+                of a %s distribution. The distribution is unomodal, symmetric, and bell-shaped with a \
+                mean of %0.2f and a standard deviation of %0.2f. The 0.001 quantile is %0.2f and the \
+                0.999 quantile is %0.2f." %(title2, mean2, stdev2, lower2, upper2)
+            else:
+                mean2=meanmu2
+                stdev2=stsigma2
+                lower2=norm.ppf(0.001, meanmu2, stsigma2)
+                upper2=norm.ppf(0.999, meanmu2, stsigma2)
+                alttext2= "A second distribution is also shown of the probability distribution curve \
+                of a %s distribution. The distribution is unomodal, symmetric, and bell-shaped with a \
+                mean of %0.2f and a standard deviation of %0.2f. The 0.001 quantile is %0.2f and the \
+                0.999 quantile is %0.2f." %(title2, mean2, stdev2, lower2, upper2)  
+        st.write(alttext1 + alttext2)          
+        else:
+            if distribution == "binomial":
+                mean1=nobs*prob
+                stdev1=(nobs*(prob)*(1-prob))**0.5
+                lower1=int(binom.ppf(0.001, nobs, prob))
+                upper1=int(binom.ppf(0.999, nobs, prob))
+                alttext1= "Probability distribution graph of a %s distribution. The distribution \
+                has a mean of %0.2f and a standard deviation of %0.2f. The 0.001 quantile is %02d \
+                and the 0.999 quantile is %02d." %(title1, mean1, stdev1, lower1, upper1)
+            elif distribution == "t":
+                mean1=0
+                stdev1=(df/(df-2))**0.5
+                lower1=t.ppf(0.001, df)
+                upper1=t.ppf(0.999, df)
+                alttext1= "Probability distribution curve of a %s distribution. The distribution \
+                is unomodal, symmetric, and bell-shaped with a mean of %0.2f and a standard deviation \
+                of %0.2f. The 0.001 quantile is %0.2f and the 0.999 quantile is %0.2f."\
+                %(title1, mean1, stdev1, lower1, upper1)
+            else:
+                mean1=meanmu
+                stdev1=stsigma
+                lower1=norm.ppf(0.001, meanmu, stsigma)
+                upper1=norm.ppf(0.999, meanmu, stsigma)
+                alttext1= "Probability distribution curve of a %s distribution. The distribution \
+                is unomodal, symmetric, and bell-shaped with a mean of %0.2f and a standard deviation \
+                of %0.2f. The 0.001 quantile is %0.2f and the 0.999 quantile is %0.2f."\
+                %(title1, mean1, stdev1, lower1, upper1)
+        st.write(alttext1)
