@@ -74,7 +74,7 @@ with tab1:
                 st.text("Not implemented yet.")
 
     if plotType == "Rainbow":
-        st.text("Do *not* use a rainbow scale. The contrast between colors in rainbow scales are not uniformly spaced making distinguishing colors difficult for people with CVD.",
+        st.code("Do *not* use a rainbow scale. The contrast between colors in rainbow scales are not uniformly spaced making distinguishing colors difficult for people with CVD.",
                 language='markdown')
 
     else:
