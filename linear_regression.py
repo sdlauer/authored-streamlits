@@ -61,15 +61,10 @@ with tab1:
 
     with col2:
         fig, ax = plt.subplots()
-        sns.scatterplot(x="Latitude", y=target, data=crabs)
+        sns.regplot(x="Latitude", y=target, data=crabs, fit_reg=add_reg, label="Regression line")
         ax.set_xlabel("Latitude", fontsize=14)
         ax.set_ylabel(target, fontsize=14)
-
-        if add_reg:
-            x_ind = [X.min(),X.max()]
-            y_ind = [m*x_ind[0]+b, m*x_ind[1]+b]
-            plt.plot(x_ind,y_ind, c='red', label="Regression line")
-            plt.legend()
+        plt.legend()
 
         if add_mean:
             x_ind = [X.min(),X.max()]
