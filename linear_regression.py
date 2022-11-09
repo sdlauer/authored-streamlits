@@ -25,6 +25,13 @@ crabs = pd.read_csv("crab-groups.csv")
 crabs.columns = ["Site", "Latitude", "Sample size", "Mean length", "Min length", "Max length", "Stdev length","Median length","Date"]
 crabs = crabs[["Site", "Date", "Sample size","Latitude","Mean length", "Min length", "Max length","Median length"]]
 
+thisdict = {
+  "Mean length": "mean fiddler crab length",
+  "Min length": "minimum fiddler crab length",
+  "Max length": "maximum fiddler crab length",
+  "Median length": "median fiddler crab length"
+}
+
 tab1, tab2, tab3, tab4 = st.tabs(["Plot", "Data","Prediction", "Summary statistics"])
 
 with tab1:
@@ -61,28 +68,24 @@ with tab1:
     with col2:
         fig, ax = plt.subplots()
         sns.regplot(x="Latitude", y=target, data=crabs,ci=False,fit_reg=False)
-        if add_reg: sns.regplot(x="Latitude", y=target, data=crabs,ci=False,fit_reg=add_reg, label="Regression line")
+        if add_reg:
+            sns.regplot(x="Latitude", y=target, data=crabs,ci=False,fit_reg=add_reg, label="Regression line")
+            plt.legend()
         ax.set_xlabel("Latitude", fontsize=14)
         ax.set_ylabel(target, fontsize=14)
-        plt.legend()
 
         if add_mean:
-            plt.axhline(y=y.mean() , color = 'darkorange', linestyle = '-', label="Mean")
+            plt.axhline(y=y.mean() , color='darkorange', linewidth=2, label="Mean")
             plt.legend()
 
         if add_resid:
             n = len(X)
             for i in range(len(X)):
                 plt.plot([X[i],X[i]],[y[i],m*X[i]+b],color='grey',linewidth = 2)
-        st.subheader("Plot")
 
+        st.subheader("Plot")
         st.pyplot(fig)
-        thisdict = {
-          "Mean length": "mean fiddler crab length",
-          "Min length": "minimum fiddler crab length",
-          "Max length": "maximum fiddler crab length",
-          "Median length": "median fiddler crab length"
-        }
+
         desc1 = "Description: Samples of fiddler crabs from 13 locations were taken and the " + thisdict[target]
         desc2 = " from each location was recorded. As the latitude increases, the " + thisdict[target]
         desc3 = " also increases."
