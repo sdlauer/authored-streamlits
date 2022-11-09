@@ -12,7 +12,21 @@ from sklearn.tree import DecisionTreeClassifier, plot_tree, export_text
 from sklearn import metrics, tree
 
 
-marijuana = pd.read_csv('gss.csv').dropna()
+@st.cache
+def loadData():
+    df = pd.read_csv('gss.csv').dropna()
+    return df
+
+marijuana = loadData()
+
+@st.cache
+def fitModel(depth, seed)
+    # Initialize the model
+    model = DecisionTreeClassifier(max_depth=depth, random_state=seed)
+
+    # Fit the model
+    model = model.fit(X,y)
+    return model
 
 hide = """
         <style>
@@ -51,11 +65,7 @@ with col1:
     conf_mat = st.checkbox('Display confusion matrix')
 
     # Initialize the model
-    classtreeModel = DecisionTreeClassifier(max_depth=depth, random_state=seed)
-
-    # Fit the model
-    classtreeModel = classtreeModel.fit(X,y)
-
+    classtreeModel = fitModel(depth, seed)
 
 
 #Plot the confusion matrix
