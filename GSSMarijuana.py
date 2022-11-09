@@ -20,7 +20,7 @@ def loadData():
 marijuana = loadData()
 
 @st.cache
-def fitModel(depth, seed)
+def fitModel(depth, seed):
     # Initialize the model
     model = DecisionTreeClassifier(max_depth=depth, random_state=seed)
 
