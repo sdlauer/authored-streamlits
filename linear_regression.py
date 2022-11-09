@@ -42,8 +42,8 @@ with tab1:
         )
 
         # Store relevant columns as variables
-        X = crabs[['Latitude']].values.reshape(-1, 1).astype(float)
-        y = crabs[[target]].values.reshape(-1, 1).astype(float)
+        X = np.ravel(crabs[['Latitude']].astype(float))
+        y = np.ravel(crabs[[target]].astype(float))
 
         # Logistic regression predicting diagnosis from tumor radius
         linearModel = LinearRegression()
@@ -67,9 +67,7 @@ with tab1:
         plt.legend()
 
         if add_mean:
-            x_ind = [X.min(),X.max()]
-            y_mean = [crabs[target].mean(), crabs[target].mean()]
-            plt.plot(x_ind,y_mean, c='darkorange', label="Mean")
+            plt.axhline(y = , color = 'darkorange', linestyle = '-', label="Mean")
             plt.legend()
 
         if add_resid:
