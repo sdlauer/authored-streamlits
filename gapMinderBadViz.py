@@ -62,7 +62,7 @@ with tab1:
                             hover_data={'gdpPercap':'.2f',
                                         'lifeExp':'.1f',
                                         'logPop':False,
-                                        'pop':True}
+                                        'pop':True},
                             color_discrete_sequence = px.colors.qualitative.Set1,
                     )
                 fig.update_layout(font_size = 12,
