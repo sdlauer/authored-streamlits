@@ -240,7 +240,7 @@ with col2:
                 of a %s distribution. The distribution is unomodal, symmetric, and bell-shaped with a \
                 mean of %0.2f and a standard deviation of %0.2f. The 0.001 quantile is %0.2f and the \
                 0.999 quantile is %0.2f." %(title2, mean2, stdev2, lower2, upper2)  
-            st.write(alttext1 + alttext2)          
+            st.write(alttext1 + " " + alttext2)          
         else:
             if distribution == "binomial":
                 mean1=nobs*prob
