@@ -29,7 +29,7 @@ def fitModel(depth, seed):
     return model
 
 @st.cache
-def getPred(model, X)
+def getPred(model, X):
     predictions = model.predict(X)
     return predictions
 
