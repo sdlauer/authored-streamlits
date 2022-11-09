@@ -42,12 +42,12 @@ with tab1:
         )
 
         # Store relevant columns as variables
-        X = np.ravel(crabs[['Latitude']].astype(float))
-        y = np.ravel(crabs[[target]].astype(float))
+        X = np.ravel(crabs[['Latitude']]).astype(float)
+        y = np.ravel(crabs[[target]]).astype(float)
 
         # Logistic regression predicting diagnosis from tumor radius
         linearModel = LinearRegression()
-        linearModel.fit(X,np.ravel(y.astype(int)))
+        linearModel.fit(X,np.ravel(y.astype(float)))
 
         # regModeleq = st.checkbox("Display regression equation")
         add_reg = st.checkbox("Add regression line")
