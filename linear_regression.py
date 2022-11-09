@@ -42,8 +42,8 @@ with tab1:
         )
 
         # Store relevant columns as variables
-        X = np.ravel(crabs[['Latitude']]).astype(float)
-        y = np.ravel(crabs[[target]]).astype(float)
+        X = crabs[['Latitude']].values.reshape(-1, 1)
+        y = crabs[[target]].values.reshape(-1, 1)
 
         # Logistic regression predicting diagnosis from tumor radius
         linearModel = LinearRegression()
