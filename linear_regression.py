@@ -42,37 +42,45 @@ with tab1:
         )
 
         # Store relevant columns as variables
-        X = crabs[['Latitude']]
-        y = crabs[[target]]
+        X = crabs[['Latitude']].values.reshape(-1, 1).astype(float)
+        y = crabs[[target]].values.reshape(-1, 1).astype(float)
 
         # Logistic regression predicting diagnosis from tumor radius
         linearModel = LinearRegression()
-        linearModel.fit(np.ravel(X.astype(float)),np.ravel(y.astype(float)))
+        linearModel.fit(X,np.ravel(y.astype(int)))
+
+        # regModeleq = st.checkbox("Display regression equation")
+        add_reg = st.checkbox("Add regression line")
+        add_resid = st.checkbox("Add residuals", disabled=(not add_reg))
+        add_mean = st.checkbox("Add mean")
 
         m, b = np.polyfit(np.ravel(X).astype(float), np.ravel(y).astype(float), 1)
         m = np.round(m,3)
         b = np.round(b,3)
 
-        add_reg = st.checkbox("Add regression line")
-        add_resid = st.checkbox("Add residuals", disabled=(not add_reg))
-        add_mean = st.checkbox("Add mean")
 
     with col2:
         fig, ax = plt.subplots()
-        sns.regplot(x="Latitude", y=target, data=crabs, ci=None, fit_reg=add_reg, label="Regression line")
+        sns.scatterplot(x="Latitude", y=target, data=crabs)
         ax.set_xlabel("Latitude", fontsize=14)
         ax.set_ylabel(target, fontsize=14)
+
+        if add_reg:
+            x_ind = [X.min(),X.max()]
+            y_ind = [m*x_ind[0]+b, m*x_ind[1]+b]
+            plt.plot(x_ind,y_ind, c='red', label="Regression line")
+            plt.legend()
 
         if add_mean:
             x_ind = [X.min(),X.max()]
             y_mean = [crabs[target].mean(), crabs[target].mean()]
             plt.plot(x_ind,y_mean, c='darkorange', label="Mean")
+            plt.legend()
 
         if add_resid:
             n = len(X)
             for i in range(len(X)):
                 plt.plot([X[i],X[i]],[y[i],m*X[i]+b],color='grey',linewidth = 2)
-        plt.legend()
         st.subheader("Plot")
 
         st.pyplot(fig)
@@ -110,7 +118,8 @@ with tab4:
     st.subheader("Summary statistics")
     st.table(crabs[["Latitude",target]].describe().T)
     st.subheader("Sum of squared errors")
-    SSEreg = sum((y - (m*X + b))**2)
+    yPredicted = linearModel.predict(X)
+    SSEreg = sum((y - yPredicted)**2)[0]
     SSEyBar = np.round(sum((y - np.mean(crabs[target]))**2)[0],2)
     ss_desc1 = "The sum of squared errors for the mean of the " + thisdict[target] + " is " + str(SSEyBar) + ". "
     ss_desc2 = "The sum of squared errors for the least squares regression line is " + str(SSEreg) + ". "
