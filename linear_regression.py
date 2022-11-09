@@ -115,8 +115,8 @@ with tab4:
     st.table(crabs[["Latitude",target]].describe().T)
     st.subheader("Sum of squared errors")
     yPredicted = m*X + b
-    SSEreg = sum((y - yPredicted)**2)[0]
-    SSEyBar = sum((y - np.mean(y))**2)[0]
+    SSEreg = np.round(sum((y - yPredicted)**2)[0],2)
+    SSEyBar = np.round(sum((y - np.mean(y))**2)[0],2)
     ss_desc1 = "The sum of squared errors for the mean of the " + thisdict[target] + " is " + str(SSEyBar) + ". "
     ss_desc2 = "The sum of squared errors for the least squares regression line is " + str(SSEreg) + ". "
     ss_desc = ss_desc1 + ss_desc2
