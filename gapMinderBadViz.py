@@ -9,6 +9,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.figure_factory as ff
+import numpy as np
 
 @st.cache
 @st.cache
