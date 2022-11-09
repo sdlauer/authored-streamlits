@@ -27,7 +27,6 @@ hide = """
 
 st.markdown(hide, unsafe_allow_html=True)
 
-marijuana = pd.read_csv('https://raw.githubusercontent.com/zyRissler/streamlits/main/gss.csv').dropna()
 
 seed=123
 
