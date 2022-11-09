@@ -28,6 +28,11 @@ def fitModel(depth, seed):
     model = model.fit(X,y)
     return model
 
+@st.cache
+def getPred(model, X)
+    predictions = model.predict(X)
+    return predictions
+
 hide = """
         <style>
         #MainMenu {visibility: hidden;}
@@ -72,7 +77,7 @@ with col1:
 with col2:
     if conf_mat:
         st.header("Confusion matrix")
-        y_pred = classtreeModel.predict(X)
+        y_pred = getPred(classtreeModel, X)
         if text:
             st.write(metrics.confusion_matrix(y, y_pred))
         else:
