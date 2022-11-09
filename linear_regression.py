@@ -114,7 +114,7 @@ with tab4:
     st.subheader("Summary statistics")
     st.table(crabs[["Latitude",target]].describe().T)
     st.subheader("Sum of squared errors")
-    yPredicted = linearModel.predict(X)
+    yPredicted = m*X + b
     SSEreg = sum((y - yPredicted)**2)[0]
     SSEyBar = sum((y - np.mean(y))**2)[0]
     ss_desc1 = "The sum of squared errors for the mean of the " + thisdict[target] + " is " + str(SSEyBar) + ". "
