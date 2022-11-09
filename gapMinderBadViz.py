@@ -47,7 +47,7 @@ with tab1:
                                  'Contrast based',
                                  'Shape based'))
 
-        textDesc = st.checkbox('Text descriptions of plot')
+        textDesc = st.checkbox('Text description of plot')
 
     with col2:
 
@@ -72,4 +72,10 @@ with tab1:
 
         else:
                 st.text("Not implemented yet.")
-    st.text("Recommendations for this color scale")
+
+    if plotType == "Rainbow":
+        st.text("Do not use a rainbow scale. The contrastbetween colors in rainbow scales are not
+uniformly spaced making distinguishing colors difficult for people with CVD.")
+
+    else:
+        st.text("Recommendations for this color scale")
