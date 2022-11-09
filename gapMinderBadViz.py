@@ -40,7 +40,7 @@ tab1, tab2 = st.tabs(["Recommendations", "Playground"])
 with tab1:
     col1, col2 = st.columns([1,4])
 
-    baseTextDesc = "TODO: Add base alt-text"
+    baseTextDesc = "**TODO**: Add base alt-text. "
 
     with col1:
         plotType = st.selectbox('Type of color scale',
