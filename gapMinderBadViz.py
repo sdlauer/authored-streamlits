@@ -14,6 +14,8 @@ import plotly.figure_factory as ff
 @st.cache
 def loadData():
     df = px.data.gapminder().query("year == 2007")
+    df['logPop'] = np.log2(df['pop'])
+    df['rootPop'] = np.sqrt(df['pop'])
     return df
 
 
