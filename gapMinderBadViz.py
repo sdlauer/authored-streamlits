@@ -48,8 +48,7 @@ with tab1:
 
     with col2:
 
-        match plotType:
-            case "Rainbow":
+        if plotType == "Rainbow":
                 fig = px.scatter(df, x = 'gdpPercap', y = 'lifeExp',
                             color = 'continent', size = 'logPop',
                             labels = {'gdpPercap' : 'GDP per capita ($/person)',
@@ -63,6 +62,6 @@ with tab1:
                                   )
                 st.plotly_chart(fig, use_container_width=True)
 
-            case _:
+        else:
                 st.text("Not implemented yet.")
     st.text("Recommendations for this color scale")
