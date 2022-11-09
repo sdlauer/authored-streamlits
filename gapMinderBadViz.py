@@ -54,7 +54,7 @@ with tab1:
     with col2:
 
         if plotType == "Rainbow":
-            if text:
+            if textDesc:
                 st.markdown(baseTextDesc+'''The continents for this plot are colored red for Asia, blue for Europe, green for Africa, purple for the Americas, and orange for Oceania.''')
 
 
