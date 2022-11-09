@@ -49,7 +49,7 @@ with tab1:
     with col2:
 
         if plotType == "Rainbow":
-                fig = px.scatter(df, x = 'gdpPercap', y = 'lifeExp',
+                fig = px.scatter(gm2007, x = 'gdpPercap', y = 'lifeExp',
                             color = 'continent', size = 'logPop',
                             labels = {'gdpPercap' : 'GDP per capita ($/person)',
                                       'lifeExp' : 'Life expectancy (years)',
