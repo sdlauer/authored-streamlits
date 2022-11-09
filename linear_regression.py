@@ -58,10 +58,10 @@ with tab1:
         m = np.round(m,3)
         b = np.round(b,3)
 
-
     with col2:
         fig, ax = plt.subplots()
-        sns.regplot(x="Latitude", y=target, data=crabs, fit_reg=add_reg, label="Regression line")
+        sns.regplot(x="Latitude", y=target, data=crabs,ci=False,fit_reg=False)
+        if add_reg: sns.regplot(x="Latitude", y=target, data=crabs,ci=False,fit_reg=add_reg, label="Regression line")
         ax.set_xlabel("Latitude", fontsize=14)
         ax.set_ylabel(target, fontsize=14)
         plt.legend()
