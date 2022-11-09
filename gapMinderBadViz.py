@@ -40,6 +40,8 @@ tab1, tab2 = st.tabs(["Recommendations", "Playground"])
 with tab1:
     col1, col2 = st.columns([1,4])
 
+    baseTextDesc = "TODO: Add base alt-text"
+
     with col1:
         plotType = st.selectbox('Type of color scale',
                                 ('Rainbow',
@@ -52,6 +54,11 @@ with tab1:
     with col2:
 
         if plotType == "Rainbow":
+            if text:
+                st.markdown(baseTextDesc+'''The continents for this plot are colored red for Asia, blue for Europe, green for Africa, purple for the Americas, and orange for Oceania.''')
+
+
+            else:
                 fig = px.scatter(gm2007, x = 'gdpPercap', y = 'lifeExp',
                             color = 'continent', size = 'logPop',
                             labels = {'gdpPercap' : 'GDP per capita ($/person)',
