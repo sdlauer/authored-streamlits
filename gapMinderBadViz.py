@@ -49,7 +49,7 @@ with tab1:
     with col2:
 
         match plotType:
-            case 'Rainbow':
+            case "Rainbow":
                 fig = px.scatter(df, x = 'gdpPercap', y = 'lifeExp',
                             color = 'continent', size = 'logPop',
                             labels = {'gdpPercap' : 'GDP per capita ($/person)',
