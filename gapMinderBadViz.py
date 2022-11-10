@@ -43,9 +43,9 @@ with tab1:
     baseTextDesc = '''The horizontal axis is labeled "GDP per capita (\$/person)" and ranges from 0 to 50k.
     The vertical axis is labeled "Life expectancy (years)" and ranges from 39 to 83.
     Most points are follow a curve where low income (GDP per capita) countries (below \$2000) have low life expectancy (below 60 years),
-    but life expectancy increases rapidly with income with countries with an average income above \$5000 have a life expectancy above 70 years.'''
+    but life expectancy increases rapidly with income with countries with an average income above \$5000 have a life expectancy above 70 years. '''
 
-    continentDesc = '''Most low income/low life expectancy countries are from Africa.
+    continentDesc = ''' Most low income/low life expectancy countries are from Africa.
     European countries dominate the countries with high life expectancy.
     Countries in Asia and the Americas make up many of the countries with relatively low income and high life expectancy.'''
 
