@@ -138,6 +138,34 @@ with tab1:
                                   )
                 st.plotly_chart(fig, use_container_width=True)
 
+        elif plotType == "Shape based":
+            if textDesc:
+                st.markdown(baseTextDesc+'''The continents for this plot are
+                shown with green circles for Asia, orange diamonds for Europe,
+                purple squares for Africa, pink x for the Americas, and green +
+                for Oceania.'''+continentDesc)
+
+
+            else:
+                fig = px.scatter(gm2007, x = 'gdpPercap', y = 'lifeExp',
+                            color = 'continent', size = 'logPop',
+                            symbol = 'continent',
+                            labels = {'gdpPercap' : 'GDP per capita ($/person)',
+                                      'lifeExp' : 'Life expectancy (years)',
+                                      'continent' : 'Continent',
+                                      'logPop': 'log(Population)',
+                                      'pop':'Population'},
+                            hover_data={'gdpPercap':':.2f',
+                                        'lifeExp':':.1f',
+                                        'logPop':False,
+                                        'pop':True},
+                            color_discrete_sequence = px.colors.colorbrewer.Dark2,
+                    )
+                fig.update_layout(font_size = 12,
+                                  legend=dict(yanchor="top", y=0.7, x=.75)
+                                  )
+                st.plotly_chart(fig, use_container_width=True)
+
         else:
                 st.text("Not implemented yet.")
 
@@ -159,6 +187,12 @@ with tab1:
         colors as well as other people. But, some shades lack contrast with
         the background, emphasizing those with high contrast compared to the
         background.''')
+
+    elif plotType == "Shape based":
+
+        st.markdown('''Use changes in another feature (size or shape).
+        Users can depend on this other feature if the color scale is
+        difficult to perceive.''')
 
     else:
         st.text("Recommendations for this color scale not yet implemented")
