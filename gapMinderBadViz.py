@@ -35,9 +35,6 @@ st.markdown(hide, unsafe_allow_html=True)
 
 gm2007 = loadData()
 
-tab1, tab2 = st.tabs(["Recommendations", "Playground"])
-
-with tab1:
     col1, col2 = st.columns([1,3])
 
     baseTextDesc = '''The horizontal axis is labeled "GDP per capita (\$/person)" and ranges from 0 to 50k.
