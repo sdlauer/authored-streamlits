@@ -65,15 +65,15 @@ with col2:
 
         else:
             fig = px.scatter(gm2007, x = 'gdpPercap', y = 'lifeExp',
-                        color = 'continent', size = 'logPop',
+                        color = 'continent', size = 'rootPop',
                         labels = {'gdpPercap' : 'GDP per capita ($/person)',
                                   'lifeExp' : 'Life expectancy (years)',
                                   'continent' : 'Continent',
-                                  'logPop': 'log(Population)',
+                                  'rootPop': 'sqrt(Population)',
                                   'pop':'Population'},
                         hover_data={'gdpPercap':':.2f',
                                     'lifeExp':':.1f',
-                                    'logPop':False,
+                                    'rootPop':False,
                                     'pop':True},
                         color_discrete_sequence = px.colors.qualitative.Set1,
                 )
@@ -91,15 +91,15 @@ with col2:
 
         else:
             fig = px.scatter(gm2007, x = 'gdpPercap', y = 'lifeExp',
-                        color = 'continent', size = 'logPop',
+                        color = 'continent', size = 'rootPop',
                         labels = {'gdpPercap' : 'GDP per capita ($/person)',
                                   'lifeExp' : 'Life expectancy (years)',
                                   'continent' : 'Continent',
-                                  'logPop': 'log(Population)',
+                                  'rootPop': 'sqrt(Population)',
                                   'pop':'Population'},
                         hover_data={'gdpPercap':':.2f',
                                     'lifeExp':':.1f',
-                                    'logPop':False,
+                                    'rootPop':False,
                                     'pop':True},
                         color_discrete_sequence = px.colors.colorbrewer.YlGnBu,
                 )
@@ -118,15 +118,15 @@ with col2:
 
         else:
             fig = px.scatter(gm2007, x = 'gdpPercap', y = 'lifeExp',
-                        color = 'continent', size = 'logPop',
+                        color = 'continent', size = 'rootPop',
                         labels = {'gdpPercap' : 'GDP per capita ($/person)',
                                   'lifeExp' : 'Life expectancy (years)',
                                   'continent' : 'Continent',
-                                  'logPop': 'log(Population)',
+                                  'rootPop': 'sqrt(Population)',
                                   'pop':'Population'},
                         hover_data={'gdpPercap':':.2f',
                                     'lifeExp':':.1f',
-                                    'logPop':False,
+                                    'rootPop':False,
                                     'pop':True},
                         color_discrete_sequence = px.colors.colorbrewer.Blues,
                 )
@@ -145,16 +145,16 @@ with col2:
 
         else:
             fig = px.scatter(gm2007, x = 'gdpPercap', y = 'lifeExp',
-                        color = 'continent', size = 'logPop',
+                        color = 'continent', size = 'rootPop',
                         symbol = 'continent',
                         labels = {'gdpPercap' : 'GDP per capita ($/person)',
                                   'lifeExp' : 'Life expectancy (years)',
                                   'continent' : 'Continent',
-                                  'logPop': 'log(Population)',
+                                  'rootPop': 'sqrt(Population)',
                                   'pop':'Population'},
                         hover_data={'gdpPercap':':.2f',
                                     'lifeExp':':.1f',
-                                    'logPop':False,
+                                    'rootPop':False,
                                     'pop':True},
                         color_discrete_sequence = px.colors.colorbrewer.Dark2,
                 )
