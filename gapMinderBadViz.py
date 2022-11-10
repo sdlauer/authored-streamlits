@@ -111,6 +111,32 @@ with tab1:
                                   )
                 st.plotly_chart(fig, use_container_width=True)
 
+        elif plotType == "Contrast based":
+            if textDesc:
+                st.markdown(baseTextDesc+'''The continents for this plot are colored light yellow for Asia, yellow for Europe,
+                yellow-green for Africa, green for the Americas, and blue for Oceania.
+                The light colors are hard to see against the grey background.'''+continentDesc)
+
+
+            else:
+                fig = px.scatter(gm2007, x = 'gdpPercap', y = 'lifeExp',
+                            color = 'continent', size = 'logPop',
+                            labels = {'gdpPercap' : 'GDP per capita ($/person)',
+                                      'lifeExp' : 'Life expectancy (years)',
+                                      'continent' : 'Continent',
+                                      'logPop': 'log(Population)',
+                                      'pop':'Population'},
+                            hover_data={'gdpPercap':':.2f',
+                                        'lifeExp':':.1f',
+                                        'logPop':False,
+                                        'pop':True},
+                            color_discrete_sequence = px.colors.colorbrewer.Blues,
+                    )
+                fig.update_layout(font_size = 12,
+                                  legend=dict(yanchor="top", y=0.7, x=.75)
+                                  )
+                st.plotly_chart(fig, use_container_width=True)
+
         else:
                 st.text("Not implemented yet.")
 
@@ -125,6 +151,13 @@ with tab1:
         By avoiding red, people with CVD are better
         able to distinguish colors.''')
 
+    elif plotType == "Contrast based":
+
+        st.markdown('''Use a scale that depends on changes in contrast.
+        By only changing the contrast, people with CVD can distinguish the
+        colors as well as other people. But, some shades lack contrast with
+        the background, emphasizing those with high contrast compared to the
+        background.''')
 
     else:
         st.text("Recommendations for this color scale not yet implemented")
