@@ -40,7 +40,14 @@ tab1, tab2 = st.tabs(["Recommendations", "Playground"])
 with tab1:
     col1, col2 = st.columns([1,4])
 
-    baseTextDesc = "**TODO**: Add base alt-text. "
+    baseTextDesc = '''The horizontal axis is labeled "GDP per capita ($/person)" and ranges from 0 to 50k.
+    The vertical axis is labeled "Life expectancy (years)" and ranges from 39 to 83.
+    Most points are follow a curve where low income (GDP per capita) countries (below $2000) have low life expectancy (below 60 years),
+    but life expectancy increases rapidly with income with countries with an average income above $5000 have a life expectancy above 70 years.'''
+
+    continentDesc = '''Most low income/low life expectancy countries are from Africa.
+    European countries dominate the countries with high life expectancy.
+    Countries in Asia and the Americas make up many of the countries with relatively low income and high life expectancy.'''
 
     with col1:
         plotType = st.selectbox('Type of color scale',
@@ -55,7 +62,8 @@ with tab1:
 
         if plotType == "Rainbow":
             if textDesc:
-                st.markdown(baseTextDesc+'''The continents for this plot are colored red for Asia, blue for Europe, green for Africa, purple for the Americas, and orange for Oceania.''')
+                st.markdown(baseTextDesc+'''The continents for this plot are colored red for Asia, blue for Europe,
+                green for Africa, purple for the Americas, and orange for Oceania.'''+continentDesc)
 
 
             else:
