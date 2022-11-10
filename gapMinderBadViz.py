@@ -113,8 +113,9 @@ with tab1:
 
         elif plotType == "Contrast based":
             if textDesc:
-                st.markdown(baseTextDesc+'''The continents for this plot are colored light yellow for Asia, yellow for Europe,
-                yellow-green for Africa, green for the Americas, and blue for Oceania.
+                st.markdown(baseTextDesc+'''The continents for this plot are
+                colored almost white for Asia, light grey for Europe,
+                grey for Africa, grey blue for the Americas, and blue for Oceania.
                 The light colors are hard to see against the grey background.'''+continentDesc)
 
 
