@@ -49,7 +49,7 @@ Countries in Asia and the Americas make up many of the countries with relatively
 with col1:
     plotType = st.selectbox('Color palette',
                             ('Rainbow',
-                             'Yellow-Blue-Green',
+                             'Yellow-Green-Blue',
                              'Contrast based',
                              'Shape based'))
 
@@ -82,7 +82,7 @@ with col2:
                               )
             st.plotly_chart(fig, use_container_width=True)
 
-    elif plotType == "Yellow-Blue-Green":
+    elif plotType == "Yellow-Green-Blue":
         if textDesc:
             st.markdown(baseTextDesc+'''The continents for this plot are colored light yellow for Asia, yellow for Europe,
             yellow-green for Africa, green for the Americas, and blue for Oceania.
@@ -172,7 +172,7 @@ if plotType == "Rainbow":
                are not uniformly spaced making distinguishing colors difficult for people
                with CVD.''')
 
-elif plotType == "Yellow-Blue-Green":
+elif plotType == "Yellow-Green-Blue":
     st.markdown('''Use a yellow-blue or green-blue color scale.
     By avoiding red, people with CVD are better
     able to distinguish colors.''')
