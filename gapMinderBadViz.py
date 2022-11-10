@@ -87,8 +87,9 @@ with tab1:
 
         elif plotType == "Yellow-Blue-Green":
             if textDesc:
-                st.markdown(baseTextDesc+'''The continents for this plot are colored red for Asia, blue for Europe,
-                green for Africa, purple for the Americas, and orange for Oceania.'''+continentDesc)
+                st.markdown(baseTextDesc+'''The continents for this plot are colored light yellow for Asia, yellow for Europe,
+                yellow-green for Africa, green for the Americas, and blue for Oceania.
+                The yellow colors are hard to see against the grey background.'''+continentDesc)
 
 
             else:
@@ -103,7 +104,7 @@ with tab1:
                                         'lifeExp':':.1f',
                                         'logPop':False,
                                         'pop':True},
-                            color_discrete_sequence = px.colors.qualitative.YlGnBu,
+                            color_discrete_sequence = px.colors.colorbrewer.YlGnBu,
                     )
                 fig.update_layout(font_size = 12,
                                   legend=dict(yanchor="top", y=0.7, x=.75)
@@ -118,6 +119,12 @@ with tab1:
         st.markdown('''Do **not** use a rainbow scale. The contrast between colors in rainbow scales
                    are not uniformly spaced making distinguishing colors difficult for people
                    with CVD.''')
+
+    elif plotType == "Yellow-Blue-Green":
+        st.markdown('''Use a yellow-blue or green-blue color scale.
+        By avoiding red, people with CVD are better
+        able to distinguish colors.''')
+
 
     else:
         st.text("Recommendations for this color scale not yet implemented")
