@@ -61,9 +61,13 @@ with tab1:
     with col2:
 
         if plotType == "Rainbow":
+
+
+        elif plotType == "Yellow-Blue":
             if textDesc:
-                st.markdown(baseTextDesc+'''The continents for this plot are colored red for Asia, blue for Europe,
-                green for Africa, purple for the Americas, and orange for Oceania.'''+continentDesc)
+                st.markdown(baseTextDesc+'''The continents for this plot are colored light yellow for Asia, dark yellow for Europe,
+                yellow-green for Africa, green for the Americas, and blue for Oceania.
+                The light yellow is hard to see against the grey background.'''+continentDesc)
 
 
             else:
@@ -78,7 +82,7 @@ with tab1:
                                         'lifeExp':':.1f',
                                         'logPop':False,
                                         'pop':True},
-                            color_discrete_sequence = px.colors.qualitative.Set1,
+                            color_discrete_sequence = px.colors.colorbrewer.YlGnBu,
                     )
                 fig.update_layout(font_size = 12,
                                   legend=dict(yanchor="top", y=0.7, x=.75)
