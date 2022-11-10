@@ -47,7 +47,7 @@ European countries dominate the countries with high life expectancy.
 Countries in Asia and the Americas make up many of the countries with relatively low income and high life expectancy.'''
 
 with col1:
-    plotType = st.selectbox('Color pallette',
+    plotType = st.selectbox('Color palette',
                             ('Rainbow',
                              'Yellow-Blue-Green',
                              'Contrast based',
