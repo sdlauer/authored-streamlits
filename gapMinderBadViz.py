@@ -40,7 +40,7 @@ tab1, tab2 = st.tabs(["Recommendations", "Playground"])
 with tab1:
     col1, col2 = st.columns([1,4])
 
-    baseTextDesc = '''The horizontal axis is labeled "GDP per capita ($/person)" and ranges from 0 to 50k.
+    baseTextDesc = '''The horizontal axis is labeled "GDP per capita (\$/person)" and ranges from 0 to 50k.
     The vertical axis is labeled "Life expectancy (years)" and ranges from 39 to 83.
     Most points are follow a curve where low income (GDP per capita) countries (below \$2000) have low life expectancy (below 60 years),
     but life expectancy increases rapidly with income with countries with an average income above \$5000 have a life expectancy above 70 years.'''
