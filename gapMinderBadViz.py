@@ -52,7 +52,7 @@ with tab1:
     with col1:
         plotType = st.selectbox('Type of color scale',
                                 ('Rainbow',
-                                 'Yellow-Blue',
+                                 'Yellow-Blue-Green',
                                  'Contrast based',
                                  'Shape based'))
 
@@ -61,13 +61,9 @@ with tab1:
     with col2:
 
         if plotType == "Rainbow":
-
-
-        elif plotType == "Yellow-Blue":
             if textDesc:
-                st.markdown(baseTextDesc+'''The continents for this plot are colored light yellow for Asia, dark yellow for Europe,
-                yellow-green for Africa, green for the Americas, and blue for Oceania.
-                The light yellow is hard to see against the grey background.'''+continentDesc)
+                st.markdown(baseTextDesc+'''The continents for this plot are colored red for Asia, blue for Europe,
+                green for Africa, purple for the Americas, and orange for Oceania.'''+continentDesc)
 
 
             else:
@@ -82,7 +78,32 @@ with tab1:
                                         'lifeExp':':.1f',
                                         'logPop':False,
                                         'pop':True},
-                            color_discrete_sequence = px.colors.colorbrewer.YlGnBu,
+                            color_discrete_sequence = px.colors.qualitative.Set1,
+                    )
+                fig.update_layout(font_size = 12,
+                                  legend=dict(yanchor="top", y=0.7, x=.75)
+                                  )
+                st.plotly_chart(fig, use_container_width=True)
+
+        elif plotType == "Yellow-Blue-Green":
+            if textDesc:
+                st.markdown(baseTextDesc+'''The continents for this plot are colored red for Asia, blue for Europe,
+                green for Africa, purple for the Americas, and orange for Oceania.'''+continentDesc)
+
+
+            else:
+                fig = px.scatter(gm2007, x = 'gdpPercap', y = 'lifeExp',
+                            color = 'continent', size = 'logPop',
+                            labels = {'gdpPercap' : 'GDP per capita ($/person)',
+                                      'lifeExp' : 'Life expectancy (years)',
+                                      'continent' : 'Continent',
+                                      'logPop': 'log(Population)',
+                                      'pop':'Population'},
+                            hover_data={'gdpPercap':':.2f',
+                                        'lifeExp':':.1f',
+                                        'logPop':False,
+                                        'pop':True},
+                            color_discrete_sequence = px.colors.qualitative.YlGnBu,
                     )
                 fig.update_layout(font_size = 12,
                                   legend=dict(yanchor="top", y=0.7, x=.75)
