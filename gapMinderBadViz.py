@@ -88,6 +88,7 @@ with tab1:
         else:
                 st.text("Not implemented yet.")
 
+st.header("Recommendation")
     if plotType == "Rainbow":
         st.markdown('''Do **not** use a rainbow scale. The contrast between colors in rainbow scales
                    are not uniformly spaced making distinguishing colors difficult for people
