@@ -137,6 +137,33 @@ with col2:
                               )
             st.plotly_chart(fig, use_container_width=True)
 
+    elif plotType == "Okabe-Ito":
+        if textDesc:
+            st.markdown(baseTextDesc+'''FIXME: The continents for this plot are colored light yellow for Asia, yellow for Europe,
+            yellow-green for Africa, green for the Americas, and blue for Oceania.
+            The yellow colors are hard to see against the grey background.'''+continentDesc)
+
+
+        else:
+            fig = px.scatter(gm2007, x = 'gdpPercap', y = 'lifeExp',
+                        color = 'continent', size = 'rootPop',
+                        labels = {'gdpPercap' : 'GDP per capita ($/person)',
+                                  'lifeExp' : 'Life expectancy (years)',
+                                  'continent' : 'Continent',
+                                  'rootPop': 'sqrt(Population)',
+                                  'pop':'Population'},
+                        hover_data={'gdpPercap':':.2f',
+                                    'lifeExp':':.1f',
+                                    'rootPop':False,
+                                    'pop':True},
+                        color_discrete_sequence = ["#E69F00", "#56B4E9", "#009E73", "#F0E442",
+                                                   "#0072B2", "#D55E00", "#CC79A7", "#000000"],
+                )
+            fig.update_layout(font_size = 12,
+                              legend=dict(yanchor="top", y=0.7, x=.75)
+                              )
+            st.plotly_chart(fig, use_container_width=True)
+
     elif plotType == "Contrast based":
         if textDesc:
             st.markdown(baseTextDesc+'''The continents for this plot are
