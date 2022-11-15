@@ -48,8 +48,10 @@ Countries in Asia and the Americas make up many of the countries with relatively
 
 with col1:
     plotType = st.selectbox('Color palette',
-                            ('Rainbow',
+                            ('Default',
+                             'Rainbow',
                              'Yellow-Green-Blue',
+                             'Okabe-Ito'
                              'Contrast based',
                              'Shape based'))
 
@@ -102,6 +104,33 @@ with col2:
                                     'rootPop':False,
                                     'pop':True},
                         color_discrete_sequence = px.colors.colorbrewer.YlGnBu,
+                )
+            fig.update_layout(font_size = 12,
+                              legend=dict(yanchor="top", y=0.7, x=.75)
+                              )
+            st.plotly_chart(fig, use_container_width=True)
+
+    elif plotType == "Default":
+        if textDesc:
+            st.markdown(baseTextDesc+'''FIXME: The continents for this plot are colored light yellow for Asia, yellow for Europe,
+            yellow-green for Africa, green for the Americas, and blue for Oceania.
+            The yellow colors are hard to see against the grey background.'''+continentDesc)
+
+
+        else:
+            fig = px.scatter(gm2007, x = 'gdpPercap', y = 'lifeExp',
+                        color = 'continent', size = 'rootPop',
+                        labels = {'gdpPercap' : 'GDP per capita ($/person)',
+                                  'lifeExp' : 'Life expectancy (years)',
+                                  'continent' : 'Continent',
+                                  'rootPop': 'sqrt(Population)',
+                                  'pop':'Population'},
+                        hover_data={'gdpPercap':':.2f',
+                                    'lifeExp':':.1f',
+                                    'rootPop':False,
+                                    'pop':True},
+                        color_discrete_sequence = ["#1f77b4","#ff7f0e", "#2ca02c", "#d62728", "#9467bd",
+                                                   "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"],
                 )
             fig.update_layout(font_size = 12,
                               legend=dict(yanchor="top", y=0.7, x=.75)
@@ -168,9 +197,10 @@ with col2:
 
 st.header("Recommendation")
 if plotType == "Rainbow":
-    st.markdown('''Do **not** use a rainbow scale. The contrast between colors in rainbow scales
-               are not uniformly spaced making distinguishing colors difficult for people
-               with CVD.''')
+    st.markdown('''The contrast between colors in rainbow scales
+               are not usually uniformly spaced making distinguishing colors difficult for people
+               with CVD. More disinguishable rainbow scales have been designed for situations
+               where rainbow scales are commonly used. Ex: Temperature maps, radar maps.''')
 
 elif plotType == "Yellow-Green-Blue":
     st.markdown('''Use a yellow-blue or green-blue color scale.
