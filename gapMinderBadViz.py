@@ -51,7 +51,7 @@ with col1:
                             ('Default',
                              'Rainbow',
                              'Yellow-Green-Blue',
-                             'Okabe-Ito'
+                             'Okabe-Ito',
                              'Contrast based',
                              'Shape based'))
 
