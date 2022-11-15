@@ -234,6 +234,16 @@ elif plotType == "Yellow-Green-Blue":
     By avoiding red, people with CVD are better
     able to distinguish colors.''')
 
+elif plotType == "Default":
+    st.markdown('''The default color palette in a software package may or may not have
+                have differences that are easy to perceive for persons with CVD. Applications
+                that measure the contrast in images and simulate CVD can help evaluate color palettes.''')
+
+elif plotType == "Okabe-Ito":
+    st.markdown('''The Okabe-Ito color palette was introduced in the article
+                "Color Universal Design" in 2002 and is one of the original
+                accessible color palettes.''')
+
 elif plotType == "Contrast based":
 
     st.markdown('''Use a scale that depends on changes in contrast.
