@@ -112,9 +112,8 @@ with col2:
 
     elif plotType == "Default":
         if textDesc:
-            st.markdown(baseTextDesc+'''FIXME: The continents for this plot are colored light yellow for Asia, yellow for Europe,
-            yellow-green for Africa, green for the Americas, and blue for Oceania.
-            The yellow colors are hard to see against the grey background.'''+continentDesc)
+            st.markdown(baseTextDesc+'''The continents for this plot are colored blue for Asia, orange for Europe,
+            green for Africa, red for the Americas, and purple for Oceania.'''+continentDesc)
 
 
         else:
@@ -139,9 +138,9 @@ with col2:
 
     elif plotType == "Okabe-Ito":
         if textDesc:
-            st.markdown(baseTextDesc+'''FIXME: The continents for this plot are colored light yellow for Asia, yellow for Europe,
-            yellow-green for Africa, green for the Americas, and blue for Oceania.
-            The yellow colors are hard to see against the grey background.'''+continentDesc)
+            st.markdown(baseTextDesc+'''The continents for this plot are colored orange for Asia, light blue for Europe,
+            green for Africa, yellow for the Americas, and dark blue for Oceania.
+            The yellow colors are somewhat hard to see against the grey background.'''+continentDesc)
 
 
         else:
