@@ -27,7 +27,7 @@ def loadData():
 
     beans = pd.read_csv("Dry_Bean_Dataset.csv")
     beans['Class'] = beans['Class'].str.capitalize()
-#    beans = beans.sample(750, random_state = 20221116)
+    beans = beans.sample(1000, random_state = 20221116)
     return beans
 
 @st.cache
@@ -110,11 +110,11 @@ with col1:
 
 
 with col2:
-    beanSample = beans.sample(750, random_state = 20220509)
-    X = beanSample[["MajorAxisLength", "MinorAxisLength"]]
-    y = beanSample[["Class"]]
+    #beanSample = beans.sample(750, random_state = 20220509)
+    #X = beanSample[["MajorAxisLength", "MinorAxisLength"]]
+    #y = beanSample[["Class"]]
     le = labelMaker(y)
 
-    fig = plot_classification_regions(X, y, beanKnnClassifier, le,
+    fig = plot_classification_regions(X_train, y_train, beanKnnClassifier, le,
                                 with_data = False)
     st.pyplot(fig)
