@@ -27,7 +27,7 @@ def loadData():
 
     beans = pd.read_csv("Dry_Bean_Dataset.csv")
     beans['Class'] = beans['Class'].str.capitalize()
-    beans = beans.sample(1000, random_state = 20221116)
+    beans = beans.sample(100, random_state = 20221116)
     return beans
 
 @st.cache
