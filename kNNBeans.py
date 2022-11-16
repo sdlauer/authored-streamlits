@@ -27,7 +27,7 @@ def loadData():
 
     beans = pd.read_csv("Dry_Bean_Dataset.csv")
     beans['Class'] = beans['Class'].str.capitalize()
-    beans = beans.sample(100, random_state = 20221116)
+    beans = beans.sample(1000, random_state = 20221116)
     return beans
 
 @st.cache
@@ -38,7 +38,6 @@ def labelMaker(y):
     return le
 
 
-@st.cache
 def plot_classification_regions(X, y, classifier, scaler, le, with_data = False):
 
     #Define function for the plot.
@@ -64,9 +63,10 @@ def plot_classification_regions(X, y, classifier, scaler, le, with_data = False)
     Z = Z.reshape(xx.shape)
     numClasses = len(le.classes_)
     #Plot the regions classified as different beans
-    fig = plt.figure(figsize=(8,6))
+    fig, ax = plt.subplots(figsize=(8,6))
     plt.contourf(xx, yy, Z, levels = [i-0.5 for i in range(numClasses+1)],
-                 cmap = ListedColormap(sns.color_palette("colorblind", as_cmap = False, n_colors = numClasses)))
+                 cmap = ListedColormap(sns.color_palette("colorblind",
+                 as_cmap = False, n_colors = numClasses)))
 
     if with_data:
         p1 = sns.scatterplot(data = X, x = X.columns[0], y  = X.columns[1],
