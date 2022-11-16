@@ -71,10 +71,9 @@ with col2:
 
     st.image(images[destination])
 
-text_hider = st.checkbox('Hide description')
+        text_hider = st.checkbox('Hide description')
 
-if text_hider:
-        st.caption("")
-
-else:
-        st.caption("Description: Density plots of travel ratings grouped by cluster membership.")
+        if text_hider:
+                st.caption("")
+        else:
+                st.caption("Description: Density plots of travel ratings grouped by cluster membership.")
