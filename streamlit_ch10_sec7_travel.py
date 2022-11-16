@@ -56,7 +56,7 @@ with col1:
     check = st.checkbox("Display descriptive statistics")
 
     if check:
-        summary = reviews[[destination]].groupby("clusters").describe().round(2)
+        summary = reviews[[destination]].groupby(by=["clusters"]).describe().round(2)
         st.dataframe(summary)
 
 with col2:
