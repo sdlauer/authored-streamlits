@@ -21,7 +21,7 @@ st.markdown(hide, unsafe_allow_html=True)
 
 @st.cache
 def loadData():
-    url = "https://raw.githubusercontent.com/aimeeschwab-mccoy/streamlit_asm/main/tripadvisor_review.csv"
+    url = "https://raw.githubusercontent.com/aimeeschwab-mccoy/streamlit_asm/main/ratings_clustered.csv"
 
     reviews = pd.read_csv(url)
     reviews.columns = list(reviews.columns)
@@ -29,11 +29,11 @@ def loadData():
 
 reviews = loadData()
 
-X = reviews.drop(axis=1, labels=['User ID'])
-kmModel = KMeans(n_clusters = 4, random_state=123)
-kmModel = kmModel.fit(X)
-clusters = kmModel.fit_predict(X)
-centroids = kmModel.cluster_centers_
+#X = reviews.drop(axis=1, labels=['User ID'])
+#kmModel = KMeans(n_clusters = 4, random_state=123)
+#kmModel = kmModel.fit(X)
+#clusters = kmModel.fit_predict(X)
+#centroids = kmModel.cluster_centers_
 
 images = {"Art": "clustering_images/art.png", "Clubs": "clustering_images/clubs.png", 
             "Juice bars": "clustering_images/juice.png", "Restaurants": "clustering_images/restaurants.png", 
@@ -56,7 +56,7 @@ with col1:
     check = st.checkbox("Display descriptive statistics")
 
     if check:
-        summary = X[[destination]].groupby(clusters).describe().round(2)
+        summary = reviews[[destination]].groupby("clusters").describe().round(2)
         st.dataframe(summary)
 
 with col2:
