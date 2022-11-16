@@ -39,7 +39,7 @@ def labelMaker(y):
 
 
 @st.cache
-def plot_classification_regions(X, y, classifier, le, with_data = False, scaler):
+def plot_classification_regions(X, y, classifier, scaler, le, with_data = False):
 
     #Define function for the plot.
     # X - two feature data frame,
@@ -115,6 +115,6 @@ with col2:
     #y = beanSample[["Class"]]
     le = labelMaker(y)
 
-    fig = plot_classification_regions(X_train, y_train, beanKnnClassifier, le,
-                                with_data = False, scaler)
+    fig = plot_classification_regions(X_train, y_train, beanKnnClassifier, scaler, le,
+                                with_data = False)
     st.pyplot(fig)
