@@ -64,7 +64,7 @@ def plot_classification_regions(X, y, classifier, le, with_data = False):
     Z = Z.reshape(xx.shape)
     numClasses = len(le.classes_)
     #Plot the regions classified as different beans
-    plt.figure(figsize=(8, 6))
+    fig = plt.figure(figsize=(8,6))
     plt.contourf(xx, yy, Z, levels = [i-0.5 for i in range(numClasses+1)],
                  cmap = ListedColormap(sns.color_palette("colorblind", as_cmap = False, n_colors = numClasses)))
 
@@ -76,6 +76,7 @@ def plot_classification_regions(X, y, classifier, le, with_data = False):
         leg.set_title("Variety")
         for t, l in zip(leg.texts, le.inverse_transform(range(7))):
             t.set_text(l)
+    return fig
 
 beans = loadData()
 
@@ -102,7 +103,7 @@ with col1:
     beanKnnClassifier = KNeighborsClassifier(n_neighbors = nbrs )
     beanKnnClassifier.fit(X_train_scaled, np.ravel(y_train))
     y_pred = beanKnnClassifier.predict(scaler.transform(X_test))
-    
+
     accuracy = metrics.accuracy_score(y_pred, y_test)
     st.write(f"Accuracy: {accuracy:.3f}")
 
@@ -113,7 +114,7 @@ with col2:
     X = beanSample[["MajorAxisLength", "MinorAxisLength"]]
     y = beanSample[["Class"]]
     le = labelMaker(y)
-    fig = plt.figure(figsize=(8,6))
-    plot_classification_regions(X, y, beanKnnClassifier, le,
+
+    fig = plot_classification_regions(X, y, beanKnnClassifier, le,
                                 with_data = False)
     st.pyplot(fig)
