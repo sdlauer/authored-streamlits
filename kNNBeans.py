@@ -88,9 +88,7 @@ X_train_scaled = scaler.fit_transform(X_train)
 
 col1, col2 = st.columns([3,2])
 
-beanKnnClassifier = KNeighborsClassifier(n_neighbors = nbrs )
-beanKnnClassifier.fit(X_train_scaled, np.ravel(y_train))
-y_pred = beanKnnClassifier.predict(scaler.transform(X_test))
+
 
 with col1:
     nbrs = st.slider(
@@ -101,8 +99,14 @@ with col1:
         step=1,
     )
 
+    beanKnnClassifier = KNeighborsClassifier(n_neighbors = nbrs )
+    beanKnnClassifier.fit(X_train_scaled, np.ravel(y_train))
+    y_pred = beanKnnClassifier.predict(scaler.transform(X_test))
+    
     accuracy = metrics.accuracy_score(y_pred, y_test)
     st.write(f"Accuracy: {accuracy:.3f}")
+
+
 
 with col2:
     beanSample = beans.sample(750, random_state = 20220509)
