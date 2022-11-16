@@ -12,7 +12,6 @@ import plotly.figure_factory as ff
 import numpy as np
 
 @st.cache
-@st.cache
 def loadData():
     df = px.data.gapminder().query("year == 2007")
     df['logPop'] = np.log2(df['pop'])
