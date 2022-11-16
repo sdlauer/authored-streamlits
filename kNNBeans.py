@@ -39,7 +39,7 @@ def labelMaker(y):
 
 
 @st.cache
-def plot_classification_regions(X, y, classifier, le, with_data = False):
+def plot_classification_regions(X, y, classifier, le, with_data = False, scaler):
 
     #Define function for the plot.
     # X - two feature data frame,
@@ -58,7 +58,7 @@ def plot_classification_regions(X, y, classifier, le, with_data = False):
     yh = (y_max - y_min)/200# step size in the mesh for the y direction
 
     xx, yy = np.meshgrid(np.arange(x_min, x_max, xh), np.arange(y_min, y_max, yh))
-    Z = classifier.predict(np.c_[xx.ravel(), yy.ravel()])
+    Z = classifier.predict(scaler.transform(np.c_[xx.ravel(), yy.ravel()]))
     #Get outputs ready for plotting
     Z = le.transform(Z)
     Z = Z.reshape(xx.shape)
@@ -116,5 +116,5 @@ with col2:
     le = labelMaker(y)
 
     fig = plot_classification_regions(X_train, y_train, beanKnnClassifier, le,
-                                with_data = False)
+                                with_data = False, scaler)
     st.pyplot(fig)
