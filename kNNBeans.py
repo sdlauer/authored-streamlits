@@ -77,6 +77,10 @@ def plot_classification_regions(X, y, classifier, le, with_data = False):
         for t, l in zip(leg.texts, le.inverse_transform(range(7))):
             t.set_text(l)
 
+beans = loadData()
+
+X = beans[["MajorAxisLength", "MinorAxisLength"]]
+y = beans[["Class"]]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3,
                                                     random_state = 20221116)
 scaler = StandardScaler()
