@@ -96,7 +96,7 @@ with col1:
     nbrs = st.slider(
         "k",
         min_value=1,
-        max_value=20,
+        max_value=21,
         value=5,
         step=2,
     )
