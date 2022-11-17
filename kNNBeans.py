@@ -107,11 +107,11 @@ with col1:
 
     accuracy = metrics.accuracy_score(y_test, y_pred)
     #precision = metrics.precision_score(y_test, y_pred)
-    recall = metrics.recall_score(y_test, y_pred)
+    #recall = metrics.recall_score(y_test, y_pred)
 
     st.write("Accuracy =", round(accuracy,4))
     #st.write("Precision = ", round(precision, 4))
-    st.write("Recall =", round(recall, 4))
+    #st.write("Recall =", round(recall, 4))
 
     showPts = st.checkbox("Show training data")
 
