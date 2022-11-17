@@ -105,8 +105,13 @@ with col1:
     beanKnnClassifier.fit(X_train_scaled, np.ravel(y_train))
     y_pred = beanKnnClassifier.predict(scaler.transform(X_test))
 
-    accuracy = metrics.accuracy_score(y_pred, y_test)
-    st.write(f"Accuracy: {accuracy:.3f}")
+    accuracy = metrics.accuracy_score(y_test, y_pred)
+    precision = metrics.precision_score(y_test, y_pred)
+    recall = metrics.recall_score(y_test, y_pred)
+
+    st.write("Accuracy =", round(accuracy,4))
+    st.write("Precision = ", round(precision, 4))
+    st.write("Recall =", round(recall, 4))
 
     showPts = st.checkbox("Show training data")
 
