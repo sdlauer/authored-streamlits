@@ -108,6 +108,7 @@ with col1:
     accuracy = metrics.accuracy_score(y_pred, y_test)
     st.write(f"Accuracy: {accuracy:.3f}")
 
+    showPts = st.checkbox("Show training data")
 
 
 with col2:
@@ -117,5 +118,5 @@ with col2:
     le = labelMaker(y)
 
     fig, ax = plot_classification_regions(X_train, y_train, beanKnnClassifier, scaler, le,
-                                with_data = False)
+                                with_data = showPts)
     st.pyplot(fig)
