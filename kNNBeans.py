@@ -38,7 +38,7 @@ def labelMaker(y):
     le.fit(y)
     return le
 
-@st.cache
+#@st.cache
 def plot_classification_regions(X, y, classifier, scaler, le, with_data = False):
 
     #Define function for the plot.
