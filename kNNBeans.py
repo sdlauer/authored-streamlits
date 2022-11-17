@@ -20,6 +20,7 @@ from matplotlib.colors import ListedColormap
 #import packages for evaluation
 from sklearn.model_selection import train_test_split
 from sklearn import metrics
+#from mlxtend.plotting import plot_decision_regions
 
 @st.cache
 def loadData():
@@ -76,7 +77,7 @@ def plot_classification_regions(X, y, classifier, scaler, le, with_data = False)
         leg.set_title("Variety")
         for t, l in zip(leg.texts, le.inverse_transform(range(7))):
             t.set_text(l)
-    return fig
+    return fig, ax
 
 beans = loadData()
 
@@ -115,6 +116,6 @@ with col2:
     #y = beanSample[["Class"]]
     le = labelMaker(y)
 
-    fig = plot_classification_regions(X_train, y_train, beanKnnClassifier, scaler, le,
+    fig, ax = plot_classification_regions(X_train, y_train, beanKnnClassifier, scaler, le,
                                 with_data = False)
     st.pyplot(fig)
