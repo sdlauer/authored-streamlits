@@ -51,7 +51,7 @@ def doSplitAndScale(beans):
 
         return X_train, X_test, y_train, y_test, scaler, X_train_scaled, X_test_scaled, le
 
-@st.cache
+#@st.cache
 def plot_classification_regions(X, y, classifier, scaler, le, with_data = False):
 
     #Define function for the plot.
