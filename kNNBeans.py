@@ -94,8 +94,7 @@ def plot_classification_regions(X, y, classifier, scaler, le, with_data = False)
 
 beans = loadData()
 
-X_train, X_test, y_train, y_test, scaler, X_train_scaled, X_test_scaled, le =
-    doSplitAndScale(beans)
+X_train, X_test, y_train, y_test, scaler, X_train_scaled, X_test_scaled, le = doSplitAndScale(beans)
 
 
 
