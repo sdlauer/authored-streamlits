@@ -134,7 +134,7 @@ with col2:
 
     else:
         if not hidePts:
-            st.write("The data points for the beans have MajorAxisLength between 190
+            st.markdown("The data points for the beans have MajorAxisLength between 190 
                   and 730 and a MinorAxisLength of 135 to 420. The points are mostly
                   clustered along the diagonal from the lower left corner (190,135) to the
                   upper right corner (420, 730).
