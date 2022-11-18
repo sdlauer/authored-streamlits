@@ -81,6 +81,8 @@ def plot_classification_regions(X, y, classifier, scaler, le, with_data = False)
     plt.contourf(xx, yy, Z, levels = [i-0.5 for i in range(numClasses+1)],
                  cmap = ListedColormap(sns.color_palette("colorblind",
                  as_cmap = False, n_colors = numClasses)))
+    plt.xlabel("Major axis length")
+    plt.ylabel("Minor axis length")
 
     if with_data:
         p1 = sns.scatterplot(data = X, x = X.columns[0], y  = X.columns[1],
