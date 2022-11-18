@@ -117,13 +117,38 @@ with col1:
 
     hidePts = st.checkbox("Hide training data")
 
+    textOption = st.checkbox("Text description")
+
 
 with col2:
     #beanSample = beans.sample(750, random_state = 20220509)
     #X = beanSample[["MajorAxisLength", "MinorAxisLength"]]
     #y = beanSample[["Class"]]
-    le = labelMaker(y)
+    if not textOption:
+        le = labelMaker(y)
 
-    fig, ax = plot_classification_regions(X_train, y_train, beanKnnClassifier, scaler, le,
-                                with_data = not hidePts)
-    st.pyplot(fig)
+        fig, ax = plot_classification_regions(X_train, y_train,
+                                                beanKnnClassifier, scaler, le,
+                                                with_data = not hidePts)
+        st.pyplot(fig)
+
+    else:
+        if not hidePts:
+            st.write("The data points for the beans have MajorAxisLength between 190
+                  and 730 and a MinorAxisLength of 135 to 420. The points are mostly
+                  clustered along the diagonal from the lower left corner (190,135) to the
+                  upper right corner (420, 730).
+
+                  Dermason beans are in the lower left hand corner, being the smallest
+                  in both dimensions. Seker beans have slightly longer major axis length
+                  than Dermason, but a much longer minor axis length. Sira beans have a
+                  similar minor axis length to Seker beans, but a longer major axis length
+                  than both Dermason and Seker beans. Horoz beans have a similar minor axis
+                  length to Sira beans (and some overlap with Dermason), but a longer major
+                  axis length than all the beans described so far. Barbunya beans have a
+                  major axis length that overlaps with Sira and Dermason but longer major
+                  axis length than both.  Cali beans have a similar minor axis length
+                  to Barbunya beans, but a longer major axis length. Bombay beans are the
+                  largest beans in both dimensions and occupy the upper right corner of the plot.")
+
+        st.write("")
