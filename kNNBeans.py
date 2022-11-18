@@ -133,11 +133,13 @@ with col2:
         st.pyplot(fig)
 
     else:
+        st.markdown('''The plot has MajorAxisLength on the horizontal axis and varies
+                      between 190 and 730 and a has MinorAxisLength on the vertical axis
+                      and varies between 135 to 420.''')
+
         if not hidePts:
-            st.markdown('''The data points for the beans have MajorAxisLength between 190
-                  and 730 and a MinorAxisLength of 135 to 420. The points are mostly
-                  clustered along the diagonal from the lower left corner (190,135) to the
-                  upper right corner (420, 730).
+            st.markdown('''The points are mostly clustered along the diagonal
+                  from the lower left corner (190,135) to the upper right corner (420, 730).
                   Dermason beans are in the lower left hand corner, being the smallest
                   in both dimensions. Seker beans have slightly longer major axis length
                   than Dermason, but a much longer minor axis length. Sira beans have a
@@ -151,4 +153,4 @@ with col2:
                   largest beans in both dimensions and occupy the upper right corner of the
                   plot.''')
 
-        st.write("")
+        st.markdown("")
