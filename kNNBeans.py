@@ -113,7 +113,7 @@ with col1:
     #st.write("Precision = ", round(precision, 4))
     #st.write("Recall =", round(recall, 4))
 
-    showPts = st.checkbox("Show training data")
+    hidePts = st.checkbox("Hide training data")
 
 
 with col2:
@@ -123,5 +123,5 @@ with col2:
     le = labelMaker(y)
 
     fig, ax = plot_classification_regions(X_train, y_train, beanKnnClassifier, scaler, le,
-                                with_data = showPts)
+                                with_data = not hidePts)
     st.pyplot(fig)
