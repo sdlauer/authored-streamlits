@@ -109,7 +109,7 @@ with col1:
         "k",
         min_value=1,
         max_value=21,
-        value=5,
+        value=11,
         step=2,
     )
 
@@ -165,4 +165,20 @@ with col2:
                   largest beans in both dimensions and occupy the upper right corner of the
                   plot.''')
 
-        st.markdown("")
+        st.markdown('''For k=11 points are classified as:
+        * Dermason beans - within a region
+        that is roughly a quadrilateral with vertices (190, 135), (310, 135),
+        (290, 175), and (190, 175)
+        * Seker beans - within a roughly triangular region with
+        vertices (190, 175), (300, 210), and (190, 310)
+        * Sira beans - within a roughly quadrilateral region with
+        vertices (290,175), (300, 160), (350, 190), and (300, 210)
+        * Horoz beans - within a roughly pentagonal region with
+        vertices (310, 135), (730, 135), (730, 150), (350, 190), and (300, 160)
+        * Barbunya beans - within a roughly hexagonal region with
+        vertices (190, 310), (300, 210), (390, 210), (420, 330), (250, 420), and
+        (190, 420)
+        * Cali beans - within a roughly quadrilateral with vertices
+        (390, 210), (730, 150), (730, 250), and (430, 320)
+        * Bombay beans - above the line between (250, 420) and (730, 250)
+        ''')
