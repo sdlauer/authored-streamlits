@@ -51,7 +51,7 @@ def doSplitAndScale(beans):
 
         return X_train, X_test, y_train, y_test, scaler, X_train_scaled, X_test_scaled, le
 
-#@st.cache
+@st.cache
 def plot_classification_regions(X, y, classifier, scaler, le, with_data = False):
 
     #Define function for the plot.
@@ -167,9 +167,8 @@ with col2:
 
         st.markdown('''For k=11 points are classified as:
 
-* Dermason beans - within a region
-        that is roughly a quadrilateral with vertices (190, 135), (310, 135),
-        (290, 175), and (190, 175)
+* Dermason beans - within a region that is roughly a quadrilateral with vertices
+    (190, 135), (310, 135), (290, 175), and (190, 175)
 
 * Seker beans - within a roughly triangular region with
         vertices (190, 175), (300, 210), and (190, 310)
@@ -188,4 +187,6 @@ with col2:
         (390, 210), (730, 150), (730, 250), and (430, 320)
 
 * Bombay beans - above the line between (250, 420) and (730, 250)
-        ''')
+
+
+''')
