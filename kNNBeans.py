@@ -113,7 +113,7 @@ with col1:
     #st.write("Precision = ", round(precision, 4))
     #st.write("Recall =", round(recall, 4))
 
-    st.write(metrics.confusion_matrix(y_test, y_pred))
+    #st.write(metrics.confusion_matrix(y_test, y_pred))
 
     hidePts = st.checkbox("Hide training data")
 
