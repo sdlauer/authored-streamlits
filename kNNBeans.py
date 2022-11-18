@@ -38,6 +38,18 @@ def labelMaker(y):
     le.fit(y)
     return le
 
+@st.cache
+def doSplitAndScale(beans):
+        X = beans[["MajorAxisLength", "MinorAxisLength"]]
+        y = beans[["Class"]]
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3,
+                                                            random_state = 20221116)
+        scaler = StandardScaler()
+        X_train_scaled = scaler.fit_transform(X_train)
+        X_test_scaled = scaler.transform(X_test)
+
+        return X_train, X_test, y_train, y_test, scaler, X_train_scaled, X_test_scaled
+
 #@st.cache
 def plot_classification_regions(X, y, classifier, scaler, le, with_data = False):
 
@@ -81,12 +93,9 @@ def plot_classification_regions(X, y, classifier, scaler, le, with_data = False)
 
 beans = loadData()
 
-X = beans[["MajorAxisLength", "MinorAxisLength"]]
-y = beans[["Class"]]
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3,
-                                                    random_state = 20221116)
-scaler = StandardScaler()
-X_train_scaled = scaler.fit_transform(X_train)
+X_train, X_test, y_train, y_test, scaler, X_train_scaled, X_test_scaled = doSplitAndScale(beans)
+
+
 
 col1, col2 = st.columns([2,4])
 
@@ -103,7 +112,7 @@ with col1:
 
     beanKnnClassifier = KNeighborsClassifier(n_neighbors = nbrs )
     beanKnnClassifier.fit(X_train_scaled, np.ravel(y_train))
-    y_pred = beanKnnClassifier.predict(scaler.transform(X_test))
+    y_pred = beanKnnClassifier.predict(X_test_scaled)
 
     accuracy = metrics.accuracy_score(y_test, y_pred)
     #precision = metrics.precision_score(y_test, y_pred)
