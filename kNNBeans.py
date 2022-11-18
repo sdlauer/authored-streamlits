@@ -47,8 +47,9 @@ def doSplitAndScale(beans):
         scaler = StandardScaler()
         X_train_scaled = scaler.fit_transform(X_train)
         X_test_scaled = scaler.transform(X_test)
+        le = labelMaker(y)
 
-        return X_train, X_test, y_train, y_test, scaler, X_train_scaled, X_test_scaled
+        return X_train, X_test, y_train, y_test, scaler, X_train_scaled, X_test_scaled, le
 
 #@st.cache
 def plot_classification_regions(X, y, classifier, scaler, le, with_data = False):
@@ -93,7 +94,8 @@ def plot_classification_regions(X, y, classifier, scaler, le, with_data = False)
 
 beans = loadData()
 
-X_train, X_test, y_train, y_test, scaler, X_train_scaled, X_test_scaled = doSplitAndScale(beans)
+X_train, X_test, y_train, y_test, scaler, X_train_scaled, X_test_scaled, le =
+    doSplitAndScale(beans)
 
 
 
@@ -134,7 +136,7 @@ with col2:
     #X = beanSample[["MajorAxisLength", "MinorAxisLength"]]
     #y = beanSample[["Class"]]
     if not textOption:
-        le = labelMaker(y)
+
 
         fig, ax = plot_classification_regions(X_train, y_train,
                                                 beanKnnClassifier, scaler, le,
