@@ -134,7 +134,7 @@ with col2:
 
     else:
         if not hidePts:
-            st.markdown("The data points for the beans have MajorAxisLength between 190 
+            st.markdown('''The data points for the beans have MajorAxisLength between 190
                   and 730 and a MinorAxisLength of 135 to 420. The points are mostly
                   clustered along the diagonal from the lower left corner (190,135) to the
                   upper right corner (420, 730).
@@ -149,6 +149,7 @@ with col2:
                   major axis length that overlaps with Sira and Dermason but longer major
                   axis length than both.  Cali beans have a similar minor axis length
                   to Barbunya beans, but a longer major axis length. Bombay beans are the
-                  largest beans in both dimensions and occupy the upper right corner of the plot.")
+                  largest beans in both dimensions and occupy the upper right corner of the
+                  plot.''')
 
         st.write("")
