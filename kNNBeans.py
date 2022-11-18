@@ -109,9 +109,11 @@ with col1:
     #precision = metrics.precision_score(y_test, y_pred)
     #recall = metrics.recall_score(y_test, y_pred)
 
-    st.write("Accuracy =", round(accuracy,4))
+    st.write("Accuracy on test set=", round(accuracy,4))
     #st.write("Precision = ", round(precision, 4))
     #st.write("Recall =", round(recall, 4))
+
+    st.write(metrics.confusion_matrix(y_test, y_pred))
 
     hidePts = st.checkbox("Hide training data")
 
