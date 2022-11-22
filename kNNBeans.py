@@ -94,6 +94,19 @@ from sklearn import metrics
     # plt.savefig("imagesKnnBeans/kNNBeans" + str(nbrs) + str(with_data) + ".png") ################ used to save images ##########
     # return fig, ax
 
+hide = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        body {overflow: hidden;}
+        div.block-container {padding-top:1rem;}
+        div.block-container {padding-bottom:1rem;}
+        </style>
+        """
+
+st.markdown(hide, unsafe_allow_html=True)
+
 # beans = loadData() #### not needed ####
 # X_train, X_test, y_train, y_test, scaler, X_train_scaled, X_test_scaled, le = doSplitAndScale(beans)  #### not needed ##############
 accrcydict = {1 : 0.8333, 3 : 0.85, 5 : 0.8367, 7 : 0.8367, 9 : 0.8533, 11:  0.8467, 13:  0.8567, 15:  0.8567, 17:  0.8567, 19:  0.8567, 21:  0.86} 
