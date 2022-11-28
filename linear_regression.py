@@ -75,7 +75,7 @@ with tab1:
         ax.set_ylabel(target, fontsize=14)
 
         if add_mean:
-            plt.axhline(y=y.mean() , color='darkorange', linewidth=2, label="Mean")
+            plt.axhline(y=y.mean() , color='darkorange', linewidth=2, label="Mean", linestyle=':')
             plt.legend()
 
         if add_resid:
