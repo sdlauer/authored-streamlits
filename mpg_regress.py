@@ -35,73 +35,56 @@ def show_corr(data):
     corr = 'r = ' + str(corr_coef)
     return corr
 
-# st.header("Linear regression with the cars dataset")
+tab1, tab2 = st.tabs(["Plot", "Data"])
 
-col1, col2 = st.columns([1,3])
+with tab1:
+    col1, col2 = st.columns([1,3])
+    with col1:
 
-with col1:
+        input_feat = st.selectbox(
+            "Input feature",
+            [
+                "MPG",
+                "Cylinders",
+                "Horsepower",
+                "Displacement",
+                "Weight",
+                "Acceleration",
+                "Model year"
+            ]
+        )
 
-    input_feat = st.selectbox(
-        "Input feature",
-        [
-            "MPG",
-            "Cylinders",
-            "Horsepower",
-            "Displacement",
-            "Weight",
-            "Acceleration",
-            "Model year"
-        ]
-    )
+        output_feat = st.selectbox(
+            "Output feature",
+            [
+                "MPG",
+                "Cylinders",
+                "Horsepower",
+                "Displacement",
+                "Weight",
+                "Acceleration",
+                "Model year"
+            ]
+        )
 
-    output_feat = st.selectbox(
-        "Output feature",
-        [
-            "MPG",
-            "Cylinders",
-            "Horsepower",
-            "Displacement",
-            "Weight",
-            "Acceleration",
-            "Model year"
-        ]
-    )
+    dict = {
+      "MPG": "mpg",
+      "Cylinders": "cylinders",
+      "Horsepower": "horsepower",
+      "Displacement": "displacement",
+      "Weight": "weight",
+      "Acceleration": "acceleration",
+      "Model year": "model_year"
+    }
 
-dict = {
-  "MPG": "mpg",
-  "Cylinders": "cylinders",
-  "Horsepower": "horsepower",
-  "Displacement": "displacement",
-  "Weight": "weight",
-  "Acceleration": "acceleration",
-  "Model year": "model_year"
-}
+    with col2:
 
-#    reg_line = st.checkbox("Regression line")
-#    reg_eq = st.checkbox("Regression equation")
-#    corr_coef = st.checkbox("Correlation coefficient")
+        fig, ax = plt.subplots()
+        ax = sns.regplot(x=dict[input_feat], y=dict[output_feat],
+            data=mpg, fit_reg=False, ci=None, line_kws={"color": "grey"})
+        ax.set_xlabel(input_feat, fontsize=14)
+        ax.set_ylabel(output_feat, fontsize=14)
+        st.pyplot(fig)
 
-with col2:
-
-    fig, ax = plt.subplots()
-
-#    ax = sns.regplot(x=input_feat, y=output_feat,
-#        data=mpg, fit_reg=reg_line, ci=None, line_kws={"color": "grey"})
-
-    ax = sns.regplot(x=dict[input_feat], y=dict[output_feat],
-        data=mpg, fit_reg=False, ci=None, line_kws={"color": "grey"})
-    ax.set_xlabel(input_feat, fontsize=14)
-    ax.set_ylabel(output_feat, fontsize=14)
-
-    # st.subheader("Scatter plot")
-    st.pyplot(fig)
-
-    # if reg_eq:
-    #     # st.subheader("Regression equation")
-    #     st.text("Regression equation: "
-    #         + show_eq([mpg[input_feat],mpg[output_feat]]))
-    #
-    # if corr_coef:
-    #     # st.subheader("Correlation coefficient")
-    #     st.text("Correlation coefficient: "
-    #         + show_corr([mpg[input_feat],mpg[output_feat]]))
+with tab2:
+    st.table(mpg[[input_feat,output_feat]])
