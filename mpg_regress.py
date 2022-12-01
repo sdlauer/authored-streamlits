@@ -89,4 +89,4 @@ with tab1:
         st.pyplot(fig)
 
 with tab2:
-    st.table(mpg[[dict[input_feat],dict[output_feat]]])
+    st.table(mpg[["mpg","mpg"]])
