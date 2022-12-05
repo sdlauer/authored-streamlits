@@ -109,7 +109,8 @@ st.markdown(hide, unsafe_allow_html=True)
 
 # beans = loadData() #### not needed ####
 # X_train, X_test, y_train, y_test, scaler, X_train_scaled, X_test_scaled, le = doSplitAndScale(beans)  #### not needed ##############
-accrcydict = {1 : 0.8333, 3 : 0.85, 5 : 0.8367, 7 : 0.8367, 9 : 0.8533, 11:  0.8467, 13:  0.8567, 15:  0.8567, 17:  0.8567, 19:  0.8567, 21:  0.86} 
+accrcyTestdict = {1 : 0.8333, 3 : 0.85, 5 : 0.8367, 7 : 0.8367, 9 : 0.8533, 11:  0.8467, 13:  0.8567, 15:  0.8567, 17:  0.8567, 19:  0.8567, 21:  0.86} 
+accrcyTraindict = {1 : 1  , 3 : 0.9186, 5 : 0.9029, 7 : 0.8957, 9 : 0.8943, 11:  0.8886, 13:  0.8914, 15:  0.8814, 17:  0.8829, 19:  0.8871, 21:  0.8886} 
 col1, col2 = st.columns([2,4])
 with col1:
     nbrs = st.slider(
@@ -129,7 +130,8 @@ with col1:
     # recall = metrics.recall_score(y_test, y_pred)
 
     # st.write("Accuracy on test set=", round(accuracy,4))
-    st.write("Accuracy on test set=", accrcydict[nbrs])
+    st.write("Accuracy on training set=", accrcyTraindict[nbrs])
+    st.write("Accuracy on test set=", accrcyTestdict[nbrs])
     # print(nbrs, round(accuracy,4))  ######### used to make accrcydict ####################
     # st.write("Precision = ", round(precision, 4))
     # st.write("Recall =", round(recall, 4))
@@ -194,5 +196,5 @@ with col2:
 
 * Bombay beans - above the line between (250, 420) and (730, 250)
 
-
+The boundaries for the regions that are away from the diagonal vary some with k, but the center of each region does not change for different values of k.
 ''')
