@@ -37,8 +37,8 @@ st.markdown(hide, unsafe_allow_html=True)
 # Store the data set so it doesn't have to reload -- needs a function to work
 @st.cache
 def loadData():
-        url = "https://raw.githubusercontent.com/aimeeschwab-mccoy/streamlit_asm/main/WisconsinBreastCancerDatabase.csv"
-
+#        url = "https://raw.githubusercontent.com/aimeeschwab-mccoy/streamlit_asm/main/WisconsinBreastCancerDatabase.csv"
+        url = "WisconsinBreastCancerDatatbase.csv"
         cancer = pd.read_csv(url)
         cancer.columns = list(cancer.columns)
 
