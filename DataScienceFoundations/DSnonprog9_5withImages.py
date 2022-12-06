@@ -56,7 +56,7 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 # Store images for quicker reload -- made with line 82 below
-images = {3: "DataScienceFoundations/images/KNeigh3.png", 5: "images/KNeigh5.png", 7: "images/KNeigh7.png", 9: "images/KNeigh9.png", 11: "mages/KNeigh11.png", 13: "images/KNeigh13.png", 
+images = {3: "images/KNeigh3.png", 5: "images/KNeigh5.png", 7: "images/KNeigh7.png", 9: "images/KNeigh9.png", 11: "mages/KNeigh11.png", 13: "images/KNeigh13.png", 
                 15: "images/KNeigh15.png", 17: "images/KNeigh17.png", 19: "images/KNeigh19.png"}
 
 # Sets columns with proportions
@@ -100,7 +100,7 @@ with col2:
         # plt.savefig("Yellow_Purple_images/KNeigh" + str(k) + ".png")
         # st.pyplot(fig, ignore_streamlit_theme=True)
 ### Comment line above and Uncomment line below to use images for column 2 ###
-        st.image(images[k])
+        st.image("DataScienceFoundations/"+images[k])
 
 # Toggles off the Alt-text box at the bottom of the page -- default is text on
 text_hider = st.checkbox('Hide footer')
