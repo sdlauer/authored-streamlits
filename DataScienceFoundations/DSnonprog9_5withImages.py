@@ -56,8 +56,8 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 # Store images for quicker reload -- made with line 82 below
-images = {3: "Yellow_Purple_images/KNeigh3.png", 5: "Yellow_Purple_images/KNeigh5.png", 7: "Yellow_Purple_images/KNeigh7.png", 9: "Yellow_Purple_images/KNeigh9.png", 11: "Yellow_Purple_images/KNeigh11.png", 13: "Yellow_Purple_images/KNeigh13.png", 
-                15: "Yellow_Purple_images/KNeigh15.png", 17: "Yellow_Purple_images/KNeigh17.png", 19: "Yellow_Purple_images/KNeigh19.png"}
+images = {3: "images/KNeigh3.png", 5: "images/KNeigh5.png", 7: "images/KNeigh7.png", 9: "images/KNeigh9.png", 11: "mages/KNeigh11.png", 13: "images/KNeigh13.png", 
+                15: "images/KNeigh15.png", 17: "images/KNeigh17.png", 19: "images/KNeigh19.png"}
 
 # Sets columns with proportions
 col1, col2 = st.columns([1,5])
