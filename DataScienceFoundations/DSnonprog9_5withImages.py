@@ -38,7 +38,7 @@ st.markdown(hide, unsafe_allow_html=True)
 @st.cache
 def loadData():
 #        url = "https://raw.githubusercontent.com/aimeeschwab-mccoy/streamlit_asm/main/WisconsinBreastCancerDatabase.csv"
-        url = "DataScienceFoundations/WisconsinBreastCancerDatatbase.csv"
+        url = "DataScienceFoundations/WisconsinBreastCancerDatabase.csv"
         cancer = pd.read_csv(url)
         cancer.columns = list(cancer.columns)
 
