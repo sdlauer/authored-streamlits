@@ -18,7 +18,7 @@ hide = """
 
 st.markdown(hide, unsafe_allow_html=True)
 
-url = "https://raw.githubusercontent.com/aimeeschwab-mccoy/streamlit_asm/main/bob_ross.csv"
+url = "DataScienceFoundations/bob_ross.csv"
 
 bobross = pd.read_csv(url)
 bobross.columns = list(bobross.columns)

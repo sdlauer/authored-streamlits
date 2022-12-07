@@ -152,7 +152,7 @@ with col2:
         #                                         beanKnnClassifier, scaler, le,
         #                                         nbrs, with_data=not hidePts) ############ needed nbrs attr, then don't need fig and ax ##########
         # st.pyplot(fig)                                        ################## don't generate plots  #####################
-        st.image("imagesKnnBeans/kNNBeans" + str(nbrs) + str(not hidePts)+ ".png") ############## show images ###############
+        st.image("DataScienceFoundations/imagesKnnBeans/kNNBeans" + str(nbrs) + str(not hidePts)+ ".png") ############## show images ###############
     else:
         st.markdown('''The plot has MajorAxisLength on the horizontal axis and varies
                       between 190 and 730 and a has MinorAxisLength on the vertical axis

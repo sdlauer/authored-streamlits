@@ -33,7 +33,7 @@ st.markdown(hide, unsafe_allow_html=True)
 # Get the dataset -- this section is specific to the dataset loaded.  
 # All other code is dependent on this dataframe definition
 def loadData():
-        df = pd.read_csv('mpg.csv', usecols=['mpg','acceleration','weight','cylinders','displacement','horsepower'])
+        df = pd.read_csv('DataScienceFoundations/mpg.csv', usecols=['mpg','acceleration','weight','cylinders','displacement','horsepower'])
         df = df.dropna()
         df = df.rename(columns={'mpg':'MPG'})
         return df

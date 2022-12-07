@@ -14,7 +14,7 @@ from sklearn import metrics, tree
 
 @st.cache
 def loadData():
-    df = pd.read_csv('gss.csv').dropna()
+    df = pd.read_csv('DataScienceFoundations/gss.csv').dropna()
     return df
 
 marijuana = loadData()
