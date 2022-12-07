@@ -15,7 +15,7 @@ np.random.seed(12345)
 
 
 # Load bad drivers data
-badDrivers = pd.read_csv('bad-drivers.csv')
+badDrivers = pd.read_csv('DataScienceFoundations/bad-drivers.csv')
 
 
 
