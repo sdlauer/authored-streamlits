@@ -18,7 +18,7 @@ hide = """
 
 st.markdown(hide, unsafe_allow_html=True)
 
-flights = pd.read_csv('flightsmean.csv')
+flights = pd.read_csv('DataScienceFoundations/flightsmean.csv')
 flights.columns = ["origin", "dep_delay", "arr_delay"]
 
 EWRf = flights[flights['origin']=='EWR']
