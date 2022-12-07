@@ -31,7 +31,7 @@ st.markdown(hide, unsafe_allow_html=True)
 # Get the dataset -- this section is specific to the dataset loaded.  
 # All other code is dependent on this dataframe definition and horiz/vert labels
 def loadData():
-        df = pd.read_csv('customer_churn.csv', usecols=['churn', 'products_number','credit_score', 'age', 'tenure', 'balance', 'estimated_salary'])
+        df = pd.read_csv('DataScienceFoundations/customer_churn.csv', usecols=['churn', 'products_number','credit_score', 'age', 'tenure', 'balance', 'estimated_salary'])
         df.groupby(by='churn').size()   
         return df
 df = loadData()

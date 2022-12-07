@@ -20,7 +20,7 @@ hide = """
 st.markdown(hide, unsafe_allow_html=True)
 
 # Load dataset
-mpg = pd.read_csv("mpg.csv")
+mpg = pd.read_csv("DataScienceFoundations/mpg.csv")
 
 # Functions for equation and correlation
 def show_eq(data):

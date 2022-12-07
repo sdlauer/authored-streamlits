@@ -55,7 +55,7 @@ def aggrid_interactive_table(df: pd.DataFrame):
 
 
 country = pd.read_csv(
-    "country.csv"
+    "DataScienceFoundations/country.csv"
 )
 
 selection = aggrid_interactive_table(df=country)

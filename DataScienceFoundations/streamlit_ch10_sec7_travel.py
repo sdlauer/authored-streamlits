@@ -21,7 +21,7 @@ st.markdown(hide, unsafe_allow_html=True)
 
 @st.cache
 def loadData():
-    url = "https://raw.githubusercontent.com/aimeeschwab-mccoy/streamlit_asm/main/ratings_clustered.csv"
+    url = "DataScienceFoundations/ratings_clustered.csv"
 
     reviews = pd.read_csv(url)
     reviews.columns = list(reviews.columns)
@@ -69,7 +69,7 @@ with col2:
 
     #st.pyplot(fig)
 
-    st.image(images[destination])
+    st.image("DataScienceFoundations/"+images[destination])
 
     text_hider = st.checkbox('Hide description')
 

@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import statsmodels.api as sm
 
 # Import and view the dataset
-GasUsage = pd.read_csv('GasUsage_complete.csv')
+GasUsage = pd.read_csv('DataScienceFoundations/GasUsage_complete.csv')
 
 # Convert date to YYYY-MM-DD
 GasUsage['Date'] = pd.to_datetime(GasUsage['Date'])

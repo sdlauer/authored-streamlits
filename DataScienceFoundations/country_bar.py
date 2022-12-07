@@ -17,7 +17,7 @@ hide = """
 
 st.markdown(hide, unsafe_allow_html=True)
 
-country = pd.read_csv("country_complete.csv")
+country = pd.read_csv("DataScienceFoundations/country_complete.csv")
 
 # st.header("Visualizing the tips dataset")
 

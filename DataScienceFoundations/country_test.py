@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-country = pd.read_csv("country.csv")
+country = pd.read_csv("DataScienceFoundations/country.csv")
 
 st.title("Manipulating the country dataset")
 

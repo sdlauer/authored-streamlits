@@ -17,7 +17,7 @@ hide = """
 
 st.markdown(hide, unsafe_allow_html=True)
 
-gapminder = pd.read_csv("gapminder.csv")
+gapminder = pd.read_csv("DataScienceFoundations/gapminder.csv")
 
 # st.header("Visualizing the tips dataset")
 
