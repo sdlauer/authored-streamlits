@@ -1,7 +1,7 @@
 # Import packages
 import streamlit as st
 import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
+import matplotlib.lines as mlines
 import pandas as pd
 import numpy as np
 import sklearn
@@ -16,7 +16,6 @@ np.random.seed(12345)
 
 # Load bad drivers data
 badDrivers = pd.read_csv('DataScienceFoundations/bad-drivers.csv')
-
 
 
 hide = """
@@ -100,22 +99,22 @@ else:
     if includeTraining:
         plt.scatter(
             trainingData[['Losses incurred by insurance companies for collisions per insured driver ($)']],
-            trainingData[['Car Insurance Premiums ($)']], c="#fde725")
+            trainingData[['Car Insurance Premiums ($)']], c="#fde725", marker="o")
 
     if includeValidation:
         plt.scatter(
             validationData[['Losses incurred by insurance companies for collisions per insured driver ($)']],
-            validationData[['Car Insurance Premiums ($)']], c="#21918c")
+            validationData[['Car Insurance Premiums ($)']], c="#21918c", marker="^")
 
     if includeTest:
         plt.scatter(
             testData[['Losses incurred by insurance companies for collisions per insured driver ($)']],
-            testData[['Car Insurance Premiums ($)']], c="#440154")
+            testData[['Car Insurance Premiums ($)']], c="#440154", marker="D")
 
 #Create the legend
-    patch1 = mpatches.Patch(color='#fde725', label='Training data')
-    patch2 = mpatches.Patch(color='#21918c', label='Validation data')
-    patch3 = mpatches.Patch(color='#440154', label='Test data')
+    patch1 = mlines.Line2D([], [], color='#fde725', marker='o', linestyle='None', markersize=8, label='Training data')
+    patch2 = mlines.Line2D([], [], color='#21918c', marker='^', linestyle='None', markersize=8, label='Validation data')
+    patch3 = mlines.Line2D([], [], color='#440154', marker='D', linestyle='None', markersize=8, label='Test data')
     plt.legend(handles=[patch1, patch2, patch3])
 
 #Format the plot area
