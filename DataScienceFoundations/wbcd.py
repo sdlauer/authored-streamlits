@@ -19,7 +19,7 @@ hide = """
         """
 st.markdown(hide, unsafe_allow_html=True)
 
-WBCD = pd.read_csv("WisconsinBreastCancerDatabase.csv")
+WBCD = pd.read_csv("DataScienceFoundations/WisconsinBreastCancerDatabase.csv")
 WBCD.loc[WBCD['Diagnosis']=='B','Diagnosis']=0
 WBCD.loc[WBCD['Diagnosis']=='M','Diagnosis']=1
 
