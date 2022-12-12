@@ -61,12 +61,12 @@ with col2:
 
 # Print tree
 if textOption:
-    st.text(export_text(regtreeModel, feature_names=X.columns.to_list()))
+    st.text(export_text(regtreeModel, feature_names=X_dummies.columns.to_list()))
 else:
     plt.figure(figsize = [12,8])
 
-    p = tree.plot_tree(regtreeModel, feature_names=X.columns, 
-                class_names=y.unique(), filled=False, fontsize=10)
+    p = tree.plot_tree(regtreeModel, feature_names=X_dummies.columns, 
+                       class_names=y.unique(), filled=False, fontsize=10)
 
     st.pyplot(p)
 
