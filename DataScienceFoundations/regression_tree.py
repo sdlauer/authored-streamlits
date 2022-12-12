@@ -84,11 +84,11 @@ with col2:
             than the male penguins for all depths of trees.''')
         else:
             fig, ax = plt.subplots(figsize=(4,4))
-            p = sns.scatterplot(data=X, x='body_mass_g', 
+            p = sns.scatterplot(data=X, x=fitFeature, 
                                 y='pred', hue='sex', style='sex')
-            p.set_xlabel('Observed body mass', fontsize=14)
-            p.set_ylabel('Predicted body mass', fontsize=14)
-            ax.axline(xy1=(5000,5000), slope=1, color='b')
+            p.set_xlabel('Observed value', fontsize=14)
+            p.set_ylabel('Predicted value', fontsize=14)
+            ax.axline(xy1=(X[fit_feature].mean(),X[fit_feature].mean()), slope=1, color='b')
             st.pyplot(fig)
 
 # Print tree
