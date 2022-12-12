@@ -34,14 +34,14 @@ X_dummies, y = loadData()
 col1, col2 = st.columns([2,4])
 
 with col1:
-    depth = st.slider(
+    treeDepth = st.slider(
         "Depth",
         min_value=1,
         max_value=5,
         value=2,
         step=1,
     )
-    regtreeModel = DecisionTreeRegressor(max_depth=depth, min_samples_leaf=2, seed = seed)
+    regtreeModel = DecisionTreeRegressor(max_depth=treeDepth, min_samples_leaf=2)
     regtreeModel.fit(X_dummies, y)
     plotFit = st.checkbox("Plot fitted data")
 
