@@ -58,7 +58,7 @@ with col2:
                     y='pred', hue='sex')
         p.set_xlabel('Observed body mass', fontsize=14)
         p.set_ylabel('Predicted body mass', fontsize=14)
-        ax.axline(xy1=(0,0), slope=1, color='b')
+        ax.axline(xy1=(5000,5000), slope=1, color='b')
         st.pyplot(fig)
 
 # Print tree
