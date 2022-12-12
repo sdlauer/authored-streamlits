@@ -50,6 +50,7 @@ with col1:
 with col2:
     X = X_dummies
     X['pred'] = regtreeModel.predict(X)
+    X['body_mass_g'] = y
 
     if plotFit:
         fig = plt.figure(figsize=(6,6))
