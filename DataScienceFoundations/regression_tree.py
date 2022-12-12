@@ -70,7 +70,7 @@ with col1:
     textOption = st.checkbox("Text output")
     
     X['pred'] = regtreeModel.predict(X_dummies)
-    X['body_mass_g'] = y
+    X[fitFeature] = y
 
     st.write("MSE = ", round(metrics.mean_squared_error(X['pred'], y), 1))
 
