@@ -48,22 +48,22 @@ with col1:
     textOption = st.checkbox("Text output")
 
 with col2:
-
-    X_dummies['pred'] = regtreeModel.predict(X_dummies)
+    X = X_dummies
+    X['pred'] = regtreeModel.predict(X)
 
     if plotFit:
-        p = sns.scatterplot(data=X_dummies, x='body_mass_g', 
+        p = sns.scatterplot(data=X, x='body_mass_g', 
                     y='pred', hue='sex')
         p.set_xlabel('Observed body mass', fontsize=14)
         p.set_ylabel('Predicted body mass', fontsize=14)
 
 # Print tree
 if textOption:
-    st.text(export_text(regtreeModel, feature_names=X_dummies.columns.to_list()))
+    st.text(export_text(regtreeModel, feature_names=X.columns.to_list()))
 else:
     plt.figure(figsize = [12,8])
 
-    p = tree.plot_tree(regtreeModel, feature_names=X_dummies.columns, 
+    p = tree.plot_tree(regtreeModel, feature_names=X.columns, 
                        class_names=y.unique(), filled=False, fontsize=10)
 
     st.pyplot(p)
