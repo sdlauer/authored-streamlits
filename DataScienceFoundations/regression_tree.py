@@ -8,7 +8,7 @@ from sklearn.tree import DecisionTreeRegressor, export_text
 from sklearn import tree, metrics
 
 
-#@st.cache
+@st.cache
 def loadData():
     # Load the penguins data from palmerpenguins package
     penguins = sns.load_dataset('penguins')
@@ -16,13 +16,15 @@ def loadData():
     penguins = penguins.dropna() 
     # Create a new data frame with only Gentoo penguins
     gentoo = penguins[penguins['species']=='Gentoo']
+    return gentoo
 
-    # Create a matrix of input features with sex, flipper length, and bill length
-    X = gentoo[['sex', 'flipper_length_mm', 'bill_length_mm']]
+def XySplit(df, output):
+    y = df.pop(output)
     # Use pd.get_dummies to convert sex to a binary (0/1) dummy variable
     X_dummies = pd.get_dummies(X, drop_first=True) 
-    y = gentoo['body_mass_g']
-    return X, X_dummies, y
+    return df, X_dummies, y
+
+
 
 
 seed = 123
@@ -40,14 +42,16 @@ hide = """
 
 st.markdown(hide, unsafe_allow_html=True)
 
-
-
-X, X_dummies, y = loadData()
+gentoo = loadData()
 
 col1, col2 = st.columns([2,4])
 
 with col1:
     st.header('Options')
+    fitFeature = st.selectbox("Feature to predict", X.select_dtypes(include='number').columns.to_list())
+
+    X, X_dummies, y = XySplit(gentoo, fitFeature)
+
     treeDepth = st.slider(
         "Depth",
         min_value=1,
