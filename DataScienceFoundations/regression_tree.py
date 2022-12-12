@@ -41,7 +41,7 @@ hide = """
         </style>
         """
 
-st.markdown(hide, unsafe_allow_html=True)
+#st.markdown(hide, unsafe_allow_html=True)
 
 gentoo = loadData()
 
