@@ -78,7 +78,7 @@ else:
     fig = plt.figure(figsize=(pow(2,treeDepth)*4, treeDepth*3))
 
     tree.plot_tree(regtreeModel, feature_names=X_dummies.columns, 
-                       class_names=y.unique(), filled=False, fontsize=20)
+                       class_names=y.unique(), filled=False, fontsize=14)
 
     st.pyplot(fig)
 
