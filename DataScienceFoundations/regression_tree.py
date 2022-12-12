@@ -27,6 +27,19 @@ def loadData():
 
 seed = 123
 
+hide = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        body {overflow: hidden;}
+        div.block-container {padding-top:1rem;}
+        div.block-container {padding-bottom:1rem;}
+        </style>
+        """
+
+st.markdown(hide, unsafe_allow_html=True)
+
 
 
 X, X_dummies, y = loadData()
