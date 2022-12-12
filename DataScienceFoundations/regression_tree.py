@@ -61,7 +61,7 @@ with col2:
 if textOption:
     st.text(export_text(regtreeModel, feature_names=X.columns.to_list()))
 else:
-    fig = plt.figure(figsize = [12,8])
+    fig = plt.figure(figsize=(pow(2,treeDepth)*4, treeDepth*3))
 
     tree.plot_tree(regtreeModel, feature_names=X.columns, 
                        class_names=y.unique(), filled=False, fontsize=10)
