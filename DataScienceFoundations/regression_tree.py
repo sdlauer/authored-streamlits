@@ -52,10 +52,12 @@ with col2:
     X['pred'] = regtreeModel.predict(X)
 
     if plotFit:
+        fig = plt.figure(figsize=(6,6))
         p = sns.scatterplot(data=X, x='body_mass_g', 
                     y='pred', hue='sex')
         p.set_xlabel('Observed body mass', fontsize=14)
         p.set_ylabel('Predicted body mass', fontsize=14)
+        st.pyplot(fig)
 
 # Print tree
 if textOption:
