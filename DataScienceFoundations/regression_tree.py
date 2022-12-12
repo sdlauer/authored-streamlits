@@ -6,13 +6,12 @@ import matplotlib.pyplot as plt
 
 from sklearn.tree import DecisionTreeRegressor, export_text
 from sklearn import tree, metrics
-from palmerpenguins import load_penguins
 
 
 @st.cache
-def loadData()
+def loadData():
     # Load the penguins data from palmerpenguins package
-    penguins = load_penguins()
+    penguins = sns.load_dataset('penguins')
     # Drop penguins with missing values
     penguins = penguins.dropna() 
     # Create a new data frame with only Gentoo penguins
