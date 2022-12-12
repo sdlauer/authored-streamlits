@@ -37,7 +37,7 @@ with col1:
     treeDepth = st.slider(
         "Depth",
         min_value=1,
-        max_value=5,
+        max_value=4,
         value=2,
         step=1,
     )
@@ -53,14 +53,16 @@ with col2:
     X['body_mass_g'] = y
 
     if plotFit:
-        fig = plt.figure(figsize=(4,4))
+        fig, ax = plt.figure(figsize=(4,4))
         p = sns.scatterplot(data=X, x='body_mass_g', 
                     y='pred', hue='sex')
         p.set_xlabel('Observed body mass', fontsize=14)
         p.set_ylabel('Predicted body mass', fontsize=14)
+        ax.axline(xy1=(0,0), slope=1, color='b')
         st.pyplot(fig)
 
 # Print tree
+st.header("Regression tree")
 if textOption:
     st.text(export_text(regtreeModel, feature_names=X_dummies.columns.to_list()))
 else:
@@ -71,3 +73,5 @@ else:
 
     st.pyplot(fig)
 
+    if treeDepth > 2:
+        st.text("Right-click to open image in a new tab for a larger view.")
