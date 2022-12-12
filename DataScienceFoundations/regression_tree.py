@@ -88,7 +88,7 @@ with col2:
                                 y='pred', hue='sex', style='sex')
             p.set_xlabel('Observed value', fontsize=14)
             p.set_ylabel('Predicted value', fontsize=14)
-            ax.axline(xy1=(X[fit_feature].mean(),X[fit_feature].mean()), slope=1, color='b')
+            ax.axline(xy1=(X[fitFeature].mean(),X[fitFeature].mean()), slope=1, color='b')
             st.pyplot(fig)
 
 # Print tree
