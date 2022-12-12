@@ -48,7 +48,7 @@ do_stuff_on_page_load()
 
 gentoo = loadData()
 
-col1, col2 = st.columns([2,4])
+col1, col2 = st.columns([1,4])
 
 with col1:
     st.header('Options')
@@ -78,12 +78,12 @@ with col2:
     if plotFit:
         st.header('Predictions')
         if textOption:
-            st.markdown('''The observed body mass is plotted on the horizontal axis and 
-            the predicted body mass is plotted on the vertical axis. There are horizontal lines of points 
-            that correspond to each leaf in the decision tree. The female penguins have lower predicted body mass 
-            than the male penguins for all depths of trees.''')
+            st.markdown('''The observed value is plotted on the horizontal axis and 
+            the predicted value is plotted on the vertical axis. There are horizontal lines of points 
+            that correspond to each leaf in the decision tree. As the depth of the tree increases the horizontal
+            spread of each of these lines decreases.''')
         else:
-            fig, ax = plt.subplots(figsize=(4,4))
+            fig, ax = plt.subplots(figsize=(2,4))
             p = sns.scatterplot(data=X, x=fitFeature, 
                                 y='pred', hue='sex', style='sex')
             p.set_xlabel('Observed value', fontsize=14)
