@@ -22,14 +22,14 @@ def loadData():
     # Use pd.get_dummies to convert sex to a binary (0/1) dummy variable
     X_dummies = pd.get_dummies(X, drop_first=True) 
     y = gentoo['body_mass_g']
-    return X_dummies, y
+    return X, X_dummies, y
 
 
 seed = 123
 
 
 
-X_dummies, y = loadData()
+X, X_dummies, y = loadData()
 
 col1, col2 = st.columns([2,4])
 
@@ -48,8 +48,8 @@ with col1:
     textOption = st.checkbox("Text output")
 
 with col2:
-    X = X_dummies
-    X['pred'] = regtreeModel.predict(X)
+    #X = X_dummies
+    X['pred'] = regtreeModel.predict(X_dummies)
     X['body_mass_g'] = y
 
     if plotFit:
