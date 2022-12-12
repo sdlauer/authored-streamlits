@@ -19,10 +19,11 @@ def loadData():
     return gentoo
 
 def XySplit(df, output):
+    X = df.copy()
     y = df.pop(output)
     # Use pd.get_dummies to convert sex to a binary (0/1) dummy variable
     X_dummies = pd.get_dummies(X, drop_first=True) 
-    return df, X_dummies, y
+    return X, X_dummies, y
 
 
 
