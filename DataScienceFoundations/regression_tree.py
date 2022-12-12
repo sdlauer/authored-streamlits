@@ -53,7 +53,7 @@ with col2:
     X['body_mass_g'] = y
 
     if plotFit:
-        fig = plt.figure(figsize=(6,6))
+        fig = plt.figure(figsize=(4,4))
         p = sns.scatterplot(data=X, x='body_mass_g', 
                     y='pred', hue='sex')
         p.set_xlabel('Observed body mass', fontsize=14)
@@ -62,11 +62,11 @@ with col2:
 
 # Print tree
 if textOption:
-    st.text(export_text(regtreeModel, feature_names=X.columns.to_list()))
+    st.text(export_text(regtreeModel, feature_names=X_dummies.columns.to_list()))
 else:
     fig = plt.figure(figsize=(pow(2,treeDepth)*4, treeDepth*3))
 
-    tree.plot_tree(regtreeModel, feature_names=X.columns, 
+    tree.plot_tree(regtreeModel, feature_names=X_dummies.columns, 
                        class_names=y.unique(), filled=False)
 
     st.pyplot(fig)
