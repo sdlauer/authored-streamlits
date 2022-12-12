@@ -21,8 +21,6 @@ def loadData():
     X = gentoo[['sex', 'flipper_length_mm', 'bill_length_mm']]
     # Use pd.get_dummies to convert sex to a binary (0/1) dummy variable
     X_dummies = pd.get_dummies(X, drop_first=True) 
-    X_dummies
-
     y = gentoo['body_mass_g']
     return X_dummies, y
 
