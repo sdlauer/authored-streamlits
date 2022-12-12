@@ -46,12 +46,13 @@ with col1:
     plotFit = st.checkbox("Plot fitted data")
 
     textOption = st.checkbox("Text output")
-
-with col2:
-    #X = X_dummies
+    
     X['pred'] = regtreeModel.predict(X_dummies)
     X['body_mass_g'] = y
 
+    st.write("MSE = ", round(metrics.mean_squared_error(X['pred'], y), 4))
+
+with col2:
     if plotFit:
         fig, ax = plt.subplots(figsize=(4,4))
         p = sns.scatterplot(data=X, x='body_mass_g', 
