@@ -53,7 +53,7 @@ with col2:
     X['body_mass_g'] = y
 
     if plotFit:
-        fig, ax = plt.figure(figsize=(4,4))
+        fig, ax = plt.subplots(figsize=(4,4))
         p = sns.scatterplot(data=X, x='body_mass_g', 
                     y='pred', hue='sex')
         p.set_xlabel('Observed body mass', fontsize=14)
