@@ -50,17 +50,23 @@ with col1:
     X['pred'] = regtreeModel.predict(X_dummies)
     X['body_mass_g'] = y
 
-    st.write("MSE = ", round(metrics.mean_squared_error(X['pred'], y), 4))
+    st.write("MSE = ", round(metrics.mean_squared_error(X['pred'], y), 1))
 
 with col2:
     if plotFit:
-        fig, ax = plt.subplots(figsize=(4,4))
-        p = sns.scatterplot(data=X, x='body_mass_g', 
-                    y='pred', hue='sex')
-        p.set_xlabel('Observed body mass', fontsize=14)
-        p.set_ylabel('Predicted body mass', fontsize=14)
-        ax.axline(xy1=(5000,5000), slope=1, color='b')
-        st.pyplot(fig)
+        if textOption:
+            st.markdown('''The observed body mass is plotted on the horizontal axis and 
+            the predicted body mass is plotted on the vertical axis. There are horizontal lines of points 
+            that correspond to each leaf in the decision tree. The female penguins have lower predicted body mass 
+            than the male penguins for all depths of trees.''')
+        else:
+            fig, ax = plt.subplots(figsize=(4,4))
+            p = sns.scatterplot(data=X, x='body_mass_g', 
+                                y='pred', hue='sex', style='sex')
+            p.set_xlabel('Observed body mass', fontsize=14)
+            p.set_ylabel('Predicted body mass', fontsize=14)
+            ax.axline(xy1=(5000,5000), slope=1, color='b')
+            st.pyplot(fig)
 
 # Print tree
 st.header("Regression tree")
