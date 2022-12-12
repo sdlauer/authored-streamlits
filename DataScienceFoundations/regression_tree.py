@@ -83,7 +83,7 @@ with col2:
             that correspond to each leaf in the decision tree. As the depth of the tree increases the horizontal
             spread of each of these lines decreases.''')
         else:
-            fig, ax = plt.subplots(figsize=(2,4))
+            fig, ax = plt.subplots(figsize=(6,4))
             p = sns.scatterplot(data=X, x=fitFeature, 
                                 y='pred', hue='sex', style='sex')
             p.set_xlabel('Observed value', fontsize=14)
