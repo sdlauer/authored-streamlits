@@ -48,7 +48,7 @@ col1, col2 = st.columns([2,4])
 
 with col1:
     st.header('Options')
-    fitFeature = st.selectbox("Feature to predict", X.select_dtypes(include='number').columns.to_list())
+    fitFeature = st.selectbox("Feature to predict", X.select_dtypes(include='number').columns)
 
     X, X_dummies, y = XySplit(gentoo, fitFeature)
 
