@@ -34,6 +34,7 @@ X, X_dummies, y = loadData()
 col1, col2 = st.columns([2,4])
 
 with col1:
+    st.header('Options')
     treeDepth = st.slider(
         "Depth",
         min_value=1,
@@ -43,7 +44,7 @@ with col1:
     )
     regtreeModel = DecisionTreeRegressor(max_depth=treeDepth, min_samples_leaf=2)
     regtreeModel.fit(X_dummies, y)
-    plotFit = st.checkbox("Plot fitted data")
+    plotFit = st.checkbox("Plot predictions")
 
     textOption = st.checkbox("Text output")
     
@@ -54,6 +55,7 @@ with col1:
 
 with col2:
     if plotFit:
+        st.header('Predictions')
         if textOption:
             st.markdown('''The observed body mass is plotted on the horizontal axis and 
             the predicted body mass is plotted on the vertical axis. There are horizontal lines of points 
