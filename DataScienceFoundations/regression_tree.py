@@ -8,7 +8,7 @@ from sklearn.tree import DecisionTreeRegressor, export_text
 from sklearn import tree, metrics
 
 
-@st.cache
+#@st.cache
 def loadData():
     # Load the penguins data from palmerpenguins package
     penguins = sns.load_dataset('penguins')
