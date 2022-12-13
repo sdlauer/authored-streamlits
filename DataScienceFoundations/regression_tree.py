@@ -31,7 +31,7 @@ def XySplit(df, output):
 seed = 123
 
 def do_stuff_on_page_load():
-    st.set_page_config(layout="wide")
+    #st.set_page_config(layout="wide")
     hide = """
         <style>
         #MainMenu {visibility: hidden;}
