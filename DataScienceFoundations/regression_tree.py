@@ -100,7 +100,7 @@ else:
 
     tree.plot_tree(regtreeModel, feature_names=X_dummies.columns, 
                        class_names=y.unique(), filled=False, fontsize=15,
-                       precision = 2)
+                       precision = 2, rounded=True)
 
     st.pyplot(fig)
 
