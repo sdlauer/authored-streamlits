@@ -44,7 +44,7 @@ def do_stuff_on_page_load():
         """
     st.markdown(hide, unsafe_allow_html=True)
 
-do_stuff_on_page_load()
+#do_stuff_on_page_load()
 
 gentoo = loadData()
 
