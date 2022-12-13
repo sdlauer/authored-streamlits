@@ -31,7 +31,7 @@ def XySplit(df, output):
 seed = 123
 
 def do_stuff_on_page_load():
-    #st.set_page_config(layout="wide")
+    st.set_page_config(layout="wide")
     hide = """
         <style>
         #MainMenu {visibility: hidden;}
@@ -44,11 +44,11 @@ def do_stuff_on_page_load():
         """
     st.markdown(hide, unsafe_allow_html=True)
 
-#do_stuff_on_page_load()
+do_stuff_on_page_load()
 
 gentoo = loadData()
 
-col1, col2 = st.columns([2,4])
+col1, col2 = st.columns([2,5])
 
 with col1:
     st.header('Options')
