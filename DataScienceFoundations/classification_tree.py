@@ -8,25 +8,21 @@ from sklearn.tree import DecisionTreeClassifier, export_text
 from sklearn import tree, metrics
 
 
-#@st.cache
 def loadData():
     # Load the penguins data from palmerpenguins package
     penguins = sns.load_dataset('penguins')
     # Drop penguins with missing values
-    penguins = penguins.dropna() 
+    penguins = penguins.dropna()
     return penguins
+
 
 def XySplit(df, output):
     X = df.copy()
     y = X.pop(output)
     # Use pd.get_dummies to convert sex to a binary (0/1) dummy variable
-    X_dummies = pd.get_dummies(X, drop_first=True) 
+    X_dummies = pd.get_dummies(X, drop_first=True)
     return X, X_dummies, y
 
-
-
-
-seed = 123
 
 def do_stuff_on_page_load():
     st.set_page_config(layout="wide")
@@ -42,15 +38,19 @@ def do_stuff_on_page_load():
         """
     st.markdown(hide, unsafe_allow_html=True)
 
+
+seed = 123
+
 do_stuff_on_page_load()
 
 gentoo = loadData()
 
-col1, col2 = st.columns([1,4])
+col1, col2 = st.columns([1, 4])
 
 with col1:
     st.header('Options')
-    fitFeature = st.selectbox("Feature to predict", gentoo.select_dtypes(include='object').columns)
+    fitFeature = st.selectbox("Feature to predict",
+                              gentoo.select_dtypes(include='object').columns)
 
     X, X_dummies, y = XySplit(gentoo, fitFeature)
 
@@ -61,12 +61,13 @@ with col1:
         value=2,
         step=1,
     )
-    regtreeModel = DecisionTreeClassifier(max_depth=treeDepth, min_samples_leaf=2)
+    regtreeModel = DecisionTreeClassifier(max_depth=treeDepth,
+                                          min_samples_leaf=2)
     regtreeModel.fit(X_dummies, y)
     plotFit = st.checkbox("Plot predictions")
 
     textOption = st.checkbox("Text output")
-    
+
     X['pred'] = regtreeModel.predict(X_dummies)
     X[fitFeature] = y
 
@@ -76,29 +77,28 @@ with col2:
     if plotFit:
         st.header('Predictions')
         if textOption:
-            st.markdown('''The observed value is plotted on the horizontal axis and 
-            the predicted value is plotted on the vertical axis. There are horizontal lines of points 
-            that correspond to each leaf in the decision tree. As the depth of the tree increases the horizontal
-            spread of each of these lines decreases.''')
+            st.markdown('''FIXME''')
         else:
-            fig, ax = plt.subplots(figsize=(6,4))
-            p = sns.scatterplot(data=X, x=fitFeature, 
+            fig, ax = plt.subplots(figsize=(6, 4))
+            p = sns.scatterplot(data=X, x=fitFeature,
                                 y='pred', hue='sex', style='sex')
             p.set_xlabel('Observed value', fontsize=14)
             p.set_ylabel('Predicted value', fontsize=14)
-            ax.axline(xy1=(X[fitFeature].mean(),X[fitFeature].mean()), slope=1, color='b')
+            ax.axline(xy1=(X[fitFeature].mean(), X[fitFeature].mean()),
+                      slope=1, color='b')
             st.pyplot(fig)
 
 # Print tree
 st.header("Regression tree")
 if textOption:
-    st.text(export_text(regtreeModel, feature_names=X_dummies.columns.to_list()))
+    st.text(export_text(regtreeModel,
+                        feature_names=X_dummies.columns.to_list()))
 else:
-    fig = plt.figure(figsize=(pow(2,treeDepth)*4, treeDepth*3))
+    fig = plt.figure(figsize=(pow(2, treeDepth)*4, treeDepth*3))
 
-    tree.plot_tree(regtreeModel, feature_names=X_dummies.columns, 
-                       class_names=y.unique(), filled=False, fontsize=15,
-                       precision = 2, rounded=True)
+    tree.plot_tree(regtreeModel, feature_names=X_dummies.columns,
+                   class_names=y.unique(), filled=False, fontsize=15,
+                   precision=2, rounded=True)
 
     st.pyplot(fig)
 
