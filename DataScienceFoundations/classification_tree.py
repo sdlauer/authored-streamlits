@@ -74,22 +74,20 @@ with col1:
     st.write("MSE = ", round(metrics.mean_squared_error(X['pred'], y), 1))
 
 with col2:
-    if plotFit:
-        st.header('Predictions')
-        if textOption:
-            st.markdown('''FIXME''')
+    if conf_mat:
+        st.header("Confusion matrix")
+        y_pred = getPred(classtreeModel, X)
+        if text:
+            st.write(metrics.confusion_matrix(y, y_pred))
         else:
-            fig, ax = plt.subplots(figsize=(6, 4))
-            p = sns.scatterplot(data=X, x=fitFeature,
-                                y='pred', hue='sex', style='sex')
-            p.set_xlabel('Observed value', fontsize=14)
-            p.set_ylabel('Predicted value', fontsize=14)
-            ax.axline(xy1=(X[fitFeature].mean(), X[fitFeature].mean()),
-                      slope=1, color='b')
+            disp = metrics.ConfusionMatrixDisplay.from_predictions(y, y_pred)
+            fig, ax = plt.subplots(figsize=(2, 2))
+            disp.plot(ax=ax)
             st.pyplot(fig)
 
+
 # Print tree
-st.header("Regression tree")
+st.header("Classification tree")
 if textOption:
     st.text(export_text(regtreeModel,
                         feature_names=X_dummies.columns.to_list()))
