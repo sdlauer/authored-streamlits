@@ -73,12 +73,14 @@ with col1:
     confMat = st.checkbox("Show confusion matrix")
 
     textOption = st.checkbox("Text output")
+    y_pred = getPred(clstreeModel, X_dummies)
+
+    st.write("accuracy = ", round(metrics.accuracy_score(y, y_pred), 3))
 
 
 with col2:
     if confMat:
         st.header("Confusion matrix")
-        y_pred = getPred(clstreeModel, X_dummies)
         if textOption:
             st.write(metrics.confusion_matrix(y, y_pred))
         else:
