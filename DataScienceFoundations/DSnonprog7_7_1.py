@@ -78,7 +78,7 @@ with col1:
         ######
         # Customer feature
         var1 = st.selectbox(
-                'First customer feature', colDict.keys() 
+                'Feature', colDict.keys() 
         )
 with col2:
         # Plot boxplot or histogram for second feature   
