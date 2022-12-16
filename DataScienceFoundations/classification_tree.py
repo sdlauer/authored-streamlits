@@ -61,20 +61,20 @@ with col1:
         value=2,
         step=1,
     )
-    regtreeModel = DecisionTreeClassifier(max_depth=treeDepth,
+    clstreeModel = DecisionTreeClassifier(max_depth=treeDepth,
                                           min_samples_leaf=2)
-    regtreeModel.fit(X_dummies, y)
-    plotFit = st.checkbox("Plot predictions")
+    clstreeModel.fit(X_dummies, y)
+    confMat = st.checkbox("Show confusion matrix")
 
     textOption = st.checkbox("Text output")
 
-    X['pred'] = regtreeModel.predict(X_dummies)
-    X[fitFeature] = y
+    #X['pred'] = regtreeModel.predict(X_dummies)
+    #X[fitFeature] = y
 
-    st.write("MSE = ", round(metrics.mean_squared_error(X['pred'], y), 1))
+    #st.write("MSE = ", round(metrics.mean_squared_error(X['pred'], y), 1))
 
 with col2:
-    if conf_mat:
+    if confMat:
         st.header("Confusion matrix")
         y_pred = getPred(classtreeModel, X)
         if text:
@@ -89,12 +89,12 @@ with col2:
 # Print tree
 st.header("Classification tree")
 if textOption:
-    st.text(export_text(regtreeModel,
+    st.text(export_text(clstreeModel,
                         feature_names=X_dummies.columns.to_list()))
 else:
     fig = plt.figure(figsize=(pow(2, treeDepth)*4, treeDepth*3))
 
-    tree.plot_tree(regtreeModel, feature_names=X_dummies.columns,
+    tree.plot_tree(clstreeModel, feature_names=X_dummies.columns,
                    class_names=y.unique(), filled=False, fontsize=15,
                    precision=2, rounded=True)
 
