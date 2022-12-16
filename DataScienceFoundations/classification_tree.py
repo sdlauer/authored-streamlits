@@ -75,7 +75,7 @@ with col1:
     textOption = st.checkbox("Text output")
     y_pred = getPred(clstreeModel, X_dummies)
 
-    st.write("accuracy = ", round(metrics.accuracy_score(y, y_pred), 3))
+    st.write("Accuracy = ", round(metrics.accuracy_score(y, y_pred), 3))
 
 
 with col2:
