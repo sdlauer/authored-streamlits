@@ -51,7 +51,7 @@ do_stuff_on_page_load()
 
 gentoo = loadData()
 
-col1, col2 = st.columns([1, 4])
+col1, col2 = st.columns([2, 3])
 
 with col1:
     st.header('Options')
