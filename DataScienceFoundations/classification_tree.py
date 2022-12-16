@@ -96,7 +96,7 @@ if textOption:
     st.text(export_text(clstreeModel,
                         feature_names=X_dummies.columns.to_list()))
 else:
-    fig = plt.figure(figsize=(pow(2, treeDepth)*3, treeDepth*4), dpi=300)
+    fig = plt.figure(figsize=(pow(2, treeDepth)*2, treeDepth*4), dpi=300)
 
     tree.plot_tree(clstreeModel, feature_names=X_dummies.columns,
                    class_names=y.unique(), filled=False, #fontsize=15,
