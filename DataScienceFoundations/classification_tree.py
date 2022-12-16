@@ -99,7 +99,7 @@ else:
     fig = plt.figure(figsize=(pow(2, treeDepth)*2, treeDepth*3), dpi=300)
 
     tree.plot_tree(clstreeModel, feature_names=X_dummies.columns,
-                   class_names=y.unique(), filled=False, #fontsize=15,
+                   class_names=y.unique(), filled=True, #fontsize=15,
                    precision=2, rounded=True)
 
     st.pyplot(fig)
