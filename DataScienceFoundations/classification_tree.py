@@ -24,6 +24,12 @@ def XySplit(df, output):
     return X, X_dummies, y
 
 
+@st.cache
+def getPred(model, X):
+    predictions = model.predict(X)
+    return predictions
+
+
 def do_stuff_on_page_load():
     st.set_page_config(layout="wide")
     hide = """
@@ -68,16 +74,12 @@ with col1:
 
     textOption = st.checkbox("Text output")
 
-    #X['pred'] = regtreeModel.predict(X_dummies)
-    #X[fitFeature] = y
-
-    #st.write("MSE = ", round(metrics.mean_squared_error(X['pred'], y), 1))
 
 with col2:
     if confMat:
         st.header("Confusion matrix")
-        y_pred = getPred(classtreeModel, X)
-        if text:
+        y_pred = getPred(clstreeModel, X)
+        if textOption:
             st.write(metrics.confusion_matrix(y, y_pred))
         else:
             disp = metrics.ConfusionMatrixDisplay.from_predictions(y, y_pred)

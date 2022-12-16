@@ -95,11 +95,9 @@ with col2:
 # Plot the tree
 st.header("Classification tree")
 if text:
-    # st.text(X.columns)
     st.text(export_text(classtreeModel, feature_names=X.columns.to_list()))
-else:
-    #fig, ax = plt.subplots()
 
+else:
     fig = plt.figure(figsize=(pow(2, depth)*4, depth*3))
     if depth < 3:
         plot_tree(classtreeModel, feature_names=X.columns,
