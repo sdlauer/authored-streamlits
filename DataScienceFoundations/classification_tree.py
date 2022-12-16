@@ -78,7 +78,7 @@ with col1:
 with col2:
     if confMat:
         st.header("Confusion matrix")
-        y_pred = getPred(clstreeModel, X)
+        y_pred = getPred(clstreeModel, X_dummies)
         if textOption:
             st.write(metrics.confusion_matrix(y, y_pred))
         else:
