@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-from st_aggrid import AgGrid, GridOptionsBuilder
+from st_aggrid import AgGrid, GridOptionsBuilder, GridOptionsBuilder, ColumnsAutoSizeMode
 from st_aggrid.shared import GridUpdateMode
 
 st.set_page_config(
@@ -39,6 +39,7 @@ def aggrid_interactive_table(df: pd.DataFrame):
         df, enableRowGroup=True, enableValue=True, enablePivot=True
     )
 
+    options.configure_columns(["Years","Fertility","Emissions","Internet"], type=["numericColumn","numberColumnFilter","customNumericFormat"], precision=1)
     options.configure_side_bar()
 
     options.configure_selection("single")
@@ -49,13 +50,14 @@ def aggrid_interactive_table(df: pd.DataFrame):
         gridOptions=options.build(),
         theme="alpine",
         update_mode=GridUpdateMode.MODEL_CHANGED,
+        columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
     )
 
     return selection
 
 
 country = pd.read_csv(
-    "DataScienceFoundations/country.csv"
+    "DataScienceFoundations/country_complete.csv"
 )
 
 selection = aggrid_interactive_table(df=country)
