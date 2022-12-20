@@ -17,13 +17,13 @@ hide = """
         """
 st.markdown(hide, unsafe_allow_html=True)
 
-geyser = pd.read_csv("oldfaithful.csv")
+geyser = pd.read_csv("DataScienceFoundations/oldfaithful.csv")
 
 col1, col2 = st.columns([1,3])
 
 with col1:
     clust_num = st.slider('Clusters', 1, 5)
-    kmModel = KMeans(n_clusters = clust_num)
+    kmModel = KMeans(n_clusters=clust_num)
     kmModel = kmModel.fit(geyser)
     centroids = kmModel.cluster_centers_
     clusters = kmModel.fit_predict(geyser[['Eruption', 'Waiting']])
@@ -46,7 +46,7 @@ with col2:
     cent_pts = []
     for i in centroids: cent_pts.append((np.round(i[0],2),np.round(i[1],2)))
     desc1 = "Description: A scatter plot of the Old Faithful eruption data "
-    if clust_num==1:
+    if clust_num == 1:
         desc2 = "with " + str(clust_num) + " cluster is shown. The centroid is located at " + str(cent_pts[0]) + ". "
     if clust_num==2:
         desc2 = "with " + str(clust_num) + " clusters are shown. The centroids are located at " + str(cent_pts[0]) + " and " + str(cent_pts[1]) + "."
