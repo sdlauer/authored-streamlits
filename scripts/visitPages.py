@@ -11,14 +11,25 @@ import pandas as pd
 import time
 import sys
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 
 
 sites = pd.read_csv(sys.argv[1])
 driver = webdriver.Chrome()
 
 for site in sites["site"]:
-    print(site)
+    #print(site)
     driver.get(site)
-    time.sleep(15)
+    time.sleep(7)
+    try:
+        button = driver.find_element_by_css_selector('.styles_restartButton__3YxAJ')
+        print(site + ' is asleep trying to wake.')
+        button.click()
+        time.sleep(10)
+    except NoSuchElementException:
+        print(site + ' is working!')
+        continue
+    
+
 
 driver.close()
