@@ -120,11 +120,15 @@ with col2:
                     hyperplane have low temperatures, high humidity, and are classified as No fire.''')
 
     if showmargin:
-        st.write("The minimal target hyperplane has $\\alpha_1$ = 0.96, $\\alpha_2$ = 1.73,  $\\alpha_6$ = 2.70, $\\alpha_{11}$ = 0 and $\\alpha_{13}$ = 0.")
+        st.write('''The minimal target hyperplane has $\\alpha_1$ = 0.96, $\\alpha_2$ = 1.73,  
+                    $\\alpha_6$ = 2.70, $\\alpha_{11}$ = 0 and $\\alpha_{13}$ = 0.''')
 
     constraint = (np.matrix(alphas)*np.matrix(y2).T)[0,0]
 
-    st.write("$\\sum_{j=1}^p y_j \\alpha_j $=", round(constraint, 3), "=0?")
+    if np.abs(constraint)<0.01:
+        st.write("$\\sum_{j=1}^p y_j \\alpha_j $=", round(constraint, 3), "=0")
+    else
+        st.write(":red[$\\sum_{j=1}^p y_j \\alpha_j $=]", round(constraint, 3), ":red[$\\neq$ 0]")
 
     total = (np.matrix(alphas)*(np.matrix(y2).T*np.matrix(y2)*(np.matrix( X)*np.matrix(X).T))*np.matrix(alphas).T/2.0 - np.sum(alphas))[0,0]
 
