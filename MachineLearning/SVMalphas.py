@@ -83,8 +83,7 @@ with col1:
     
     showmargin = st.checkbox(label="Show minimal target hyperplane?", value=False)
 
-    if showmargin:
-        st.write("The minimal target hyperplane has $\alpha_1$ = 1.73, $\alpha_1$ = 0.96,  $\alpha_6$ = 2.70, $\alpha_{11}$ = 0 and $\alpha_{13}$ = 0.")
+   
 
 with col2:
 
@@ -115,6 +114,9 @@ with col2:
 
         st.write('''The scatterplot shows standardized temperature on the horizontal axis and standardized humidity on the vertical axis. Both features range from -3 to +3. A hyperplane separates two classes. Instances below the hyperplane have high temperatures, low humidity, 
         and are classified as Fire. Instances above the hyperplane have low temperatures, high humidity, and are classified as No fire.''')
+
+    if showmargin:
+        st.write("The minimal target hyperplane has $\\alpha_1$ = 1.73, $\\alpha_1$ = 0.96,  $\\alpha_6$ = 2.70, $\\alpha_{11}$ = 0 and $\\alpha_{13}$ = 0.")
 
     constraint = (np.matrix(alphas)*np.matrix(y2).T)[0,0]
 
