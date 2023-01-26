@@ -129,6 +129,7 @@ with col2:
         st.write("$\\sum_{j=1}^p y_j \\alpha_j $=", round(constraint, 3), "=0")
     else:
         st.write(":red[$\\sum_{j=1}^p y_j \\alpha_j $=]", round(constraint, 3), ":red[$\\neq$ 0]")
+        st.write("This constraint must add to zero by balancing the $\\alpha$s of each class.")
 
     total = (np.matrix(alphas)*(np.matrix(y2).T*np.matrix(y2)*(np.matrix( X)*np.matrix(X).T))*np.matrix(alphas).T/2.0 - np.sum(alphas))[0,0]
 
