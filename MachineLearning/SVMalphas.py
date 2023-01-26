@@ -73,7 +73,12 @@ with col1:
 
     alphas[13] = st.slider(label="a13: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
 
-    
+    weights = np.multiply(np.array(alphas),np.array(y2))*np.matrix(X)
+
+    a = - weights[0,0]/weights[0,1]
+    b = -np.sum(np.multiply(np.ravel(np.matrix(X[np.abs(alphas)>0.01])*weights.T), alphas[alphas>0]))/np.sum(alphas) / weights[0,1]
+    xx = np.linspace(-3, 3)
+    yy = a * xx - b
    
 
 with col2:
@@ -114,12 +119,7 @@ with col2:
 
     st.write("Target = ", round(total,2))
 
-    weights = np.multiply(np.array(alphas),np.array(y2))*np.matrix(X)
-
-    a = - weights[0,0]/weights[0,1]
-    b = -np.sum(np.multiply(np.ravel(np.matrix(X[np.abs(alphas)>0.01])*weights.T), alphas[alphas>0]))/np.sum(alphas) / weights[0,1]
-    xx = np.linspace(-3, 3)
-    yy = a * xx - b
+   
 
     showmargin = st.checkbox(label="Show minimal target hyperplane?", value=False)
 
