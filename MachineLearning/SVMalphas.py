@@ -56,24 +56,24 @@ with col1:
     alphas = np.zeros(20)
     #st.write("$\\alpha_1$")
 
-    alphas[1] = st.slider(label='''$ \\alpha $ &alpha;1: Choose a value between 0 and 3.0.''', min_value=0.0, 
+    alphas[1] = st.slider(label='''$ \\alpha_1 $ : Choose a value between 0 and 3.0.''', min_value=0.0, 
                           max_value=3.0, value=0.0, step=0.01,key = 'alpha1')
 
     #st.write("$\\alpha_2$")
 
-    alphas[2] = st.slider(label="a2: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
+    alphas[2] = st.slider(label="$\\alpha_2$: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
 
     #st.write("$\\alpha_6$")
 
-    alphas[6] = st.slider(label="a6: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
+    alphas[6] = st.slider(label="\\alpha_6: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
 
     #st.write("$\\alpha_{11}$")
 
-    alphas[11] = st.slider(label="a11: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
+    alphas[11] = st.slider(label="\\alpha_{11}: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
     
     #st.write("$\\alpha_{13}$")
 
-    alphas[13] = st.slider(label="a13: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
+    alphas[13] = st.slider(label="\\alpha_{13}: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
 
     weights = np.multiply(np.array(alphas),np.array(y2))*np.matrix(X)
 
