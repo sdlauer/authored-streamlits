@@ -115,7 +115,7 @@ with col2:
         st.write('''The scatterplot shows standardized temperature on the horizontal axis and standardized humidity on the vertical axis. Both features range from -3 to +3. A hyperplane separates two classes. Instances below the hyperplane have high temperatures, low humidity, 
         and are classified as Fire. Instances above the hyperplane have low temperatures, high humidity, and are classified as No fire.''')
 
-        constraint = (np.matrix(alphas)*np.matrix(y2).T)[0,0]
+    constraint = (np.matrix(alphas)*np.matrix(y2).T)[0,0]
 
     st.write("$\\sum_{j=1}^p y_j \\alpha_j $", round(constraint, 3), "=0?")
 
