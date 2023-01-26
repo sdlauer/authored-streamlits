@@ -56,7 +56,7 @@ with col1:
     alphas = np.zeros(20)
     #st.write("$\\alpha_1$")
 
-    alphas[1] = st.slider(label="$ \\alpha $ &alpha;1: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
+    alphas[1] = st.slider(label="\$ \\alpha \$ &alpha;1: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
 
     #st.write("$\\alpha_2$")
 
