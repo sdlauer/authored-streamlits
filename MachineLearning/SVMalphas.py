@@ -56,7 +56,7 @@ with col1:
     alphas = np.zeros(20)
     #st.write("$\\alpha_1$")
 
-    alphas[1] = st.slider(label='''$ \\alpha_1 $ : Choose a value between 0 and 3.0.''', min_value=0.0, 
+    alphas[1] = st.slider(label='''$ \\alpha_1 $ : Choose a value between 0 and 3.0.''', min_value=0.5, 
                           max_value=3.0, value=0.5, step=0.01,key = 'alpha1')
 
     #st.write("$\\alpha_2$")
@@ -65,15 +65,15 @@ with col1:
 
     #st.write("$\\alpha_6$")
 
-    alphas[6] = st.slider(label="$\\alpha_6$: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.5, step=0.01)
+    alphas[6] = st.slider(label="$\\alpha_6$: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.33, step=0.01)
 
     #st.write("$\\alpha_{11}$")
 
-    alphas[11] = st.slider(label="$\\alpha_{11}$: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
+    alphas[11] = st.slider(label="$\\alpha_{11}$: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.34, step=0.01)
     
     #st.write("$\\alpha_{13}$")
 
-    alphas[13] = st.slider(label="$\\alpha_{13}$: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
+    alphas[13] = st.slider(label="$\\alpha_{13}$: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.33, step=0.01)
 
     weights = np.multiply(np.array(alphas),np.array(y2))*np.matrix(X)
 
@@ -113,8 +113,11 @@ with col2:
 
     if showtext:
 
-        st.write('''The scatterplot shows standardized temperature on the horizontal axis and standardized humidity on the vertical axis. Both features range from -3 to +3. A hyperplane separates two classes. Instances below the hyperplane have high temperatures, low humidity, 
-        and are classified as Fire. Instances above the hyperplane have low temperatures, high humidity, and are classified as No fire.''')
+        st.write('''The scatterplot shows standardized temperature on the horizontal axis and 
+                    standardized humidity on the vertical axis. Both features range from -3 to +3. 
+                    A hyperplane separates two classes. Instances below the hyperplane have high 
+                    temperatures, low humidity, and are classified as Fire. Instances above the 
+                    hyperplane have low temperatures, high humidity, and are classified as No fire.''')
 
     if showmargin:
         st.write("The minimal target hyperplane has $\\alpha_1$ = 0.96, $\\alpha_2$ = 1.73,  $\\alpha_6$ = 2.70, $\\alpha_{11}$ = 0 and $\\alpha_{13}$ = 0.")
