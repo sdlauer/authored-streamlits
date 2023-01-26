@@ -57,15 +57,15 @@ with col1:
     #st.write("$\\alpha_1$")
 
     alphas[1] = st.slider(label='''$ \\alpha_1 $ : Choose a value between 0 and 3.0.''', min_value=0.0, 
-                          max_value=3.0, value=0.0, step=0.01,key = 'alpha1')
+                          max_value=3.0, value=0.5, step=0.01,key = 'alpha1')
 
     #st.write("$\\alpha_2$")
 
-    alphas[2] = st.slider(label="$\\alpha_2$: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
+    alphas[2] = st.slider(label="$\\alpha_2$: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.5, step=0.01)
 
     #st.write("$\\alpha_6$")
 
-    alphas[6] = st.slider(label="$\\alpha_6$: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
+    alphas[6] = st.slider(label="$\\alpha_6$: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.5, step=0.01)
 
     #st.write("$\\alpha_{11}$")
 
@@ -95,7 +95,7 @@ with col2:
     p.set_ylabel("Humidity", fontsize=14)
     p.set_xlabel("Temperature", fontsize=14)
     ax.set_xlim(-3, 3)
-    ax.set_ylim(-3, 3)
+    ax.set_ylim(-2, 2)
     plt.legend(labels=['Fire', 'No fire'])
     for i, point in X.iterrows():
         ax.text(point['Temp'], point['Humidity'], str(i))
