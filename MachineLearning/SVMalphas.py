@@ -59,19 +59,19 @@ with col1:
 
     st.write("$\alpha_2$")
 
-    alphas[2] = st.slider(label="Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0, step=0.01)
+    alphas[2] = st.slider(label="Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
 
     st.write("$\alpha_6$")
 
-    alphas[6] = st.slider(label="Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0, step=0.01)
+    alphas[6] = st.slider(label="Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
 
     st.write("$\alpha_{11}$")
 
-    alphas[11] = st.slider(label="Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0, step=0.01)
+    alphas[11] = st.slider(label="Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
     
     st.write("$\alpha_{13}$")
 
-    alphas[13] = st.slider(label="Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0, step=0.01)
+    alphas[13] = st.slider(label="Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
 
     constraint = np.matrix(alphas)*np.matrix(y2).T
 
