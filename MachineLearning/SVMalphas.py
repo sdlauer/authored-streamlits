@@ -54,23 +54,23 @@ col1, col2 = st.columns([2,3])
 with col1:
 
     alphas = np.zeros(20)
-    st.write("$\\alpha_1$")
+    #st.write("$\\alpha_1$")
 
-    alphas[1] = st.slider(label="a1: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
+    alphas[1] = st.slider(label="&alpha;1: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
 
-    st.write("$\\alpha_2$")
+    #st.write("$\\alpha_2$")
 
     alphas[2] = st.slider(label="a2: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
 
-    st.write("$\\alpha_6$")
+    #st.write("$\\alpha_6$")
 
     alphas[6] = st.slider(label="a6: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
 
-    st.write("$\\alpha_{11}$")
+    #st.write("$\\alpha_{11}$")
 
     alphas[11] = st.slider(label="a11: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
     
-    st.write("$\\alpha_{13}$")
+    #st.write("$\\alpha_{13}$")
 
     alphas[13] = st.slider(label="a13: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
 
@@ -116,7 +116,7 @@ with col2:
         and are classified as Fire. Instances above the hyperplane have low temperatures, high humidity, and are classified as No fire.''')
 
     if showmargin:
-        st.write("The minimal target hyperplane has $\\alpha_1$ = 1.73, $\\alpha_1$ = 0.96,  $\\alpha_6$ = 2.70, $\\alpha_{11}$ = 0 and $\\alpha_{13}$ = 0.")
+        st.write("The minimal target hyperplane has $\\alpha_1$ = 0.96, $\\alpha_2$ = 1.73,  $\\alpha_6$ = 2.70, $\\alpha_{11}$ = 0 and $\\alpha_{13}$ = 0.")
 
     constraint = (np.matrix(alphas)*np.matrix(y2).T)[0,0]
 
