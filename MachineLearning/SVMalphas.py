@@ -127,7 +127,7 @@ with col2:
 
     if np.abs(constraint)<0.01:
         st.write("$\\sum_{j=1}^p y_j \\alpha_j $=", round(constraint, 3), "=0")
-    else
+    else:
         st.write(":red[$\\sum_{j=1}^p y_j \\alpha_j $=]", round(constraint, 3), ":red[$\\neq$ 0]")
 
     total = (np.matrix(alphas)*(np.matrix(y2).T*np.matrix(y2)*(np.matrix( X)*np.matrix(X).T))*np.matrix(alphas).T/2.0 - np.sum(alphas))[0,0]
