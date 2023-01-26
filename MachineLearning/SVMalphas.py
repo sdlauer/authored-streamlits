@@ -47,6 +47,7 @@ X_scaled = scaler.fit_transform(X)
 
 # Convert scaled inputs back to a dataframe
 X = pd.DataFrame(X_scaled, index=X.index, columns=X.columns)
+X = X.reset_index(drop=True)
 
 col1, col2 = st.columns([2,3])
 
@@ -117,7 +118,7 @@ with col2:
 
     constraint = (np.matrix(alphas)*np.matrix(y2).T)[0,0]
 
-    st.write("$\\sum_{j=1}^p y_j \\alpha_j $", round(constraint, 3), "=0?")
+    st.write("$\\sum_{j=1}^p y_j \\alpha_j $=", round(constraint, 3), "=0?")
 
     total = (np.matrix(alphas)*(np.matrix(y2).T*np.matrix(y2)*(np.matrix( X)*np.matrix(X).T))*np.matrix(alphas).T/2.0 - np.sum(alphas))[0,0]
 
