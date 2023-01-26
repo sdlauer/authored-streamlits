@@ -53,31 +53,31 @@ col1, col2 = st.columns([2,3])
 with col1:
 
     alphas = np.zeros(20)
-    st.write("$\alpha_1$")
+    st.write("$\\alpha_1$")
 
     alphas[1] = st.slider(label="a1: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
 
-    st.write("$\alpha_2$")
+    st.write("$\\alpha_2$")
 
     alphas[2] = st.slider(label="a2: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
 
-    st.write("$\alpha_6$")
+    st.write("$\\alpha_6$")
 
     alphas[6] = st.slider(label="a6: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
 
-    st.write("$\alpha_{11}$")
+    st.write("$\\alpha_{11}$")
 
     alphas[11] = st.slider(label="a11: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
     
-    st.write("$\alpha_{13}$")
+    st.write("$\\alpha_{13}$")
 
     alphas[13] = st.slider(label="a13: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
 
-    constraint = np.matrix(alphas)*np.matrix(y2).T
+    constraint = (np.matrix(alphas)*np.matrix(y2).T)[0,0]
 
     st.write("$\sum_{j=1}^p y_j \alpha_j $", round(constraint, 3), "=0?")
 
-    total = np.matrix(alphas)*(np.matrix(y2).T*np.matrix(y2)*(np.matrix( X)*np.matrix(X).T))*np.matrix(alphas).T/2.0 - np.sum(alphas)
+    total = (np.matrix(alphas)*(np.matrix(y2).T*np.matrix(y2)*(np.matrix( X)*np.matrix(X).T))*np.matrix(alphas).T/2.0 - np.sum(alphas))[0,0]
 
     st.write("Target = ", round(total,2))
 
