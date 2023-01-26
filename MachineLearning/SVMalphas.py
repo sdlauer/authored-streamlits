@@ -79,7 +79,11 @@ with col1:
     b = -np.sum(np.multiply(np.ravel(np.matrix(X[np.abs(alphas)>0.01])*weights.T), alphas[alphas>0]))/np.sum(alphas) / weights[0,1]
     xx = np.linspace(-3, 3)
     yy = a * xx - b
-   
+    
+    showmargin = st.checkbox(label="Show minimal target hyperplane?", value=False)
+
+    if showmargin:
+        st.write("The minimal target hyperplane has $\alpha_1$ = 1.73, $\alpha_1$ = 0.96,  $\alpha_6$ = 2.70, $\alpha_{11}$ = 0 and $\alpha_{13}$ = 0.")
 
 with col2:
 
@@ -119,10 +123,4 @@ with col2:
 
     st.write("Target = ", round(total,2))
 
-   
 
-    showmargin = st.checkbox(label="Show minimal target hyperplane?", value=False)
-
-    if showmargin:
-
-        st.write("The minimal target hyperplane has $\alpha_1$ = 1.73, $\alpha_1$ = 0.96,  $\alpha_6$ = 2.70, $\alpha_{11}$ = 0 and $\alpha_{13}$ = 0.")
