@@ -73,9 +73,42 @@ with col1:
 
     alphas[13] = st.slider(label="a13: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.0, step=0.01)
 
-    constraint = (np.matrix(alphas)*np.matrix(y2).T)[0,0]
+    
+   
 
-    st.write("$\sum_{j=1}^p y_j \alpha_j $", round(constraint, 3), "=0?")
+with col2:
+
+    fig, ax = plt.subplots()
+
+    p = sns.scatterplot(data=X, x='Temp', y='Humidity', hue=np.ravel(y), 
+        style=np.ravel(y), palette='deep')
+    p.set_ylabel("Humidity", fontsize=14)
+    p.set_xlabel("Temperature", fontsize=14)
+    ax.set_xlim(-3, 3)
+    ax.set_ylim(-3, 3)
+    plt.legend(labels=['Fire', 'No fire'])
+    for i, point in X.iterrows():
+        ax.text(point['Temp'], point['Humidity'], str(i))
+    plt.plot(xx, yy, 'red')
+
+    if showmargin:
+        a2 = 0.596492574115393 
+        xx2 = np.linspace(-3, 3)
+        yy2 = a2 * xx2 - 0.59274499
+        plt.plot(xx2, yy2, 'black')
+
+    st.pyplot(fig)
+
+    showtext = st.checkbox(label="Show description?", value=False)
+
+    if showtext:
+
+        st.write('''The scatterplot shows standardized temperature on the horizontal axis and standardized humidity on the vertical axis. Both features range from -3 to +3. A hyperplane separates two classes. Instances below the hyperplane have high temperatures, low humidity, 
+        and are classified as Fire. Instances above the hyperplane have low temperatures, high humidity, and are classified as No fire.''')
+
+        constraint = (np.matrix(alphas)*np.matrix(y2).T)[0,0]
+
+    st.write("$\\sum_{j=1}^p y_j \\alpha_j $", round(constraint, 3), "=0?")
 
     total = (np.matrix(alphas)*(np.matrix(y2).T*np.matrix(y2)*(np.matrix( X)*np.matrix(X).T))*np.matrix(alphas).T/2.0 - np.sum(alphas))[0,0]
 
@@ -93,32 +126,3 @@ with col1:
     if showmargin:
 
         st.write("The minimal target hyperplane has $\alpha_1$ = 1.73, $\alpha_1$ = 0.96,  $\alpha_6$ = 2.70, $\alpha_{11}$ = 0 and $\alpha_{13}$ = 0.")
-
-   
-
-with col2:
-
-    fig, ax = plt.subplots()
-
-    p = sns.scatterplot(data=X, x='Temp', y='Humidity', hue=np.ravel(y), 
-        style=np.ravel(y), palette='deep')
-    p.set_ylabel("Humidity", fontsize=14)
-    p.set_xlabel("Temperature", fontsize=14)
-    ax.set_xlim(-3, 3)
-    ax.set_ylim(-3, 3)
-    plt.legend(labels=['Fire', 'No fire'])
-    plt.plot(xx, yy, 'red')
-
-    if showmargin:
-        a2 = 0.596492574115393 
-        xx2 = np.linspace(-3, 3)
-        yy2 = a2 * xx2 - 0.59274499
-        plt.plot(xx2, yy2, 'black')
-
-    st.pyplot(fig)
-
-    showtext = st.checkbox(label="Show description?", value=False)
-
-    if showtext:
-
-        st.write("The scatterplot shows standardized temperature on the horizontal axis and standardized humidity on the vertical axis. Both features range from -3 to +3. A hyperplane separates two classes. Instances below the hyperplane have high temperatures, low humidity, and are classified as Fire. Instances above the hyperplane have low temperatures, high humidity, and are classified as No fire.")
