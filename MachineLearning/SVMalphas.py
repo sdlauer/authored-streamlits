@@ -121,7 +121,7 @@ with col2:
                     hyperplane have low temperatures, high humidity, and are classified as No fire.''')
 
     if showmargin:
-        st.write('''The minimal target hyperplane has $\\alpha_1$ = 0.96, $\\alpha_2$ = 1.73,  
+        st.write('''The minimal target hyperplane has $\\alpha_1$ = 0.96, $\\alpha_2$ = 1.74,  
                     $\\alpha_6$ = 2.70, $\\alpha_{11}$ = 0 and $\\alpha_{13}$ = 0.''')
 
     constraint = (np.matrix(alphas)*np.matrix(y2).T)[0,0]
