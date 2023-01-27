@@ -56,24 +56,24 @@ with col1:
     alphas = np.zeros(20)
     #st.write("$\\alpha_1$")
 
-    alphas[1] = st.slider(label='''$ \\alpha_1 $ : Choose a value between 0 and 3.0.''', min_value=0.0, 
+    alphas[1] = st.slider(label=''':orange[$ \\alpha_1 $ : Choose a value between 0 and 3.]''', min_value=0.0, 
                           max_value=3.0, value=0.5, step=0.01,key = 'alpha1')
 
     #st.write("$\\alpha_2$")
 
-    alphas[2] = st.slider(label="$\\alpha_2$: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.5, step=0.01)
+    alphas[2] = st.slider(label="$\\alpha_2$: Choose a value between 0 and 3.", min_value=0.0, max_value=3.0, value=0.5, step=0.01)
 
     #st.write("$\\alpha_6$")
 
-    alphas[6] = st.slider(label="$\\alpha_6$: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.33, step=0.01)
+    alphas[6] = st.slider(label=":blue[$\\alpha_6$: Choose a value between 0 and 3.]", min_value=0.0, max_value=3.0, value=0.33, step=0.01)
 
     #st.write("$\\alpha_{11}$")
 
-    alphas[11] = st.slider(label="$\\alpha_{11}$: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.34, step=0.01)
+    alphas[11] = st.slider(label="$\\alpha_{11}$: Choose a value between 0 and 3.", min_value=0.0, max_value=3.0, value=0.34, step=0.01)
     
     #st.write("$\\alpha_{13}$")
 
-    alphas[13] = st.slider(label="$\\alpha_{13}$: Choose a value between 0 and 3.0.", min_value=0.0, max_value=3.0, value=0.33, step=0.01)
+    alphas[13] = st.slider(label="$\\alpha_{13}$: Choose a value between 0 and 3.", min_value=0.0, max_value=3.0, value=0.33, step=0.01)
 
     weights = np.multiply(np.array(alphas),np.array(y2))*np.matrix(X)
 
@@ -114,7 +114,8 @@ with col2:
     if showtext:
 
         st.write('''The scatterplot shows standardized temperature on the horizontal axis and 
-                    standardized humidity on the vertical axis. Both features range from -3 to +3. 
+                    standardized humidity on the vertical axis. Temperature ranges from -3 to +3, 
+                    while humidity ranges from -2 to 2. 
                     A hyperplane separates two classes. Instances below the hyperplane have high 
                     temperatures, low humidity, and are classified as Fire. Instances above the 
                     hyperplane have low temperatures, high humidity, and are classified as No fire.''')
@@ -129,7 +130,7 @@ with col2:
         st.write("$\\sum_{j=1}^p y_j \\alpha_j $=", round(constraint, 3), "=0")
     else:
         st.write(":red[$\\sum_{j=1}^p y_j \\alpha_j $=]", round(constraint, 3), ":red[$\\neq$ 0]")
-        st.write("This constraint must add to zero by balancing the $\\alpha$s of each class.")
+        st.write("This constraint must add to zero by balancing the sum of the $\\alpha$s of each class.")
 
     total = (np.matrix(alphas)*(np.matrix(y2).T*np.matrix(y2)*(np.matrix( X)*np.matrix(X).T))*np.matrix(alphas).T/2.0 - np.sum(alphas))[0,0]
 
