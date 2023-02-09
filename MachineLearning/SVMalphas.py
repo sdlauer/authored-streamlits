@@ -134,6 +134,6 @@ with col2:
 
     total = (np.matrix(alphas)*(np.matrix(y2).T*np.matrix(y2)*(np.matrix( X)*np.matrix(X).T))*np.matrix(alphas).T/2.0 - np.sum(alphas))[0,0]
 
-    st.write("Target = ", round(total,2))
+    st.write("$\\dfrac{1}{2}\\sum_{i=1}^p \\sum_{j=1}^p \\alpha_i y_i \\langle \\mathbf{x}_i, \\mathbf{x}_j \\rangle \\alpha_j y_j  - \\sum_{j=1}^p \\alpha_j$ = ", round(total,2))
 
 
