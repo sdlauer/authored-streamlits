@@ -92,8 +92,8 @@ with col2:
 
     p = sns.scatterplot(data=X, x='Temp', y='Humidity', hue=np.ravel(y), 
         style=np.ravel(y), palette='deep')
-    p.set_ylabel("Humidity", fontsize=14)
-    p.set_xlabel("Temperature", fontsize=14)
+    p.set_ylabel("Scaled humidity", fontsize=14)
+    p.set_xlabel("Scaled temperature", fontsize=14)
     ax.set_xlim(-3, 3)
     ax.set_ylim(-2, 2)
     plt.legend(labels=['Fire', 'No fire'])
