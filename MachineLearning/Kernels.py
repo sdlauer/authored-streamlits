@@ -17,6 +17,8 @@ hide = """
 
 st.markdown(hide, unsafe_allow_html=True)
 
+if 'old_num_pts' not in st.session_state:
+    st.session_state['old_num_pts'] = -1
 
 def my_kernel(x, y, pt, kernel='poly', degree = 3, gamma = 1):
     if kernel == 'poly':
@@ -48,9 +50,9 @@ with col1:
     else:
         gamma = st.slider('gamma:', min_value=0.1, max_value=10.0)
 
-if old_num_pts != num_pts:
+if st.session_state['old_num_pts'] != num_pts:
     pts = np.array(4*np.random.rand(num_pts,2)-2)
-    old_num_pts = num_pts
+    st.session_state['old_num_pts'] = num_pts
 
 XX = np.linspace(-3,3,50)
 YY = np.linspace(-3,3,50)
