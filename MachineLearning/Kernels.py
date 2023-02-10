@@ -54,16 +54,17 @@ if st.session_state['old_num_pts'] != num_pts:
     st.session_state.pts = np.array(4*np.random.rand(num_pts,2)-2)
     st.session_state['old_num_pts'] = num_pts
 
+pts = st.session_state.pts
+
 XX = np.linspace(-3,3,50)
 YY = np.linspace(-3,3,50)
-
 ZZ = np.zeros([ len(YY), len(XX)])
 i=0
 for xx in XX:
     j=0
     for yy in YY:
         zz = 0
-        for pt in st.session_state.pts:
+        for pt in pts:
             zz = zz + my_kernel(xx, yy, pt, kernel = kernel, gamma = gamma)
         ZZ[j,i]=zz
         j = j+1
