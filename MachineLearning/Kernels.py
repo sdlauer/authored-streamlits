@@ -65,7 +65,7 @@ for xx in XX:
     for yy in YY:
         zz = 0
         for pt in pts:
-            zz = zz + my_kernel(xx, yy, pt, kernel = kernel, gamma = gamma)
+            zz = zz + my_kernel(xx, yy, pt, kernel = kernel, gamma = gamma, degree=degree)
         ZZ[j,i]=zz
         j = j+1
     i=i+1
