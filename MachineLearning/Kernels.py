@@ -27,6 +27,8 @@ def my_kernel(x, y, pt, kernel='poly', degree = 3, gamma = 1):
     elif kernel == 'sigmoid':
         return np.tanh(gamma *np.dot(np.array([xx,yy]),pt)+1)
 
+old_num_pts = -1
+
 col1, col2 = st.columns([2,3])
 
 with col1:
@@ -48,7 +50,9 @@ with col1:
     else:
         gamma = st.slider('gamma:', min_value=0.1, max_value=10.0)
 
-pts = np.array(4*np.random.rand(num_pts,2)-2)
+if old_num_pts != num_pts:
+    pts = np.array(4*np.random.rand(num_pts,2)-2)
+    old_num_pts = num_pts
 
 XX = np.linspace(-3,3,50)
 YY = np.linspace(-3,3,50)
