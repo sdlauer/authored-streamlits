@@ -27,8 +27,6 @@ def my_kernel(x, y, pt, kernel='poly', degree = 3, gamma = 1):
     elif kernel == 'sigmoid':
         return np.tanh(gamma *np.dot(np.array([xx,yy]),pt)+1)
 
-old_num_pts = -1
-
 col1, col2 = st.columns([2,3])
 
 with col1:
