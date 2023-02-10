@@ -49,8 +49,10 @@ with col1:
         degree = st.slider('Degree:', min_value = 1, max_value = 7)
     else:
         gamma = st.slider('gamma:', min_value=0.1, max_value=10.0)
+    
+    new_pts = st.button('New points')
 
-if st.session_state['old_num_pts'] != num_pts:
+if (st.session_state['old_num_pts'] != num_pts or new_pts):
     st.session_state.pts = np.array(4*np.random.rand(num_pts,2)-2)
     st.session_state['old_num_pts'] = num_pts
 
