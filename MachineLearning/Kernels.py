@@ -51,7 +51,7 @@ with col1:
         gamma = st.slider('gamma:', min_value=0.1, max_value=10.0)
 
 if st.session_state['old_num_pts'] != num_pts:
-    pts = np.array(4*np.random.rand(num_pts,2)-2)
+    st.session_state.pts = np.array(4*np.random.rand(num_pts,2)-2)
     st.session_state['old_num_pts'] = num_pts
 
 XX = np.linspace(-3,3,50)
@@ -63,7 +63,7 @@ for xx in XX:
     j=0
     for yy in YY:
         zz = 0
-        for pt in pts:
+        for pt in st.session_state.pts:
             zz = zz + my_kernel(xx, yy, pt, kernel = kernel, gamma = gamma)
         ZZ[j,i]=zz
         j = j+1
