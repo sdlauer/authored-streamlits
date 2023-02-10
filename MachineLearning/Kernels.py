@@ -45,7 +45,7 @@ with col1:
     gamma = 1
     if kernel == 'poly':
         degree = st.slider('Degree:', min_value = 1, max_value = 7)
-    else
+    else:
         gamma = st.slider('gamma:', min_value=0.1, max_value=10.0)
 
 pts = np.array(4*np.random.rand(num_pts,2)-2)
