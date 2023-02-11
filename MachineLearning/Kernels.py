@@ -75,7 +75,7 @@ for xx in XX:
 with col2:
 
     fig, ax = plt.subplots()
-    CS = ax.contour(XX, YY, ZZ)
+    CS = ax.contour(XX, YY, ZZ, norm = 'log')
     ax.clabel(CS, inline=True, fontsize=10)
     if kernel == 'poly':
         ax.set_title('Polynomial with degree = '+ str(degree))
