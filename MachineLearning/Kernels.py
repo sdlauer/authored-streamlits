@@ -79,7 +79,7 @@ with col2:
     if spread > 10**4:
         log_levels = np.append(np.append(np.sort(-(10**np.arange(0,np.log10(-np.min(ZZ)), step = 1))),0), 
                                10**np.arange(0, np.log10(np.max(ZZ))))
-        CS = ax.contour(XX, YY, ZZ, levels = log_levels)
+        CS = ax.contour(XX, YY, ZZ, levels = log_levels, norm='synlog')
     else:
         CS = ax.contour(XX, YY, ZZ)
     ax.clabel(CS, inline=True, fontsize=10)
