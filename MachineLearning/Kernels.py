@@ -75,15 +75,14 @@ for xx in XX:
 with col2:
 
     fig, ax = plt.subplots()
-    CS = ax.contour(XX, YY, ZZ)
     spread = np.max(ZZ)-np.min(ZZ)
     if spread > 10**4:
         log_levels = np.append(np.append(np.sort(-(10**np.arange(0,np.log10(-np.min(ZZ)), step = 1))),0), 
                                10**np.arange(0, np.log10(np.max(ZZ))))
-        ax.clabel(CS, inline=True, fontsize=10, 
-                  levels = log_levels)
+        CS = ax.contour(XX, YY, ZZ, levels = log_levels)
     else:
-        ax.clabel(CS, inline=True, fontsize=10)
+        CS = ax.contour(XX, YY, ZZ)
+    ax.clabel(CS, inline=True, fontsize=10)
     if kernel == 'poly':
         ax.set_title('Polynomial with degree = '+ str(degree))
     elif kernel == 'rbf':
