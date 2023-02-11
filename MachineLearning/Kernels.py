@@ -3,6 +3,7 @@ import pandas as pd
 import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.colors import SymLogNorm
 
 hide = """
         <style>
@@ -82,7 +83,7 @@ with col2:
         else:
             log_levels = np.zeros(1)
         log_levels = np.append(log_levels, 10**np.arange(0, np.log10(np.max(ZZ))))
-        CS = ax.contour(XX, YY, ZZ, levels=log_levels)
+        CS = ax.contour(XX, YY, ZZ, levels=log_levels, norm=SymLogNorm())
     else:
         CS = ax.contour(XX, YY, ZZ)
     ax.clabel(CS, inline=True, fontsize=10)
