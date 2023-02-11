@@ -74,7 +74,7 @@ for xx in XX:
     i=i+1
 
 with col2:
-
+    plt.rcParams['contour.negative_linestyle'] = 'dashed'
     fig, ax = plt.subplots()
     spread = np.max(ZZ)-np.min(ZZ)
     if spread > 10**4:
