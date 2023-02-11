@@ -3,7 +3,7 @@ import pandas as pd
 import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.colors import SymLogNorm
+#from matplotlib.colors import SymLogNorm
 
 hide = """
         <style>
@@ -79,7 +79,7 @@ with col2:
     spread = np.max(ZZ)-np.min(ZZ)
     if spread > 10**4:
         if np.min(ZZ) < 0:
-            log_levels = np.append(np.sort(-(10**np.arange(0,np.log10(-np.min(ZZ)), step = 1))),0)
+            log_levels = np.append(np.sort(-(10**np.arange(0,np.log10(-np.min(ZZ)), step = 1))), 0)
         else:
             log_levels = np.zeros(1)
         log_levels = np.append(log_levels, 10**np.arange(0, np.log10(np.max(ZZ))))
@@ -98,3 +98,5 @@ with col2:
     plt.scatter(x= [0],y =[0], c = 'black')
 
     st.pyplot(fig)
+
+    st.text(log_levels)
