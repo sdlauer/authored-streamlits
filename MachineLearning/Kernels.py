@@ -77,9 +77,12 @@ with col2:
     fig, ax = plt.subplots()
     spread = np.max(ZZ)-np.min(ZZ)
     if spread > 10**4:
-        log_levels = np.append(np.append(np.sort(-(10**np.arange(0,np.log10(-np.min(ZZ)), step = 1))),0), 
-                               10**np.arange(0, np.log10(np.max(ZZ))))
-        CS = ax.contour(XX, YY, ZZ, levels = log_levels, norm='synlog')
+        if np.min(ZZ) < 0:
+            log_levels = np.append(np.sort(-(10**np.arange(0,np.log10(-np.min(ZZ)), step = 1))),0)
+        else:
+            log_levels = np.zeros(1)
+        log_levels = np.append(log_levels, 10**np.arange(0, np.log10(np.max(ZZ))))
+        CS = ax.contour(XX, YY, ZZ, levels=log_levels, norm='symlog')
     else:
         CS = ax.contour(XX, YY, ZZ)
     ax.clabel(CS, inline=True, fontsize=10)
