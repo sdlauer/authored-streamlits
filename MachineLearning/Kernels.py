@@ -78,7 +78,10 @@ with col2:
     CS = ax.contour(XX, YY, ZZ)
     spread = np.max(ZZ)-np.min(ZZ)
     if spread > 10**4:
-        ax.clabel(CS, inline=True, fontsize=10, levels = np.min(ZZ)+10**np.arange(0,np.log10(np.max(ZZ)-np.min(ZZ)), step=1))
+        log_levels = np.append(np.append(np.sort(-(10**np.arange(0,np.log10(-np.min(ZZ)), step = 1))),0), 
+                               10**np.arange(0, np.log10(np.max(ZZ))))
+        ax.clabel(CS, inline=True, fontsize=10, 
+                  levels = log_levels)
     else:
         ax.clabel(CS, inline=True, fontsize=10)
     if kernel == 'poly':
