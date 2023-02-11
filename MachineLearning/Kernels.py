@@ -43,7 +43,7 @@ with col1:
     elif kernel == 'Sigmoid':
         kernel = 'sigmoid'
 
-    num_pts = st.slider('Number of points:', min_value = 1, max_value = 7)
+    num_pts = st.slider('Number of instances:', min_value = 1, max_value = 7)
     degree = 1
     gamma = 1
     if kernel == 'poly':
@@ -74,7 +74,6 @@ for xx in XX:
     i=i+1
 
 with col2:
-    plt.rcParams['contour.negative_linestyle'] = 'dashed'
     fig, ax = plt.subplots()
     spread = np.max(ZZ)-np.min(ZZ)
     if spread > 10**4:
@@ -83,9 +82,9 @@ with col2:
         else:
             log_levels = []
         log_levels = np.append(log_levels, 10**np.arange(1, np.log10(np.max(ZZ))))
-        CS = ax.contour(XX, YY, ZZ, levels=log_levels, negative_linestyles='dashed')
+        CS = ax.contour(XX, YY, ZZ, levels=log_levels)
     else:
-        CS = ax.contour(XX, YY, ZZ, negative_linestyles='dashed')
+        CS = ax.contour(XX, YY, ZZ)
     ax.clabel(CS, inline=True, fontsize=10)
     if kernel == 'poly':
         ax.set_title('Polynomial with degree = '+ str(degree))
