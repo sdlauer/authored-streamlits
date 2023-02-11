@@ -42,7 +42,7 @@ with col1:
     elif kernel == 'Sigmoid':
         kernel = 'sigmoid'
 
-    num_pts = st.slider('Number of points:', min_value = 1, max_value = 7)
+    num_pts = st.slider('Number of points:', min_value = 1, max_value = 5)
     degree = 1
     gamma = 1
     if kernel == 'poly':
