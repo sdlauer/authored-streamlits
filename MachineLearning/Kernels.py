@@ -94,7 +94,7 @@ with col2:
         ax.set_title('Sigmoid with gamma = '+ str(gamma))
     ax.set_aspect('equal', 'box')
     sns.scatterplot(x= pts[:,0],y =pts[:,1])
-    plt.scatter(x= [0],y =[0], c = 'black')
+    plt.scatter(x= [0],y =[0], c = 'black', marker='+')
 
     st.pyplot(fig)
 
