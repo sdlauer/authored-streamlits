@@ -83,9 +83,9 @@ with col2:
         else:
             log_levels = []
         log_levels = np.append(log_levels, 10**np.arange(1, np.log10(np.max(ZZ))))
-        CS = ax.contour(XX, YY, ZZ, levels=log_levels, c='gray')
+        CS = ax.contour(XX, YY, ZZ, levels=log_levels, colors='gray')
     else:
-        CS = ax.contour(XX, YY, ZZ, c='gray')
+        CS = ax.contour(XX, YY, ZZ, colors='gray')
     ax.clabel(CS, inline=True, fontsize=10)
     if kernel == 'poly':
         ax.set_title('Polynomial with degree = '+ str(degree))
