@@ -124,8 +124,7 @@ with col2:
         ZZ = np.round(ZZ, 2)
         ZZ = pd.DataFrame(ZZ, index = np.round(XX,2))
         ZZ.columns = np.round(YY,2)
-        pdpts = pd.DataFrame(pts)
-        pdpts.columns=['x','y']
+        pdpts = pd.DataFrame(pts.transpose(), index = ['x','y'])
         st.caption("Instances")
         st.write(pdpts)
         st.write('''<div style="text-align: center;">x</div>''', unsafe_allow_html=True)
