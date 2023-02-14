@@ -117,6 +117,7 @@ with col2:
                 ZZ[j,i]=zz
                 j = j+1
             i=i+1
+        ZZ = np.round(ZZ, 2)
         ZZ = pd.DataFrame(ZZ, index = XX)
         ZZ.columns = YY
         st.write(ZZ)
