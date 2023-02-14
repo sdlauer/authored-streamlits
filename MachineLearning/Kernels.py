@@ -57,6 +57,9 @@ with col1:
     tabularView = st.checkbox('Tabular view')
     if tabularView:
         numDivisions = st.slider('Number of values in each direction', min_value=7, max_value = 25, step = 6)
+        pdpts = pd.DataFrame(pts, columns=['x','y'])
+        st.caption("Instances")
+        st.write(pts)
 
 if (st.session_state['old_num_pts'] != num_pts or new_pts):
     st.session_state.pts = np.array(4*np.random.rand(num_pts,2)-2)
@@ -106,7 +109,7 @@ with col2:
         st.pyplot(fig)
     
     else:
-        st.write(pts)
+        
         XX = np.linspace(-3,3,numDivisions)
         YY = np.linspace(-3,3,numDivisions)
         ZZ = np.zeros([ len(YY), len(XX)])
