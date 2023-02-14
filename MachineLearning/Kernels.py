@@ -62,11 +62,7 @@ with col1:
     tabularView = st.checkbox('Tabular view')
     if tabularView:
         numDivisions = st.slider('Number of values in each direction', min_value=7, max_value = 25, step = 6)
-        pdpts = pd.DataFrame(pts)
-        pdpts.columns=['x','y']
-        st.caption("Instances")
-        st.write(pdpts)
-
+        
 
 
 
@@ -128,6 +124,10 @@ with col2:
         ZZ = np.round(ZZ, 2)
         ZZ = pd.DataFrame(ZZ, index = np.round(XX,2))
         ZZ.columns = np.round(YY,2)
+        pdpts = pd.DataFrame(pts)
+        pdpts.columns=['x','y']
+        st.caption("Instances")
+        st.write(pdpts)
         st.write('''<div style="text-align: center;">x</div>''', unsafe_allow_html=True)
         st.write(ZZ)
     #st.text(log_levels)
