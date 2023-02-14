@@ -122,8 +122,11 @@ with col2:
                 j = j+1
             i=i+1
         ZZ = np.round(ZZ, 2)
-        ZZ = pd.DataFrame(ZZ, index = np.round(XX,2))
-        ZZ.columns = np.round(YY,2)
+        ZZ = pd.DataFrame(ZZ, 
+                            index = ( 'y=%d' % i for i in  np.round(YY,2)), 
+                            columns= ( 'x=%d' % i for i in np.round(XX,2))
+        )
+        #ZZ.columns = np.round(XX,2)
         pdpts = pd.DataFrame(pts.transpose(), index = ['x','y'])
         st.caption("Instances")
         st.write(pdpts)
