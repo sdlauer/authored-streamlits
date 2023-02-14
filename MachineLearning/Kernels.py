@@ -54,49 +54,70 @@ with col1:
     
     new_pts = st.button('New points')
 
+    tabularView = st.checkbox('Tabular view')
+
 if (st.session_state['old_num_pts'] != num_pts or new_pts):
     st.session_state.pts = np.array(4*np.random.rand(num_pts,2)-2)
     st.session_state['old_num_pts'] = num_pts
 
 pts = st.session_state.pts
 
-XX = np.linspace(-3,3,50)
-YY = np.linspace(-3,3,50)
-ZZ = np.zeros([ len(YY), len(XX)])
-i=0
-for xx in XX:
-    j=0
-    for yy in YY:
-        zz = 0
-        for pt in pts:
-            zz = zz + my_kernel(xx, yy, pt, kernel = kernel, gamma = gamma, degree=degree)
-        ZZ[j,i]=zz
-        j = j+1
-    i=i+1
+
 
 with col2:
-    fig, ax = plt.subplots()
-    spread = np.max(ZZ)-np.min(ZZ)
-    if spread > 10**4:
-        if np.min(ZZ) < 0:
-            log_levels = np.append(np.sort(-(10**np.arange(1,np.log10(-np.min(ZZ)), step = 1))), 0 )
+    if not tabularView:
+        XX = np.linspace(-3,3,50)
+        YY = np.linspace(-3,3,50)
+        ZZ = np.zeros([ len(YY), len(XX)])
+        i=0
+        for xx in XX:
+            j=0
+            for yy in YY:
+                zz = 0
+                for pt in pts:
+                    zz = zz + my_kernel(xx, yy, pt, kernel = kernel, gamma = gamma, degree=degree)
+                ZZ[j,i]=zz
+                j = j+1
+            i=i+1
+        fig, ax = plt.subplots()
+        spread = np.max(ZZ)-np.min(ZZ)
+        if spread > 10**3:
+            if np.min(ZZ) < 0:
+                log_levels = np.append(np.sort(-(10**np.arange(1,np.log10(-np.min(ZZ)), step = 1))), 0 )
+            else:
+                log_levels = []
+            log_levels = np.append(log_levels, 10**np.arange(1, np.log10(np.max(ZZ))))
+            CS = ax.contour(XX, YY, ZZ, levels=log_levels, colors='gray')
         else:
-            log_levels = []
-        log_levels = np.append(log_levels, 10**np.arange(1, np.log10(np.max(ZZ))))
-        CS = ax.contour(XX, YY, ZZ, levels=log_levels, colors='gray')
+            CS = ax.contour(XX, YY, ZZ, colors='gray')
+        ax.clabel(CS, inline=True, fontsize=10)
+        if kernel == 'poly':
+            ax.set_title('Polynomial with degree = '+ str(degree))
+        elif kernel == 'rbf':
+            ax.set_title('RBF with gamma = '+ str(gamma))
+        elif kernel == 'sigmoid':
+            ax.set_title('Sigmoid with gamma = '+ str(gamma))
+        ax.set_aspect('equal', 'box')
+        sns.scatterplot(x= pts[:,0],y =pts[:,1])
+        plt.scatter(x= [0],y =[0], c = 'black', marker='+')
+
+        st.pyplot(fig)
+    
     else:
-        CS = ax.contour(XX, YY, ZZ, colors='gray')
-    ax.clabel(CS, inline=True, fontsize=10)
-    if kernel == 'poly':
-        ax.set_title('Polynomial with degree = '+ str(degree))
-    elif kernel == 'rbf':
-        ax.set_title('RBF with gamma = '+ str(gamma))
-    elif kernel == 'sigmoid':
-        ax.set_title('Sigmoid with gamma = '+ str(gamma))
-    ax.set_aspect('equal', 'box')
-    sns.scatterplot(x= pts[:,0],y =pts[:,1])
-    plt.scatter(x= [0],y =[0], c = 'black', marker='+')
-
-    st.pyplot(fig)
-
+        XX = np.linspace(-3,3,13)
+        YY = np.linspace(-3,3,13)
+        ZZ = np.zeros([ len(YY), len(XX)])
+        i=0
+        for xx in XX:
+            j=0
+            for yy in YY:
+                zz = 0
+                for pt in pts:
+                    zz = zz + my_kernel(xx, yy, pt, kernel = kernel, gamma = gamma, degree=degree)
+                ZZ[j,i]=zz
+                j = j+1
+            i=i+1
+        ZZ = pd.DataFrame(ZZ, index = XX)
+        ZZ.columns = YY
+        st.write(ZZ)
     #st.text(log_levels)
