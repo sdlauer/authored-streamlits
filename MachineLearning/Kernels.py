@@ -128,6 +128,6 @@ with col2:
         ZZ = np.round(ZZ, 2)
         ZZ = pd.DataFrame(ZZ, index = np.round(XX,2))
         ZZ.columns = np.round(YY,2)
-        st.write('''$x \\rightarrow$''')
+        st.caption('''<div style="text-align: center;">$x \\rightarrow$</div>''', unsafe_allow_html=True)
         st.write(ZZ)
     #st.text(log_levels)
