@@ -131,6 +131,6 @@ with col2:
         st.caption("Instances")
         st.write(pdpts)
         st.caption('''Kernel values for each (x,y) coordinate''')
-        st.write('''<div style="text-align: center;">x</div>''', unsafe_allow_html=True)
+        #st.write('''<div style="text-align: center;">x</div>''', unsafe_allow_html=True)
         st.write(ZZ)
     #st.text(log_levels)
