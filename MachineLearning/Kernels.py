@@ -127,6 +127,7 @@ with col2:
         pdpts = pd.DataFrame(pts.transpose(), index = ['x','y'])
         st.caption("Instances")
         st.write(pdpts)
+        st.caption('''Kernel values of each (x,y) coordinate)
         st.write('''<div style="text-align: center;">x</div>''', unsafe_allow_html=True)
         st.write(ZZ)
     #st.text(log_levels)
