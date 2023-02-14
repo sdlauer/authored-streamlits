@@ -126,8 +126,8 @@ with col2:
                 j = j+1
             i=i+1
         ZZ = np.round(ZZ, 2)
-        ZZ = pd.DataFrame(ZZ, index = XX)
-        ZZ.columns = YY
+        ZZ = pd.DataFrame(ZZ, index = np.round(XX,2))
+        ZZ.columns = np.round(YY,2)
         st.write('''$x \\rightarrow$''')
         st.write(ZZ)
     #st.text(log_levels)
