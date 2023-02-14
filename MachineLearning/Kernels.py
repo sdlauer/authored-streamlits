@@ -53,6 +53,11 @@ with col1:
         gamma = st.slider('gamma:', min_value=0.1, max_value=2.0, step = 0.1)
     
     new_pts = st.button('New points')
+    if (st.session_state['old_num_pts'] != num_pts or new_pts):
+        st.session_state.pts = np.array(4*np.random.rand(num_pts,2)-2)
+        st.session_state['old_num_pts'] = num_pts
+
+    pts = st.session_state.pts
 
     tabularView = st.checkbox('Tabular view')
     if tabularView:
@@ -62,11 +67,7 @@ with col1:
         st.caption("Instances")
         st.write(pts)
 
-if (st.session_state['old_num_pts'] != num_pts or new_pts):
-    st.session_state.pts = np.array(4*np.random.rand(num_pts,2)-2)
-    st.session_state['old_num_pts'] = num_pts
 
-pts = st.session_state.pts
 
 
 
