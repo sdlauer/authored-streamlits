@@ -57,7 +57,8 @@ with col1:
     tabularView = st.checkbox('Tabular view')
     if tabularView:
         numDivisions = st.slider('Number of values in each direction', min_value=7, max_value = 25, step = 6)
-        pdpts = pd.DataFrame(pts, columns=['x','y'])
+        pdpts = pd.DataFrame(pts)
+        pdpts.columns=['x','y']
         st.caption("Instances")
         st.write(pts)
 
