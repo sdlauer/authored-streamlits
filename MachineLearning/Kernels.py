@@ -65,7 +65,7 @@ with col1:
         pdpts = pd.DataFrame(pts)
         pdpts.columns=['x','y']
         st.caption("Instances")
-        st.write(pts)
+        st.write(pdpts)
 
 
 
