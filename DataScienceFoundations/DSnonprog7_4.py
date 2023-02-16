@@ -5,7 +5,6 @@ import numpy as np
 import plotly.graph_objects as go
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
-from sklearn.preprocessing import PolynomialFeatures
 # st.set_page_config(layout="wide")
 # hides Streamlit footer and hamburger header 
 hide = '''
@@ -139,8 +138,9 @@ def checkSign(val, txt): # txt = 'text' is for alt-txt
                 num = "{:.3e}".format(abs(val))
                 num = str(num.replace('-0','-').replace('e0','e'))
                 if txt == 'text':
-                        num = num[:5] + ' times 10 to the power of ' + num[6:] 
-                num = num[:5] + '\\times 10^{' + num[6:] + '}'
+                        num = num[:5] + ' times 10 to the power of ' + num[6:] +' ' 
+                else:
+                        num = num[:5] + '\\times 10^{' + num[6:] + '}'
         else:
                 num = round(val,3)      
         return sgn + str(num)
@@ -173,8 +173,8 @@ def getFormula(x1name, x2name, yname, deg, choice):
         # Write the polynom regression as an equation
                 if choice == 'text':
                         formula_text = 'widehat ' +  yname  + ' = '+ str(a_int) + checkSign(a0, choice) + '(' + x1name + ') ' +  checkSign(a1, choice) + '(' + x2name + ')'
-                        formula_text += checkSign(a2, choice) + '(' + x1name + ')^2' + checkSign(a3,choice) +'(' + x1name + ')(' + x2name + ')'
-                        formula_text += checkSign(a4, choice) + '(' + x2name + ')^2'
+                        formula_text += checkSign(a2, choice) + '(' + x1name + ') squared' + checkSign(a3,choice) +'(' + x1name + ')(' + x2name + ')'
+                        formula_text += checkSign(a4, choice) + '(' + x2name + ') squared'
                 else:
                         formula_text = '\\begin{align*}'
                         formula_text += '\\,\\widehat{\\text{' + yname + '}} = & ' + str(a_int)
