@@ -20,12 +20,12 @@ driver = webdriver.Chrome()
 for site in sites["site"]:
     #print(site)
     driver.get(site)
-    time.sleep(7)
+    time.sleep(15)
     try:
         button = driver.find_element_by_css_selector('.styles_restartButton__3YxAJ')
         print(site + ' is asleep trying to wake.')
         button.click()
-        time.sleep(10)
+        time.sleep(15)
     except NoSuchElementException:
         print(site + ' is working!')
         continue
