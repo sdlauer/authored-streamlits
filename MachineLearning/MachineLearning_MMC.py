@@ -23,7 +23,7 @@ st.markdown(hide, unsafe_allow_html=True)
 
 #st.header("Finding the maximal margin hyperplane")
 
-url = "MachineLearning/forest_fires.csv"
+url = "https://raw.githubusercontent.com/aimeeschwab-mccoy/streamlit_asm/main/forest_fires.csv"
 
 fires = pd.read_csv(url).sample(20, random_state=1)
 fires.columns = list(fires.columns)
