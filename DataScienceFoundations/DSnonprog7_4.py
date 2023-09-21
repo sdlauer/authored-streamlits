@@ -27,7 +27,7 @@ hide = '''
 st.markdown(hide, unsafe_allow_html=True)
 
 # Store the data set so it doesn't have to reload -- needs a function to work
-@st.cache
+@st.cache_data
 ##################################################################################################
 # Get the dataset -- this section is specific to the dataset loaded.  
 # All other code is dependent on this dataframe definition
